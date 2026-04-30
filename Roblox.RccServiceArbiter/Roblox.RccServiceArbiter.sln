@@ -1,0 +1,92 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.RccServiceArbiter", "Roblox.RccServiceArbiter.csproj", "{2B5528CA-849E-4826-96F7-10725C39715A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Common", "..\Client.LegacyAssemblies\Roblox.Common\Roblox.Common.csproj", "{31C4415B-A946-47BD-83FE-AE13FBFB1324}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Grid.Client", "..\Client.LegacyAssemblies\Grid\Roblox.Grid.Client\Roblox.Grid.Client.csproj", "{C4995CBC-3218-4651-8757-5F315822F09F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Configuration", "..\Client.LegacyAssemblies\Roblox.Configuration\Roblox.Configuration.csproj", "{D996AD59-D9C6-4DBB-9E96-D7C90896E8D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Grid.Common", "..\Client.LegacyAssemblies\Grid\Roblox.Grid.Common\Roblox.Grid.Common.csproj", "{DC7F620E-40D7-41F9-A569-2401AB1B9EAF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roblox.Grid.Arbiter.Common", "..\Client.LegacyAssemblies\Grid\Arbiter\Roblox.Grid.Arbiter.Common\Roblox.Grid.Arbiter.Common.csproj", "{A8540F3F-9CEB-437E-AE59-EBCFE4014051}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 5
+		SccProjectUniqueName0 = ..\\Client.LegacyAssemblies\\Roblox.Common\\Roblox.Common.csproj
+		SccProjectName0 = Perforce\u0020Project
+		SccLocalPath0 = ..\\..
+		SccProvider0 = MSSCCI:Perforce\u0020SCM
+		SccProjectFilePathRelativizedFromConnection0 = roblox-master\\Client.LegacyAssemblies\\Roblox.Common\\
+		SccProjectUniqueName1 = ..\\Client.LegacyAssemblies\\Grid\\Roblox.Grid.Client\\Roblox.Grid.Client.csproj
+		SccProjectName1 = Perforce\u0020Project
+		SccLocalPath1 = ..\\..
+		SccProvider1 = MSSCCI:Perforce\u0020SCM
+		SccProjectFilePathRelativizedFromConnection1 = roblox-master\\Client.LegacyAssemblies\\Grid\\Roblox.Grid.Client\\
+		SccProjectUniqueName2 = ..\\Client.LegacyAssemblies\\Roblox.Configuration\\Roblox.Configuration.csproj
+		SccProjectName2 = Perforce\u0020Project
+		SccLocalPath2 = ..\\..
+		SccProvider2 = MSSCCI:Perforce\u0020SCM
+		SccProjectFilePathRelativizedFromConnection2 = roblox-master\\Client.LegacyAssemblies\\Roblox.Configuration\\
+		SccProjectUniqueName3 = ..\\Client.LegacyAssemblies\\Grid\\Roblox.Grid.Common\\Roblox.Grid.Common.csproj
+		SccProjectName3 = Perforce\u0020Project
+		SccLocalPath3 = ..\\..
+		SccProvider3 = MSSCCI:Perforce\u0020SCM
+		SccProjectFilePathRelativizedFromConnection3 = roblox-master\\Client.LegacyAssemblies\\Grid\\Roblox.Grid.Common\\
+		SccProjectUniqueName4 = ..\\Client.LegacyAssemblies\\Grid\\Arbiter\\Roblox.Grid.Arbiter.Common\\Roblox.Grid.Arbiter.Common.csproj
+		SccProjectName4 = Perforce\u0020Project
+		SccLocalPath4 = ..\\..
+		SccProvider4 = MSSCCI:Perforce\u0020SCM
+		SccProjectFilePathRelativizedFromConnection4 = roblox-master\\Client.LegacyAssemblies\\Grid\\Arbiter\\Roblox.Grid.Arbiter.Common\\
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2B5528CA-849E-4826-96F7-10725C39715A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B5528CA-849E-4826-96F7-10725C39715A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B5528CA-849E-4826-96F7-10725C39715A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2B5528CA-849E-4826-96F7-10725C39715A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B5528CA-849E-4826-96F7-10725C39715A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B5528CA-849E-4826-96F7-10725C39715A}.Release|x86.ActiveCfg = Release|Any CPU
+		{31C4415B-A946-47BD-83FE-AE13FBFB1324}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31C4415B-A946-47BD-83FE-AE13FBFB1324}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31C4415B-A946-47BD-83FE-AE13FBFB1324}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{31C4415B-A946-47BD-83FE-AE13FBFB1324}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31C4415B-A946-47BD-83FE-AE13FBFB1324}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31C4415B-A946-47BD-83FE-AE13FBFB1324}.Release|x86.ActiveCfg = Release|Any CPU
+		{C4995CBC-3218-4651-8757-5F315822F09F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4995CBC-3218-4651-8757-5F315822F09F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4995CBC-3218-4651-8757-5F315822F09F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C4995CBC-3218-4651-8757-5F315822F09F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4995CBC-3218-4651-8757-5F315822F09F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4995CBC-3218-4651-8757-5F315822F09F}.Release|x86.ActiveCfg = Release|Any CPU
+		{D996AD59-D9C6-4DBB-9E96-D7C90896E8D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D996AD59-D9C6-4DBB-9E96-D7C90896E8D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D996AD59-D9C6-4DBB-9E96-D7C90896E8D0}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D996AD59-D9C6-4DBB-9E96-D7C90896E8D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D996AD59-D9C6-4DBB-9E96-D7C90896E8D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D996AD59-D9C6-4DBB-9E96-D7C90896E8D0}.Release|x86.ActiveCfg = Release|Any CPU
+		{DC7F620E-40D7-41F9-A569-2401AB1B9EAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC7F620E-40D7-41F9-A569-2401AB1B9EAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC7F620E-40D7-41F9-A569-2401AB1B9EAF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{DC7F620E-40D7-41F9-A569-2401AB1B9EAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC7F620E-40D7-41F9-A569-2401AB1B9EAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC7F620E-40D7-41F9-A569-2401AB1B9EAF}.Release|x86.ActiveCfg = Release|Any CPU
+		{A8540F3F-9CEB-437E-AE59-EBCFE4014051}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8540F3F-9CEB-437E-AE59-EBCFE4014051}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8540F3F-9CEB-437E-AE59-EBCFE4014051}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A8540F3F-9CEB-437E-AE59-EBCFE4014051}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8540F3F-9CEB-437E-AE59-EBCFE4014051}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8540F3F-9CEB-437E-AE59-EBCFE4014051}.Release|x86.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

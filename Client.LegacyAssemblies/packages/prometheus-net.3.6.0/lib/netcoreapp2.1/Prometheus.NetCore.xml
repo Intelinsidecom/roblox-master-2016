@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Prometheus.NetCore</name>
+    </assembly>
+    <members>
+        <member name="T:Prometheus.DiagnosticSourceAdapter">
+            <summary>
+            Monitors all DiagnosticSource events and exposes them as Prometheus counters.
+            The event data is discarded, only the number of occurrences is measured.
+            </summary>
+            <remarks>
+            This is a very coarse data set due to lacking any intelligence on the payload.
+            Users are recommended to make custom adapters with more detail for specific use cases.
+            </remarks>
+        </member>
+        <member name="M:Prometheus.DiagnosticSourceAdapter.StartListening">
+            <summary>
+            Starts listening for DiagnosticSource events and reporting them as Prometheus metrics.
+            Dispose of the return value to stop listening.
+            </summary>
+        </member>
+        <member name="M:Prometheus.DiagnosticSourceAdapter.StartListening(Prometheus.DiagnosticSourceAdapterOptions)">
+            <summary>
+            Starts listening for DiagnosticSource events and reporting them as Prometheus metrics.
+            Dispose of the return value to stop listening.
+            </summary>
+        </member>
+        <member name="F:Prometheus.DiagnosticSourceAdapterOptions.ListenerFilterPredicate">
+            <summary>
+            By default we subscribe to all listeners but this allows you to filter by listener.
+            </summary>
+        </member>
+    </members>
+</doc>

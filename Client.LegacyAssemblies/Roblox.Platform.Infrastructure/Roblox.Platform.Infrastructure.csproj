@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6194B904-4784-412F-88CE-7821A8534E9B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Roblox.Platform.Infrastructure</RootNamespace>
+    <AssemblyName>Roblox.Platform.Infrastructure</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.2.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.2.6\lib\net45\StackExchange.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure.Properties\ISettings.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure.Properties\Settings.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\DatacenterFactory.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\DatacenterGroup.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\DatacenterGroupFactory.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\DateTimeUtils.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\Extensions.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\GameServer.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\GameServerCpuPowerFetcher.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\GameServerValidator.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\GamesRelayDataAccess.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\IDatacenter.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\IDatacenterFactory.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\IDatacenterGroup.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\IGameServer.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\InfrastructureCache.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\IServer.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\IServerFactory.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\IServerFarm.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\IServerGroup.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\IServerGroupMember.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\IServerGroupMemberFactory.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\IServerIpValidator.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\IServerValidator.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\ISuperFarm.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\ISuperFarmMember.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\RefreshAheadDatabaseLookups.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\Server.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\ServerFactory.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\ServerFarmFactory.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\ServerGroup.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\ServerGroupFactory.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\ServerGroupMemberFactory.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\ServerIpValidator.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\ServerStatus.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\ServerType.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\ServerValidator.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\ServerValidatorInstance.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\SuperFarmFactory.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\SuperFarmMemberFactory.cs" />
+    <Compile Include="Roblox.Platform.Infrastructure\VendorData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Roblox.Caching\Roblox.Caching.csproj">
+      <Project>{22b24cc6-2cfa-4bf6-b407-1e078ff685cd}</Project>
+      <Name>Roblox.Caching</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Common\Roblox.Common.csproj">
+      <Project>{be80ddc9-52c8-4750-a349-541f4ac3e7ad}</Project>
+      <Name>Roblox.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Configuration\Roblox.Configuration.csproj">
+      <Project>{89c4c746-050d-459c-bf83-e187f1fec6af}</Project>
+      <Name>Roblox.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Data\Roblox.Data.csproj">
+      <Project>{9a070a0d-c73a-4f4d-ba98-3111792afec2}</Project>
+      <Name>Roblox.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Entities.Mssql\Roblox.Entities.Mssql.csproj">
+      <Project>{592f8c3b-3c15-4c60-8873-a4da38b7b130}</Project>
+      <Name>Roblox.Entities.Mssql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.EventLog\Roblox.EventLog.csproj">
+      <Project>{3e9ec19c-0532-494c-bd68-3054ac4a3f90}</Project>
+      <Name>Roblox.EventLog</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Hashing\Roblox.Hashing.csproj">
+      <Project>{119113cf-b8db-4a6f-a7ac-bc2f62974565}</Project>
+      <Name>Roblox.Hashing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Instrumentation\Roblox.Instrumentation.csproj">
+      <Project>{0c7ebb11-589d-41c6-93f2-5eb05e04dcb7}</Project>
+      <Name>Roblox.Instrumentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.MssqlDatabases\Roblox.MssqlDatabases.csproj">
+      <Project>{17ea927e-08d9-401f-b768-c69348e1a429}</Project>
+      <Name>Roblox.MssqlDatabases</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Mssql\Roblox.Mssql.csproj">
+      <Project>{42a36277-440f-4df6-8d10-45f841e0fc49}</Project>
+      <Name>Roblox.Mssql</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Networking\Roblox.Networking.csproj">
+      <Project>{a01dd0d1-e3d2-4494-a105-3c7df0473613}</Project>
+      <Name>Roblox.Networking</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Redis.Lru\Roblox.Redis.Lru.csproj">
+      <Project>{62ca9b89-9122-4189-bb6a-f20e8d3d01cd}</Project>
+      <Name>Roblox.Redis.Lru</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Redis\Roblox.Redis.csproj">
+      <Project>{eb0fff27-8144-442b-9d7a-5f4cef691c2f}</Project>
+      <Name>Roblox.Redis</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

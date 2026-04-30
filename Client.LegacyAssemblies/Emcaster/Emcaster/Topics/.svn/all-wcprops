@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/180/trunk/Emcaster.NET/Emcaster/Topics
+END
+MessageParser.cs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/180/trunk/Emcaster.NET/Emcaster/Topics/MessageParser.cs
+END
+TopicSubscriber.cs
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Topics/TopicSubscriber.cs
+END
+IMessageListener.cs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Topics/IMessageListener.cs
+END
+ByteMessageParser.cs
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/180/trunk/Emcaster.NET/Emcaster/Topics/ByteMessageParser.cs
+END
+TopicMonitor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Topics/TopicMonitor.cs
+END
+TopicQueueSubscriber.cs
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Topics/TopicQueueSubscriber.cs
+END
+MessageParserFactory.cs
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Topics/MessageParserFactory.cs
+END
+IMessageParser.cs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Topics/IMessageParser.cs
+END
+ITopicSubscriber.cs
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Topics/ITopicSubscriber.cs
+END
+TopicPublisher.cs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Topics/TopicPublisher.cs
+END
+ITopicMessage.cs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Topics/ITopicMessage.cs
+END
+MessageHeader.cs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Topics/MessageHeader.cs
+END
+IMessageEvent.cs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Topics/IMessageEvent.cs
+END

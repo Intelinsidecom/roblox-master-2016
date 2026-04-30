@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LocalDebuggerCommandArguments>robloxplayerbeta --play -a http://freblx.xyz/Login/Negotiate.ashx -t game_x3s-z3XPGGQsGeSZ8hBHTnXfve46hhKbNsmAPwj0 -j "http://freblx.xyz/Game/PlaceLauncher.ashx?request=RequestGame&amp;browserTrackerId=false&amp;placeId=137&amp;isPartyLeader=false"</LocalDebuggerCommandArguments>
+    <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
+  </PropertyGroup>
+</Project>

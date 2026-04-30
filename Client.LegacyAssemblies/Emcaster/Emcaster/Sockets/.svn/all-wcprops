@@ -1,0 +1,101 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/183/trunk/Emcaster.NET/Emcaster/Sockets
+END
+IByteParser.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Sockets/IByteParser.cs
+END
+PgmSocket.cs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Sockets/PgmSocket.cs
+END
+ISourceReader.cs
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/182/trunk/Emcaster.NET/Emcaster/Sockets/ISourceReader.cs
+END
+ByteBuffer.cs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Sockets/ByteBuffer.cs
+END
+AsyncReader.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/183/trunk/Emcaster.NET/Emcaster/Sockets/AsyncReader.cs
+END
+PgmSource.cs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Sockets/PgmSource.cs
+END
+PgmReader.cs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/182/trunk/Emcaster.NET/Emcaster/Sockets/PgmReader.cs
+END
+PgmReceiver.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/182/trunk/Emcaster.NET/Emcaster/Sockets/PgmReceiver.cs
+END
+UdpSource.cs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Sockets/UdpSource.cs
+END
+IByteWriter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Sockets/IByteWriter.cs
+END
+UdpReceiver.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Sockets/UdpReceiver.cs
+END
+BatchWriter.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Sockets/BatchWriter.cs
+END
+PgmConstants.cs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Sockets/PgmConstants.cs
+END
+ByteParser.cs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Sockets/ByteParser.cs
+END
+IByteParserFactory.cs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Sockets/IByteParserFactory.cs
+END
+IPacketEvent.cs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/121/trunk/Emcaster.NET/Emcaster/Sockets/IPacketEvent.cs
+END

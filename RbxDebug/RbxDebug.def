@@ -1,0 +1,5 @@
+LIBRARY RbxDebug
+
+EXPORTS
+	RbxDebug_InitMemTrackingImpl @1
+	RbxDebug_ThisModuleDoneImpl @2

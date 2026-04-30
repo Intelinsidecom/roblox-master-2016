@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/svn/!svn/ver/124/trunk/Emcaster.NET/Libs
+END
+nunit.framework.dll
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/124/trunk/Emcaster.NET/Libs/nunit.framework.dll
+END
+Rhino.Mocks.dll
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/124/trunk/Emcaster.NET/Libs/Rhino.Mocks.dll
+END
+Common.Logging.dll
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/124/trunk/Emcaster.NET/Libs/Common.Logging.dll
+END

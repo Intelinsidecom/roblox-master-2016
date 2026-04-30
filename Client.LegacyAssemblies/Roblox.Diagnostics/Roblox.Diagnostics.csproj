@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5CFFB705-D0E3-4402-8FF9-8BE7E1422FBE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Roblox.Diagnostics</RootNamespace>
+    <AssemblyName>Roblox.Diagnostics</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roblox.Diagnostics.Properties\Settings.cs" />
+    <Compile Include="Roblox.Diagnostics\AverageTimeIntervalCounter.cs" />
+    <Compile Include="Roblox.Diagnostics\AverageValueCounter.cs" />
+    <Compile Include="Roblox.Diagnostics\CannotUpdateContainerException.cs" />
+    <Compile Include="Roblox.Diagnostics\ContainerNotSetException.cs" />
+    <Compile Include="Roblox.Diagnostics\Counter.cs" />
+    <Compile Include="Roblox.Diagnostics\CounterBuilder.cs" />
+    <Compile Include="Roblox.Diagnostics\CounterCategory.cs" />
+    <Compile Include="Roblox.Diagnostics\CounterCreator.cs" />
+    <Compile Include="Roblox.Diagnostics\CounterDescriptor.cs" />
+    <Compile Include="Roblox.Diagnostics\CounterDescriptorForICounter.cs" />
+    <Compile Include="Roblox.Diagnostics\CounterHelpers.cs" />
+    <Compile Include="Roblox.Diagnostics\CountersAlreadyCreatedException.cs" />
+    <Compile Include="Roblox.Diagnostics\CustomCounterDescriptor.cs" />
+    <Compile Include="Roblox.Diagnostics\IAverageValueCounter.cs" />
+    <Compile Include="Roblox.Diagnostics\ICounterBuilder.cs" />
+    <Compile Include="Roblox.Diagnostics\ICounterDescriptor.cs" />
+    <Compile Include="Roblox.Diagnostics\InstanceNameTruncatedEventArgs.cs" />
+    <Compile Include="Roblox.Diagnostics\IPercentileValueCounter.cs" />
+    <Compile Include="Roblox.Diagnostics\IPerformanceCounter.cs" />
+    <Compile Include="Roblox.Diagnostics\ISimpleCounterCategory.cs" />
+    <Compile Include="Roblox.Diagnostics\ISimpleCounterCategoryFactory.cs" />
+    <Compile Include="Roblox.Diagnostics\NoCountersSpecifiedForCategoryException.cs" />
+    <Compile Include="Roblox.Diagnostics\PercentileValueCounter.cs" />
+    <Compile Include="Roblox.Diagnostics\PerfCounters.cs" />
+    <Compile Include="Roblox.Diagnostics\PerformanceCounterWrapper.cs" />
+    <Compile Include="Roblox.Diagnostics\SimpleCounterCategoryFactory.cs" />
+    <Compile Include="Roblox.Diagnostics\SimplePerfmonCounterCategory.cs" />
+    <Compile Include="Roblox.Diagnostics\StackSampler.cs" />
+    <Compile Include="Roblox.Diagnostics\ThreadPoolHealthMonitor.cs" />
+    <Compile Include="Roblox.Diagnostics\UnknownCounterException.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Roblox.Configuration\Roblox.Configuration.csproj">
+      <Project>{89c4c746-050d-459c-bf83-e187f1fec6af}</Project>
+      <Name>Roblox.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Platform.Infrastructure\Roblox.Platform.Infrastructure.csproj">
+      <Project>{6194b904-4784-412f-88ce-7821a8534e9b}</Project>
+      <Name>Roblox.Platform.Infrastructure</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

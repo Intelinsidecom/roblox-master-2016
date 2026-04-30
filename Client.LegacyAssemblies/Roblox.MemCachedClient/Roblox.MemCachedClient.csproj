@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2CCFD54E-2E73-437D-ACF8-68A9B21438CC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Roblox.MemCachedClient</RootNamespace>
+    <AssemblyName>Roblox.MemCachedClient</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DnsClient, Version=1.1.1.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.1.1\lib\net45\DnsClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BeIT.MemCached\CachingEndpointResolver.cs" />
+    <Compile Include="BeIT.MemCached\DefaultMemCachedClientSettings.cs" />
+    <Compile Include="BeIT.MemCached\EndpointResolver.cs" />
+    <Compile Include="BeIT.MemCached\ExecutionType.cs" />
+    <Compile Include="BeIT.MemCached\FakeDnsSettings.cs" />
+    <Compile Include="BeIT.MemCached\FNV1_32.cs" />
+    <Compile Include="BeIT.MemCached\IEndpointResolver.cs" />
+    <Compile Include="BeIT.MemCached\IMemcachedClient.cs" />
+    <Compile Include="BeIT.MemCached\IMemcachedClientDnsSettings.cs" />
+    <Compile Include="BeIT.MemCached\IMemcachedClientExceptionHandler.cs" />
+    <Compile Include="BeIT.MemCached\IMemcachedClientProvider.cs" />
+    <Compile Include="BeIT.MemCached\IMemCachedClientSettings.cs" />
+    <Compile Include="BeIT.MemCached\IPooledSocket.cs" />
+    <Compile Include="BeIT.MemCached\IRateLimiter.cs" />
+    <Compile Include="BeIT.MemCached\IServerPool.cs" />
+    <Compile Include="BeIT.MemCached\ISocketPool.cs" />
+    <Compile Include="BeIT.MemCached\MemcachedClient.cs" />
+    <Compile Include="BeIT.MemCached\MemcachedClientException.cs" />
+    <Compile Include="BeIT.MemCached\MemcachedClientExceptionHandler.cs" />
+    <Compile Include="BeIT.MemCached\MemcachedMonitor.cs" />
+    <Compile Include="BeIT.MemCached\ModifiedFNV1_32.cs" />
+    <Compile Include="BeIT.MemCached\PooledSocket.cs" />
+    <Compile Include="BeIT.MemCached\RateLimiter.cs" />
+    <Compile Include="BeIT.MemCached\RoundRobin.cs" />
+    <Compile Include="BeIT.MemCached\SerializedType.cs" />
+    <Compile Include="BeIT.MemCached\Serializer.cs" />
+    <Compile Include="BeIT.MemCached\ServerPool.cs" />
+    <Compile Include="BeIT.MemCached\SocketPool.cs" />
+    <Compile Include="BeIT.MemCached\Stat.cs" />
+    <Compile Include="Microsoft.CodeAnalysis\EmbeddedAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="System.Runtime.CompilerServices\IsReadOnlyAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Roblox.Instrumentation\Roblox.Instrumentation.csproj">
+      <Project>{0c7ebb11-589d-41c6-93f2-5eb05e04dcb7}</Project>
+      <Name>Roblox.Instrumentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Sentinels\Roblox.Sentinels.csproj">
+      <Project>{cdf2d200-9f0b-4f80-a51e-73b42126ddb2}</Project>
+      <Name>Roblox.Sentinels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

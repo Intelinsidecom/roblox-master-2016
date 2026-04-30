@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0C7EBB11-589D-41C6-93F2-5EB05E04DCB7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Roblox.Instrumentation</RootNamespace>
+    <AssemblyName>Roblox.Instrumentation</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Prometheus.NetStandard, Version=3.0.0.0, Culture=neutral, PublicKeyToken=a243e9817ba9d559, processorArchitecture=MSIL">
+      <HintPath>..\packages\prometheus-net.3.6.0\lib\net461\Prometheus.NetStandard.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roblox.Instrumentation.Infrastructure\InfluxOutputSharder.cs" />
+    <Compile Include="Roblox.Instrumentation.Infrastructure\InfrastructureServiceCollectionConfiguration.cs" />
+    <Compile Include="Roblox.Instrumentation.Infrastructure\InfrastructureServiceConfigurationProvider.cs" />
+    <Compile Include="Roblox.Instrumentation.LegacySupport\ISimpleCounterCategory.cs" />
+    <Compile Include="Roblox.Instrumentation.LegacySupport\ISimpleCounterCategoryFactory.cs" />
+    <Compile Include="Roblox.Instrumentation.LegacySupport\NoCountersSpecifiedForCategoryException.cs" />
+    <Compile Include="Roblox.Instrumentation.LegacySupport\SimpleCounterCategory.cs" />
+    <Compile Include="Roblox.Instrumentation.LegacySupport\SimpleCounterCategoryFactory.cs" />
+    <Compile Include="Roblox.Instrumentation.PrometheusListener\GaugeWrapper.cs" />
+    <Compile Include="Roblox.Instrumentation.PrometheusListener\PrometheusConstants.cs" />
+    <Compile Include="Roblox.Instrumentation.PrometheusListener\PrometheusServerWrapper.cs" />
+    <Compile Include="Roblox.Instrumentation\AverageValueCounter.cs" />
+    <Compile Include="Roblox.Instrumentation\CollectionConfiguration.cs" />
+    <Compile Include="Roblox.Instrumentation\ConfigurationProvider.cs" />
+    <Compile Include="Roblox.Instrumentation\CounterBase.cs" />
+    <Compile Include="Roblox.Instrumentation\CounterHttpServer.cs" />
+    <Compile Include="Roblox.Instrumentation\CounterKey.cs" />
+    <Compile Include="Roblox.Instrumentation\CounterRegistry.cs" />
+    <Compile Include="Roblox.Instrumentation\CounterReporter.cs" />
+    <Compile Include="Roblox.Instrumentation\DurationRecorder.cs" />
+    <Compile Include="Roblox.Instrumentation\ExtendedWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Roblox.Instrumentation\FractionCounter.cs" />
+    <Compile Include="Roblox.Instrumentation\IAverageValueCounter.cs" />
+    <Compile Include="Roblox.Instrumentation\ICollectionConfiguration.cs" />
+    <Compile Include="Roblox.Instrumentation\IConfigurationProvider.cs" />
+    <Compile Include="Roblox.Instrumentation\ICounterRegistry.cs" />
+    <Compile Include="Roblox.Instrumentation\ICounterReporter.cs" />
+    <Compile Include="Roblox.Instrumentation\IDurationRecorder.cs" />
+    <Compile Include="Roblox.Instrumentation\IFractionCounter.cs" />
+    <Compile Include="Roblox.Instrumentation\IMaximumValueCounter.cs" />
+    <Compile Include="Roblox.Instrumentation\InfluxCredentials.cs" />
+    <Compile Include="Roblox.Instrumentation\InfluxWriter.cs" />
+    <Compile Include="Roblox.Instrumentation\IPercentileCounter.cs" />
+    <Compile Include="Roblox.Instrumentation\IRateOfCountsPerSecondCounter.cs" />
+    <Compile Include="Roblox.Instrumentation\IRawValueCounter.cs" />
+    <Compile Include="Roblox.Instrumentation\MaximumValueCounter.cs" />
+    <Compile Include="Roblox.Instrumentation\NoOpCounter.cs" />
+    <Compile Include="Roblox.Instrumentation\NoOpCounterRegistry.cs" />
+    <Compile Include="Roblox.Instrumentation\PercentileCounter.cs" />
+    <Compile Include="Roblox.Instrumentation\RateOfCountsPerSecondCounter.cs" />
+    <Compile Include="Roblox.Instrumentation\RawValueCounter.cs" />
+    <Compile Include="Roblox.Instrumentation\StaticCounterRegistry.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{22B24CC6-2CFA-4BF6-B407-1E078FF685CD}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Roblox.Caching</RootNamespace>
+    <AssemblyName>Roblox.Caching</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.2.0\lib\net46\StackExchange.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\DemographicsMcrouterGroup.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\ExposedMemCachedClientSettingsTranslator.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\FriendsGroup.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\FriendsMcrouterGroup.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\GroupsServiceMcrouterCacheGroup.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\IExposedMemCachedClientSettings.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\MarketingMcrouterGroup.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\MemcachedObjectMcrouterCacheGroup.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\MemcachedWebMcrouterCacheGroup.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\OwnershipServiceMcrouterCacheGroup.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\PresenceServiceCacheGroup.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\ThumbnailsExperimentalGroup.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\ThumbnailsMcrouterGroup.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\UniversesClientReadCacheGroup.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\UniversesClientReadMcrouterCacheGroup.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\UniversesServiceCacheGroup.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\UniversesServiceMcrouterCacheGroup.cs" />
+    <Compile Include="Roblox.Caching.ClusterSettings\UserMcrouterCacheGroup.cs" />
+    <Compile Include="Roblox.Caching.Diagnostics\CacheListenerInitializer.cs" />
+    <Compile Include="Roblox.Caching.Diagnostics\CachePerformanceCounters.cs" />
+    <Compile Include="Roblox.Caching.Diagnostics\MigrationStateMonitor.cs" />
+    <Compile Include="Roblox.Caching.Diagnostics\PerEntityTypeMonitor.cs" />
+    <Compile Include="Roblox.Caching.DotNet\DotNetCoreCache.cs" />
+    <Compile Include="Roblox.Caching.DotNet\RequestCache.cs" />
+    <Compile Include="Roblox.Caching.Interfaces\ICacheableObject.cs" />
+    <Compile Include="Roblox.Caching.Interfaces\ICacheInvalidator.cs" />
+    <Compile Include="Roblox.Caching.Interfaces\IRawMessageConsumer.cs" />
+    <Compile Include="Roblox.Caching.Interfaces\IRemoteCacheableObject.cs" />
+    <Compile Include="Roblox.Caching.Interfaces\IRemoteCacheInvalidationSink.cs" />
+    <Compile Include="Roblox.Caching.Interfaces\IRequestCache.cs" />
+    <Compile Include="Roblox.Caching.Interfaces\IRobloxCacheListener.cs" />
+    <Compile Include="Roblox.Caching.MemCached\EntityRampUpAuthority.cs" />
+    <Compile Include="Roblox.Caching.MemCached\LocalBackedByMemcache.cs" />
+    <Compile Include="Roblox.Caching.MemCached\MemcachedCache.cs" />
+    <Compile Include="Roblox.Caching.MemCached\MigrationSharedCacheClient.cs" />
+    <Compile Include="Roblox.Caching.MemCached\MigrationSharedCacheClientProvider.cs" />
+    <Compile Include="Roblox.Caching.MemCached\RolloutPerThousandSharedCacheClientProvider.cs" />
+    <Compile Include="Roblox.Caching.MemCached\SharedCacheClientProvider.cs" />
+    <Compile Include="Roblox.Caching.Properties\InvalidationSettings.cs" />
+    <Compile Include="Roblox.Caching.Properties\ISettings.cs" />
+    <Compile Include="Roblox.Caching.Properties\MemCachedClientSettings.cs" />
+    <Compile Include="Roblox.Caching.Properties\MemcachedGroupsSettings.cs" />
+    <Compile Include="Roblox.Caching.Properties\Settings.cs" />
+    <Compile Include="Roblox.Caching.Shared\DynamicSharedCacheClient.cs" />
+    <Compile Include="Roblox.Caching.Shared\DynamicSharedCacheClientBase.cs" />
+    <Compile Include="Roblox.Caching.Shared\ISharedCacheClient.cs" />
+    <Compile Include="Roblox.Caching.Shared\RolloutPerThousandSharedCacheClient.cs" />
+    <Compile Include="Roblox.Caching.Shared\SharedCacheClient.cs" />
+    <Compile Include="Roblox.Caching.Shared\SharedCacheDataClient.cs" />
+    <Compile Include="Roblox.Caching.Shared\SharedCacheWebClient.cs" />
+    <Compile Include="Roblox.Caching\CacheabilitySettings.cs" />
+    <Compile Include="Roblox.Caching\Cacheable.cs" />
+    <Compile Include="Roblox.Caching\CacheFactory.cs" />
+    <Compile Include="Roblox.Caching\CacheInfo.cs" />
+    <Compile Include="Roblox.Caching\CacheInvalidatorFactory.cs" />
+    <Compile Include="Roblox.Caching\CacheManager.cs" />
+    <Compile Include="Roblox.Caching\Constants.cs" />
+    <Compile Include="Roblox.Caching\EntityCacheInvalidator.cs" />
+    <Compile Include="Roblox.Caching\EntitySerializer.cs" />
+    <Compile Include="Roblox.Caching\ICacheInfo.cs" />
+    <Compile Include="Roblox.Caching\IEntityRampUpAuthority.cs" />
+    <Compile Include="Roblox.Caching\IEntitySerializer.cs" />
+    <Compile Include="Roblox.Caching\ILazyWithRetry.cs" />
+    <Compile Include="Roblox.Caching\ILookupCache.cs" />
+    <Compile Include="Roblox.Caching\ILookupCacheFactory.cs" />
+    <Compile Include="Roblox.Caching\IMemcachedGroupCacheClientProvider.cs" />
+    <Compile Include="Roblox.Caching\IMigrationCacheabilitySettings.cs" />
+    <Compile Include="Roblox.Caching\IMigrationSharedCacheClientProvider.cs" />
+    <Compile Include="Roblox.Caching\IMigrationStateMonitor.cs" />
+    <Compile Include="Roblox.Caching\IRedisInvalidationPerformanceMonitor.cs" />
+    <Compile Include="Roblox.Caching\IRedisInvalidationSettingsProvider.cs" />
+    <Compile Include="Roblox.Caching\IRemoteCachabilitySettings.cs" />
+    <Compile Include="Roblox.Caching\IRetriableItem.cs" />
+    <Compile Include="Roblox.Caching\IRolloutPerThousandSharedCacheClientProvider.cs" />
+    <Compile Include="Roblox.Caching\ISamplingSharedCacheClientSettings.cs" />
+    <Compile Include="Roblox.Caching\ISharedCacheClientProvider.cs" />
+    <Compile Include="Roblox.Caching\LazyWithRetry.cs" />
+    <Compile Include="Roblox.Caching\LocalCache.cs" />
+    <Compile Include="Roblox.Caching\LookupCacheFactory.cs" />
+    <Compile Include="Roblox.Caching\LookupCachePerformanceMonitor.cs" />
+    <Compile Include="Roblox.Caching\MemcachedGroupCacheClientProvider.cs" />
+    <Compile Include="Roblox.Caching\MemcachedLookupCache.cs" />
+    <Compile Include="Roblox.Caching\MigrationCacheabilitySettings.cs" />
+    <Compile Include="Roblox.Caching\MigrationState.cs" />
+    <Compile Include="Roblox.Caching\MigrationStateChange.cs" />
+    <Compile Include="Roblox.Caching\MigrationStateChangeConverter.cs" />
+    <Compile Include="Roblox.Caching\MigrationStateChangeParseException.cs" />
+    <Compile Include="Roblox.Caching\RedisCacheInvalidator.cs" />
+    <Compile Include="Roblox.Caching\RedisInvalidationPerformanceMonitor.cs" />
+    <Compile Include="Roblox.Caching\RedisInvalidationSettingsProvider.cs" />
+    <Compile Include="Roblox.Caching\RedisPublisher.cs" />
+    <Compile Include="Roblox.Caching\RedisSubscriber.cs" />
+    <Compile Include="Roblox.Caching\RemoteCachabilitySettings.cs" />
+    <Compile Include="Roblox.Caching\RetryQueue.cs" />
+    <Compile Include="Roblox.Caching\RobloxCache.cs" />
+    <Compile Include="Roblox.Caching\SamplingSharedCacheClient.cs" />
+    <Compile Include="Roblox.Caching\SharedCacheGroupClient.cs" />
+    <Compile Include="Roblox.Caching\StateChangeEventType.cs" />
+    <Compile Include="Roblox.Caching\StateToken.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Roblox.Common.NetStandard\Roblox.Common.NetStandard.csproj">
+      <Project>{50a60a19-2d46-4a28-b4e3-aecdeddfc719}</Project>
+      <Name>Roblox.Common.NetStandard</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Common\Roblox.Common.csproj">
+      <Project>{be80ddc9-52c8-4750-a349-541f4ac3e7ad}</Project>
+      <Name>Roblox.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Configuration\Roblox.Configuration.csproj">
+      <Project>{89c4c746-050d-459c-bf83-e187f1fec6af}</Project>
+      <Name>Roblox.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.EventLog\Roblox.EventLog.csproj">
+      <Project>{3e9ec19c-0532-494c-bd68-3054ac4a3f90}</Project>
+      <Name>Roblox.EventLog</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Instrumentation\Roblox.Instrumentation.csproj">
+      <Project>{0c7ebb11-589d-41c6-93f2-5eb05e04dcb7}</Project>
+      <Name>Roblox.Instrumentation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.MemCachedClient\Roblox.MemCachedClient.csproj">
+      <Project>{2ccfd54e-2e73-437d-acf8-68a9b21438cc}</Project>
+      <Name>Roblox.MemCachedClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Roblox.Redis\Roblox.Redis.csproj">
+      <Project>{eb0fff27-8144-442b-9d7a-5f4cef691c2f}</Project>
+      <Name>Roblox.Redis</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BeITMemcached.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

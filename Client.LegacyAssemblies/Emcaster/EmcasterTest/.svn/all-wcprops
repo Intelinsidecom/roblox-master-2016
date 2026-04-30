@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/182/trunk/Emcaster.NET/EmcasterTest
+END
+SocketMonitor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/122/trunk/Emcaster.NET/EmcasterTest/SocketMonitor.cs
+END
+WmiReceiverStats.cs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/122/trunk/Emcaster.NET/EmcasterTest/WmiReceiverStats.cs
+END
+Startup.cs
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/122/trunk/Emcaster.NET/EmcasterTest/Startup.cs
+END
+TopicReceiver.py
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/122/trunk/Emcaster.NET/EmcasterTest/TopicReceiver.py
+END
+EmcasterTest.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/122/trunk/Emcaster.NET/EmcasterTest/EmcasterTest.csproj
+END
+TopicPublisher.py
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/122/trunk/Emcaster.NET/EmcasterTest/TopicPublisher.py
+END

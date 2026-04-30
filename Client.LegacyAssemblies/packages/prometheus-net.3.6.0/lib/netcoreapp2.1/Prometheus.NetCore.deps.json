@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.1": {
+      "Prometheus.NetCore/1.0.0": {
+        "dependencies": {
+          "Prometheus.NetStandard": "1.0.0"
+        },
+        "runtime": {
+          "Prometheus.NetCore.dll": {}
+        }
+      },
+      "Prometheus.NetStandard/1.0.0": {
+        "runtime": {
+          "Prometheus.NetStandard.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Prometheus.NetCore/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Prometheus.NetStandard/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

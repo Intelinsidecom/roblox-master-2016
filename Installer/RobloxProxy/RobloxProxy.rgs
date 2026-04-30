@@ -1,0 +1,13 @@
+﻿HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'RobloxProxy'
+		'RobloxProxy.DLL'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}
+
+
