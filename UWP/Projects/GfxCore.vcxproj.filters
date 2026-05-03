@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="D3D11">
+      <UniqueIdentifier>{42be2359-5d2a-4ba6-9cab-3211b34a10c4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Rendering\GfxCore\Device.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxCore\DeviceCreate.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxCore\Framebuffer.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxCore\Geometry.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxCore\pix.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxCore\Resource.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxCore\Shader.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxCore\States.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxCore\Texture.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxCore\D3D11\DeviceContextD3D11.cpp">
+      <Filter>D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxCore\D3D11\DeviceD3D11.cpp">
+      <Filter>D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxCore\D3D11\DeviceD3D11Durango.cpp">
+      <Filter>D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxCore\D3D11\DeviceD3D11Win32.cpp">
+      <Filter>D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxCore\D3D11\FramebufferD3D11.cpp">
+      <Filter>D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxCore\D3D11\GeometryD3D11.cpp">
+      <Filter>D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxCore\D3D11\OculusVRD3D11.cpp">
+      <Filter>D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxCore\D3D11\OpenVRD3D11.cpp">
+      <Filter>D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxCore\D3D11\ShaderD3D11.cpp">
+      <Filter>D3D11</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxCore\D3D11\TextureD3D11.cpp">
+      <Filter>D3D11</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Rendering\GfxCore\D3D11\DeviceD3D11.h">
+      <Filter>D3D11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\GfxCore\D3D11\FramebufferD3D11.h">
+      <Filter>D3D11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\GfxCore\D3D11\GeometryD3D11.h">
+      <Filter>D3D11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\GfxCore\D3D11\HeadersD3D11.h">
+      <Filter>D3D11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\GfxCore\D3D11\ShaderD3D11.h">
+      <Filter>D3D11</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\GfxCore\D3D11\TextureD3D11.h">
+      <Filter>D3D11</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

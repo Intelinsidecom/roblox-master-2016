@@ -352,8 +352,9 @@ namespace RBX {
 	{
 #ifdef RBX_PLATFORM_UWP
 		return true;
-#endif
+#else
         return false;
+#endif
 	}
     
     void UserInputService::onServiceProvider(ServiceProvider* oldProvider, ServiceProvider* newProvider)

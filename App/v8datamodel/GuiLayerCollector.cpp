@@ -273,8 +273,11 @@ namespace RBX {
 		}
 
 		RBXASSERT(isAllGuiQueuesHaveCorrectNumberOfLayers(mGuiVectors));
-
+		#if defined(RBX_PLATFORM_UWP)
+		ScrollingFrame* myAncestorScrollingFrame = NULL;
+		#else
 		ScrollingFrame* myAncestorScrollingFrame;
+		#endif
 		if (selectedObject)
 		{
 			if ((myAncestorScrollingFrame = selectedObject->findFirstAncestorOfType<ScrollingFrame>()))

@@ -39,6 +39,15 @@ int gettimeofday(struct timeval *tv, struct timezone *tz)
 
   if (NULL != tz)
   {
+#if defined(RBX_PLATFORM_UWP)
+    long timezone_seconds = 0;
+    int daylight_val = 0;
+    _get_timezone(&timezone_seconds);
+    _get_daylight(&daylight_val);
+
+    tz->tz_minuteswest = timezone_seconds / 60;
+    tz->tz_dsttime = daylight_val;
+#else
     if (!tzflag)
     {
       _tzset();
@@ -46,6 +55,7 @@ int gettimeofday(struct timeval *tv, struct timezone *tz)
     }
     tz->tz_minuteswest = _timezone / 60;
     tz->tz_dsttime = _daylight;
+#endif
   }
 
   return 0;

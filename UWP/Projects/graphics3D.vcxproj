@@ -1,0 +1,357 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\AABox.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\BinaryInput.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\BinaryOutput.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Box.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Capsule.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\CollisionDetection.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Color3.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Color3uint8.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Color4.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Color4uint8.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\CoordinateFrame.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Crypto.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Cylinder.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\debugAssert.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\fileutils.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\format.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\g3dfnmatch.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\g3dmath.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GCamera.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GImage.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GImage_bayer.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GImage_bmp.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GImage_jpeg.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GImage_png.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GImage_tga.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GLight.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\LightingParameters.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Line.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\LineSegment.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Matrix3.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Matrix4.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\MemoryManager.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\PhysicsFrame.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Plane.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Quat.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Random.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Ray.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Sphere.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\stringutils.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\System.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Triangle.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\uint128.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\UprightFrame.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Vector2.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Vector2int16.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Vector3.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Vector3int16.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Vector4.cpp" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jaricom.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcapimin.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcapistd.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcarith.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jccoefct.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jccolor.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcdctmgr.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jchuff.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcinit.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcmainct.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcmarker.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcmaster.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcomapi.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcparam.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcphuff.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcprepct.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcsample.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jctrans.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdapimin.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdapistd.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdarith.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdatadst.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdatasrc.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdcoefct.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdcolor.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jddctmgr.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdhuff.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdinput.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdmainct.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdmarker.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdmaster.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdmerge.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdphuff.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdpostct.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdsample.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdtrans.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jerror.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jfdctflt.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jfdctfst.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jfdctint.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jidctflt.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jidctfst.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jidctint.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jidctred.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jmemansi.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jmemmgr.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jmemnobs.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jquant1.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jquant2.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jutils.c" />
+    <ClCompile Include="..\..\Rendering\g3d\ijg\transupp.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\png.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pngerror.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pnggccrd.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pngget.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pngmem.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pngpread.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pngread.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pngrio.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pngrtran.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pngrutil.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pngset.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pngtrans.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pngvcrd.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pngwio.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pngwrite.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pngwtran.c" />
+    <ClCompile Include="..\..\Rendering\g3d\png\pngwutil.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Rendering\g3d\ijg\cderror.h" />
+    <ClInclude Include="..\..\Rendering\g3d\ijg\cdjpeg.h" />
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jchuff.h" />
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jconfig.h" />
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jdct.h" />
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jdhuff.h" />
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jerror.h" />
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jinclude.h" />
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jmemsys.h" />
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jmorecfg.h" />
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jpegint.h" />
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jpeglib.h" />
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jversion.h" />
+    <ClInclude Include="..\..\Rendering\g3d\ijg\transupp.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{483cdf9b-f198-4e8c-b5d9-fa2b56b33db9}</ProjectGuid>
+    <Keyword>StaticLibrary</Keyword>
+    <RootNamespace>graphics3D</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.10240.0</WindowsTargetPlatformMinVersion>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|arm'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|arm'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

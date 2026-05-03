@@ -1781,10 +1781,10 @@ void DataModel::renderMouse(Adorn* adorn)
 		UserInputBase* hardwareDevice = service->getHardwareDevice();
         if (hardwareDevice)
         {
-		hardwareDevice->setCursorId(adorn, getRenderMouseCursor());
+			hardwareDevice->setCursorId(adorn, getRenderMouseCursor());
+        }
 #endif
 	}
-    }
 
 	if (!canRenderMouse())
 	{

@@ -24,7 +24,7 @@ namespace Graphics
 
     static TypeD3DCompile loadShaderCompiler()
     {
-#if !defined(RBX_PLATFORM_DURANGO)
+#if !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) 
         HMODULE d3dCompiler = ShaderProgramD3D11::loadShaderCompilerDLL();
 
         return d3dCompiler ? (TypeD3DCompile)GetProcAddress(d3dCompiler, "D3DCompile") : NULL;
@@ -35,7 +35,7 @@ namespace Graphics
 
     static TypeD3DPreprocess loadShaderPreprocessor()
     {
-#if !defined(RBX_PLATFORM_DURANGO)
+#if !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) 
         HMODULE d3dCompiler = ShaderProgramD3D11::loadShaderCompilerDLL();
 
         return d3dCompiler ? (TypeD3DPreprocess)GetProcAddress(d3dCompiler, "D3DPreprocess") : NULL;
@@ -46,7 +46,7 @@ namespace Graphics
 
     static TypeD3DReflect loadShaderReflector()
     {
-#if !defined(RBX_PLATFORM_DURANGO)
+#if !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) 
         HMODULE d3dCompiler = ShaderProgramD3D11::loadShaderCompilerDLL();
 
         return d3dCompiler ? (TypeD3DReflect)GetProcAddress(d3dCompiler, "D3DReflect") : NULL;
@@ -670,7 +670,7 @@ namespace Graphics
         return consumeData<char>(hr, bytecode, messages);
     }
 
-#if !defined(RBX_PLATFORM_DURANGO)
+#if !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) 
     HMODULE ShaderProgramD3D11::loadShaderCompilerDLL()
     {
         static HMODULE compiler;

@@ -235,6 +235,22 @@
 #   ifndef _WIN32_WINNT
 #       define _WIN32_WINNT 0x0500
 #   endif
+
+#ifdef RBX_PLATFORM_UWPS
+#ifndef FlsAlloc
+    #define FlsAlloc TlsAlloc
+#endif
+#ifndef FlsSetValue
+    #define FlsSetValue TlsSetValue
+#endif
+#ifndef FlsGetValue
+    #define FlsGetValue TlsGetValue
+#endif
+#ifndef FlsFree
+    #define FlsFree TlsFree
+#endif
+#endif
+
 #   include <windows.h>
 #   undef WIN32_LEAN_AND_MEAN
 #   undef NOMINMAX

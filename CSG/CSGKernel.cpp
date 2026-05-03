@@ -26,7 +26,7 @@
 #include "util/FileSystem.h"
 #include "FastLog.h"
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 #include "../Win/LogManager.h"
 #endif
 
@@ -217,7 +217,7 @@ void removePreviousErrorFiles()
 
 void logError(sgCObject* obj1, sgCObject* obj2, bool unionOperation = true)
 {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 	removePreviousErrorFiles();
 
 	std::string path = MainLogManager::getMainLogManager()->MakeLogFileName(unionOperation ? "_csgU" : "_csgN");

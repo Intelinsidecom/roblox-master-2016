@@ -1,5 +1,11 @@
 #include "StringConv.h"
 
+
+#if defined(RBX_PLATFORM_UWP)
+#define _WIN32_WINNT 0x0A00
+#define NTDDI_VERSION 0x0A000000
+#endif
+
 #include <windows.h>
 
 namespace RBX {

@@ -26,7 +26,7 @@ namespace RBX
 	// This mutex is non-recursive.
 	class mutex
 	{
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 		CRITICAL_SECTION cs;
 	public:
 		mutex()
@@ -53,7 +53,7 @@ namespace RBX
 		private:
 			mutex& m;
 		};
-#elif defined(RBX_PLATFORM_DURANGO)
+#elif defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_UWP)
 		boost::mutex m;
 	public:
 		mutex() {}

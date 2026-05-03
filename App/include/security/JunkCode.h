@@ -1,6 +1,6 @@
 #pragma once
 
-#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 #include "Security/RandomConstant.h"
 
 // This is junk code generation.  All of this is intended to be inlined

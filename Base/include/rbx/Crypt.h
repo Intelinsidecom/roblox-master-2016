@@ -1,6 +1,12 @@
 #pragma once
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_UWP)
+#define _WIN32_WINNT 0x0A00
+#define NTDDI_VERSION 0x0A000000
+#include <windows.h>
+#endif
+
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 #include <windows.h>
 #include <wincrypt.h>
 #endif
@@ -11,7 +17,7 @@ namespace RBX
 {
 	class Crypt
 	{
-#if defined (_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined (_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 	HCRYPTPROV context;
 	HCRYPTKEY key;
 #endif

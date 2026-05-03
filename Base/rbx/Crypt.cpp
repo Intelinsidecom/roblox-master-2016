@@ -1,4 +1,4 @@
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 #include "rbx/Crypt.h"
 
 #include "rbxFormat.h"

@@ -170,7 +170,7 @@ namespace Security{
 }
 
 // Only supporting ntdll for now.
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 
 inline const WCHAR* getUnicodeDllName(const UNICODE_STRING& str)
 {

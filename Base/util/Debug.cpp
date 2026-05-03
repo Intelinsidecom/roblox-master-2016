@@ -5,6 +5,7 @@
 #include "RbxFormat.h"
 #include <algorithm>
 
+
 const int CRASHONASSERT = 255;
 
 void ReleaseAssert(int channel, const char* msg) {
@@ -23,7 +24,11 @@ namespace RBX
 	{
 		if(doCrashEnabled)
 		{
+			#if defined(RBX_PLATFORM_UWP)
+			__debugbreak();
+			#else
 			DebugBreak();
+			#endif
 		}
 	}
 
@@ -40,7 +45,11 @@ namespace RBX
 #endif
 		if (doCrashEnabled) 
 		{
+			#if defined(RBX_PLATFORM_UWP)
+			__debugbreak();
+			#else
 			DebugBreak();
+			#endif
 		}
 	}
 

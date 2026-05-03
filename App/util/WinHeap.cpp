@@ -56,6 +56,7 @@ namespace RBX
 			HANDLE processHeap = GetProcessHeap();
 			setNoFrag(processHeap);
 
+#ifndef RBX_PLATFORM_UWP
 			HANDLE heaps[1025];
 			DWORD nheaps = GetProcessHeaps(1024, heaps);
 			for (DWORD i = 0; i < nheaps; i++) {
@@ -64,6 +65,7 @@ namespace RBX
 					setNoFrag(heaps[i]);
 				}
 			}
+#endif
 		}
 
 

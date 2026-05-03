@@ -3,7 +3,7 @@
 #include "rbx/boost.hpp"
 #include "util/ScopedSingleton.h"
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 #include <pdh.h>
 
 class CQuery

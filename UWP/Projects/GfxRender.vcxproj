@@ -1,0 +1,512 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Rendering\GfxRender\AdornRender.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\CullableSceneNode.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\CustomEmitter.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\Emitter.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\EnvMap.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\ExplosionEmitter.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\FastCluster.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afangles.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afblue.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afcjk.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afdummy.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afglobal.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afhints.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afindic.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afloader.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afmodule.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afpic.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afranges.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afwarp.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\autofit.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\hbshim.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\basepic.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftadvanc.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftapi.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftbase.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftbbox.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftbdf.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftbitmap.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftcalc.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftcid.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftdbgmem.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftdebug.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftfntfmt.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftfstype.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftgasp.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftgloadr.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftglyph.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftgxval.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftinit.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftlcdfil.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftmm.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftobjs.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftotval.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftoutln.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftpatent.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftpfr.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftpic.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftrfork.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftsnames.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftstream.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftstroke.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftsynth.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftsystem.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\fttrigon.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\fttype1.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftutil.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftwinfnt.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\md5.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\bdf\bdf.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\bdf\bdfdrivr.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\bdf\bdflib.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\bzip2\ftbzip2.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftcache.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftcbasic.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftccache.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftccmap.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftcglyph.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftcimage.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftcmanag.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftcmru.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftcsbits.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2arrst.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2blues.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2error.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2font.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2ft.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2hints.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2intrp.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2read.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2stack.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cff.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cffcmap.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cffdrivr.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cffgload.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cffload.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cffobjs.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cffparse.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cffpic.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cid\cidgload.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cid\cidload.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cid\cidobjs.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cid\cidparse.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cid\cidriver.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cid\type1cid.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvalid.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvbsln.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvcommn.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvfeat.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvfgen.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvjust.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvkern.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvlcar.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmod.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmort.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmort0.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmort1.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmort2.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmort4.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmort5.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmorx.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmorx0.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmorx1.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmorx2.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmorx4.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmorx5.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvopbd.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvprop.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvtrak.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gzip\adler32.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gzip\ftgzip.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gzip\inftrees.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gzip\zutil.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\lzw\ftlzw.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\lzw\ftzopen.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvalid.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvbase.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvcommn.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvgdef.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvgpos.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvgsub.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvjstf.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvmath.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvmod.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pcf\pcf.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pcf\pcfdrivr.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pcf\pcfread.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pcf\pcfutil.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pfr\pfr.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pfr\pfrcmap.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pfr\pfrdrivr.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pfr\pfrgload.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pfr\pfrload.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pfr\pfrobjs.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pfr\pfrsbit.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psaux\afmparse.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psaux\psaux.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psaux\psauxmod.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psaux\psconv.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psaux\psobjs.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psaux\t1cmap.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psaux\t1decode.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pshinter\pshalgo.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pshinter\pshglob.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pshinter\pshinter.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pshinter\pshmod.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pshinter\pshpic.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pshinter\pshrec.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psnames\psmodule.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psnames\psnames.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psnames\pspic.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\raster\ftraster.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\raster\ftrend1.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\raster\raster.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\raster\rastpic.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\pngshim.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\sfdriver.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\sfnt.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\sfntpic.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\sfobjs.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\ttbdf.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\ttcmap.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\ttkern.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\ttload.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\ttmtx.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\ttpost.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\ttsbit.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\smooth\ftgrays.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\smooth\ftsmooth.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\smooth\ftspic.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\smooth\smooth.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\tools\apinames.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\tools\ftfuzzer\runinput.cc" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\tools\test_afm.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\tools\test_bbox.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\tools\test_trig.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\truetype.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttdriver.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttgload.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttgxvar.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttinterp.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttobjs.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttpic.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttpload.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttsubpix.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type1\t1afm.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type1\t1driver.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type1\t1gload.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type1\t1load.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type1\t1objs.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type1\t1parse.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type1\type1.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type42\t42drivr.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type42\t42objs.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type42\t42parse.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type42\type42.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\winfonts\winfnt.c" />
+    <ClCompile Include="..\..\Rendering\GfxRender\GeometryGenerator.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\GlobalShaderData.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\Image.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\LightGrid.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\LightObject.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\Material.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\MaterialGenerator.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\MegaCluster.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\ObjectExporter.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\ParticleEmitter.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\RenderCamera.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\RenderNode.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\RenderQueue.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\RenderView.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SceneManager.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SceneUpdater.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\ScreenSpaceEffect.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\ShaderManager.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\Sky.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SmoothCluster.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SpatialHashedScene.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SSAO.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\stdafx.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SuperCluster.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TextureAtlas.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TextureCompositor.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TextureManager.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TextureRef.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TypesetterBitmap.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TypesetterDynamic.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\VertexStreamer.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\VisualEngine.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\Water.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Rendering\GfxRender\AdornRender.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\CullableSceneNode.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\CustomEmitter.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Emitter.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\EmitterShared.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\EnvMap.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ExplosionEmitter.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\FastCluster.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\GeometryGenerator.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\GlobalShaderData.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Image.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ImageInfo.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\LightGrid.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\LightObject.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Material.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\MaterialGenerator.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\MegaCluster.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ObjectExporter.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ParticleEmitter.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\RenderCamera.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\RenderNode.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\RenderQueue.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\RenderView.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SceneManager.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SceneUpdater.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ScreenSpaceEffect.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ShaderManager.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Sky.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SmoothCluster.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SpatialGrid.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SpatialHashedScene.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SSAO.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SuperCluster.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TextureAtlas.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TextureCompositor.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TextureManager.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TextureRef.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TypesetterBitmap.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TypesetterDynamic.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Util.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\VertexStreamer.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\VisualEngine.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Water.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Rendering\GfxRender\freetype\src\autofit\afblue.cin" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{acd9e2df-f5d6-4db6-a693-ba5e8ff7991e}</ProjectGuid>
+    <Keyword>StaticLibrary</Keyword>
+    <RootNamespace>GfxRender</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.10240.0</WindowsTargetPlatformMinVersion>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;..\..\Rendering\GfxRender\include;..\..\Rendering\GfxRender\freetype\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Base\include;..\..\TBB_4_1\include;..\..\App\Include;..\..\ClientShared;..\..\Rendering\GfxBase\include;..\..\Rendering\GfxCore\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\AppDraw\include;..\..\Rendering\RbxG3D\include;$(CONTRIB_PATH)\SDK\Include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;WIN32;FT2_BUILD_LIBRARY;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;..\..\Rendering\GfxRender\include;..\..\Rendering\GfxRender\freetype\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Base\include;..\..\TBB_4_1\include;..\..\App\Include;..\..\ClientShared;..\..\Rendering\GfxBase\include;..\..\Rendering\GfxCore\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\AppDraw\include;..\..\Rendering\RbxG3D\include;$(CONTRIB_PATH)\SDK\Include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;WIN32;FT2_BUILD_LIBRARY;_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|arm'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;..\..\Rendering\GfxRender\include;..\..\Rendering\GfxRender\freetype\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Base\include;..\..\TBB_4_1\include;..\..\App\Include;..\..\ClientShared;..\..\Rendering\GfxBase\include;..\..\Rendering\GfxCore\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\AppDraw\include;..\..\Rendering\RbxG3D\include;$(CONTRIB_PATH)\SDK\Include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;WIN32;FT2_BUILD_LIBRARY;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|arm'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;..\..\Rendering\GfxRender\include;..\..\Rendering\GfxRender\freetype\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Base\include;..\..\TBB_4_1\include;..\..\App\Include;..\..\ClientShared;..\..\Rendering\GfxBase\include;..\..\Rendering\GfxCore\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\AppDraw\include;..\..\Rendering\RbxG3D\include;$(CONTRIB_PATH)\SDK\Include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;WIN32;FT2_BUILD_LIBRARY;_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;..\..\Rendering\GfxRender\include;..\..\Rendering\GfxRender\freetype\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Base\include;..\..\TBB_4_1\include;..\..\App\Include;..\..\ClientShared;..\..\Rendering\GfxBase\include;..\..\Rendering\GfxCore\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\AppDraw\include;..\..\Rendering\RbxG3D\include;$(CONTRIB_PATH)\SDK\Include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;WIN32;FT2_BUILD_LIBRARY;_CRT_SECURE_NO_WARNINGS;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;..\..\Rendering\GfxRender\include;..\..\Rendering\GfxRender\freetype\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Base\include;..\..\TBB_4_1\include;..\..\App\Include;..\..\ClientShared;..\..\Rendering\GfxBase\include;..\..\Rendering\GfxCore\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\AppDraw\include;..\..\Rendering\RbxG3D\include;$(CONTRIB_PATH)\SDK\Include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;WIN32;FT2_BUILD_LIBRARY;_CRT_SECURE_NO_WARNINGS;NDEBUG;_LIB;_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -58,7 +58,7 @@
 
 #include "rbx/Profiler.h"
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 #include "util/CheatEngine.h"
 #include "security/ApiSecurity.h"
 #endif
@@ -127,7 +127,7 @@ namespace RBX { namespace Network {
 		}
 	};
 
-#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
     // Periodically check that the program memory hashing job is still running
     class ClientReplicator::BadAppCheckerJob : public DataModelJob {
         shared_ptr<ClientReplicator> clientReplicator;
@@ -233,7 +233,7 @@ namespace RBX { namespace Network {
 
 
 
-#if !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO)
+#if !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 	// Periodically hash program memory, and raise an alert if the hash changes
 	class ClientReplicator::MemoryCheckerJob : public DataModelJob {
 
@@ -375,7 +375,7 @@ namespace RBX { namespace Network {
 	};
 #endif
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_STUDIO_BUILD)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_UWP)
 	// Periodically check that the program memory hashing job is still running
 	class ClientReplicator::MemoryCheckerCheckerJob : public DataModelJob {
 
@@ -454,7 +454,7 @@ namespace RBX { namespace Network {
             bool isVehUnhook = false;
             bool isFreeConsoleHooked = false;
             ++runCount;
-#if (!defined(NOOPT) && !defined(DEBUG)) && !defined(RBX_PLATFORM_DURANGO)
+#if (!defined(NOOPT) && !defined(DEBUG)) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
             // a switch statement might result in a jump table, which is not compatible with VMProtect.
             if (runCount % 8 == 0)
             {
@@ -1682,7 +1682,7 @@ FilterResult ClientReplicator::filterReceivedParent(Instance* instance, Instance
 
 void ClientReplicator::onServiceProvider(ServiceProvider* oldProvider, ServiceProvider* newProvider)
 {
-#if !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO)
+#if !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 #ifdef _WIN32
     TaskScheduler::singleton().remove(memoryCheckerCheckerJob);
     memoryCheckerCheckerJob.reset();
@@ -1715,17 +1715,17 @@ void ClientReplicator::onServiceProvider(ServiceProvider* oldProvider, ServicePr
 	{ 
 #if !defined(RBX_STUDIO_BUILD)
         VMProtectBeginMutation("30");
-#if !defined(LOVE_ALL_ACCESS) && defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if !defined(LOVE_ALL_ACCESS) && defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
         badAppCheckerJob.reset(new BadAppCheckerJob(shared_from(this)));
         TaskScheduler::singleton().add(badAppCheckerJob);
 #endif
 
-#if !defined(LOVE_ALL_ACCESS) && (defined(_WIN32) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS))) && !defined(RBX_PLATFORM_DURANGO)
+#if !defined(LOVE_ALL_ACCESS) && (defined(_WIN32) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS))) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
         memoryCheckerJob.reset(new MemoryCheckerJob(shared_from(this)));
         TaskScheduler::singleton().add(memoryCheckerJob);
 #endif
 
-#if !defined(LOVE_ALL_ACCESS) && defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if !defined(LOVE_ALL_ACCESS) && defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
         memoryCheckerCheckerJob.reset(new MemoryCheckerCheckerJob(shared_from(this)));
         TaskScheduler::singleton().add(memoryCheckerCheckerJob);
         hashReadyConnection = memoryCheckerJob->hashReadySignal.connect(boost::bind(&ClientReplicator::onHashReady, this));

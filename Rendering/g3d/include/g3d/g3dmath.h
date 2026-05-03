@@ -27,6 +27,12 @@
 #include "G3D/platform.h"
 #include <ctype.h>
 #include <float.h>
+
+
+#ifdef WINAPI_FAMILY_APP
+#include <algorithm>
+#endif
+
 #include <limits>
 #include <stdlib.h>
 

@@ -1,0 +1,598 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Network\API.cpp" />
+    <ClCompile Include="..\..\Network\BoostAppend.cpp" />
+    <ClCompile Include="..\..\Network\ChatFilter.cpp" />
+    <ClCompile Include="..\..\Network\Client.cpp" />
+    <ClCompile Include="..\..\Network\ClientReplicator.cpp" />
+    <ClCompile Include="..\..\Network\ClusterUpdateBuffer.cpp" />
+    <ClCompile Include="..\..\Network\Compressor.cpp" />
+    <ClCompile Include="..\..\Network\ConcurrentRakPeer.cpp" />
+    <ClCompile Include="..\..\Network\DataBlockEncryptor.cpp" />
+    <ClCompile Include="..\..\Network\Dictionary.cpp" />
+    <ClCompile Include="..\..\Network\DirectPhysicsReceiver.cpp" />
+    <ClCompile Include="..\..\Network\ErrorCompPhysicsSender.cpp" />
+    <ClCompile Include="..\..\Network\ErrorCompPhysicsSender2.cpp" />
+    <ClCompile Include="..\..\Network\GameConfigurer.cpp" />
+    <ClCompile Include="..\..\Network\GamePerfMonitor.cpp" />
+    <ClCompile Include="..\..\Network\GuidRegistryService.cpp" />
+    <ClCompile Include="..\..\Network\InterpolatingPhysicsReceiver.cpp" />
+    <ClCompile Include="..\..\Network\Item.cpp" />
+    <ClCompile Include="..\..\Network\Marker.cpp" />
+    <ClCompile Include="..\..\Network\MechanismItem.cpp" />
+    <ClCompile Include="..\..\Network\MovementHistoryJob.cpp" />
+    <ClCompile Include="..\..\Network\NetPmc.cpp" />
+    <ClCompile Include="..\..\Network\NetworkClusterPacketCache.cpp" />
+    <ClCompile Include="..\..\Network\NetworkFilter.cpp" />
+    <ClCompile Include="..\..\Network\NetworkOwnerJob.cpp" />
+    <ClCompile Include="..\..\Network\NetworkPacketCache.cpp" />
+    <ClCompile Include="..\..\Network\NetworkProfiler.cpp" />
+    <ClCompile Include="..\..\Network\NetworkSettings.cpp" />
+    <ClCompile Include="..\..\Network\Peer.cpp" />
+    <ClCompile Include="..\..\Network\PersistentDataStore.cpp" />
+    <ClCompile Include="..\..\Network\PhysicsReceiver.cpp" />
+    <ClCompile Include="..\..\Network\PhysicsSender.cpp" />
+    <ClCompile Include="..\..\Network\Player.cpp" />
+    <ClCompile Include="..\..\Network\Players.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\BitStream.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\CCRakNetSlidingWindow.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\CCRakNetUDT.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\CheckSum.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\CloudClient.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\CloudCommon.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\CloudServer.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\CommandParserInterface.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\ConnectionGraph2.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\ConsoleServer.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\DataCompressor.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\DirectoryDeltaTransfer.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\DS_BytePool.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\DS_ByteQueue.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\DS_HuffmanEncodingTree.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\DS_Table.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\DynDNS.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\EmailSender.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\EncodeClassName.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\EpochTimeToString.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\FileList.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\FileListTransfer.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\FileOperations.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\FormatString.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\FullyConnectedMesh2.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\Getche.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\Gets.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\GetTime.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\gettimeofday.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\GridSectorizer.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\HTTPConnection.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\IncrementalReadInterface.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\Itoa.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\LinuxStrings.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\LocklessTypes.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\LogCommandParser.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\MessageFilter.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\NatPunchthroughClient.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\NatPunchthroughServer.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\NatTypeDetectionClient.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\NatTypeDetectionCommon.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\NatTypeDetectionServer.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\NetworkIDManager.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\NetworkIDObject.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\PacketConsoleLogger.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\PacketFileLogger.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\PacketizedTCP.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\PacketLogger.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\PacketOutputWindowLogger.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\PluginInterface2.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\Rackspace.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\RakMemoryOverride.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\RakNetCommandParser.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\RakNetSocket.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\RakNetStatistics.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\RakNetTransport2.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\RakNetTypes.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\RakPeer.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\RakSleep.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\RakString.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\RakThread.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\RakWString.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\Rand.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\rdlmalloc.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\ReadyEvent.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\ReliabilityLayer.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\ReplicaManager3.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\Router2.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\RPC4Plugin.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\SecureHandshake.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\SendToThread.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\SHA1.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\SignaledEvent.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\SimpleMutex.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\SocketLayer.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\SQLite3Plugin\sqlite3.c" />
+    <ClCompile Include="..\..\Network\raknet\Source\SQLite3Plugin\SQLite3ClientPlugin.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\SQLite3Plugin\SQLite3PluginCommon.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\SQLite3Plugin\SQLiteClientLoggerPlugin.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\SQLite3Plugin\SQLiteLoggerCommon.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\StringCompressor.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\StringTable.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\SuperFastHash.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\TableSerializer.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\TCPInterface.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\TeamBalancer.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\TelnetTransport.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\ThreadsafePacketLogger.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\TwoWayAuthentication.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\UDPForwarder.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\UDPProxyClient.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\UDPProxyCoordinator.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\UDPProxyServer.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\VariableDeltaSerializer.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\VariableListDeltaTracker.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\VariadicSQLParser.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\VitaIncludes.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\WSAStartupSingleton.cpp" />
+    <ClCompile Include="..\..\Network\raknet\Source\_FindFirst.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.ChangePropertyItem.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.DeleteInstanceItem.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.EventInvocationItem.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.GCJob.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.HashItem.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.ItemSender.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.JoinDataItem.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.MarkerItem.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.NewInstanceItem.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.PingBackItem.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.PingItem.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.ReferencePropertyChangedItem.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.RockyItem.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.StatsItem.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.StreamJob.cpp" />
+    <ClCompile Include="..\..\Network\Replicator.TagItem.cpp" />
+    <ClCompile Include="..\..\Network\ReplicatorStats.cpp" />
+    <ClCompile Include="..\..\Network\rijndael.cpp" />
+    <ClCompile Include="..\..\Network\RoundRobinPhysicsSender.cpp" />
+    <ClCompile Include="..\..\Network\Server.cpp" />
+    <ClCompile Include="..\..\Network\ServerReplicator.cpp" />
+    <ClCompile Include="..\..\Network\Streaming.cpp" />
+    <ClCompile Include="..\..\Network\TopNErrorsPhysicsSender.cpp" />
+    <ClCompile Include="..\..\Network\Util.cpp" />
+    <ClCompile Include="..\..\Network\WebChatFilter.cpp" />
+    <ClCompile Include="..\..\App\voxel2\Grid.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Network\BoostAppend.h" />
+    <ClInclude Include="..\..\Network\Client.h" />
+    <ClInclude Include="..\..\Network\ClientReplicator.h" />
+    <ClInclude Include="..\..\Network\ClusterUpdateBuffer.h" />
+    <ClInclude Include="..\..\Network\Compressor.h" />
+    <ClInclude Include="..\..\Network\ConcurrentRakPeer.h" />
+    <ClInclude Include="..\..\Network\DataBlockEncryptor.h" />
+    <ClInclude Include="..\..\Network\Dictionary.h" />
+    <ClInclude Include="..\..\Network\DirectPhysicsReceiver.h" />
+    <ClInclude Include="..\..\Network\ErrorCompPhysicsSender.h" />
+    <ClInclude Include="..\..\Network\ErrorCompPhysicsSender2.h" />
+    <ClInclude Include="..\..\Network\GamePerfMonitor.h" />
+    <ClInclude Include="..\..\Network\GuidRegistryService.h" />
+    <ClInclude Include="..\..\Network\InterpolatingPhysicsReceiver.h" />
+    <ClInclude Include="..\..\Network\Item.h" />
+    <ClInclude Include="..\..\Network\Marker.h" />
+    <ClInclude Include="..\..\Network\MechanismItem.h" />
+    <ClInclude Include="..\..\Network\MovementHistoryJob.h" />
+    <ClInclude Include="..\..\Network\NetworkFilter.h" />
+    <ClInclude Include="..\..\Network\NetworkOwnerJob.h" />
+    <ClInclude Include="..\..\Network\NetworkProfiler.h" />
+    <ClInclude Include="..\..\Network\NetworkSettings.h" />
+    <ClInclude Include="..\..\Network\PacketIds.h" />
+    <ClInclude Include="..\..\Network\Peer.h" />
+    <ClInclude Include="..\..\Network\PersistentDataStore.h" />
+    <ClInclude Include="..\..\Network\PhysicsReceiver.h" />
+    <ClInclude Include="..\..\Network\PhysicsSender.h" />
+    <ClInclude Include="..\..\Network\PropertySynchronization.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\AutopatcherPatchContext.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\AutopatcherRepositoryInterface.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\BitStream.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\CCRakNetSlidingWindow.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\CCRakNetUDT.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\CheckSum.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\CloudClient.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\CloudCommon.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\CloudServer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\CommandParserInterface.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\ConnectionGraph2.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\ConsoleServer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DataCompressor.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DirectoryDeltaTransfer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_BinarySearchTree.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_BPlusTree.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_BytePool.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_ByteQueue.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_Hash.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_Heap.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_HuffmanEncodingTree.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_HuffmanEncodingTreeFactory.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_HuffmanEncodingTreeNode.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_LinkedList.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_List.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_Map.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_MemoryPool.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_Multilist.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_OrderedChannelHeap.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_OrderedList.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_Queue.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_QueueLinkedList.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_RangeList.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_Table.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_ThreadsafeAllocatingQueue.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_Tree.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DS_WeightedGraph.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\DynDNS.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\EmailSender.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\EpochTimeToString.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\Export.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\FileList.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\FileListNodeContext.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\FileListTransfer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\FileListTransferCBInterface.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\FileOperations.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\FormatString.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\FullyConnectedMesh2.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\Getche.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\Gets.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\GetTime.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\gettimeofday.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\GridSectorizer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\HTTPConnection.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\IncrementalReadInterface.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\InternalPacket.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\Itoa.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\Kbhit.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\LinuxStrings.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\LocklessTypes.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\LogCommandParser.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\MessageFilter.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\MessageIdentifiers.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\MTUSize.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\NativeFeatureIncludes.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\NativeFeatureIncludesOverrides.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\NativeTypes.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\NatPunchthroughClient.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\NatPunchthroughServer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\NatTypeDetectionClient.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\NatTypeDetectionCommon.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\NatTypeDetectionServer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\NetworkIDManager.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\NetworkIDObject.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\PacketConsoleLogger.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\PacketFileLogger.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\PacketizedTCP.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\PacketLogger.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\PacketOutputWindowLogger.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\PacketPool.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\PacketPriority.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\PluginInterface2.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\PS3Includes.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\Rackspace.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakAlloca.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakAssert.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakMemoryOverride.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakNetCommandParser.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakNetDefines.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakNetDefinesOverrides.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakNetSmartPtr.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakNetSocket.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakNetStatistics.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakNetTime.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakNetTransport2.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakNetTypes.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakNetVersion.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakPeer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakPeerInterface.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakSleep.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakString.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakThread.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RakWString.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\Rand.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\rdlmalloc-options.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\rdlmalloc.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\ReadyEvent.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RefCountedObj.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\ReliabilityLayer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\ReplicaEnums.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\ReplicaManager3.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\Router2.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\RPC4Plugin.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SecureHandshake.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SendToThread.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SHA1.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SignaledEvent.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SimpleMutex.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SimpleTCPServer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SingleProducerConsumer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SocketDefines.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SocketIncludes.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SocketLayer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SQLite3Plugin\sqlite3.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SQLite3Plugin\SQLite3ClientPlugin.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SQLite3Plugin\sqlite3ext.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SQLite3Plugin\SQLite3PluginCommon.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SQLite3Plugin\SQLiteClientLoggerPlugin.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SQLite3Plugin\SQLiteLoggerCommon.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\StringCompressor.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\StringTable.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\SuperFastHash.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\TableSerializer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\TCPInterface.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\TeamBalancer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\TelnetTransport.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\ThreadPool.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\ThreadsafePacketLogger.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\TransportInterface.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\TwoWayAuthentication.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\UDPForwarder.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\UDPProxyClient.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\UDPProxyCommon.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\UDPProxyCoordinator.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\UDPProxyServer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\VariableDeltaSerializer.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\VariableListDeltaTracker.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\VariadicSQLParser.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\VitaIncludes.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\WindowsIncludes.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\WSAStartupSingleton.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\XBox360Includes.h" />
+    <ClInclude Include="..\..\Network\raknet\Source\_FindFirst.h" />
+    <ClInclude Include="..\..\Network\Replicator.ChangePropertyItem.h" />
+    <ClInclude Include="..\..\Network\Replicator.DeleteInstanceItem.h" />
+    <ClInclude Include="..\..\Network\Replicator.EventInvocationItem.h" />
+    <ClInclude Include="..\..\Network\Replicator.GCJob.h" />
+    <ClInclude Include="..\..\Network\Replicator.h" />
+    <ClInclude Include="..\..\Network\Replicator.HashItem.h" />
+    <ClInclude Include="..\..\Network\Replicator.ItemSender.h" />
+    <ClInclude Include="..\..\Network\Replicator.JoinDataItem.h" />
+    <ClInclude Include="..\..\Network\Replicator.MarkerItem.h" />
+    <ClInclude Include="..\..\Network\Replicator.NewInstanceItem.h" />
+    <ClInclude Include="..\..\Network\Replicator.PingBackItem.h" />
+    <ClInclude Include="..\..\Network\Replicator.PingItem.h" />
+    <ClInclude Include="..\..\Network\Replicator.PingJob.h" />
+    <ClInclude Include="..\..\Network\Replicator.ProcessPacketsJob.h" />
+    <ClInclude Include="..\..\Network\Replicator.ReferencePropertyChangedItem.h" />
+    <ClInclude Include="..\..\Network\Replicator.RockyItem.h" />
+    <ClInclude Include="..\..\Network\Replicator.SendDataJob.h" />
+    <ClInclude Include="..\..\Network\Replicator.StatsItem.h" />
+    <ClInclude Include="..\..\Network\Replicator.StreamJob.h" />
+    <ClInclude Include="..\..\Network\Replicator.TagItem.h" />
+    <ClInclude Include="..\..\Network\ReplicatorStats.h" />
+    <ClInclude Include="..\..\Network\Rijndael-Boxes.h" />
+    <ClInclude Include="..\..\Network\Rijndael.h" />
+    <ClInclude Include="..\..\Network\RoundRobinPhysicsSender.h" />
+    <ClInclude Include="..\..\Network\Server.h" />
+    <ClInclude Include="..\..\Network\ServerReplicator.h" />
+    <ClInclude Include="..\..\Network\Streaming.h" />
+    <ClInclude Include="..\..\Network\StreamingUtil.h" />
+    <ClInclude Include="..\..\Network\TopNErrorsPhysicsSender.h" />
+    <ClInclude Include="..\..\Network\Util.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\Network\raknet\Source\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Network\Network_Prefix.pch" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{b02f4dbc-b479-4792-938c-c3dc941aaf5e}</ProjectGuid>
+    <Keyword>StaticLibrary</Keyword>
+    <RootNamespace>Network</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.10240.0</WindowsTargetPlatformMinVersion>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Network;..\..\Network\include;..\..\Base\include;..\..\Network\include\network;..\..\App\lua-5.1.4\src;..\..\App\include;..\..\Network\raknet\source;..\TBB_4_1\include;..\..\fmod\UWP\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;..\..\Rendering\g3d\png;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\ClientShared;..\..\App.BulletPhysics;$(CONTRIB_PATH)\VMProtectWin_2.13;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;RBX_PLATFORM_UWP;_WIN32_WINNT=0x0602;WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Network;..\..\Network\include;..\..\Base\include;..\..\Network\include\network;..\..\App\lua-5.1.4\src;..\..\App\include;..\..\Network\raknet\source;..\TBB_4_1\include;..\..\fmod\UWP\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;..\..\Rendering\g3d\png;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\ClientShared;..\..\App.BulletPhysics;$(CONTRIB_PATH)\VMProtectWin_2.13;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;RBX_PLATFORM_UWP;_WIN32_WINNT=0x0602;WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|arm'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Network;..\..\Network\include;..\..\Base\include;..\..\Network\include\network;..\..\App\lua-5.1.4\src;..\..\App\include;..\..\Network\raknet\source;..\TBB_4_1\include;..\..\fmod\UWP\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;..\..\Rendering\g3d\png;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\ClientShared;..\..\App.BulletPhysics;$(CONTRIB_PATH)\VMProtectWin_2.13;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;RBX_PLATFORM_UWP;_WIN32_WINNT=0x0602;WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|arm'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Network;..\..\Network\include;..\..\Base\include;..\..\Network\include\network;..\..\App\lua-5.1.4\src;..\..\App\include;..\..\Network\raknet\source;..\TBB_4_1\include;..\..\fmod\UWP\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;..\..\Rendering\g3d\png;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\ClientShared;..\..\App.BulletPhysics;$(CONTRIB_PATH)\VMProtectWin_2.13;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;RBX_PLATFORM_UWP;_WIN32_WINNT=0x0602;WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Network;..\..\Network\include;..\..\Base\include;..\..\Network\include\network;..\..\App\lua-5.1.4\src;..\..\App\include;..\..\Network\raknet\source;..\TBB_4_1\include;..\..\fmod\UWP\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;..\..\Rendering\g3d\png;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\ClientShared;..\..\App.BulletPhysics;$(CONTRIB_PATH)\VMProtectWin_2.13;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;RBX_PLATFORM_UWP;_WIN32_WINNT=0x0602;WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Network;..\..\Network\include;..\..\Base\include;..\..\Network\include\network;..\..\App\lua-5.1.4\src;..\..\App\include;..\..\Network\raknet\source;..\TBB_4_1\include;..\..\fmod\UWP\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;..\..\Rendering\g3d\png;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\ClientShared;..\..\App.BulletPhysics;$(CONTRIB_PATH)\VMProtectWin_2.13;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;RBX_PLATFORM_UWP;_WIN32_WINNT=0x0602;WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

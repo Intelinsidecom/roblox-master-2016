@@ -12,7 +12,9 @@
 #include "winhttp.h"
 
 #pragma comment (lib , "Winhttp.lib")
+#if !defined(RBX_PLATFORM_UWP)
 #include "atlutil.h"
+#endif
 #include "g3d/format.h"
 #include "Util/MD5Hasher.h"
 

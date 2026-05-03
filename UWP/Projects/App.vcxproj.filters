@@ -1,0 +1,1778 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="gui">
+      <UniqueIdentifier>{f885919a-34ec-4ab4-9277-63719a0693f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="humanoid">
+      <UniqueIdentifier>{a1555c10-74d1-4457-8058-7f3e9a524f3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lua-5.1.4">
+      <UniqueIdentifier>{2bd5b73e-be8f-4482-833e-cb5bce5b1aa5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lua-5.1.4\src">
+      <UniqueIdentifier>{1bc1f6a0-a29f-4d30-b0e4-4bd59e8ecb89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lz4">
+      <UniqueIdentifier>{68090d51-5134-471f-91c4-e6752f96fc5f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="reflection">
+      <UniqueIdentifier>{f9ca03c5-8fd3-49a0-a1bb-34ad58a59957}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="script">
+      <UniqueIdentifier>{9e831d00-7b77-4e67-a372-c4ca6ac8a7ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="security">
+      <UniqueIdentifier>{dd96aa7c-2719-440d-a0ed-2435fa390c34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="solver">
+      <UniqueIdentifier>{70b785b3-10c8-4da4-abd0-0fe807c7782d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tool">
+      <UniqueIdentifier>{c3772e19-125c-431f-a1a1-e9f608d549aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{583b0651-6ce0-4977-b61d-1cf36c7c8426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="v8datamodel">
+      <UniqueIdentifier>{28f0fc2c-f48f-4236-b0ef-560564ef05f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="v8kernel">
+      <UniqueIdentifier>{3db0d101-38ab-42ac-971e-2769791216dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="v8tree">
+      <UniqueIdentifier>{9c7a26f2-cae8-43e8-b752-325235eea3e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="v8world">
+      <UniqueIdentifier>{d9268af0-7f75-4692-814b-ed56765bfc3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="v8xml">
+      <UniqueIdentifier>{cfd4a8fd-124d-4108-b29f-0439dfd3030a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="voxel">
+      <UniqueIdentifier>{da53ec7d-0b21-41ab-85bd-d6a15d5b6e33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="voxel2">
+      <UniqueIdentifier>{e1907212-4945-4966-b56b-c0b887e8d4e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util\Shared">
+      <UniqueIdentifier>{dd413bde-1cd8-4ae4-9896-4150ea43590a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util\UWP">
+      <UniqueIdentifier>{94b69e07-257b-449b-8f37-2f2f268ec735}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ClientShared">
+      <UniqueIdentifier>{b8e7a3d2-5c4f-4abc-8d2e-9f5a6b3c1d4e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\App\gui\ChatOutput.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\gui\ChatWidget.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\gui\EquationDisplay.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\gui\GUI.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\gui\GuiDraw.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\gui\ProfanityFilter.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\gui\ScoreHud.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\gui\Widget.cpp">
+      <Filter>gui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\Balancing.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\FallingDown.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\Flying.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\Freefall.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\GettingUp.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\Humanoid.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\HumanoidState.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\Jumping.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\MovingNoPhysicsBase.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\Ragdoll.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\Running.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\RunningBase.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\RunningNoPhysics.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\Seated.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\StatusInstance.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\StrafingNoPhysics.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\humanoid\Swimming.cpp">
+      <Filter>humanoid</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lapi.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lauxlib.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lbaselib.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lcode.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\ldblib.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\ldebug.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\ldo.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\ldump.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lfunc.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lgc.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\linit.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\liolib.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\llex.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lmathlib.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lmem.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\loadlib.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lobject.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lopcodes.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\loslib.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lparser.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lstate.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lstring.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lstrlib.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\ltable.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\ltablib.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\ltm.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lua.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\luac.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lundump.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lvm.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lzio.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\print.c">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\lz4\lz4.c">
+      <Filter>lz4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\lz4\lz4hc.c">
+      <Filter>lz4</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\voxel2\Grid.cpp">
+      <Filter>voxel2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\voxel2\MaterialTable.cpp">
+      <Filter>voxel2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\voxel2\Mesher.cpp">
+      <Filter>voxel2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\voxel\Cell.cpp">
+      <Filter>voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\voxel\Grid.Chunk.cpp">
+      <Filter>voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\voxel\Grid.cpp">
+      <Filter>voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\voxel\Serializer.cpp">
+      <Filter>voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\voxel\Util.cpp">
+      <Filter>voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\voxel\Voxelizer.cpp">
+      <Filter>voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\voxel\Water.cpp">
+      <Filter>voxel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8xml\SerializerBinary.cpp">
+      <Filter>v8xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8xml\SerializerV2.cpp">
+      <Filter>v8xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8xml\WebParser.cpp">
+      <Filter>v8xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8xml\WebSerializer.cpp">
+      <Filter>v8xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8xml\XmlElement.cpp">
+      <Filter>v8xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8xml\XmlSerializer.cpp">
+      <Filter>v8xml</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Assembly.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\AssemblyHistory.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\AssemblyStage.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Ball.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\BallCellContact.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\BallPolyContact.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Block.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\BulletContact.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\BulletGeometryPoolObjects.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\BulletShapeCellContact.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\BulletShapeContact.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Buoyancy.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\CellContact.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\CleanStage.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Clump.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Contact.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\ContactManager.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\ContactManagerSpatialHash.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\ContactStage.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Controller.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\CornerWedgePoly.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Cylinder.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Edge.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\EdgeBuffer.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\EdgeStage.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Feature.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\GlueJoint.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\GroundStage.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\HumanoidStage.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\IMoving.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\IPipelined.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\IWorldStage.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Joint.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\JointBuilder.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\JointStage.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\KDTree.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\KernelJoint.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\MacroTypes.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\MaterialProperties.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Mechanism.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\MechToAssemblyStage.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\MegaClusterPoly.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Mesh.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Motor6DJoint.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\MotorJoint.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\MovingAssemblyStage.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\MovingStage.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\MutilJoint.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\ParallelRampPoly.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Poly.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\PolyCellContact.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\PolyContact.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\PolyPolyContact.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\Primitive.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\PrismPoly.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\PyramidPoly.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\RightAngleRampPoly.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\RigidJoint.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\RotateJoint.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\SendPhysics.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\SimJob.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\SimulateStage.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\SleepStage.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\SmoothClusterGeometry.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\SnapJoint.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\SpatialFilter.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\SpatialHashMultiRes.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\StepJointsStage.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\TerrainPartition.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\TreeStage.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\TriangleMesh.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\WedgePoly.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\WeldJoint.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\World.cpp">
+      <Filter>v8world</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8tree\EnumProperty.cpp">
+      <Filter>v8tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8tree\Instance.cpp">
+      <Filter>v8tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8tree\Property.cpp">
+      <Filter>v8tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8tree\Service.cpp">
+      <Filter>v8tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8tree\Verb.cpp">
+      <Filter>v8tree</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8kernel\Body.cpp">
+      <Filter>v8kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8kernel\BulletShapeConnectors.cpp">
+      <Filter>v8kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8kernel\BuoyancyConnector.cpp">
+      <Filter>v8kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8kernel\Cofm.cpp">
+      <Filter>v8kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8kernel\Connector.cpp">
+      <Filter>v8kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8kernel\Constants.cpp">
+      <Filter>v8kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8kernel\ContactConnector.cpp">
+      <Filter>v8kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8kernel\Kernel.cpp">
+      <Filter>v8kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8kernel\Link.cpp">
+      <Filter>v8kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8kernel\Pair.cpp">
+      <Filter>v8kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8kernel\Point.cpp">
+      <Filter>v8kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8kernel\PolyConnectors.cpp">
+      <Filter>v8kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8kernel\SimBody.cpp">
+      <Filter>v8kernel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Accoutrement.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Adornment.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\AdService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\AnimatableRootJoint.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Animation.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\AnimationController.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\AnimationTrack.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\AnimationTrackState.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Animator.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ArcHandles.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\AssetService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Attachment.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Backpack.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\BadgeService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\BaseRenderJob.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\BasicPartInstance.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\BevelMesh.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\BillboardGui.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Bindable.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\BlockMesh.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Camera.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ChangeHistory.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\CharacterAppearance.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\CharacterMesh.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ChatService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ClickDetector.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\CollectionService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ColorSequence.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Commands.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\CommonVerbs.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Configuration.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ContextActionService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\CookiesEngineService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientShared\Mobile\CookiesEngine.cpp">
+      <Filter>ClientShared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientShared\RobloxServicesTools.cpp">
+      <Filter>ClientShared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientShared\format_string.cpp">
+      <Filter>ClientShared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientShared\StringConv.cpp">
+      <Filter>ClientShared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\CornerWedgeInstance.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\CSGDictionaryService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\CSGMesh.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\CustomEvent.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\CustomEventReceiver.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\CustomParticleEmitter.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\CylinderMesh.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\DataModel.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\DataModelJob.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\DataModelMesh.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\DataStore.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\DataStoreService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\DebrisService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\DebugSettings.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Decal.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\DialogChoice.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\DialogRoot.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Effect.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Enums.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Explosion.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ExtrudedPartInstance.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\FaceInstance.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\factoryregistration.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\FastLogSettings.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Feature.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\FileMesh.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Filters.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Fire.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Flag.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\FlagStand.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\FloorWire.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\FlyweightService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Folder.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ForceField.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Frame.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\FriendService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Game.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\GameBasicSettings.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\GamepadService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\GamePassService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\GameSettings.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\GeometryService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\GlobalSettings.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\GroupService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\GuiBase.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\GuiBase2d.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\GuiBase3d.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\GuiBuilder.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\GuiLayerCollector.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\GuiObject.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\GuiService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Gyro.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\HandleAdornment.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Handles.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\HandlesBase.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\HapticService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Hopper.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\HttpRbxApiService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\HttpService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ICharacterSubject.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\IEquipable.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ImageButton.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ImageLabel.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\InputObject.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\InsertService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\JointInstance.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\JointsService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Keyframe.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\KeyframeSequence.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\KeyframeSequenceProvider.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\legacy.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Light.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Lighting.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\LocalWorkspace.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\LoginService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\LogService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ManualJointHelper.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\MarketplaceService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\MegaCluster.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Message.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ModelInstance.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Mouse.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\MouseCommand.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\NonReplicatedCSGDictionaryService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\NotificationService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\NumberRange.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\NumberSequence.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ParallelRampInstance.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ParametricPartInstance.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PartCookie.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PartInstance.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PartOperation.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PartOperationAsset.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PathfindingService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PersonalServerService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PhysicsInstructions.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PhysicsService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PhysicsSettings.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Platform.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PlatformService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PlayerGui.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PlayerMouse.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PlayerScripts.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PluginManager.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PluginMouse.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PointsService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Pose.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PrismInstance.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PVInstance.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\PyramidInstance.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Remote.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\RenderHooksService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ReplicatedFirst.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ReplicatedStorage.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\RightAngleRampInstance.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\RobloxReplicatedStorage.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\RootInstance.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\SafeChat.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Scale9Frame.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ScreenGui.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ScriptMouseCommand.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ScriptService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ScrollingFrame.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Seat.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Selection.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\SelectionBox.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\SelectionLasso.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\SelectionSphere.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ServerScriptService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ServerStorage.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\SkateboardController.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\SkateboardPlatform.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Sky.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\SleepingJob.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Smoke.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\SocialService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\SolidModelContentProvider.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Sparkles.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\SpawnLocation.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\SpecialMesh.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\StarterPlayerService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Stats.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\StudioTool.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\StudioToolMouseCommand.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\StudioToolVerb.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Surface.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\SurfaceGui.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\SurfaceSelection.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Team.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Teams.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\TeleportService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\TerrainRegion.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Test.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\TextBox.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\TextButton.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\TextLabel.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\TextService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\TextureTrail.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\TimerService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Tool.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ToolMouseCommand.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ToolsModel.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ToolsPart.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\ToolsSurface.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\TouchInputService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\TouchTransmitter.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\TweenService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\UserController.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\UserInputService.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Value.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\VehicleSeat.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\VirtualUser.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Visit.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8datamodel\Workspace.cpp">
+      <Filter>v8datamodel</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Action.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Analytics.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\AnimationId.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\AsyncHttpQueue.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Axes.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Base64BinaryInputStream.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Base64BinaryOutputStream.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\BrickColor.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\CacheableContentProvider.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\CameraSubject.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\CellID.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Color.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\ContentFilter.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\ContentId.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\ContentProvider.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\ContentProviderJob.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Extents.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Face.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Faces.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\FileSystemIndependent.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\gpc.c">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Guid.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Handle.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Hash.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\HeartbeatInstance.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\HitTest.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\HttpAsync.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\IndexBox.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\IndexedMesh.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\IndexedTree.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\KeyCode.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\KeywordFilter.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\LegacyContentTable.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\LuaWebService.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\MachineIdUploader.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Math.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\md5.c">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\MD5Hasher.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\MemoryStats.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\MemoryStatsCommon.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\MeshContentProvider.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\MeshId.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\MovementHistory.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Name.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\NamedMutex.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\NormalId.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\PathInterpolatedCFrame.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\PhysicalProperties.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Profiling.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\ProtectedString.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\quadedge.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Quaternion.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\rbxrandom.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\RbxStringTable.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Rect.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Region2.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Region3.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Region3int16.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Region3int32.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\RobloxGoogleAnalytics.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\RunningAverage.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\RunStateOwner.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\ScriptInformationProvider.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Sound.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\SoundChannel.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\SoundService.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\SoundWorld.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\SpanningEdge.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\SpanningNode.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\SpanningTree.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\SpatialRegion.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\standardout.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Statistics.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\stdafx.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\SteppedInstance.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\StreamRegion.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\SystemAddress.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\TextureContentProvider.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\ThreadPool.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\UDim.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\UintSet.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Units.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\URL.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\UserInputBase.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Utilities.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Vector3int32.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\WinHeap.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\XboxHttp2.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\xxhash.c">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Shared\Http.cpp">
+      <Filter>util\Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Shared\HttpCacheEntry.cpp">
+      <Filter>util\Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Shared\HttpPlatformImpl.cpp">
+      <Filter>util\Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\AdvDragTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\AdvLuaDragger.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\AdvLuaDragTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\AdvMoveTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\AdvRotateTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\AdvRunDragger.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\AxisMoveTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\AxisRotateTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\CloneTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\Dragger.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\DragTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\DragUtilities.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\DropTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\GameTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\GrabTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\GroupDragTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\GroupDropTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\HammerTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\LuaDragger.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\LuaDragTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\MegaDragger.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\MoveResizeJoinTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\NullTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\PartDragTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\PartDropTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\ResizeTool.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\RunDragger.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\tool\ToolsArrow.cpp">
+      <Filter>tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\solver\Constraint.cpp">
+      <Filter>solver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\solver\ConstraintJacobian.cpp">
+      <Filter>solver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\solver\Solver.cpp">
+      <Filter>solver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\solver\SolverBody.cpp">
+      <Filter>solver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\solver\SolverConfig.cpp">
+      <Filter>solver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\solver\SolverKernel.cpp">
+      <Filter>solver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\security\FuzzyTokens.cpp">
+      <Filter>security</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\security\SecurityContext.cpp">
+      <Filter>security</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\CoreScript.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\DebuggerManager.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\LuaArguments.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\LuaAtomicClasses.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\LuaBridge.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\LuaCoreFunctions.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\LuaEnum.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\LuaInstanceBridge.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\LuaLibrary.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\LuaMemory.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\LuaSettings.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\LuaSignalBridge.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\LuaSourceContainer.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\LuaVM.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\LuaVMClient.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\LuaVMDummy.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\LuaVMServer.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\ModuleScript.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\Script.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\ScriptAnalyzer.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\ScriptContext.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\ScriptEvent.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\ScriptStats.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\script\ThreadRef.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\reflection\Callback.cpp">
+      <Filter>reflection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\reflection\Event.cpp">
+      <Filter>reflection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\reflection\reflection_function.cpp">
+      <Filter>reflection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\reflection\reflection_object.cpp">
+      <Filter>reflection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\reflection\reflection_property.cpp">
+      <Filter>reflection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\reflection\type.cpp">
+      <Filter>reflection</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\UWP\ProgramMemoryChecker.cpp">
+      <Filter>util\UWP</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lapi.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lauxlib.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lcode.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\ldebug.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\ldo.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lfunc.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lgc.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\llex.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\llimits.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lmem.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lobject.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lopcodes.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lparser.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lstate.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lstring.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\ltable.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\ltm.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lua.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\luaconf.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lualib.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lundump.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lvm.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lzio.h">
+      <Filter>Lua-5.1.4\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\lz4\lz4.h">
+      <Filter>lz4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\lz4\lz4_decoder.h">
+      <Filter>lz4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\lz4\lz4_encoder.h">
+      <Filter>lz4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\lz4\lz4hc.h">
+      <Filter>lz4</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\App\lz4\lz4hc_encoder.h">
+      <Filter>lz4</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\App\Lua-5.1.4\src\Makefile">
+      <Filter>Lua-5.1.4\src</Filter>
+    </None>
+    <None Include="..\..\App\script\LuaGenCS.inl">
+      <Filter>script</Filter>
+    </None>
+    <None Include="..\..\App\script\LuaSerializer.inl">
+      <Filter>script</Filter>
+    </None>
+  </ItemGroup>
+</Project>

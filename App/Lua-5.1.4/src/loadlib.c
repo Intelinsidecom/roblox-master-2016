@@ -9,6 +9,15 @@
 */
 
 
+#ifdef RBX_PLATFORM_UWP
+#define _WIN32_WINNT 0x0A00
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#include <winapifamily.h>
+#include <libloaderapi.h>
+
+#endif
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -90,6 +99,7 @@ static lua_CFunction ll_sym (lua_State *L, void *lib, const char *sym) {
 */
 
 #include <windows.h>
+#include <libloaderapi.h>
 
 
 #undef setprogdir
@@ -125,7 +135,15 @@ static void ll_unloadlib (void *lib) {
 
 
 static void *ll_load (lua_State *L, const char *path) {
+#if defined(RBX_PLATFORM_UWP)
+  int len = MultiByteToWideChar(CP_ACP, 0, path, -1, NULL, 0);
+  wchar_t* wpath = (wchar_t*)malloc(len * sizeof(wchar_t));
+  MultiByteToWideChar(CP_ACP, 0, path, -1, wpath, len);
+  HINSTANCE lib = LoadPackagedLibrary(wpath, 0);
+  free(wpath);
+#else
   HINSTANCE lib = LoadLibraryA(path);
+#endif
   if (lib == NULL) pusherror(L);
   return lib;
 }
@@ -591,7 +609,11 @@ static int ll_seeall (lua_State *L) {
 
 static void setpath (lua_State *L, const char *fieldname, const char *envname,
                                    const char *def) {
+#if !defined(RBX_PLATFORM_UWP)
   const char *path = getenv(envname);
+#else
+  const char *path = NULL;
+#endif
   if (path == NULL)  /* no environment variable? */
     lua_pushstring(L, def);  /* use default */
   else {

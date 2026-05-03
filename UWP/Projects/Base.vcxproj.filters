@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\ClientShared\SimpleJSON.cpp">
+      <Filter>ClientShared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientShared\StringConv.cpp">
+      <Filter>ClientShared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\util\Debug.cpp">
+      <Filter>Util Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\util\Log.cpp">
+      <Filter>Util Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\util\RbxCrash.cpp">
+      <Filter>Util Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\util\StreamHelpers.cpp">
+      <Filter>Util Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\Tasks\Coordinator.cpp">
+      <Filter>RBX\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\boost.cpp">
+      <Filter>RBX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\CEvent.cpp">
+      <Filter>RBX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\Crypt.cpp">
+      <Filter>RBX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\Memory.cpp">
+      <Filter>RBX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\Profiler.cpp">
+      <Filter>RBX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\Signal.cpp">
+      <Filter>RBX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\TaskScheduler.cpp">
+      <Filter>RBX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\TaskScheduler.Job.cpp">
+      <Filter>RBX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\TaskScheduler.Thread.cpp">
+      <Filter>RBX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\ThreadSafe.cpp">
+      <Filter>RBX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\cpucount.cpp" />
+    <ClCompile Include="..\..\Base\RbxAssert.cpp" />
+    <ClCompile Include="..\..\Base\RbxFormat.cpp" />
+    <ClCompile Include="..\..\Base\rbx\Time.cpp">
+      <Filter>RBX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientShared\Mobile\CookiesEngine.cpp" />
+    <ClCompile Include="..\..\Base\rbx\Durango\SystemUtil.cpp" />
+    <ClCompile Include="..\..\Base\rbx\UWP\SystemUtil.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="ClientShared">
+      <UniqueIdentifier>{fe4c957a-b802-4e07-83f7-8dcfa83bab7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RBX">
+      <UniqueIdentifier>{9d15f110-d4ca-4024-9b8b-a93e4a823a17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RBX\Tasks">
+      <UniqueIdentifier>{40ec4334-1211-4450-9541-ef6a00fae895}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util Source">
+      <UniqueIdentifier>{3686ac71-1816-43de-b311-738c8584ee03}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

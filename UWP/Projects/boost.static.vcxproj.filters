@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(CONTRIB_PATH)\cpp-netlib-0.11.0-final\libs\network\src\uri\uri.cpp" />
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\chrono\src\chrono.cpp">
+      <Filter>chrono</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\chrono\src\process_cpu_clocks.cpp">
+      <Filter>chrono</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\chrono\src\thread_clock.cpp">
+      <Filter>chrono</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\filesystem\src\codecvt_error_category.cpp">
+      <Filter>filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\filesystem\src\operations.cpp">
+      <Filter>filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\filesystem\src\path.cpp">
+      <Filter>filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\filesystem\src\path_traits.cpp">
+      <Filter>filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\filesystem\src\portability.cpp">
+      <Filter>filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\filesystem\src\unique_path.cpp">
+      <Filter>filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\filesystem\src\utf8_codecvt_facet.cpp">
+      <Filter>filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\filesystem\src\windows_file_codecvt.cpp">
+      <Filter>filesystem</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\system\src\error_code.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\thread\src\future.cpp">
+      <Filter>thread</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\thread\src\win32\thread.cpp">
+      <Filter>thread</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\thread\src\win32\tss_dll.cpp">
+      <Filter>thread</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\thread\src\tss_null.cpp">
+      <Filter>thread</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\thread\src\win32\tss_pe.cpp">
+      <Filter>thread</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\iostreams\src\mapped_file.cpp">
+      <Filter>iostreams</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\iostreams\src\gzip.cpp">
+      <Filter>iostreams</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\iostreams\src\file_descriptor.cpp">
+      <Filter>iostreams</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\boost_1_56_0\libs\iostreams\src\zlib.cpp">
+      <Filter>iostreams</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(CONTRIB_PATH)\boost_1_56_0\libs\filesystem\src\windows_file_codecvt.hpp">
+      <Filter>filesystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Contrib2\boost_1_56_0\include\boost\thread\win32\thread_primitives.hpp">
+      <Filter>thread</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="chrono">
+      <UniqueIdentifier>{674b09d2-7b16-40a9-ac76-7b854542dca0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="filesystem">
+      <UniqueIdentifier>{0ebc1a94-7d41-490a-807b-e371547a3a63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="system">
+      <UniqueIdentifier>{d59951f3-c909-4383-b7a5-882121771194}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thread">
+      <UniqueIdentifier>{38b5200a-0a41-434a-9c35-357d3bc9586a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="iostreams">
+      <UniqueIdentifier>{f24e363b-ac69-4bc2-9491-6a31a8b7bc3a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -17,7 +17,7 @@
 #include "StringConv.h"
 #include "RobloxServicesTools.h"
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 #include "ATLPath.h"
 #include "FastLog.h"
 #endif

@@ -13,6 +13,9 @@
 #define VECTOR3INT16_H
 
 #include "G3D/platform.h"
+#ifdef WINAPI_FAMILY_APP
+#include <algorithm>
+#endif
 #include "G3D/g3dmath.h"
 #include "G3D/HashTrait.h"
 

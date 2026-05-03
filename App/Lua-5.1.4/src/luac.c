@@ -128,7 +128,11 @@ static const Proto* combine(lua_State* L, int n)
   f->source=luaS_newliteral(L,"=(" PROGNAME ")");
   f->maxstacksize=1;
   pc=2*n+1;
+#if defined(RBX_PLATFORM_UWP)
+  f->code=(InstructionV*)luaM_newvector(L,pc,Instruction);
+#else
   f->code=luaM_newvector(L,pc,Instruction);
+#endif
   f->sizecode=pc;
   f->p=luaM_newvector(L,n,Proto*);
   f->sizep=n;
@@ -136,10 +140,19 @@ static const Proto* combine(lua_State* L, int n)
   for (i=0; i<n; i++)
   {
    f->p[i]=toproto(L,i-n-1);
+#if defined(RBX_PLATFORM_UWP)
+   f->code[pc++].v=CREATE_ABx(OP_CLOSURE,0,i);
+   f->code[pc++].v=CREATE_ABC(OP_CALL,0,1,1);
+#else
    f->code[pc++]=CREATE_ABx(OP_CLOSURE,0,i);
    f->code[pc++]=CREATE_ABC(OP_CALL,0,1,1);
+#endif
   }
+#if defined(RBX_PLATFORM_UWP)
+  f->code[pc++].v=CREATE_ABC(OP_RETURN,0,1,0);
+#else
   f->code[pc++]=CREATE_ABC(OP_RETURN,0,1,0);
+#endif
   return f;
  }
 }

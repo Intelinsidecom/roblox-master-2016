@@ -252,7 +252,7 @@ int RakWString::StrCmp(const RakWString &right) const
 }
 int RakWString::StrICmp(const RakWString &right) const
 {
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP) 
 	return wcsicmp(C_String(), right.C_String());
 #else
 	// Not supported

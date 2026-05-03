@@ -273,7 +273,7 @@ RenderView::RenderView(CRenderSettings::GraphicsMode graphicsMode, OSContext* co
 {
 	FASTLOG1(FLog::ViewRbxInit, "RenderView created - %p", this);
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 	timeBeginPeriod(1);
 #endif
 
@@ -402,7 +402,7 @@ RenderView::~RenderView(void)
 
     sendFeatureLevelStats();
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 	timeEndPeriod(1);
 #endif
 	FASTLOG(FLog::ViewRbxInit, "RenderView destroyed");

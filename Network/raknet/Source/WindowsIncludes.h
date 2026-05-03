@@ -1,5 +1,14 @@
 #if defined(X360__) 
 #elif defined (_WIN32)
+#if defined(RBX_PLATFORM_UWP)
+#ifndef _WIN32_WINNT
+#define _WIN32_WINNT 0x0A00
+#endif
+#else
+#ifndef _WIN32_WINNT
+#define _WIN32_WINNT 0x0501
+#endif
+#endif
 #include <WinSock2.h>
 #include <windows.h>
 #include <Ws2tcpip.h>

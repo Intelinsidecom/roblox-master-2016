@@ -1,5 +1,10 @@
 #include "rbx/Profiler.h"
 
+#if defined(RBX_PLATFORM_UWP)
+#define _WIN32_WINNT 0x0A00
+#define NTDDI_VERSION 0x0A000000
+#endif
+
 #include "rbx/Debug.h"
 
 FASTFLAGVARIABLE(OnScreenProfiler, false)
@@ -94,7 +99,7 @@ static void MicroProfileDebugPrintf(const char* format, ...)
 #define MP_ASSERT(e) RBXASSERT(e)
 #define MICROPROFILE_WEBSERVER 0
 
-#ifdef RBX_PLATFORM_DURANGO
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_UWP)
 #define MICROPROFILE_WEBSERVER_PORT 4600
 #define MICROPROFILE_CONTEXT_SWITCH_TRACE 0
 #define getenv(name) NULL
@@ -110,6 +115,8 @@ static void MicroProfileDebugPrintf(const char* format, ...)
 #if defined(RBX_PLATFORM_DURANGO)
 #include <d3d11_x.h>
 #endif
+
+
 
 #define MICROPROFILE_IMPL
 #include "microprofile/microprofile.h"

@@ -32,9 +32,9 @@
 
 
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 #include <atlutil.h>
-#endif // defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#endif
 
 LOGGROUP(Http)
 DYNAMIC_FASTINT(ExternalHttpRequestSizeLimitKB)
@@ -971,7 +971,7 @@ void Http::get(std::string& response, bool externalRequest)
 
 bool Http::isScript(const char* url)
 {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
     if (!useCurlHttpImpl)
     {
         CUrl crack;
@@ -1013,7 +1013,7 @@ bool Http::isMoneySite(const char* url)
     }
 #endif // ifdef __APPLE__
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
     if (!useCurlHttpImpl)
     {
         CUrl crack;
@@ -1102,7 +1102,7 @@ bool Http::isRobloxSite(const char* url)
     }
 #endif // ifdef __APPLE__
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
     if (!useCurlHttpImpl)
     {
         CUrl crack;
@@ -1225,7 +1225,7 @@ bool Http::trustCheckBrowser(const char* url)
 
 bool Http::isExternalRequest(const char* url)
 {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
     if (!useCurlHttpImpl)
     {
         std::string urlLower = url;
@@ -1302,7 +1302,7 @@ bool Http::trustCheck(const char* url, bool externalRequest)
         return true;
     }
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
     if (!useCurlHttpImpl)
     {
         CUrl crack;

@@ -56,7 +56,7 @@ void Settings::InvalidDescendentCollector::operator()(shared_ptr<Instance> desce
 void Settings::eraseSettingsStore()
 {
 	settingsErased = true;
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
 	::DeleteFile(settingsFile.c_str());
 #else
 	std::remove(settingsFile.c_str());

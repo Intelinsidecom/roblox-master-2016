@@ -1,0 +1,697 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\Rendering\GfxRender\AdornRender.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\CullableSceneNode.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\CustomEmitter.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\Emitter.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\EnvMap.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\ExplosionEmitter.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\FastCluster.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\GeometryGenerator.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\GlobalShaderData.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\Image.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\LightGrid.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\LightObject.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\Material.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\MaterialGenerator.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\MegaCluster.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\ObjectExporter.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\ParticleEmitter.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\RenderCamera.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\RenderNode.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\RenderQueue.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\RenderView.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SceneManager.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SceneUpdater.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\ScreenSpaceEffect.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\ShaderManager.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\Sky.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SmoothCluster.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SpatialHashedScene.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SSAO.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\stdafx.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SuperCluster.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TextureAtlas.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TextureCompositor.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TextureManager.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TextureRef.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TypesetterBitmap.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TypesetterDynamic.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\VertexStreamer.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\VisualEngine.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\Water.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gzip\adler32.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afangles.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afblue.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afcjk.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afdummy.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afglobal.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afhints.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afindic.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afloader.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afmodule.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psaux\afmparse.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afpic.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afranges.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\afwarp.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\tools\apinames.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\autofit.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\basepic.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\bdf\bdf.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\bdf\bdfdrivr.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\bdf\bdflib.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2arrst.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2blues.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2error.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2font.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2ft.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2hints.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2intrp.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2read.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cf2stack.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cff.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cffcmap.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cffdrivr.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cffgload.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cffload.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cffobjs.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cffparse.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cffpic.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cid\cidgload.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cid\cidload.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cid\cidobjs.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cid\cidparse.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cid\cidriver.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftadvanc.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftapi.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftbase.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftbbox.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftbdf.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftbitmap.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\bzip2\ftbzip2.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftcache.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftcalc.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftcbasic.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftccache.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftccmap.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftcglyph.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftcid.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftcimage.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftcmanag.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftcmru.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftcsbits.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftdbgmem.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftdebug.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftfntfmt.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftfstype.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftgasp.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftgloadr.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftglyph.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\smooth\ftgrays.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftgxval.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gzip\ftgzip.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftinit.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftlcdfil.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\lzw\ftlzw.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftmm.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftobjs.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftotval.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftoutln.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftpatent.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftpfr.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftpic.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\raster\ftraster.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\raster\ftrend1.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftrfork.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\smooth\ftsmooth.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftsnames.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\smooth\ftspic.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftstream.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftstroke.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftsynth.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftsystem.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\fttrigon.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\fttype1.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftutil.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftwinfnt.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\lzw\ftzopen.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvalid.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvbsln.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvcommn.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvfeat.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvfgen.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvjust.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvkern.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvlcar.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmod.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmort.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmort0.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmort1.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmort2.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmort4.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmort5.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmorx.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmorx0.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmorx1.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmorx2.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmorx4.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvmorx5.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvopbd.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvprop.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gxvalid\gxvtrak.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\hbshim.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gzip\inftrees.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\md5.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvalid.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvbase.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvcommn.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvgdef.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvgpos.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvgsub.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvjstf.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvmath.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\otvalid\otvmod.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pcf\pcf.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pcf\pcfdrivr.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pcf\pcfread.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pcf\pcfutil.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pfr\pfr.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pfr\pfrcmap.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pfr\pfrdrivr.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pfr\pfrgload.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pfr\pfrload.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pfr\pfrobjs.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pfr\pfrsbit.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\pngshim.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psaux\psaux.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psaux\psauxmod.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psaux\psconv.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pshinter\pshalgo.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pshinter\pshglob.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pshinter\pshinter.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pshinter\pshmod.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pshinter\pshpic.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pshinter\pshrec.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psnames\psmodule.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psnames\psnames.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psaux\psobjs.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psnames\pspic.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\raster\raster.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\raster\rastpic.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\tools\ftfuzzer\runinput.cc">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\sfdriver.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\sfnt.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\sfntpic.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\sfobjs.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\smooth\smooth.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type1\t1afm.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psaux\t1cmap.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psaux\t1decode.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type1\t1driver.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type1\t1gload.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type1\t1load.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type1\t1objs.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type1\t1parse.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type42\t42drivr.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type42\t42objs.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type42\t42parse.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\tools\test_afm.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\tools\test_bbox.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\tools\test_trig.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\truetype.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\ttbdf.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\ttcmap.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttdriver.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttgload.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttgxvar.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttinterp.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\ttkern.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\ttload.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\ttmtx.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttobjs.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttpic.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttpload.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\ttpost.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\ttsbit.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\ttsubpix.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type1\type1.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cid\type1cid.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type42\type42.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\winfonts\winfnt.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gzip\zutil.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Rendering\GfxRender\AdornRender.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\CullableSceneNode.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\CustomEmitter.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Emitter.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\EmitterShared.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\EnvMap.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ExplosionEmitter.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\FastCluster.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\GeometryGenerator.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\GlobalShaderData.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Image.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ImageInfo.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\LightGrid.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\LightObject.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Material.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\MaterialGenerator.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\MegaCluster.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ObjectExporter.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ParticleEmitter.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\RenderCamera.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\RenderNode.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\RenderQueue.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\RenderView.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SceneManager.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SceneUpdater.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ScreenSpaceEffect.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ShaderManager.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Sky.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SmoothCluster.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SpatialGrid.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SpatialHashedScene.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SSAO.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SuperCluster.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TextureAtlas.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TextureCompositor.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TextureManager.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TextureRef.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TypesetterBitmap.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TypesetterDynamic.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Util.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\VertexStreamer.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\VisualEngine.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Water.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="freetype">
+      <UniqueIdentifier>{616774bf-8c99-4ef7-a115-093a44b5914b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Rendering\GfxRender\freetype\src\autofit\afblue.cin">
+      <Filter>freetype</Filter>
+    </None>
+  </ItemGroup>
+</Project>

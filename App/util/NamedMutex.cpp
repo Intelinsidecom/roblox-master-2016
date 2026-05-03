@@ -23,8 +23,11 @@ ScopedNamedMutex::ScopedNamedMutex(const char* name)
         ss << reinterpret_cast<void*>(this) << "): " << name;
         FASTLOGS(DFLog::NamedMutex, "ScopedNamedMutex(%s", ss.str().c_str());
     }
-
+    #if defined(RBX_PLATFORM_UWP)
+    if (NULL == (hMutex = CreateMutexA(NULL, false, name)))
+    #else
     if (NULL == (hMutex = CreateMutex(NULL, false, name)))
+    #endif
     {
         boost::system::error_code ec(GetLastError(), boost::system::system_category());
         throw RBX::runtime_error("ScopedNamedMutex: CreateMutex failed: %s", ec.message().c_str());

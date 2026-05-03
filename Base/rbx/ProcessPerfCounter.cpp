@@ -4,13 +4,19 @@
 #include "rbx/RbxDbgInfo.h"
 #include <map>
 
-#ifdef _WIN32
+#ifdef RBX_PLATFORM_UWP
+#include <windows.system.diagnostics.h>
+#include <windows.system.h>
+#pragma comment(lib, "windowsapp.lib")
+#endif
+
+#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP)  
 #include "PdhMsg.h"
 #pragma comment (lib,"pdh.lib")
 
 PerfCounter::PerfCounter()
 {
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP) 
 	PDH_STATUS pdhResult = PdhOpenQuery( NULL, 0, &hQuery );
 #else
 #warning "MACPORT - NEED TO HANDLE THIS CASE ON THE MAC"
@@ -19,7 +25,7 @@ PerfCounter::PerfCounter()
 
 CProcessPerfCounter::CProcessPerfCounter()
 {
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP) 
 	init(::GetCurrentProcessId());
 #else
 #warning "MACPORT - NEED TO HANDLE THIS CASE ON THE MAC"
@@ -31,7 +37,7 @@ CProcessPerfCounter::CProcessPerfCounter(int pid)
 }
 void PerfCounter::CollectData()
 {
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP) 
 	PDH_STATUS result = PdhCollectQueryData(hQuery);
 #else
 #warning "MACPORT - NEED TO HANDLE THIS CASE ON THE MAC"
@@ -40,7 +46,7 @@ void PerfCounter::CollectData()
 
 void PerfCounter::GetData2(HCOUNTER counter, long& result)
 {
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP) 
 	PDH_FMT_COUNTERVALUE stFormattedValue = {0};
 	PDH_STATUS pdhResult = PdhGetFormattedCounterValue( counter
 	, PDH_FMT_LONG
@@ -56,7 +62,7 @@ void PerfCounter::GetData2(HCOUNTER counter, long& result)
 
 void PerfCounter::GetData2(HCOUNTER counter, double& result)
 {
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP) 
 	PDH_FMT_COUNTERVALUE stFormattedValue = {0};
 	PDH_STATUS pdhResult = PdhGetFormattedCounterValue( counter
 	, PDH_FMT_DOUBLE
@@ -73,10 +79,30 @@ void PerfCounter::GetData2(HCOUNTER counter, double& result)
 
 double CProcessPerfCounter::GetProcessCores()
 {
+
+#ifdef RBX_PLATFORM_UWP
+    using namespace Windows::System::Diagnostics;
+    
+    auto processInfo = ProcessDiagnosticInfo::GetForCurrentProcess();
+    if (processInfo != nullptr && processInfo->CpuUsage != nullptr)
+    {
+        auto cpuReport = processInfo->CpuUsage->GetReport();
+        if (cpuReport != nullptr)
+        {
+            double kernelTime = cpuReport->KernelTime.TotalMilliseconds;
+            double userTime = cpuReport->UserTime.TotalMilliseconds;
+            return (kernelTime + userTime) / 1000.0;
+        }
+    }
+    return 0.0;
+#else
+
 	double totalProcessorTime;	// 0%-100% of all CPUs
 	GetData2(totalProcessorTimeCounter, totalProcessorTime);
 	double processorTime; // 0%-100% of all processes
 	GetData2(processorTimeCounter, processorTime);
+
+#endif
 
 	return totalProcessorTime / 100.0 * processorTime / 100.0 * (double)numCores; 
 }
@@ -94,6 +120,21 @@ void CProcessPerfCounter::init(int pid)
 	pageFileBytesCounter = 0;
 	virtualBytesCounter = 0;
 	workingSetPrivateCounter = 0;
+
+	#ifdef RBX_PLATFORM_UWP
+    using namespace Windows::System::Diagnostics;
+    
+    auto processDiagnosticInfo = ProcessDiagnosticInfo::GetForCurrentProcess();
+    if (processDiagnosticInfo != nullptr)
+    {
+        auto cpuUsage = processDiagnosticInfo->CpuUsage;
+        auto memoryUsage = processDiagnosticInfo->MemoryUsage;
+    }
+    
+    processorTimeCounter = (HCOUNTER)-1;
+    totalProcessorTimeCounter = (HCOUNTER)-1;
+    
+#else
 
 	TCHAR* buffer = new TCHAR[100000];
 	TCHAR* instanceName;
@@ -201,6 +242,8 @@ void CProcessPerfCounter::init(int pid)
 	RBXASSERT(SUCCEEDED(pdhResult));
 
 	delete [] buffer;
+
+	#endif
 }
 
 

@@ -31,7 +31,7 @@ FASTINTVARIABLE(SpeedCountCap, 5)
 namespace RBX
 {
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 static volatile double currentSeconds = 0;
 static volatile bool cheater = false;
 static volatile bool isDebuggedValue = false;
@@ -186,7 +186,7 @@ long long Time::getStart()
 	return start;
 }
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 
 void CALLBACK directCallback(UINT, UINT, DWORD, DWORD, DWORD) 
 { 
@@ -299,7 +299,7 @@ Time Time::now<Time::Precise>()
 template<>
 Time Time::now<Time::Multimedia>()
 {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 	return Time(timeGetTime() / 1000.0);
 #else
 	// TODO: Is this fast enough on Mac?
@@ -309,7 +309,7 @@ Time Time::now<Time::Multimedia>()
 
 bool Time::isSpeedCheater()
 {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 	return cheater;
 #else
 	// No cheat engine for mac yet???
@@ -319,7 +319,7 @@ bool Time::isSpeedCheater()
 
 bool Time::isDebugged()
 {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 	return isDebuggedValue;
 #else
 	return false;
@@ -329,7 +329,7 @@ bool Time::isDebugged()
 template<>
 Time Time::now<Time::Fast>()
 {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 	if (preciseOverride <= Fast)
 		return now<Precise>();
 	

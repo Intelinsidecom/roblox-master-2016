@@ -44,7 +44,7 @@ bool Replicator::PingItem::write(RakNet::BitStream& bitStream) {
     writeItemType(bitStream, ItemTypePing);
 
     unsigned int moreStats = 0;
-#if !defined(LOVE_ALL_ACCESS) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO)
+#if !defined(LOVE_ALL_ACCESS) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 	unsigned int sendStats = Tokens::simpleToken | DataModel::perfStats | DataModel::sendStats |
 			DataModel::get(&replicator)->allHackFlagsOredTogether();
     // I'm sorry for this.  The values need to be spread out in memory and thus can't be an array.

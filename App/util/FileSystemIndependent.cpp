@@ -3,7 +3,9 @@
 
 #ifdef _WIN32
 #include <windows.h>
+#if !defined(RBX_PLATFORM_UWP)
 #include <ATLPath.h>
+#endif
 
 #else
 #include <sys/types.h>

@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="g3dcpp">
+      <UniqueIdentifier>{5bd62746-f0c4-40f4-983e-a1b563925e86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ijg">
+      <UniqueIdentifier>{d43a20eb-4deb-44bd-90c6-2daee15852ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="png">
+      <UniqueIdentifier>{eca49069-04e5-4fe8-888c-b6c90bfa0441}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\AABox.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\BinaryInput.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\BinaryOutput.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Box.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Capsule.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\CollisionDetection.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Color3.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Color3uint8.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Color4.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Color4uint8.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\CoordinateFrame.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Crypto.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Cylinder.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\debugAssert.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\fileutils.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\format.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\g3dfnmatch.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\g3dmath.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GCamera.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GImage.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GImage_bayer.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GImage_bmp.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GImage_jpeg.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GImage_png.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GImage_tga.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\GLight.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\LightingParameters.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Line.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\LineSegment.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Matrix3.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Matrix4.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\MemoryManager.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\PhysicsFrame.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Plane.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Quat.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Random.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Ray.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Sphere.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\stringutils.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\System.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Triangle.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\uint128.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\UprightFrame.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Vector2.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Vector2int16.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Vector3.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Vector3int16.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\g3dcpp\Vector4.cpp">
+      <Filter>g3dcpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jaricom.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcapimin.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcapistd.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcarith.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jccoefct.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jccolor.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcdctmgr.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jchuff.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcinit.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcmainct.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcmarker.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcmaster.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcomapi.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcparam.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcphuff.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcprepct.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jcsample.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jctrans.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdapimin.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdapistd.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdarith.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdatadst.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdatasrc.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdcoefct.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdcolor.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jddctmgr.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdhuff.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdinput.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdmainct.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdmarker.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdmaster.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdmerge.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdphuff.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdpostct.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdsample.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jdtrans.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jerror.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jfdctflt.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jfdctfst.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jfdctint.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jidctflt.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jidctfst.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jidctint.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jidctred.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jmemansi.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jmemmgr.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jmemnobs.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jquant1.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jquant2.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\jutils.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\ijg\transupp.c">
+      <Filter>ijg</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\png.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngerror.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pnggccrd.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngget.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngmem.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngpread.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngread.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngrio.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngrtran.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngrutil.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngset.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngtrans.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngvcrd.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngwio.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngwrite.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngwtran.c">
+      <Filter>png</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngwutil.c">
+      <Filter>png</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Rendering\g3d\ijg\cderror.h">
+      <Filter>ijg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\g3d\ijg\cdjpeg.h">
+      <Filter>ijg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jchuff.h">
+      <Filter>ijg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jconfig.h">
+      <Filter>ijg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jdct.h">
+      <Filter>ijg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jdhuff.h">
+      <Filter>ijg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jerror.h">
+      <Filter>ijg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jinclude.h">
+      <Filter>ijg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jmemsys.h">
+      <Filter>ijg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jmorecfg.h">
+      <Filter>ijg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jpegint.h">
+      <Filter>ijg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jpeglib.h">
+      <Filter>ijg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\g3d\ijg\jversion.h">
+      <Filter>ijg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Rendering\g3d\ijg\transupp.h">
+      <Filter>ijg</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

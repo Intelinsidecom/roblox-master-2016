@@ -321,7 +321,11 @@ static int runargs (lua_State *L, char **argv, int n) {
 
 
 static int handle_luainit (lua_State *L) {
+#if !defined(RBX_PLATFORM_UWP)
   const char *init = getenv(LUA_INIT);
+#else
+  const char *init = NULL;
+#endif
   if (init == NULL) return 0;  /* status OK */
   else if (init[0] == '@')
     return dofile(L, init+1);

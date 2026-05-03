@@ -1,0 +1,1302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+      <ClCompile Include="$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src\HTList.c">
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">Level1</WarningLevel>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">false</TreatWarningAsError>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Durango'">Level1</WarningLevel>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Durango'">false</TreatWarningAsError>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOpt|Durango'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Durango'">Level1</WarningLevel>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOpt|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Durango'">false</TreatWarningAsError>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Durango'">Level1</WarningLevel>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Durango'">false</TreatWarningAsError>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Durango'">Level1</WarningLevel>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Durango'">false</TreatWarningAsError>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Durango'">Level1</WarningLevel>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Durango'">false</TreatWarningAsError>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Durango'">Level1</WarningLevel>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Durango'">false</TreatWarningAsError>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Durango'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src\HTMemory.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Durango'">NotUsing</PrecompiledHeader>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOpt|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Durango'">false</TreatWarningAsError>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOpt|Durango'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Durango'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Durango'">Level2</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src\HTParse.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Durango'">NotUsing</PrecompiledHeader>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOpt|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Durango'">false</TreatWarningAsError>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOpt|Durango'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Durango'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Durango'">Level2</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src\HTString.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Durango'">NotUsing</PrecompiledHeader>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOpt|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Durango'">false</TreatWarningAsError>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOpt|Durango'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Durango'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Durango'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Win32'">Level2</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Durango'">Level2</WarningLevel>
+    </ClCompile>
+    <ClCompile Include="..\..\App\gui\ChatOutput.cpp" />
+    <ClCompile Include="..\..\App\gui\ChatWidget.cpp" />
+    <ClCompile Include="..\..\App\gui\EquationDisplay.cpp" />
+    <ClCompile Include="..\..\App\gui\GUI.cpp" />
+    <ClCompile Include="..\..\App\gui\GuiDraw.cpp" />
+    <ClCompile Include="..\..\App\gui\ProfanityFilter.cpp" />
+    <ClCompile Include="..\..\App\gui\ScoreHud.cpp" />
+    <ClCompile Include="..\..\App\gui\Widget.cpp" />
+    <ClCompile Include="..\..\App\humanoid\Balancing.cpp" />
+    <ClCompile Include="..\..\App\humanoid\FallingDown.cpp" />
+    <ClCompile Include="..\..\App\humanoid\Flying.cpp" />
+    <ClCompile Include="..\..\App\humanoid\Freefall.cpp" />
+    <ClCompile Include="..\..\App\humanoid\GettingUp.cpp" />
+    <ClCompile Include="..\..\App\humanoid\Humanoid.cpp" />
+    <ClCompile Include="..\..\App\humanoid\HumanoidState.cpp" />
+    <ClCompile Include="..\..\App\humanoid\Jumping.cpp" />
+    <ClCompile Include="..\..\App\humanoid\MovingNoPhysicsBase.cpp" />
+    <ClCompile Include="..\..\App\humanoid\Ragdoll.cpp" />
+    <ClCompile Include="..\..\App\humanoid\Running.cpp" />
+    <ClCompile Include="..\..\App\humanoid\RunningBase.cpp" />
+    <ClCompile Include="..\..\App\humanoid\RunningNoPhysics.cpp" />
+    <ClCompile Include="..\..\App\humanoid\Seated.cpp" />
+    <ClCompile Include="..\..\App\humanoid\StatusInstance.cpp" />
+    <ClCompile Include="..\..\App\humanoid\StrafingNoPhysics.cpp" />
+    <ClCompile Include="..\..\App\humanoid\Swimming.cpp" />
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lapi.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lauxlib.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lbaselib.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lcode.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\ldblib.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\ldebug.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\ldo.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\ldump.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lfunc.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lgc.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\linit.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\liolib.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\llex.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lmathlib.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lmem.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\loadlib.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lobject.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lopcodes.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\loslib.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lparser.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lstate.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lstring.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lstrlib.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\ltable.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\ltablib.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\ltm.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lua.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\luac.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lundump.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lvm.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\lzio.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\Lua-5.1.4\src\print.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\lz4\lz4.c" />
+    <ClCompile Include="..\..\App\lz4\lz4hc.c" />
+    <ClCompile Include="..\..\App\reflection\Callback.cpp" />
+    <ClCompile Include="..\..\App\reflection\Event.cpp" />
+    <ClCompile Include="..\..\App\reflection\reflection_function.cpp" />
+    <ClCompile Include="..\..\App\reflection\reflection_object.cpp" />
+    <ClCompile Include="..\..\App\reflection\reflection_property.cpp" />
+    <ClCompile Include="..\..\App\reflection\type.cpp" />
+    <ClCompile Include="..\..\App\script\CoreScript.cpp" />
+    <ClCompile Include="..\..\App\script\DebuggerManager.cpp" />
+    <ClCompile Include="..\..\App\script\LuaArguments.cpp" />
+    <ClCompile Include="..\..\App\script\LuaAtomicClasses.cpp" />
+    <ClCompile Include="..\..\App\script\LuaBridge.cpp" />
+    <ClCompile Include="..\..\App\script\LuaCoreFunctions.cpp" />
+    <ClCompile Include="..\..\App\script\LuaEnum.cpp" />
+    <ClCompile Include="..\..\App\script\LuaInstanceBridge.cpp" />
+    <ClCompile Include="..\..\App\script\LuaLibrary.cpp" />
+    <ClCompile Include="..\..\App\script\LuaMemory.cpp" />
+    <ClCompile Include="..\..\App\script\LuaSettings.cpp" />
+    <ClCompile Include="..\..\App\script\LuaSignalBridge.cpp" />
+    <ClCompile Include="..\..\App\script\LuaSourceContainer.cpp" />
+    <ClCompile Include="..\..\App\script\LuaVM.cpp" />
+    <ClCompile Include="..\..\App\script\LuaVMClient.cpp" />
+    <ClCompile Include="..\..\App\script\LuaVMDummy.cpp" />
+    <ClCompile Include="..\..\App\script\LuaVMServer.cpp" />
+    <ClCompile Include="..\..\App\script\ModuleScript.cpp" />
+    <ClCompile Include="..\..\App\script\Script.cpp" />
+    <ClCompile Include="..\..\App\script\ScriptAnalyzer.cpp" />
+    <ClCompile Include="..\..\App\script\ScriptContext.cpp" />
+    <ClCompile Include="..\..\App\script\ScriptEvent.cpp" />
+    <ClCompile Include="..\..\App\script\ScriptStats.cpp" />
+    <ClCompile Include="..\..\App\script\ThreadRef.cpp" />
+    <ClCompile Include="..\..\App\security\FuzzyTokens.cpp" />
+    <ClCompile Include="..\..\App\security\SecurityContext.cpp" />
+    <ClCompile Include="..\..\App\solver\Constraint.cpp" />
+    <ClCompile Include="..\..\App\solver\ConstraintJacobian.cpp" />
+    <ClCompile Include="..\..\App\solver\Solver.cpp" />
+    <ClCompile Include="..\..\App\solver\SolverBody.cpp" />
+    <ClCompile Include="..\..\App\solver\SolverConfig.cpp" />
+    <ClCompile Include="..\..\App\solver\SolverKernel.cpp" />
+    <ClCompile Include="..\..\App\tool\AdvDragTool.cpp" />
+    <ClCompile Include="..\..\App\tool\AdvLuaDragger.cpp" />
+    <ClCompile Include="..\..\App\tool\AdvLuaDragTool.cpp" />
+    <ClCompile Include="..\..\App\tool\AdvMoveTool.cpp" />
+    <ClCompile Include="..\..\App\tool\AdvRotateTool.cpp" />
+    <ClCompile Include="..\..\App\tool\AdvRunDragger.cpp" />
+    <ClCompile Include="..\..\App\tool\AxisMoveTool.cpp" />
+    <ClCompile Include="..\..\App\tool\AxisRotateTool.cpp" />
+    <ClCompile Include="..\..\App\tool\CloneTool.cpp" />
+    <ClCompile Include="..\..\App\tool\Dragger.cpp" />
+    <ClCompile Include="..\..\App\tool\DragTool.cpp" />
+    <ClCompile Include="..\..\App\tool\DragUtilities.cpp" />
+    <ClCompile Include="..\..\App\tool\DropTool.cpp" />
+    <ClCompile Include="..\..\App\tool\GameTool.cpp" />
+    <ClCompile Include="..\..\App\tool\GrabTool.cpp" />
+    <ClCompile Include="..\..\App\tool\GroupDragTool.cpp" />
+    <ClCompile Include="..\..\App\tool\GroupDropTool.cpp" />
+    <ClCompile Include="..\..\App\tool\HammerTool.cpp" />
+    <ClCompile Include="..\..\App\tool\LuaDragger.cpp" />
+    <ClCompile Include="..\..\App\tool\LuaDragTool.cpp" />
+    <ClCompile Include="..\..\App\tool\MegaDragger.cpp" />
+    <ClCompile Include="..\..\App\tool\MoveResizeJoinTool.cpp" />
+    <ClCompile Include="..\..\App\tool\NullTool.cpp" />
+    <ClCompile Include="..\..\App\tool\PartDragTool.cpp" />
+    <ClCompile Include="..\..\App\tool\PartDropTool.cpp" />
+    <ClCompile Include="..\..\App\tool\ResizeTool.cpp" />
+    <ClCompile Include="..\..\App\tool\RunDragger.cpp" />
+    <ClCompile Include="..\..\App\tool\ToolsArrow.cpp" />
+    <ClCompile Include="..\..\App\util\Action.cpp" />
+    <ClCompile Include="..\..\App\util\Analytics.cpp" />
+    <ClCompile Include="..\..\App\util\AnimationId.cpp" />
+    <ClCompile Include="..\..\App\util\AsyncHttpQueue.cpp" />
+    <ClCompile Include="..\..\App\util\Axes.cpp" />
+    <ClCompile Include="..\..\App\util\Base64BinaryInputStream.cpp" />
+    <ClCompile Include="..\..\App\util\Base64BinaryOutputStream.cpp" />
+    <ClCompile Include="..\..\App\util\BrickColor.cpp" />
+    <ClCompile Include="..\..\App\util\CacheableContentProvider.cpp" />
+    <ClCompile Include="..\..\App\util\CameraSubject.cpp" />
+    <ClCompile Include="..\..\App\util\CellID.cpp" />
+    <ClCompile Include="..\..\App\util\Color.cpp" />
+    <ClCompile Include="..\..\App\util\ContentFilter.cpp" />
+    <ClCompile Include="..\..\App\util\ContentId.cpp" />
+    <ClCompile Include="..\..\App\util\ContentProvider.cpp" />
+    <ClCompile Include="..\..\App\util\ContentProviderJob.cpp" />
+    <ClCompile Include="..\..\App\util\Extents.cpp" />
+    <ClCompile Include="..\..\App\util\Face.cpp" />
+    <ClCompile Include="..\..\App\util\Faces.cpp" />
+    <ClCompile Include="..\..\App\util\FileSystemIndependent.cpp" />
+    <ClCompile Include="..\..\App\util\gpc.c">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="..\..\App\util\Guid.cpp" />
+    <ClCompile Include="..\..\App\util\Handle.cpp" />
+    <ClCompile Include="..\..\App\util\Hash.cpp" />
+    <ClCompile Include="..\..\App\util\HeartbeatInstance.cpp" />
+    <ClCompile Include="..\..\App\util\HitTest.cpp" />
+    <ClCompile Include="..\..\App\util\HttpAsync.cpp" />
+    <ClCompile Include="..\..\App\util\IndexBox.cpp" />
+    <ClCompile Include="..\..\App\util\IndexedMesh.cpp" />
+    <ClCompile Include="..\..\App\util\IndexedTree.cpp" />
+    <ClCompile Include="..\..\App\util\KeyCode.cpp" />
+    <ClCompile Include="..\..\App\util\KeywordFilter.cpp" />
+    <ClCompile Include="..\..\App\util\LegacyContentTable.cpp" />
+    <ClCompile Include="..\..\App\util\LuaWebService.cpp" />
+    <ClCompile Include="..\..\App\util\MachineIdUploader.cpp" />
+    <ClCompile Include="..\..\App\util\Math.cpp" />
+    <ClCompile Include="..\..\App\util\md5.c" />
+    <ClCompile Include="..\..\App\util\MD5Hasher.cpp" />
+    <ClCompile Include="..\..\App\util\MemoryStats.cpp" />
+    <ClCompile Include="..\..\App\util\MemoryStatsCommon.cpp" />
+    <ClCompile Include="..\..\App\util\MeshContentProvider.cpp" />
+    <ClCompile Include="..\..\App\util\MeshId.cpp" />
+    <ClCompile Include="..\..\App\util\MovementHistory.cpp" />
+    <ClCompile Include="..\..\App\util\Name.cpp" />
+    <ClCompile Include="..\..\App\util\NamedMutex.cpp" />
+    <ClCompile Include="..\..\App\util\NormalId.cpp" />
+    <ClCompile Include="..\..\App\util\PathInterpolatedCFrame.cpp" />
+    <ClCompile Include="..\..\App\util\PhysicalProperties.cpp" />
+    <ClCompile Include="..\..\App\util\Profiling.cpp" />
+    <ClCompile Include="..\..\App\util\ProtectedString.cpp" />
+    <ClCompile Include="..\..\App\util\quadedge.cpp" />
+    <ClCompile Include="..\..\App\util\Quaternion.cpp" />
+    <ClCompile Include="..\..\App\util\rbxrandom.cpp" />
+    <ClCompile Include="..\..\App\util\RbxStringTable.cpp" />
+    <ClCompile Include="..\..\App\util\Rect.cpp" />
+    <ClCompile Include="..\..\App\util\Region2.cpp" />
+    <ClCompile Include="..\..\App\util\Region3.cpp" />
+    <ClCompile Include="..\..\App\util\Region3int16.cpp" />
+    <ClCompile Include="..\..\App\util\Region3int32.cpp" />
+    <ClCompile Include="..\..\App\util\RobloxGoogleAnalytics.cpp" />
+    <ClCompile Include="..\..\App\util\RunningAverage.cpp" />
+    <ClCompile Include="..\..\App\util\RunStateOwner.cpp" />
+    <ClCompile Include="..\..\App\util\ScriptInformationProvider.cpp" />
+    <ClCompile Include="..\..\App\util\Shared\Http.cpp" />
+    <ClCompile Include="..\..\App\util\Shared\HttpCacheEntry.cpp" />
+    <ClCompile Include="..\..\App\util\Shared\HttpPlatformImpl.cpp" />
+    <ClCompile Include="..\..\App\util\Sound.cpp" />
+    <ClCompile Include="..\..\App\util\SoundChannel.cpp" />
+    <ClCompile Include="..\..\App\util\SoundService.cpp" />
+    <ClCompile Include="..\..\App\util\SoundWorld.cpp" />
+    <ClCompile Include="..\..\App\util\SpanningEdge.cpp" />
+    <ClCompile Include="..\..\App\util\SpanningNode.cpp" />
+    <ClCompile Include="..\..\App\util\SpanningTree.cpp" />
+    <ClCompile Include="..\..\App\util\SpatialRegion.cpp" />
+    <ClCompile Include="..\..\App\util\standardout.cpp" />
+    <ClCompile Include="..\..\App\util\Statistics.cpp" />
+    <ClCompile Include="..\..\App\util\stdafx.cpp" />
+    <ClCompile Include="..\..\App\util\SteppedInstance.cpp" />
+    <ClCompile Include="..\..\App\util\StreamRegion.cpp" />
+    <ClCompile Include="..\..\App\util\SystemAddress.cpp" />
+    <ClCompile Include="..\..\App\util\TextureContentProvider.cpp" />
+    <ClCompile Include="..\..\App\util\ThreadPool.cpp" />
+    <ClCompile Include="..\..\App\util\UDim.cpp" />
+    <ClCompile Include="..\..\App\util\UintSet.cpp" />
+    <ClCompile Include="..\..\App\util\Units.cpp" />
+    <ClCompile Include="..\..\App\util\URL.cpp" />
+    <ClCompile Include="..\..\App\util\UserInputBase.cpp" />
+    <ClCompile Include="..\..\App\util\Utilities.cpp" />
+    <ClCompile Include="..\..\App\util\UWP\ProgramMemoryChecker.cpp" />
+    <ClCompile Include="..\..\App\util\Vector3int32.cpp" />
+    <ClCompile Include="..\..\App\util\WinHeap.cpp" />
+    <ClCompile Include="..\..\App\util\XboxHttp2.cpp" />
+    <ClCompile Include="..\..\App\util\xxhash.c" />
+    <ClCompile Include="..\..\App\v8datamodel\Accoutrement.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Adornment.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\AdService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\AnimatableRootJoint.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Animation.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\AnimationController.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\AnimationTrack.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\AnimationTrackState.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Animator.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ArcHandles.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\AssetService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Attachment.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Backpack.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\BadgeService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\BaseRenderJob.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\BasicPartInstance.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\BevelMesh.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\BillboardGui.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Bindable.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\BlockMesh.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Camera.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ChangeHistory.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\CharacterAppearance.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\CharacterMesh.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ChatService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ClickDetector.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\CollectionService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ColorSequence.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Commands.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\CommonVerbs.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Configuration.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ContextActionService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\CookiesEngineService.cpp" />
+    <ClCompile Include="..\..\ClientShared\Mobile\CookiesEngine.cpp" />
+    <ClCompile Include="..\..\ClientShared\RobloxServicesTools.cpp" />
+    <ClCompile Include="..\..\ClientShared\format_string.cpp" />
+    <ClCompile Include="..\..\ClientShared\StringConv.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\CornerWedgeInstance.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\CSGDictionaryService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\CSGMesh.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\CustomEvent.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\CustomEventReceiver.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\CustomParticleEmitter.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\CylinderMesh.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\DataModel.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\DataModelJob.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\DataModelMesh.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\DataStore.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\DataStoreService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\DebrisService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\DebugSettings.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Decal.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\DialogChoice.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\DialogRoot.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Effect.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Enums.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Explosion.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ExtrudedPartInstance.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\FaceInstance.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\factoryregistration.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\FastLogSettings.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Feature.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\FileMesh.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Filters.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Fire.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Flag.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\FlagStand.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\FloorWire.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\FlyweightService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Folder.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ForceField.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Frame.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\FriendService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Game.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\GameBasicSettings.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\GamepadService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\GamePassService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\GameSettings.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\GeometryService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\GlobalSettings.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\GroupService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\GuiBase.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\GuiBase2d.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\GuiBase3d.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\GuiBuilder.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\GuiLayerCollector.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\GuiObject.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\GuiService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Gyro.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\HandleAdornment.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Handles.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\HandlesBase.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\HapticService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Hopper.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\HttpRbxApiService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\HttpService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ICharacterSubject.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\IEquipable.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ImageButton.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ImageLabel.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\InputObject.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\InsertService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\JointInstance.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\JointsService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Keyframe.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\KeyframeSequence.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\KeyframeSequenceProvider.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\legacy.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Light.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Lighting.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\LocalWorkspace.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\LoginService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\LogService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ManualJointHelper.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\MarketplaceService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\MegaCluster.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Message.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ModelInstance.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Mouse.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\MouseCommand.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\NonReplicatedCSGDictionaryService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\NotificationService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\NumberRange.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\NumberSequence.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ParallelRampInstance.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ParametricPartInstance.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PartCookie.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PartInstance.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PartOperation.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PartOperationAsset.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PathfindingService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PersonalServerService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PhysicsInstructions.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PhysicsService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PhysicsSettings.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Platform.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PlatformService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PlayerGui.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PlayerMouse.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PlayerScripts.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PluginManager.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PluginMouse.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PointsService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Pose.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PrismInstance.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PVInstance.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\PyramidInstance.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Remote.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\RenderHooksService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ReplicatedFirst.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ReplicatedStorage.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\RightAngleRampInstance.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\RobloxReplicatedStorage.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\RootInstance.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\SafeChat.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Scale9Frame.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ScreenGui.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ScriptMouseCommand.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ScriptService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ScrollingFrame.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Seat.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Selection.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\SelectionBox.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\SelectionLasso.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\SelectionSphere.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ServerScriptService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ServerStorage.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\SkateboardController.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\SkateboardPlatform.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Sky.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\SleepingJob.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Smoke.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\SocialService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\SolidModelContentProvider.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Sparkles.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\SpawnLocation.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\SpecialMesh.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\StarterPlayerService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Stats.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\StudioTool.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\StudioToolMouseCommand.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\StudioToolVerb.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Surface.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\SurfaceGui.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\SurfaceSelection.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Team.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Teams.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\TeleportService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\TerrainRegion.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Test.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\TextBox.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\TextButton.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\TextLabel.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\TextService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\TextureTrail.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\TimerService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Tool.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ToolMouseCommand.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ToolsModel.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ToolsPart.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\ToolsSurface.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\TouchInputService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\TouchTransmitter.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\TweenService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\UserController.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\UserInputService.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Value.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\VehicleSeat.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\VirtualUser.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Visit.cpp" />
+    <ClCompile Include="..\..\App\v8datamodel\Workspace.cpp" />
+    <ClCompile Include="..\..\App\v8kernel\Body.cpp" />
+    <ClCompile Include="..\..\App\v8kernel\BulletShapeConnectors.cpp" />
+    <ClCompile Include="..\..\App\v8kernel\BuoyancyConnector.cpp" />
+    <ClCompile Include="..\..\App\v8kernel\Cofm.cpp" />
+    <ClCompile Include="..\..\App\v8kernel\Connector.cpp" />
+    <ClCompile Include="..\..\App\v8kernel\Constants.cpp" />
+    <ClCompile Include="..\..\App\v8kernel\ContactConnector.cpp" />
+    <ClCompile Include="..\..\App\v8kernel\Kernel.cpp" />
+    <ClCompile Include="..\..\App\v8kernel\Link.cpp" />
+    <ClCompile Include="..\..\App\v8kernel\Pair.cpp" />
+    <ClCompile Include="..\..\App\v8kernel\Point.cpp" />
+    <ClCompile Include="..\..\App\v8kernel\PolyConnectors.cpp" />
+    <ClCompile Include="..\..\App\v8kernel\SimBody.cpp" />
+    <ClCompile Include="..\..\App\v8tree\EnumProperty.cpp" />
+    <ClCompile Include="..\..\App\v8tree\Instance.cpp" />
+    <ClCompile Include="..\..\App\v8tree\Property.cpp" />
+    <ClCompile Include="..\..\App\v8tree\Service.cpp" />
+    <ClCompile Include="..\..\App\v8tree\Verb.cpp" />
+    <ClCompile Include="..\..\App\v8world\Assembly.cpp" />
+    <ClCompile Include="..\..\App\v8world\AssemblyHistory.cpp" />
+    <ClCompile Include="..\..\App\v8world\AssemblyStage.cpp" />
+    <ClCompile Include="..\..\App\v8world\Ball.cpp" />
+    <ClCompile Include="..\..\App\v8world\BallCellContact.cpp" />
+    <ClCompile Include="..\..\App\v8world\BallPolyContact.cpp" />
+    <ClCompile Include="..\..\App\v8world\Block.cpp" />
+    <ClCompile Include="..\..\App\v8world\BulletContact.cpp" />
+    <ClCompile Include="..\..\App\v8world\BulletGeometryPoolObjects.cpp" />
+    <ClCompile Include="..\..\App\v8world\BulletShapeCellContact.cpp" />
+    <ClCompile Include="..\..\App\v8world\BulletShapeContact.cpp" />
+    <ClCompile Include="..\..\App\v8world\Buoyancy.cpp" />
+    <ClCompile Include="..\..\App\v8world\CellContact.cpp" />
+    <ClCompile Include="..\..\App\v8world\CleanStage.cpp" />
+    <ClCompile Include="..\..\App\v8world\Clump.cpp" />
+    <ClCompile Include="..\..\App\v8world\Contact.cpp" />
+    <ClCompile Include="..\..\App\v8world\ContactManager.cpp" />
+    <ClCompile Include="..\..\App\v8world\ContactManagerSpatialHash.cpp" />
+    <ClCompile Include="..\..\App\v8world\ContactStage.cpp" />
+    <ClCompile Include="..\..\App\v8world\Controller.cpp" />
+    <ClCompile Include="..\..\App\v8world\CornerWedgePoly.cpp" />
+    <ClCompile Include="..\..\App\v8world\Cylinder.cpp" />
+    <ClCompile Include="..\..\App\v8world\Edge.cpp" />
+    <ClCompile Include="..\..\App\v8world\EdgeBuffer.cpp" />
+    <ClCompile Include="..\..\App\v8world\EdgeStage.cpp" />
+    <ClCompile Include="..\..\App\v8world\Feature.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)v8world_Feature.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)v8world_Feature.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(IntDir)v8world_Feature.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(IntDir)v8world_Feature.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)v8world_Feature.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)v8world_Feature.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\App\v8world\GlueJoint.cpp" />
+    <ClCompile Include="..\..\App\v8world\GroundStage.cpp" />
+    <ClCompile Include="..\..\App\v8world\HumanoidStage.cpp" />
+    <ClCompile Include="..\..\App\v8world\IMoving.cpp" />
+    <ClCompile Include="..\..\App\v8world\IPipelined.cpp" />
+    <ClCompile Include="..\..\App\v8world\IWorldStage.cpp" />
+    <ClCompile Include="..\..\App\v8world\Joint.cpp" />
+    <ClCompile Include="..\..\App\v8world\JointBuilder.cpp" />
+    <ClCompile Include="..\..\App\v8world\JointStage.cpp" />
+    <ClCompile Include="..\..\App\v8world\KDTree.cpp" />
+    <ClCompile Include="..\..\App\v8world\KernelJoint.cpp" />
+    <ClCompile Include="..\..\App\v8world\MacroTypes.cpp" />
+    <ClCompile Include="..\..\App\v8world\MaterialProperties.cpp" />
+    <ClCompile Include="..\..\App\v8world\Mechanism.cpp" />
+    <ClCompile Include="..\..\App\v8world\MechToAssemblyStage.cpp" />
+    <ClCompile Include="..\..\App\v8world\MegaClusterPoly.cpp" />
+    <ClCompile Include="..\..\App\v8world\Mesh.cpp" />
+    <ClCompile Include="..\..\App\v8world\Motor6DJoint.cpp" />
+    <ClCompile Include="..\..\App\v8world\MotorJoint.cpp" />
+    <ClCompile Include="..\..\App\v8world\MovingAssemblyStage.cpp" />
+    <ClCompile Include="..\..\App\v8world\MovingStage.cpp" />
+    <ClCompile Include="..\..\App\v8world\MutilJoint.cpp" />
+    <ClCompile Include="..\..\App\v8world\ParallelRampPoly.cpp" />
+    <ClCompile Include="..\..\App\v8world\Poly.cpp" />
+    <ClCompile Include="..\..\App\v8world\PolyCellContact.cpp" />
+    <ClCompile Include="..\..\App\v8world\PolyContact.cpp" />
+    <ClCompile Include="..\..\App\v8world\PolyPolyContact.cpp" />
+    <ClCompile Include="..\..\App\v8world\Primitive.cpp" />
+    <ClCompile Include="..\..\App\v8world\PrismPoly.cpp" />
+    <ClCompile Include="..\..\App\v8world\PyramidPoly.cpp" />
+    <ClCompile Include="..\..\App\v8world\RightAngleRampPoly.cpp" />
+    <ClCompile Include="..\..\App\v8world\RigidJoint.cpp" />
+    <ClCompile Include="..\..\App\v8world\RotateJoint.cpp" />
+    <ClCompile Include="..\..\App\v8world\SendPhysics.cpp" />
+    <ClCompile Include="..\..\App\v8world\SimJob.cpp" />
+    <ClCompile Include="..\..\App\v8world\SimulateStage.cpp" />
+    <ClCompile Include="..\..\App\v8world\SleepStage.cpp" />
+    <ClCompile Include="..\..\App\v8world\SmoothClusterGeometry.cpp" />
+    <ClCompile Include="..\..\App\v8world\SnapJoint.cpp" />
+    <ClCompile Include="..\..\App\v8world\SpatialFilter.cpp" />
+    <ClCompile Include="..\..\App\v8world\SpatialHashMultiRes.cpp" />
+    <ClCompile Include="..\..\App\v8world\StepJointsStage.cpp" />
+    <ClCompile Include="..\..\App\v8world\TerrainPartition.cpp" />
+    <ClCompile Include="..\..\App\v8world\TreeStage.cpp" />
+    <ClCompile Include="..\..\App\v8world\TriangleMesh.cpp" />
+    <ClCompile Include="..\..\App\v8world\WedgePoly.cpp" />
+    <ClCompile Include="..\..\App\v8world\WeldJoint.cpp" />
+    <ClCompile Include="..\..\App\v8world\World.cpp" />
+    <ClCompile Include="..\..\App\v8xml\SerializerBinary.cpp" />
+    <ClCompile Include="..\..\App\v8xml\SerializerV2.cpp" />
+    <ClCompile Include="..\..\App\v8xml\WebParser.cpp" />
+    <ClCompile Include="..\..\App\v8xml\WebSerializer.cpp" />
+    <ClCompile Include="..\..\App\v8xml\XmlElement.cpp" />
+    <ClCompile Include="..\..\App\v8xml\XmlSerializer.cpp" />
+    <ClCompile Include="..\..\App\voxel2\Grid.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)voxel2_Grid.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)voxel2_Grid.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">$(IntDir)voxel2_Grid.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">$(IntDir)voxel2_Grid.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(IntDir)voxel2_Grid.obj</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(IntDir)voxel2_Grid.obj</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\App\voxel2\MaterialTable.cpp" />
+    <ClCompile Include="..\..\App\voxel2\Mesher.cpp" />
+    <ClCompile Include="..\..\App\voxel\Cell.cpp" />
+    <ClCompile Include="..\..\App\voxel\Grid.Chunk.cpp" />
+    <ClCompile Include="..\..\App\voxel\Grid.cpp" />
+    <ClCompile Include="..\..\App\voxel\Serializer.cpp" />
+    <ClCompile Include="..\..\App\voxel\Util.cpp" />
+    <ClCompile Include="..\..\App\voxel\Voxelizer.cpp" />
+    <ClCompile Include="..\..\App\voxel\Water.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lapi.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lauxlib.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lcode.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\ldebug.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\ldo.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lfunc.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lgc.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\llex.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\llimits.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lmem.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lobject.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lopcodes.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lparser.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lstate.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lstring.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\ltable.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\ltm.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lua.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\luaconf.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lualib.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lundump.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lvm.h" />
+    <ClInclude Include="..\..\App\Lua-5.1.4\src\lzio.h" />
+    <ClInclude Include="..\..\App\lz4\lz4.h" />
+    <ClInclude Include="..\..\App\lz4\lz4hc.h" />
+    <ClInclude Include="..\..\App\lz4\lz4hc_encoder.h" />
+    <ClInclude Include="..\..\App\lz4\lz4_decoder.h" />
+    <ClInclude Include="..\..\App\lz4\lz4_encoder.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\App\Lua-5.1.4\src\Makefile" />
+    <None Include="..\..\App\script\LuaGenCS.inl" />
+    <None Include="..\..\App\script\LuaSerializer.inl" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{213899e0-8a32-4c9c-9b09-89fb51d6ccd5}</ProjectGuid>
+    <Keyword>StaticLibrary</Keyword>
+    <RootNamespace>App</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.10240.0</WindowsTargetPlatformMinVersion>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <GenerateManifest>false</GenerateManifest>
+    <OutDir>bin\$(Configuration)\$(Platform)\$(ProjectName)\</OutDir>
+    <IntDir>obj\$(Configuration)\$(Platform)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_ASIO_WINDOWS_RUNTIME;WIN32;CURL_STATICLIB;_DEBUG;_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include;$(CONTRIB_PATH)\VMProtectWin_2.13;$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src;..\..\App\include;..\..\Base\include;..\..\fmod\UWP\include;..\..\App\lua-5.1.4\src;..\..\Rendering;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\RbxG3D\include;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Network\include;..\RBXCookies;..\..\Log\Include;..\..\ClientShared;..\..\App.BulletPhysics;..\..\Win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_ASIO_WINDOWS_RUNTIME=1;WIN32;CURL_STATICLIB;NDEBUG;_LIB;_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include;$(CONTRIB_PATH)\VMProtectWin_2.13;$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src;..\..\App\include;..\..\Base\include;..\..\fmod\UWP\include;..\..\App\lua-5.1.4\src;..\..\Rendering;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\RbxG3D\include;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Network\include;..\RBXCookies;..\..\Log\Include;..\..\ClientShared;..\..\App.BulletPhysics;..\..\Win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|arm'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_ASIO_WINDOWS_RUNTIME;WIN32;CURL_STATICLIB;_DEBUG;_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include;$(CONTRIB_PATH)\VMProtectWin_2.13;$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src;..\..\App\include;..\..\Base\include;..\..\fmod\UWP\include;..\..\App\lua-5.1.4\src;..\..\Rendering;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\RbxG3D\include;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Network\include;..\RBXCookies;..\..\Log\Include;..\..\ClientShared;..\..\App.BulletPhysics;..\..\Win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|arm'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_ASIO_WINDOWS_RUNTIME=1;WIN32;CURL_STATICLIB;NDEBUG;_LIB;_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include;$(CONTRIB_PATH)\VMProtectWin_2.13;$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src;..\..\App\include;..\..\Base\include;..\..\fmod\UWP\include;..\..\App\lua-5.1.4\src;..\..\Rendering;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\RbxG3D\include;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Network\include;..\RBXCookies;..\..\Log\Include;..\..\ClientShared;..\..\App.BulletPhysics;..\..\Win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_ASIO_WINDOWS_RUNTIME;WIN32;CURL_STATICLIB;_DEBUG;_LIB;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include;$(CONTRIB_PATH)\VMProtectWin_2.13;$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src;..\..\App\include;..\..\Base\include;..\..\fmod\UWP\include;..\..\App\lua-5.1.4\src;..\..\Rendering;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\RbxG3D\include;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Network\include;..\RBXCookies;..\..\Log\Include;..\..\ClientShared;..\..\App.BulletPhysics;..\..\Win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <CompileAsWinRT>false</CompileAsWinRT>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_ASIO_WINDOWS_RUNTIME=1;WIN32;CURL_STATICLIB;NDEBUG;_LIB;_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include;$(CONTRIB_PATH)\VMProtectWin_2.13;$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src;..\..\App\include;..\..\Base\include;..\..\fmod\UWP\include;..\..\App\lua-5.1.4\src;..\..\Rendering;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\RbxG3D\include;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Network\include;..\RBXCookies;..\..\Log\Include;..\..\ClientShared;..\..\App.BulletPhysics;..\..\Win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

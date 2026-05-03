@@ -335,7 +335,11 @@ static void programMemoryPermissionsHackChecker(weak_ptr<DataModel> weakDataMode
 		//FASTLOG(FLog::US14116, "Starting stealth check");
 		if (ProgramMemoryChecker::areMemoryPagePermissionsSetupForHacking()) {
 			//FASTLOG(FLog::US14116, "Caught stealthedit!");
+			#if !defined(RBX_PLATFORM_UWP)
             RBX::Security::setHackFlagVmp<LINE_RAND4>(RBX::Security::hackFlag7, HATE_CATCH_EXECUTABLE_ACCESS_VIOLATION);
+			#else
+			RBX::Security::setHackFlagVmp<3966355>(RBX::Security::hackFlag7, HATE_CATCH_EXECUTABLE_ACCESS_VIOLATION);
+			#endif
 		}
 		//FASTLOG1(FLog::US14116, "Sleeping stealth for %ums", kSleepBetweenStealthEditChecksMillis);
 		boost::this_thread::sleep(boost::posix_time::milliseconds(kSleepBetweenStealthEditChecksMillis));
