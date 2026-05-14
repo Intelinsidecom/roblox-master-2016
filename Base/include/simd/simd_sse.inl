@@ -3,9 +3,11 @@
 // Do not include this file directly. Include simd/simd.h
 
 #include "simd/simd_types.h"
+#if !defined(_M_ARM) && !defined(_M_ARM64) && defined(_MSC_VER)
 #include <xmmintrin.h>
 #include <emmintrin.h>
 #include <mmintrin.h>
+#endif
 
 namespace RBX
 {

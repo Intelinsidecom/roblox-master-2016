@@ -512,7 +512,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Network;..\..\Network\include;..\..\Base\include;..\..\Network\include\network;..\..\App\lua-5.1.4\src;..\..\App\include;..\..\Network\raknet\source;..\TBB_4_1\include;..\..\fmod\UWP\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;..\..\Rendering\g3d\png;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\ClientShared;..\..\App.BulletPhysics;$(CONTRIB_PATH)\VMProtectWin_2.13;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;RBX_PLATFORM_UWP;_WIN32_WINNT=0x0602;WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -526,7 +526,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Network;..\..\Network\include;..\..\Base\include;..\..\Network\include\network;..\..\App\lua-5.1.4\src;..\..\App\include;..\..\Network\raknet\source;..\TBB_4_1\include;..\..\fmod\UWP\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;..\..\Rendering\g3d\png;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\ClientShared;..\..\App.BulletPhysics;$(CONTRIB_PATH)\VMProtectWin_2.13;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;RBX_PLATFORM_UWP;_WIN32_WINNT=0x0602;WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -540,8 +540,8 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Network;..\..\Network\include;..\..\Base\include;..\..\Network\include\network;..\..\App\lua-5.1.4\src;..\..\App\include;..\..\Network\raknet\source;..\TBB_4_1\include;..\..\fmod\UWP\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;..\..\Rendering\g3d\png;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\ClientShared;..\..\App.BulletPhysics;$(CONTRIB_PATH)\VMProtectWin_2.13;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Network;..\..\Network\include;..\..\Base\include;..\..\Network\include\network;..\..\App\lua-5.1.4\src;..\..\App\include;..\..\Network\raknet\source;..\TBB_4_1\include;..\..\fmod\UWP\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;..\..\Rendering\g3d\png;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\ClientShared;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;RBX_PLATFORM_UWP;_WIN32_WINNT=0x0602;WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -554,8 +554,8 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Network;..\..\Network\include;..\..\Base\include;..\..\Network\include\network;..\..\App\lua-5.1.4\src;..\..\App\include;..\..\Network\raknet\source;..\TBB_4_1\include;..\..\fmod\UWP\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;..\..\Rendering\g3d\png;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\ClientShared;..\..\App.BulletPhysics;$(CONTRIB_PATH)\VMProtectWin_2.13;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <SDLCheck>false</SDLCheck>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Network;..\..\Network\include;..\..\Base\include;..\..\Network\include\network;..\..\App\lua-5.1.4\src;..\..\App\include;..\..\Network\raknet\source;..\TBB_4_1\include;..\..\fmod\UWP\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;..\..\Rendering\g3d\png;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\ClientShared;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;RBX_PLATFORM_UWP;_WIN32_WINNT=0x0602;WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
@@ -568,7 +568,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Network;..\..\Network\include;..\..\Base\include;..\..\Network\include\network;..\..\App\lua-5.1.4\src;..\..\App\include;..\..\Network\raknet\source;..\TBB_4_1\include;..\..\fmod\UWP\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;..\..\Rendering\g3d\png;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\ClientShared;..\..\App.BulletPhysics;$(CONTRIB_PATH)\VMProtectWin_2.13;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;RBX_PLATFORM_UWP;_WIN32_WINNT=0x0602;WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -582,7 +582,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Network;..\..\Network\include;..\..\Base\include;..\..\Network\include\network;..\..\App\lua-5.1.4\src;..\..\App\include;..\..\Network\raknet\source;..\TBB_4_1\include;..\..\fmod\UWP\include;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;..\..\Rendering\g3d\png;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\ClientShared;..\..\App.BulletPhysics;$(CONTRIB_PATH)\VMProtectWin_2.13;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;RBX_PLATFORM_UWP;_WIN32_WINNT=0x0602;WIN32;_WINSOCK_DEPRECATED_NO_WARNINGS;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>

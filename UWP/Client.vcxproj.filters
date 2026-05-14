@@ -1,0 +1,2670 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Assets">
+      <UniqueIdentifier>156f018a-3f37-4214-abb0-617b7f1c0224</UniqueIdentifier>
+      <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
+    </Filter>
+    <Filter Include="ClientBase">
+      <UniqueIdentifier>{280f49c1-8ff9-48ae-8f4d-5c74382e3847}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages">
+      <UniqueIdentifier>93d18b79-cf78-4004-8447-f098d66e8825</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\LandingPage">
+      <UniqueIdentifier>{f4df3545-d870-48e7-8de7-8664ee2f10d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>93d18b79-cf78-4004-8447-f098d66e8824</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DO NOT MOVE OR TOUCH!!">
+      <UniqueIdentifier>{de353635-199e-4fa2-aafa-e0c92facd8ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets\DO NOT MOVE OR TOUCH!">
+      <UniqueIdentifier>{f13abee1-9aaa-4b11-a61c-25c3ab586b6c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="App.xaml.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="MainPage.xaml.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="Marshaller.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="UWPPlatform.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderJob.h">
+      <Filter>Source</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Filter>Pages</Filter>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <Filter>Pages</Filter>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="App.xaml.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MainPage.xaml.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Marshaller.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="UWPPlatform.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderJob.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ClientBase\ReflectionMetadata.cpp">
+      <Filter>ClientBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ClientBase\RenderSettingsItem.cpp">
+      <Filter>ClientBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ClientShared\DataModelEmptySerialize.cpp" />
+    <ClCompile Include="..\ClientShared\SDLGameController.cpp" />
+    <ClCompile Include="UserInput.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\LandingPage\home_bkg.png">
+      <Filter>Assets\LandingPage</Filter>
+    </Image>
+    <Image Include="Assets\LandingPage\roblox_logo_red.png">
+      <Filter>Assets\LandingPage</Filter>
+    </Image>
+    <Image Include="content\textures\particles\common_alpha.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\terrain\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\aluminum\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\fabric\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\brick\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\granite\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\grass\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\concrete\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\terrain\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\sand\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\wood\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\slate\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\rust\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\plastic\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\pebble\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\woodplanks\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\metal\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\marble\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\ice\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\cobblestone\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\diamondplate\diffuse.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\terrain\diffusefar.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\explosion_alpha.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\explosion_color.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\explosion01_core_main.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\explosion01_implosion_main.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\explosion01_shockwave_main.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\explosion01_smoke_alpha.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\explosion01_smoke_color_new.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\explosion01_smoke_main.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\fire_alpha.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\fire_color.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\fire_main.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\fire_sparks_color.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\fire_sparks_main.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\fonts\fonts.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\forcefield_alpha.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\forcefield_glow_alpha.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\forcefield_glow_color.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\forcefield_glow_main.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\forcefield_vortex_color.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\forcefield_vortex_main.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\legacy_fire_alpha_color.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\diamondplate\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\cobblestone\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\brick\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\aluminum\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\fabric\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\terrain\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\granite\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\concrete\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\woodplanks\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\wood\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\ice\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\marble\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\terrain\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\slate\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\pebble\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\grass\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\metal\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\plastic\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\rust\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\sand\normal.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_01.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_02.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_03.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_04.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_05.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_06.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_07.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_08.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_09.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_10.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_11.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_12.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_13.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_14.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_15.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_16.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_17.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_18.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_19.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_20.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_21.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_22.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_23.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_24.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\water\normal_25.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\sand\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\slate\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\rust\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\wood\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\grass\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\plastic\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\woodplanks\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\granite\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\pebble\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\concrete\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\fabric\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\metal\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\aluminum\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\brick\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\marble\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\diamondplate\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\ice\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\cobblestone\normaldetail.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\smoke_color.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\smoke_main.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\sparkles_color.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\sparkles_main.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\marble\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\woodplanks\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\concrete\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\wood\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\granite\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\metal\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\fabric\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\grass\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\terrain\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\pebble\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\aluminum\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\diamondplate\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\brick\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\cobblestone\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\terrain\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\ice\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\rust\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\sand\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\slate\specular.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\studs.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\wangIndex.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\water_Subsurface.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\water_Wave.dds">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\AButtonDark.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\AButtonDark%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\AButtonLight.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\AButtonLight%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\AButtonLightSmall.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\advancedMove.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\advancedMove_joint.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\advancedMove_keysOnly.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\advancedMove_noJoint.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\advancedMoveResize.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\advClosed-hand.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\advClosed-hand-no-weld.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\advClosed-hand-weld.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\advCursor-default.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\advCursor-openedHand.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\advCursor-white.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Alert.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Alert%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\AnchorCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ArrowCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ArrowCursorDecalDrag.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ArrowFarCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\BackgroundImage.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Backpack.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Backpack\Backpack.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Backpack\Backpack%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Backpack%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Backpack_Close.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Backpack_Close%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Backpack\Backpack_Down.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Backpack\Backpack_Down%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Backpack_Open.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Backpack_Open%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\BadgeLogo.scale-100.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\BadgeLogo.scale-125.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\BadgeLogo.scale-150.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\BadgeLogo.scale-200.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\BadgeLogo.scale-400.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\BarLeft.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\BarLeft%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\BarRight.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\BarRight%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\BButtonDark.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\BButtonDark%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\BButtonLight.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\BButtonLight%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\blackBkg_round.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\blackBkg_square.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Blank.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PlayerList\BlockedIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Bottom.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\BottomLeft.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\BottomLeftSelected.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\BottomRight.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\BottomRightSelected.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\BottomSelected.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_grey.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_greyTransp.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newBlue.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newBlue%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newBlueGlow.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newBlueGlow%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newGrey.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newGrey%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newGreyGlow.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newGreyGlow%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newWhite.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newWhite%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newWhiteGlow.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newWhiteGlow%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_red.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_redGlow.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_white.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ButtonLeft.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ButtonLeftDown.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ButtonRight.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ButtonRightDown.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\BWGradient.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\loading\cancelButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PlayerList\CharacterImageBackground.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Chat.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\Chat.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Chat%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\Chat%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\chat_teamButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\chat_teamButton%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\chatBubble_blue_notify_bkg.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_bot_notify_bang.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_bot_notify_dotDotDot.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_bot_notify_money.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_bot_notify_question.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_bot_notifyGray_dotDotDot.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botBlue_bkg.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botBlue_notify_bkg.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botBlue_tail.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botBlue_tailRight.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botGreen_bkg.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botGreen_notify_bkg.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botGreen_tail.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botGreen_tailRight.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botRed_bkg.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botRed_notify_bkg.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botRed_tail.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botRed_tailRight.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\chatBubble_green_notify_bkg.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\chatBubble_red_notify_bkg.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_white_bkg.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_white_notify_bkg.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\chatBubble_white_notify_bkg.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_white_tail.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\ChatDown.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\ChatDown%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Clone.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\CloneButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\CloneButton_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\CloneCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\CloneDownCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\CloneOverCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\CloseButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\CloseButton_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Concrete.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\CorrodedMetal.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\loading\darkLoadingTexture.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\DeleteButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\DeleteButton_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_blue.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_blue%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_ellipses.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_green.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_green%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_purpose_help.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_purpose_quest.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_purpose_shop.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_red.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_red%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_tail.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_tail%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_white.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_white%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\DialogHelp.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\DialogQuest.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\DialogShop.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\DiamondPlate.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\dirt.jpg">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\DPadSheet.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\DragCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\DropDown\DropDown.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\DropDown\DropDown%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dropdown_arrow.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dropdown_arrow%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\DropperCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\TopBar\dropshadow.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\TopBar\dropshadow%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\EmptyBottom.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\EmptyBottomLeft.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\EmptyBottomRight.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\EmptyTop.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\EmptyTopLeft.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\EmptyTopRight.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ErrorIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ErrorIconSmall.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\EscapeIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Exit.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Exit_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Exit_ovr.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\expandPlayerList.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\expandPlayerList%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\explosion.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\explosion01_core_alpha.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\particles\explosion01_implosion_color.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\face.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\FillCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\fire_0.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\FlagCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\FlatCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Foil.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\GameSettingsTab.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\GameSettingsTab%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Gear.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Gear_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\GenericController.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\GenericController%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\glow.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Glue.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\GrabCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\GrabRotateCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\gradient.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Grass.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Grass_Texture.jpg">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\GroupMoveButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\GroupMoveButton_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\GunCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\GunWaitCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Menu\Hamburger.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Menu\Hamburger%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Menu\HamburgerDown.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Menu\HamburgerDown%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\HammerCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\HammerDownCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\HammerOverCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Health-BKG-Center.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Health-BKG-Center%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Health-BKG-Left-Cap.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Health-BKG-Left-Cap%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Health-BKG-Right-Cap.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Health-BKG-Right-Cap%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HelpTab.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HelpTab%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Hinge.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\HingeCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\homeButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\homeButton%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HomeTab.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HomeTab%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Ice.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_admin-16.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_BC-16.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_follower-16.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_following-16.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_friendrequestrecieved-16.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_friendrequestsent_16.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_friends_16.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_mutualfollowing-16.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_OBC-16.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_placeowner.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_TBC-16.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Inlets.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\InsertButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\InsertButton_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Leave.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Leave%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\LeaveIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\Left.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\Left%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\sky\lensflare.jpg">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\LoadingBKG.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\loading\loadingCircle.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\loading\loadingTexture.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\loading\loadingvignette.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\LockCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\lua.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\MaterialButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\MaterialButton_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\MaterialMenu.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Menu.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Menu%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuBackground.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButton%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButtonSelected.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButtonSelected%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuSelection.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuSelection%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\MessageCounter.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\MessageCounter%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Modal.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\sky\moon.jpg">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\sky\moon-alpha.jpg">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Motor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\MotorCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\mouseLock_off.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\mouseLock_off%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\mouseLock_on.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\mouseLock_on%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\MouseLockedCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\newBkg_square.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\newBkg_square%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_bk.jpg">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_dn.jpg">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_ft.jpg">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_lf.jpg">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_rt.jpg">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_up.jpg">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PaintButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PaintButton_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PartMoveButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PartMoveButton_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Plastic.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\PlayerList.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\PlayerList%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PlayerlistFriendIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PlayerListFriendRequestReceivedIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PlayerListFriendRequestSentIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\PlayersTabIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\PlayersTabIcon%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Cursors\Gamepad\Pointer.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Cursors\Gamepad\Pointer%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Cursors\Gamepad\PointerOver.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Cursors\Gamepad\PointerOver%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PropertyButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PropertyButton_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\RadialLabel.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\RadialLabel%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\RecordDown.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\RecordStop.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\RecordTab.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\RecordTab%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\ReportAbuseTab.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\ReportAbuseTab%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\ResetIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ResetIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ResizeCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\Right.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\Right%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Roblox.bmp">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-100.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-125.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-150.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-200.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-400.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Roblox-loading.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Roblox-loading%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Roblox-loading-glow.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Roblox-loading-glow%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\loading\robloxlogo.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\roblox-logo.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-100.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-125.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-150.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-200.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-400.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\RobuxIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\RotateCameraGesture.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\rotationArrow.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\RustGradient.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ScaleButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ScaleButton_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\script.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbar.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scroll-bottom.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Scroll\scroll-bottom.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Scroll\scroll-bottom%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scroll-bottom%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonDown.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonDown_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonDown_ds.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonDown_ovr.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonUp.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonUp_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonUp_ds.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonUp_ovr.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Scroll\scroll-middle.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scroll-middle.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Scroll\scroll-middle%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scroll-middle%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scroll-top.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Scroll\scroll-top.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Scroll\scroll-top%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scroll-top%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SearchIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarLeft.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarLeft%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarRight.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarRight%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SelectionBox.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SelectionBox%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SettingsButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SettingsButton_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SettingsButton_ds.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SettingsButton_ovr.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\shadowmask.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SingleButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SingleButtonDown.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\sky\skyspheremap.jpg">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slate.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\slider_new_tab.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\slider_new_tab%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider_sel.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-BKG-Center.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-BKG-Center%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-BKG-Left-Cap.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-BKG-Left-Cap%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-BKG-Right-Cap.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-BKG-Right-Cap%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-Fill-Center.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-Fill-Center%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-Fill-Left-Cap.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-Fill-Left-Cap%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-Fill-Right-Cap.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-Fill-Right-Cap%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\Smoke.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Smooth.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\spark.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\sparkle.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\SpawnCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\SpawnLocation.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Vehicle\SpeedBar.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Vehicle\SpeedBar%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Vehicle\SpeedBarBKG.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Vehicle\SpeedBarBKG%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Vehicle\SpeedBarEmpty.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Vehicle\SpeedBarEmpty%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-100.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-125.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-150.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-400.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-100.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-125.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-150.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-400.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-100.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-125.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-150.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-200.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-400.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-100.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-125.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-150.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-400.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square310x310Logo.scale-100.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square310x310Logo.scale-125.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square310x310Logo.scale-150.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square310x310Logo.scale-200.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Square310x310Logo.scale-400.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\StampToolButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\StampToolButton_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-100.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-125.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-150.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-200.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-400.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Studs.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\sky\sun.jpg">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\sky\sun-rays.jpg">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SurfaceButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SurfaceButton_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SurfaceMenu.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\SurfacesDefault.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PlayerList\TileShadowMissingTop.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\TinyBcIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\TinyObcIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\TinyTbcIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\TixIcon.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\ToggleChat.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\ToggleChat%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\ToggleChatDown.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\ToggleChatDown%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ToggleFullScreen_ds.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ToolButton.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ToolButton_dn.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ToolButton_ds.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Top.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\TopLeft.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\TopLeftSelected.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\TopRight.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\TopRightSelected.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\TopSelected.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\TouchControlsSheet.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\transformFiveDegrees.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\transformNinetyDegrees.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\transformOneDegree.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\transformTwentyTwoDegrees.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\UnAnchorCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Universal.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\UnlockCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\UseToolGesture.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Weld.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\WeldCursor.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\WhiteCircle.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Wood.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\wrench.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\XboxController.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\XButtonDark.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\XButtonDark%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\XButtonLight.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\XButtonLight%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\YButtonDark.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\YButtonDark%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\YButtonLight.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\YButtonLight%402x.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\ZoomGesture.png">
+      <Filter>Assets\DO NOT MOVE OR TOUCH!</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-100.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-150.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-125.png">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <Filter>Source</Filter>
+    </AppxManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="content\fonts\Arial.font">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\ArialBold.font">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\BackpackScript.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\CoreScripts\BubbleChat.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\CoreScripts\BuildToolsScripts\BuildToolManager.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\CoreScripts\BuildToolsScripts\BuildToolsScript.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\character.rbxm">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\character3.rbxm">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\characterCameraScript.rbxmx">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\characterControlScript.rbxmx">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\characterR15.rbxm">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\Chat.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\comics.fnt">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\CompositExtraSlot0.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\CompositExtraSlot1.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\CompositExtraSlot2.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\CompositExtraSlot3.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\CompositExtraSlot4.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\CompositFullAtlasBaseTexture.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\CompositFullAtlasOverlayTexture.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\CompositLeftArmBase.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\CompositLeftLegBase.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\CompositPantsTemplate.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\CompositRightArmBase.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\CompositRightLegBase.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\CompositShirtTemplate.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\CompositTorsoBase.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\CompositTShirt.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\CoreScripts\ContextActionTouch.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\CoreScripts\DeveloperConsole.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\DeveloperConsoleModule.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\diogenes.fnt">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\particles\explosion.particle">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\particles\fire.particle">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\particles\forceFieldBeam.particle">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\particles\forceFieldRadial.particle">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\CoreScripts\GamepadMenu.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\GameSettings.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\head.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headA.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headB.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headC.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headD.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headE.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headF.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headG.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headH.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headI.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headJ.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headK.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headL.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headM.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headN.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headO.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\headP.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\CoreScripts\HealthScript.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\Help.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\Home.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\humanoidAnimate.rbxm">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\humanoidAnimateLocal.rbxm">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\humanoidAnimateLocalKeyframe.rbxm">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\humanoidAnimateLocalKeyframe2.rbxm">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\humanoidAnimateR15.rbxm">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\humanoidExtra.rbxm">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\humanoidSound.rbxm">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\humanoidSound2.rbxm">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\humanoidSoundNew.rbxm">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\humanoidSoundNewLocal.rbxmx">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\humanoidStatic.rbxm">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\LeaveGame.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\leftarm.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\leftleg.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\LoadingScript.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\LoadingScript.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\CoreScripts\MainBotChatScript2.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="PlatformContent\pc\terrain\materials.json">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\CoreScripts\NotificationScript2.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\CoreScripts\BuildToolsScripts\PersonalServerScript.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\PlayerDropDown.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\PlayerlistModule.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\Players.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\CoreScripts\PurchasePromptScript2.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Libraries\RbxGui.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Libraries\RbxStamper.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Libraries\RbxUtility.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\Record.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\ReportAbuseMenu.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\ResetCharacter.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\rightarm.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\rightleg.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\Rocket.rbxm">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\ServerCoreScripts\ServerSocialScript.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\ServerStarterScript.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\Settings\SettingsHub.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\Settings\SettingsPageFactory.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="shaders\shaders.json">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="shaders\shaders_d3d9.pack">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="shaders\shaders_d3d11.pack">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="shaders\shaders_d3d11_durango.pack">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="shaders\shaders_d3d11_level_9_3.pack">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="shaders\shaders_glsl.pack">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="shaders\shaders_glsl3.pack">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="shaders\shaders_glsles.pack">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="shaders\shaders_glsles3.pack">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="PlatformContent\pc\textures\sky\sky512_bk.tex">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="PlatformContent\pc\textures\sky\sky512_dn.tex">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="PlatformContent\pc\textures\sky\sky512_ft.tex">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="PlatformContent\pc\textures\sky\sky512_lf.tex">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="PlatformContent\pc\textures\sky\sky512_rt.tex">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="PlatformContent\pc\textures\sky\sky512_up.tex">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\SlingshotPellet.rbxm">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\particles\smoke.particle">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\SourceSans.font">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\SourceSansBold.font">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\SourceSansItalic.font">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\SourceSansLight.font">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\particles\sparkles.particle">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\StarterScript.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\TenFootInterface.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\CoreScripts\Topbar.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\fonts\torso.mesh">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Utility.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="content\scripts\CoreScripts\VehicleHud.lua">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </None>
+    <None Include="..\Client_TemporaryKey.pfx" />
+    <None Include="..\fmod\UWP\fmod_X64.dll" />
+    <None Include="..\fmod\UWP\fmod_ARM.dll" />
+    <None Include="..\fmod\UWP\fmod_X86.dll" />
+    <None Include="..\fmod\UWP\fmodL_ARM.dll" />
+    <None Include="..\fmod\UWP\fmodL_X64.dll" />
+    <None Include="..\SDL2\UWP\ARM\SDL2.dll" />
+    <None Include="..\SDL2\UWP\x86\SDL2.dll" />
+    <None Include="..\SDL2\UWP\x64\SDL2.dll" />
+    <None Include="content\TestPlace.rbxl" />
+    <None Include="..\VMProtect\VMProtectSDK64.dll" />
+    <None Include="..\VMProtect\VMProtectSDK32.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="content\sounds\action_falling.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\action_footsteps_plastic.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\action_get_up.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\action_jump.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\action_jump_land.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\action_swim.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\bass.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\music\bass.wav">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\bfsl-minifigfoots1.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\bfsl-minifigfoots2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\button.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\clickfast.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\collide.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\electronicpingshort.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\flashbulb.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\grass.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\grass2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\grass3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\grassstone.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\grassstone2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\grassstone3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\hit.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\ice.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\ice2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\ice3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\icegrass.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\icegrass2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\icegrass3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\icemetal.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\icemetal2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\icemetal3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\icestone.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\icestone2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\icestone3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\impact_bodyfall.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\impact_explosion_01.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\impact_explosion_02.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\impact_explosion_03.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\impact_water.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\Kerplunk.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\Kid saying Ouch.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\metal.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\metal2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\metal3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\metalgrass.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\metalgrass2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\metalgrass3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\metalstone.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\metalstone2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\metalstone3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\plasticgrass.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\plasticgrass2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\plasticgrass3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\plasticice.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\plasticice2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\plasticice3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\plasticmetal.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\plasticmetal2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\plasticmetal3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\plasticplastic.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\plasticplastic2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\plasticplastic3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\plasticstone.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\plasticstone2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\plasticstone3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\Rubber band sling shot.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\Rubber band.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\snap.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\splat.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\stone.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\stone2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\stone3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\switch.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\SWITCH3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\swoosh.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\swordlunge.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\swordslash.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\music\ufofly.wav">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\unsheath.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\uuhhh.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\victory.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodgrass.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodgrass2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodgrass3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodice.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodice2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodice3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodmetal.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodmetal2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodmetal3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodplastic.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodplastic2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodplastic3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodstone.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodstone2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodstone3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodwood.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodwood2.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="content\sounds\woodwood3.mp3">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Media>
+    <Media Include="..\fmod\UWP\fmodL_X86.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="content\fonts\arial.ttf">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Font>
+    <Font Include="content\fonts\arialbd.ttf">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Font>
+    <Font Include="content\fonts\SourceSansPro-Bold.ttf">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Font>
+    <Font Include="content\fonts\SourceSansPro-It.ttf">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Font>
+    <Font Include="content\fonts\SourceSansPro-Light.ttf">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Font>
+    <Font Include="content\fonts\SourceSansPro-Regular.ttf">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="content\fonts\gamecontrollerdb.txt">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="content\fonts\safechat.xml">
+      <Filter>DO NOT MOVE OR TOUCH!!</Filter>
+    </Xml>
+  </ItemGroup>
+</Project>

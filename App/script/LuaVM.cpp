@@ -10,21 +10,27 @@
 
 #include "luaconf.h"
 
+#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 #include "VMProtectSDK.h"
+#endif
 
 struct lua_State;
 
 // If you are getting to this point in a debugger, you probably added a lua_*
 // call to one of the VM protected sections.
 void lua_vmhooked_handler(lua_State* L) {
+    #if defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
     VMProtectBeginVirtualization(NULL);
+    #endif
     RBX::Tokens::sendStatsToken.addFlagFast(HATE_LUA_VM_HOOKED);
     RBX::DataModel* dm = RBX::DataModel::get(RobloxExtraSpace::get(L)->context());
     if (dm)
     {
         dm->addHackFlag(HATE_LUA_VM_HOOKED);
     }
+    #if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
     VMProtectEnd();
+    #endif
 };
 
 #ifdef RBX_SECURE_DOUBLE

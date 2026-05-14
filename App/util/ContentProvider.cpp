@@ -86,6 +86,38 @@ namespace {
         return fs::path(str);
 #endif
 	}
+
+#if defined(RBX_PLATFORM_UWP)
+    inline fs::path normalizePath(const fs::path& p)
+    {
+        std::vector<std::wstring> components;
+        for (fs::path::const_iterator it = p.begin(); it != p.end(); ++it)
+        {
+            std::wstring comp = it->wstring();
+            if (comp == L".")
+                continue;
+            else if (comp == L"..")
+            {
+                if (!components.empty() && components.back() != L"..")
+                    components.pop_back();
+                else
+                    components.push_back(comp);
+            }
+            else
+                components.push_back(comp);
+        }
+
+        fs::path result;
+        for (size_t i = 0; i < components.size(); ++i)
+        {
+            if (i == 0 && components[i].length() == 2 && components[i][1] == L':')
+                result = fs::path(components[i]);
+            else
+                result /= components[i];
+        }
+        return result.empty() ? fs::path(L".") : result;
+    }
+#endif
 }
 
 namespace RBX {
@@ -919,6 +951,21 @@ namespace RBX
 
     bool ContentProvider::isInSandbox(const fs::path& path, const fs::path& sandbox)
     {
+#if defined(RBX_PLATFORM_UWP)
+        std::string normalizedPath = pathToString(normalizePath(path));
+        std::string normalizedBase = pathToString(normalizePath(sandbox));
+        bool inSandbox;
+        if (normalizedPath == normalizedBase) {
+            inSandbox = true;
+        } else if (normalizedPath.size() > normalizedBase.size()) {
+            char nextChar = normalizedPath[normalizedBase.size()];
+            inSandbox = (normalizedPath.compare(0, normalizedBase.size(), normalizedBase) == 0) &&
+                        (nextChar == '\\' || nextChar == '/');
+        } else {
+            inSandbox = false;
+        }
+        return inSandbox;
+#else
         boost::system::error_code errBase, errPath;
         std::string canonicalPath = pathToString(fs::canonical(path,errPath));
         std::string canonicalBase = pathToString(fs::canonical(sandbox,errBase));
@@ -931,6 +978,7 @@ namespace RBX
             return false;
         }
         return true;
+#endif
     }
 
 	std::string ContentProvider::findAsset(RBX::ContentId contentId)
@@ -957,7 +1005,7 @@ namespace RBX
 			}
 		}
 
-		
+
         boost::system::error_code ec;
         if (!boost::filesystem::exists(filePath, ec))
 		{
@@ -972,11 +1020,12 @@ namespace RBX
         // sandbox to assetFolder() or platformAssetFolder()
         if (contentId.isAppContent() || isInSandbox(filePath, (isPlatformAsset ? platformAssetFolderPath : assetFolderPath)))
         {
-			return pathToString(filePath); 
+			return pathToString(filePath);
+
 
         }
 
-		return "";                               
+		return "";
 	}
 
 	std::string ContentProvider::findHashFile(RBX::ContentId contentId)
@@ -1009,7 +1058,12 @@ namespace RBX
             if (RBX::Log::current())
                 RBX::Log::current()->writeEntry(Log::Information, RBX::format("setAssetFolder %s", sPath).c_str());
 
+			#if defined(RBX_PLATFORM_UWP)
+            fs::path inputPath = stringToPath(sPath);
+            fs::path path = inputPath.is_absolute() ? inputPath : fs::system_complete(inputPath);
+			#else
 			fs::path path = fs::system_complete( stringToPath(sPath) );
+#endif
 
             if (!fs::exists(path))
                 throw RBX::runtime_error("The path '%s' does not exist", path.string().c_str());
@@ -1020,6 +1074,8 @@ namespace RBX
 
 #if defined(RBX_PLATFORM_DURANGO)
             fs::path platformAssetFolderModifier = "../PlatformContent/durango/";
+#elif defined(RBX_PLATFORM_UWP)
+            fs::path platformAssetFolderModifier = "../PlatformContent/pc/";
 #elif defined(RBX_PLATFORM_IOS)
             fs::path platformAssetFolderModifier = "../ios/";
 #elif defined(__APPLE__) || defined(_WIN32)
@@ -1036,9 +1092,16 @@ namespace RBX
             assetFolderString = pathToString(path);
             platformAssetFolderString = assetFolderString + platformAssetFolderModifier.string();
 
-            assetFolderPath = fs::canonical(path);
-            platformAssetFolderPath = fs::canonical(path / platformAssetFolderModifier);
+#if defined(RBX_PLATFORM_UWP)
+            assetFolderPath = normalizePath(path);
+            platformAssetFolderPath = normalizePath(path / platformAssetFolderModifier);
+#else
+			assetFolderPath = fs::canonical(path);
+			platformAssetFolderPath = fs::canonical(path / platformAssetFolderModifier);
+#endif
+
             assetFolderAlreadyInit = true;
+
         }
 	}
 

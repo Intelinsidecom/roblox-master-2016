@@ -195,6 +195,8 @@ namespace RBX
         void httpGetPost(bool isPost, std::istream& dataStream, const std::string& contentType, bool compressData, const HttpAux::AdditionalHeaders& additionalHeaders, bool allowExternal, std::string& response, bool forceNativeHttp = false);
 #if defined(RBX_PLATFORM_DURANGO)
 		void httpGetPostXbox(bool isPost, std::istream& dataStream, const std::string& contentType, bool compressData, const HttpAux::AdditionalHeaders& additionalHeaders, bool allowExternal, HttpCache::Policy cachePolicy, std::string& response);
+#elif defined(RBX_PLATFORM_UWP)
+		void httpGetPostUWP(bool isPost, std::istream& dataStream, const std::string& contentType, bool compressData, const HttpAux::AdditionalHeaders& additionalHeaders, bool allowExternal, HttpCache::Policy cachePolicy, std::string& response);
 #elif defined(_WIN32)
         void httpGetPostWinInet(bool isPost, std::istream& dataStream, const std::string& contentType, bool compressData, const HttpAux::AdditionalHeaders& additionalHeaders, bool allowExternal, std::string& response);
         void httpGetPostWinHttp(bool isPost, std::istream& dataStream, const std::string& contentType, bool compressData, const HttpAux::AdditionalHeaders& additionalHeaders, bool allowExternal, std::string& response);
@@ -205,17 +207,17 @@ namespace RBX
 
 		void ThrowIfFailure(bool success, const char* message);
 
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
 		static void setCookiesForDomainWinInet(const std::string& domain, const std::string& cookies);
 #endif
 	public:
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
 		void onWinHttpRedirect(unsigned long dwInternetStatus, std::string redirectUrl);
 #endif
 
 		static void ThrowIfFailure(bool success, const char* url, const char* message);	
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 		static void ThrowLastError(int error, const char* url, const char* message);
 #endif
 

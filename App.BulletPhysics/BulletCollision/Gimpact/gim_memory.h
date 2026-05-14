@@ -37,9 +37,11 @@ email: projectileman@yahoo.com
 #include <string.h>
 
 #ifdef PREFETCH
+#if !defined(_M_ARM) && !defined(_M_ARM64)
 #include <xmmintrin.h>	// for prefetch
 #define pfval	64
 #define pfval2	128
+#endif
 //! Prefetch 64
 #define pf(_x,_i)	_mm_prefetch((void *)(_x + _i + pfval), 0)
 //! Prefetch 128

@@ -411,11 +411,16 @@ private:
         {
             unsigned int length = stringLengths[i];
             
-            stringBuffer.resize(length);
-            
-            ss.read(&stringBuffer[0], length);
-            
-            strings[i] = luaS_newlstr(L, &stringBuffer[0], length);
+        if (length > 0)
+            {
+                stringBuffer.resize(length);
+                ss.read(&stringBuffer[0], length);
+                strings[i] = luaS_newlstr(L, &stringBuffer[0], length);
+            }
+        else
+            {
+                strings[i] = luaS_newlstr(L, "", 0);
+            }
         }
         
         ss.seekg(streamStart + 4);

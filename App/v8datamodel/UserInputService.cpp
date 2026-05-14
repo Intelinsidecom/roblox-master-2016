@@ -32,6 +32,10 @@
 
 #include <boost/algorithm/string.hpp>
 
+#if defined(RBX_PLATFORM_UWP)
+extern "C" bool isUWPWindowsPhone();
+#endif
+
 #ifdef __APPLE__ // needed for pasting ability on OS X
 #if !RBX_PLATFORM_IOS
 #import <Cocoa/Cocoa.h>
@@ -350,11 +354,7 @@ namespace RBX {
 
 	bool UserInputService::IsUsingNewKeyboardEvents()
 	{
-#ifdef RBX_PLATFORM_UWP
-		return true;
-#else
         return false;
-#endif
 	}
     
     void UserInputService::onServiceProvider(ServiceProvider* oldProvider, ServiceProvider* newProvider)
@@ -453,6 +453,8 @@ namespace RBX {
 #elif defined(RBX_PLATFORM_DURANGO)
 		return PLATFORM_XBOXONE;
 #elif defined(RBX_PLATFORM_UWP)
+		if (isUWPWindowsPhone())
+			return PLATFORM_ANDROID;
 		return PLATFORM_UWP;
 #elif defined(RBX_PLATFORM_DURANGO)
 		return PLATFORM_XBOXONE;

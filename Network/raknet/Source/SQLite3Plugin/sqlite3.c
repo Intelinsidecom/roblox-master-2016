@@ -25907,6 +25907,9 @@ SQLITE_API int sqlite3_os_end(void){
 */
 #if SQLITE_OS_WIN               /* This file is used for windows only */
 
+#if defined(RBX_PLATFORM_UWP)
+#include "WindowsIncludes.h"
+#endif
 
 /*
 ** A Note About Memory Allocation:
@@ -26262,15 +26265,19 @@ static int sqlite3_os_type = 0;
 ** WinNT/2K/XP so that we will know whether or not we can safely call
 ** the LockFileEx() API.
 */
-#if SQLITE_OS_WINCE
+#if SQLITE_OS_WINCE || defined(RBX_PLATFORM_UWP)
 # define isNT()  (1)
 #else
   static int isNT(void){
     if( sqlite3_os_type==0 ){
       OSVERSIONINFO sInfo;
       sInfo.dwOSVersionInfoSize = sizeof(sInfo);
+#if !defined(RBX_PLATFORM_UWP)
       GetVersionEx(&sInfo);
       sqlite3_os_type = sInfo.dwPlatformId==VER_PLATFORM_WIN32_NT ? 2 : 1;
+#else
+      sqlite3_os_type = 2; // UWP is always NT
+#endif
     }
     return sqlite3_os_type==2;
   }

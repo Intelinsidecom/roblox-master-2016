@@ -61,6 +61,7 @@
     <ClCompile Include="..\..\ClientShared\Mobile\CookiesEngine.cpp" />
     <ClCompile Include="..\..\Base\rbx\Durango\SystemUtil.cpp" />
     <ClCompile Include="..\..\Base\rbx\UWP\SystemUtil.cpp" />
+    <ClCompile Include="..\..\Base\include\rbx\RbxDbgInfo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="ClientShared">

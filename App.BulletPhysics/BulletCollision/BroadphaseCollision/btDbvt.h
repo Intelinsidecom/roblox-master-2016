@@ -67,9 +67,9 @@ subject to the following restrictions:
 #define DBVT_INT0_IMPL			DBVT_IMPL_GENERIC
 #endif
 
-#if	(DBVT_SELECT_IMPL==DBVT_IMPL_SSE)||	\
+#if	((DBVT_SELECT_IMPL==DBVT_IMPL_SSE)||	\
 	(DBVT_MERGE_IMPL==DBVT_IMPL_SSE)||	\
-	(DBVT_INT0_IMPL==DBVT_IMPL_SSE)
+	(DBVT_INT0_IMPL==DBVT_IMPL_SSE)) && !defined(_M_ARM) && !defined(_M_ARM64)
 #include <emmintrin.h>
 #endif
 

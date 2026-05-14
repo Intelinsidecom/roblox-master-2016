@@ -31,9 +31,20 @@ subject to the following restrictions:
 #define v0100 (_mm_set_ps(0.0f,0.0f,1.0f,0.0f))
 #define v0010 (_mm_set_ps(0.0f,1.0f,0.0f,0.0f))
 #elif defined(BT_USE_NEON)
+#if defined(_MSC_VER)
+const float v01v1000[2] = { 1.0f, 0.0f }; const float v23v1000[2] = { 0.0f, 0.0f };
+const btSimdFloat4 v1000 = vcombine_f32(vld1_f32(v01v1000), vld1_f32(v23v1000));
+
+const float v01v0100[2] = { 0.0f, 1.0f }; const float v23v0100[2] = { 0.0f, 0.0f };
+const btSimdFloat4 v0100 = vcombine_f32(vld1_f32(v01v0100), vld1_f32(v23v0100));
+
+const float v01v0010[2] = { 0.0f, 0.0f }; const float v23v0010[2] = { 1.0f, 0.0f };
+const btSimdFloat4 v0010 = vcombine_f32(vld1_f32(v01v0010), vld1_f32(v23v0010));
+#else
 const btSimdFloat4 ATTRIBUTE_ALIGNED16(v1000) = {1.0f, 0.0f, 0.0f, 0.0f};
 const btSimdFloat4 ATTRIBUTE_ALIGNED16(v0100) = {0.0f, 1.0f, 0.0f, 0.0f};
 const btSimdFloat4 ATTRIBUTE_ALIGNED16(v0010) = {0.0f, 0.0f, 1.0f, 0.0f};
+#endif
 #endif
 
 #ifdef BT_USE_DOUBLE_PRECISION
@@ -93,17 +104,17 @@ public:
 	// Copy constructor
 	SIMD_FORCE_INLINE btMatrix3x3(const btMatrix3x3& rhs)
 	{
-		m_el[0].mVec128 = rhs.m_el[0].mVec128;
-		m_el[1].mVec128 = rhs.m_el[1].mVec128;
-		m_el[2].mVec128 = rhs.m_el[2].mVec128;
+		m_el[0] = rhs.m_el[0];
+		m_el[1] = rhs.m_el[1];
+		m_el[2] = rhs.m_el[2];
 	}
 
 	// Assignment Operator
 	SIMD_FORCE_INLINE btMatrix3x3& operator=(const btMatrix3x3& m) 
 	{
-		m_el[0].mVec128 = m.m_el[0].mVec128;
-		m_el[1].mVec128 = m.m_el[1].mVec128;
-		m_el[2].mVec128 = m.m_el[2].mVec128;
+		m_el[0] = m.m_el[0];
+		m_el[1] = m.m_el[1];
+		m_el[2] = m.m_el[2];
 		
 		return *this;
 	}
@@ -195,13 +206,13 @@ public:
 	*  @param zx Bottom Left
 	*  @param zy Bottom Middle
 	*  @param zz Bottom Right*/
-	void setValue(const btScalar& xx, const btScalar& xy, const btScalar& xz, 
+	SIMD_FORCE_INLINE void setValue(const btScalar& xx, const btScalar& xy, const btScalar& xz, 
 		const btScalar& yx, const btScalar& yy, const btScalar& yz, 
 		const btScalar& zx, const btScalar& zy, const btScalar& zz)
 	{
-		m_el[0].setValue(xx,xy,xz);
-		m_el[1].setValue(yx,yy,yz);
-		m_el[2].setValue(zx,zy,zz);
+		m_el[0] = btVector3(xx,xy,xz);
+		m_el[1] = btVector3(yx,yy,yz);
+		m_el[2] = btVector3(zx,zy,zz);
 	}
 
 	/** @brief Set the matrix from a quaternion
@@ -367,7 +378,12 @@ public:
         vm[2] = v2;
 #elif defined(BT_USE_NEON)
         // note: zeros the w channel. We can preserve it at the cost of two more vtrn instructions.
+#if defined(_MSC_VER)
+        const uint32_t zMask_data[2] = { static_cast<uint32_t>(-1), 0 };
+        const uint32x2_t zMask = vld1_u32(zMask_data);
+#else
         static const uint32x2_t zMask = (const uint32x2_t) {static_cast<uint32_t>(-1), 0 };
+#endif
         float32x4_t *vm = (float32x4_t *)m;
         float32x4x2_t top = vtrnq_f32( m_el[0].mVec128, m_el[1].mVec128 );  // {x0 x1 z0 z1}, {y0 y1 w0 w1}
         float32x2x2_t bl = vtrn_f32( vget_low_f32(m_el[2].mVec128), vdup_n_f32(0.0f) );       // {x2  0 }, {y2 0}
@@ -740,12 +756,38 @@ public:
 	void	deSerializeDouble(const struct	btMatrix3x3DoubleData& dataIn);
 
 };
-
-
 SIMD_FORCE_INLINE btMatrix3x3& 
 btMatrix3x3::operator*=(const btMatrix3x3& m)
 {
-#if defined BT_USE_SIMD_VECTOR3 && defined (BT_USE_SSE_IN_API) && defined (BT_USE_SSE)
+#if defined(BT_USE_NEON)
+    float32x4_t rv0, rv1, rv2;
+    float32x4_t v0, v1, v2;
+    float32x4_t mv0, mv1, mv2;
+
+    v0 = m_el[0].mVec128;
+    v1 = m_el[1].mVec128;
+    v2 = m_el[2].mVec128;
+
+    mv0 = (float32x4_t) vandq_s32((int32x4_t)m[0].mVec128, btvFFF0Mask); 
+    mv1 = (float32x4_t) vandq_s32((int32x4_t)m[1].mVec128, btvFFF0Mask); 
+    mv2 = (float32x4_t) vandq_s32((int32x4_t)m[2].mVec128, btvFFF0Mask); 
+    
+    rv0 = vmulq_lane_f32(mv0, vget_low_f32(v0), 0);
+    rv1 = vmulq_lane_f32(mv0, vget_low_f32(v1), 0);
+    rv2 = vmulq_lane_f32(mv0, vget_low_f32(v2), 0);
+    
+    rv0 = vmlaq_lane_f32(rv0, mv1, vget_low_f32(v0), 1);
+    rv1 = vmlaq_lane_f32(rv1, mv1, vget_low_f32(v1), 1);
+    rv2 = vmlaq_lane_f32(rv2, mv1, vget_low_f32(v2), 1);
+    
+    rv0 = vmlaq_lane_f32(rv0, mv2, vget_high_f32(v0), 0);
+    rv1 = vmlaq_lane_f32(rv1, mv2, vget_high_f32(v1), 0);
+    rv2 = vmlaq_lane_f32(rv2, mv2, vget_high_f32(v2), 0);
+
+    m_el[0] = btVector3(rv0);
+    m_el[1] = btVector3(rv1);
+    m_el[2] = btVector3(rv2);
+#elif (defined (BT_USE_SSE_IN_API) && defined (BT_USE_SSE))
     __m128 rv00, rv01, rv02;
     __m128 rv10, rv11, rv12;
     __m128 rv20, rv21, rv22;
@@ -793,36 +835,6 @@ btMatrix3x3::operator*=(const btMatrix3x3& m)
     m_el[0].mVec128 = _mm_add_ps(rv00, rv02);
     m_el[1].mVec128 = _mm_add_ps(rv10, rv12);
     m_el[2].mVec128 = _mm_add_ps(rv20, rv22);
-
-#elif defined(BT_USE_NEON)
-
-    float32x4_t rv0, rv1, rv2;
-    float32x4_t v0, v1, v2;
-    float32x4_t mv0, mv1, mv2;
-
-    v0 = m_el[0].mVec128;
-    v1 = m_el[1].mVec128;
-    v2 = m_el[2].mVec128;
-
-    mv0 = (float32x4_t) vandq_s32((int32x4_t)m[0].mVec128, btvFFF0Mask); 
-    mv1 = (float32x4_t) vandq_s32((int32x4_t)m[1].mVec128, btvFFF0Mask); 
-    mv2 = (float32x4_t) vandq_s32((int32x4_t)m[2].mVec128, btvFFF0Mask); 
-    
-    rv0 = vmulq_lane_f32(mv0, vget_low_f32(v0), 0);
-    rv1 = vmulq_lane_f32(mv0, vget_low_f32(v1), 0);
-    rv2 = vmulq_lane_f32(mv0, vget_low_f32(v2), 0);
-    
-    rv0 = vmlaq_lane_f32(rv0, mv1, vget_low_f32(v0), 1);
-    rv1 = vmlaq_lane_f32(rv1, mv1, vget_low_f32(v1), 1);
-    rv2 = vmlaq_lane_f32(rv2, mv1, vget_low_f32(v2), 1);
-    
-    rv0 = vmlaq_lane_f32(rv0, mv2, vget_high_f32(v0), 0);
-    rv1 = vmlaq_lane_f32(rv1, mv2, vget_high_f32(v1), 0);
-    rv2 = vmlaq_lane_f32(rv2, mv2, vget_high_f32(v2), 0);
-
-    m_el[0].mVec128 = rv0;
-    m_el[1].mVec128 = rv1;
-    m_el[2].mVec128 = rv2;
 #else    
 	setValue(
         m.tdotx(m_el[0]), m.tdoty(m_el[0]), m.tdotz(m_el[0]),
@@ -1058,7 +1070,12 @@ btMatrix3x3::transposeTimes(const btMatrix3x3& m) const
 
 #elif defined BT_USE_NEON
     // zeros w
+#if defined(_MSC_VER)
+    const uint32_t xyzMask_data[4] = { static_cast<uint32_t>(-1), static_cast<uint32_t>(-1), static_cast<uint32_t>(-1), 0 };
+    const uint32x4_t xyzMask = vld1q_u32(xyzMask_data);
+#else
     static const uint32x4_t xyzMask = (const uint32x4_t){ static_cast<uint32_t>(-1), static_cast<uint32_t>(-1), static_cast<uint32_t>(-1), 0 };
+#endif
     float32x4_t m0 = (float32x4_t) vandq_u32( (uint32x4_t) m.getRow(0).mVec128, xyzMask );
     float32x4_t m1 = (float32x4_t) vandq_u32( (uint32x4_t) m.getRow(1).mVec128, xyzMask );
     float32x4_t m2 = (float32x4_t) vandq_u32( (uint32x4_t) m.getRow(2).mVec128, xyzMask );

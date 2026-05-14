@@ -47,7 +47,7 @@ btSequentialImpulseConstraintSolver::~btSequentialImpulseConstraintSolver()
 {
 }
 
-#ifdef USE_SIMD
+#if defined(USE_SIMD) && !defined(_M_ARM) && !defined(_M_ARM64)
 #include <emmintrin.h>
 #define btVecSplat(x, e) _mm_shuffle_ps(x, x, _MM_SHUFFLE(e,e,e,e))
 static inline __m128 btSimdDot3( __m128 vec0, __m128 vec1 )
@@ -60,7 +60,7 @@ static inline __m128 btSimdDot3( __m128 vec0, __m128 vec1 )
 // Project Gauss Seidel or the equivalent Sequential Impulse
 void btSequentialImpulseConstraintSolver::resolveSingleConstraintRowGenericSIMD(btSolverBody& body1,btSolverBody& body2,const btSolverConstraint& c)
 {
-#ifdef USE_SIMD
+#if defined(USE_SIMD) && !defined(_M_ARM) && !defined(_M_ARM64)
 	__m128 cpAppliedImp = _mm_set1_ps(c.m_appliedImpulse);
 	__m128	lowerLimit1 = _mm_set1_ps(c.m_lowerLimit);
 	__m128	upperLimit1 = _mm_set1_ps(c.m_upperLimit);

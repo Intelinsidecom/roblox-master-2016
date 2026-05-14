@@ -21,12 +21,6 @@
     <ClCompile Include="..\..\Rendering\GfxCore\D3D11\DeviceD3D11.cpp">
       <Filter>D3D11</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Rendering\GfxCore\D3D11\DeviceD3D11Durango.cpp">
-      <Filter>D3D11</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Rendering\GfxCore\D3D11\DeviceD3D11Win32.cpp">
-      <Filter>D3D11</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Rendering\GfxCore\D3D11\FramebufferD3D11.cpp">
       <Filter>D3D11</Filter>
     </ClCompile>
@@ -45,6 +39,9 @@
     <ClCompile Include="..\..\Rendering\GfxCore\D3D11\TextureD3D11.cpp">
       <Filter>D3D11</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxCore\D3D11\DeviceD3D11Durango.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxCore\D3D11\DeviceD3D11UWP.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxCore\D3D11\DeviceD3D11Win32.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Rendering\GfxCore\D3D11\DeviceD3D11.h">

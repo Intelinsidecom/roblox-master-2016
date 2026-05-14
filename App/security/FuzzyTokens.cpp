@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "security/FuzzyTokens.h"
-#ifdef WIN32
+#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 #include "VMProtectSDK.h"
 #endif
 

@@ -40,12 +40,14 @@ typedef  float float4 __attribute__ ((vector_size(16)));
 //typedef  uint32_t uint4 __attribute__ ((vector_size(16)));
 
 
-#if defined BT_USE_SSE || defined _WIN32
+#if (defined BT_USE_SSE || defined _WIN32) && !defined(_M_ARM) && !defined(_M_ARM64)
 
 #define LOG2_ARRAY_SIZE     6
 #define STACK_ARRAY_COUNT   (1UL << LOG2_ARRAY_SIZE)
 
+#if !defined(_M_ARM) && !defined(_M_ARM64)
 #include <emmintrin.h>
+#endif
 
 long _maxdot_large( const float *vv, const float *vec, unsigned long count, float *dotResult );
 long _maxdot_large( const float *vv, const float *vec, unsigned long count, float *dotResult )

@@ -389,9 +389,18 @@ public:
 
 
 #ifdef _MSC_VER
-    inline uint64 System::getCycleCount() {
-        return  __rdtsc();
-    }
+    #if defined(_M_ARM) || defined(_M_ARM64)
+        inline uint64 System::getCycleCount() {
+            LARGE_INTEGER freq, counter;
+            QueryPerformanceFrequency(&freq);
+            QueryPerformanceCounter(&counter);
+            return (uint64)(counter.QuadPart * 1000000 / freq.QuadPart);
+        }
+    #else
+        inline uint64 System::getCycleCount() {
+            return  __rdtsc();
+        }
+    #endif
 
 #elif defined(G3D_LINUX) || defined(G3D_ANDROID) // ROBLOX
 

@@ -39,7 +39,10 @@ static btClock gProfileClock;
 #define NOMCX
 #define NOIME 
 
-#ifdef _XBOX
+#ifdef RBX_PLATFORM_UWP
+	#include <windows.h>
+	#define GetTickCount GetTickCount64
+#elif defined(_XBOX)
 	#include <Xtl.h>
 #else //_XBOX
 	#include <windows.h>

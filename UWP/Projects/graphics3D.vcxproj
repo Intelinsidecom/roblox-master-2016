@@ -265,9 +265,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;WINAPI_FAMILY=WINAPI_FAMILY_APP;</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
@@ -280,9 +280,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;WINAPI_FAMILY=WINAPI_FAMILY_APP;</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
@@ -295,10 +295,11 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;WINAPI_FAMILY=WINAPI_FAMILY_APP;</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
+      <ShowIncludes>true</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -310,10 +311,11 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;WINAPI_FAMILY=WINAPI_FAMILY_APP;</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
+      <ShowIncludes>true</ShowIncludes>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -325,9 +327,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;WINAPI_FAMILY=WINAPI_FAMILY_APP;</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
@@ -340,9 +342,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;_CRT_SECURE_NO_WARNINGS;WINAPI_FAMILY=WINAPI_FAMILY_APP;</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>

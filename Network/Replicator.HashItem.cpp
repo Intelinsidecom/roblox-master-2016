@@ -14,7 +14,9 @@
 #include "Security/ApiSecurity.h"
 #include "v8datamodel/HackDefines.h"
 
+#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 #include "VMProtectSDK.h"
+#endif
 
 namespace RBX {
     namespace Network {
@@ -35,7 +37,9 @@ namespace RBX {
 
         // make sure to _copy_ data to the item and not re-read it from other memory.
         bool Replicator::HashItem::write(RakNet::BitStream& bitStream) {
+#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
             VMProtectBeginVirtualization(NULL);
+#endif
             // There is a small amount of obscuring that is done to make this slightly harder to
             // analyze.  "nonce" = "number used once"
             writeItemType(bitStream, ItemTypeHash);
@@ -53,7 +57,9 @@ namespace RBX {
             bitStream << fuzzyToken;
             bitStream << apiToken;
             bitStream << prevApiToken;
+#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
             VMProtectEnd();
+#endif
             return true;
         }
 

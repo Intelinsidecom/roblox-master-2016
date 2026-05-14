@@ -1,6 +1,6 @@
 #include "stdafx.h"
 
-#ifdef WIN32
+#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 #include "VMProtectSDK.h"
 #endif
 
@@ -541,7 +541,7 @@ namespace RBX
 	void GuiService::toggleFullscreen()
 	{
 		// People were modifying verbString when it was loaded into a register by using CE.
-		#ifdef WIN32
+		#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 		VMProtectBeginMutation(NULL);
 		#endif
 
@@ -566,7 +566,7 @@ namespace RBX
 		{
 			Verb::doItWithChecks(verb, RBX::DataModel::get(this));
 		}
-		#ifdef WIN32
+		#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 		VMProtectEnd();
 		#endif
 	}

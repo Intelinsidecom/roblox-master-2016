@@ -100,6 +100,7 @@ namespace details
         return vcombine_f32( a, b );
     }
 
+#if !defined(_MSC_VER)
     RBX_SIMD_INLINE int32x4_t combine( int32x2_t a, int32x2_t b )
     {
         return vcombine_s32( a, b );
@@ -109,6 +110,7 @@ namespace details
     {
         return vcombine_u32( a, b );
     }
+#endif
 
     template< class Type >
     RBX_SIMD_INLINE typename Type::pod_t zero();
@@ -355,6 +357,7 @@ namespace details
         return vzip_f32( a, b ).val[ 0 ];
     }
 
+#if !defined(_MSC_VER)
     RBX_SIMD_INLINE int32x2_t zip1( int32x2_t a, int32x2_t b )
     {
         return vzip_s32( a, b ).val[ 0 ];
@@ -364,6 +367,7 @@ namespace details
     {
         return vzip_u32( a, b ).val[ 0 ];
     }
+#endif
 }
 
 template< class ScalarType >
@@ -509,6 +513,7 @@ namespace details
         return vget_low_f32( t );
     }
 
+#if !defined(_MSC_VER)
     RBX_SIMD_INLINE int32x2_t low( int32x4_t t )
     {
         return vget_low_s32( t );
@@ -518,12 +523,14 @@ namespace details
     {
         return vget_low_u32( t );
     }
+#endif
 
     RBX_SIMD_INLINE float32x2_t high( float32x4_t t )
     {
         return vget_high_f32( t );
     }
 
+#if !defined(_MSC_VER)
     RBX_SIMD_INLINE int32x2_t high( int32x4_t t )
     {
         return vget_high_s32( t );
@@ -533,6 +540,7 @@ namespace details
     {
         return vget_high_u32( t );
     }
+#endif
     
     template< int lane >
     RBX_SIMD_INLINE float32x4_t splat( float32x2_t a )
@@ -540,6 +548,7 @@ namespace details
         return vdupq_lane_f32( a, lane );
     }
 
+#if !defined(_MSC_VER)
     template< int lane >
     RBX_SIMD_INLINE int32x4_t splat( int32x2_t a )
     {
@@ -551,6 +560,7 @@ namespace details
     {
         return vdupq_lane_u32( a, lane );
     }
+#endif
 
     template< int lane >
     RBX_SIMD_INLINE float32x2_t splatD( float32x2_t a )
@@ -558,6 +568,7 @@ namespace details
         return vdup_lane_f32( a, lane );
     }
 
+#if !defined(_MSC_VER)
     template< int lane >
     RBX_SIMD_INLINE int32x2_t splatD( int32x2_t a )
     {
@@ -569,6 +580,7 @@ namespace details
     {
         return vdup_lane_u32( a, lane );
     }
+#endif
     
     template< class VectorType, unsigned i >
     struct SplatHelper;
@@ -669,6 +681,7 @@ namespace details
         return vbsl_f32( s, v, u );
     }
 
+#if !defined(_MSC_VER)
     RBX_SIMD_INLINE int32x2_t selectD( int32x2_t u, int32x2_t v, uint32x2_t s )
     {
         return vbsl_s32( s, v, u );
@@ -678,12 +691,15 @@ namespace details
     {
         return vbsl_u32( s, v, u );
     }
+#endif
     
     RBX_SIMD_INLINE uint8x8_t castToUInt8( float32x2_t v )
     {
         return vreinterpret_u8_f32( v );
     }
 
+#if defined(_MSC_VER)
+#else
     RBX_SIMD_INLINE uint8x8_t castToUInt8( uint32x2_t v )
     {
         return vreinterpret_u8_u32( v );
@@ -693,6 +709,7 @@ namespace details
     {
         return vreinterpret_u8_s32( v );
     }
+#endif
 
     template< class From >
     RBX_SIMD_INLINE uint8x8x2_t castToUInt8x2( From v )
@@ -718,6 +735,23 @@ namespace details
     template< class To >
     struct CastFromUInt8;
     
+#if defined(_MSC_VER)
+    template<>
+    struct CastFromUInt8< float32x4_t >
+    {
+        static RBX_SIMD_INLINE float32x4_t cast( uint8x8x2_t v )
+        {
+            float32x2_t r0 = vreinterpret_f32_u8( v.val[0] );
+            float32x2_t r1 = vreinterpret_f32_u8( v.val[1] );
+            return details::combine(r0, r1);
+        }
+
+        static RBX_SIMD_INLINE float32x2_t cast( uint8x8_t v )
+        {
+            return vreinterpret_f32_u8( v );
+        }
+    };
+#else
     template<>
     struct CastFromUInt8< float32x4_t >
     {
@@ -765,6 +799,7 @@ namespace details
             return vreinterpret_s32_u8( v );
         }
     };
+#endif
     
     template< int a, int b >
     RBX_SIMD_INLINE uint32x2_t selectMaskD()
@@ -832,6 +867,7 @@ namespace details
         return combine( t.val[0], t.val[1] );
     }
 
+#if !defined(_MSC_VER)
     RBX_SIMD_INLINE uint32x4_t zipLow( uint32x4_t a, uint32x4_t b )
     {
         uint32x2x2_t t = vzip_u32( low(a), low(b) );
@@ -843,6 +879,7 @@ namespace details
         int32x2x2_t t = vzip_s32( low(a), low(b) );
         return combine( t.val[0], t.val[1] );
     }
+#endif
 
     RBX_SIMD_INLINE float32x4_t zipHigh( float32x4_t a, float32x4_t b )
     {
@@ -850,6 +887,7 @@ namespace details
         return combine( t.val[0], t.val[1] );
     }
 
+#if !defined(_MSC_VER)
     RBX_SIMD_INLINE uint32x4_t zipHigh( uint32x4_t a, uint32x4_t b )
     {
         uint32x2x2_t t = vzip_u32( high(a), high(b) );
@@ -861,12 +899,14 @@ namespace details
         int32x2x2_t t = vzip_s32( high(a), high(b) );
         return combine( t.val[0], t.val[1] );
     }
+#endif
 
     RBX_SIMD_INLINE float32x4x2_t zip( float32x4_t a, float32x4_t b )
     {
         return vzipq_f32( a, b );
     }
 
+#if !defined(_MSC_VER)
     RBX_SIMD_INLINE uint32x4x2_t zip( uint32x4_t a, uint32x4_t b )
     {
         return vzipq_u32( a, b );
@@ -876,6 +916,7 @@ namespace details
     {
         return vzipq_s32( a, b );
     }
+#endif
 }
 
 template< class VectorType >
@@ -1369,7 +1410,11 @@ RBX_SIMD_INLINE v4f smallestInvertible( )
 
 RBX_SIMD_INLINE v4f largestInvertible( )
 {
+    #if defined(_MSC_VER)
+    return splat( 3.402823466e38f );
+    #else
     return splat( 3.40282347e+38f );
+    #endif
 }
 
 //
@@ -1427,13 +1472,21 @@ RBX_SIMD_INLINE v4f inverseSqrtEstimate1Fast(const v4f& v)
 
 RBX_SIMD_INLINE v4f smallestSqrtInvertible( )
 {
+    #if defined(_MSC_VER)
+    return splat( 1.401298464e-45f );
+    #else
     return splat( 1.4012985e-45f );
+    #endif
 }
 
 RBX_SIMD_INLINE v4f largestSqrtInvertible( )
 {
     // This is the same as std::numeric_limints< float >::max()
+    #if defined(_MSC_VER)
+    return splat( 3.402823466e38f );
+    #else
     return splat( 3.40282347E+38f );
+    #endif
 }
 
 RBX_SIMD_INLINE v4f max( v4fArg a, v4fArg b )
@@ -1457,8 +1510,13 @@ RBX_SIMD_INLINE v4f dotProduct( v4fArg a, v4fArg b )
 {
     float32x4_t p0123 = vmulq_f32( a.v, b.v );
     float32x4_t p1032 = vrev64q_f32( p0123 );
+    #if defined(_MSC_VER)
+    float32x4_t t = vaddq_f32(p0123, p1032);
+    t = vaddq_f32(t, details::combine( details::high( t ), details::low( t ) ));
+    #else
     float32x4_t t = p0123 + p1032;
     t = t + details::combine( details::high( t ), details::low( t ) );
+    #endif
     return v4f( t );
 }
 
@@ -1467,8 +1525,13 @@ RBX_SIMD_INLINE v4f dotProduct3( v4fArg a, v4fArg b )
     float32x4_t p0123 = vmulq_f32( a.v, b.v );
     p0123 = vsetq_lane_f32(0.0f, p0123, 3);
     float32x4_t p1032 = vrev64q_f32( p0123 );
+    #if defined(_MSC_VER)
+    float32x4_t t = vaddq_f32(p0123, p1032);
+    t = vaddq_f32(t, details::combine( details::high( t ), details::low( t ) ));
+    #else
     float32x4_t t = p0123 + p1032;
     t = t + details::combine( details::high( t ), details::low( t ) );
+    #endif
     return t;
 }
 
@@ -1476,15 +1539,24 @@ RBX_SIMD_INLINE v4f sumAcross( v4fArg a )
 {
     float32x4_t p0123 = a.v;
     float32x4_t p1032 = vrev64q_f32( p0123 );
+    #if defined(_MSC_VER)
+    float32x4_t t = vaddq_f32(p0123, p1032);
+    t = vaddq_f32(t, details::combine( details::high( t ), details::low( t ) ));
+    #else
     float32x4_t t = p0123 + p1032;
     t = t + details::combine( details::high( t ), details::low( t ) );
+    #endif
     return v4f( t );
 }
 
 RBX_SIMD_INLINE v4f sumAcross2( v4fArg a, v4fArg b )
 {
     float32x2x2_t t = vtrn_f32( details::low( a.v ), details::low( b.v ) );
+    #if defined(_MSC_VER)
+    float32x2_t sum = vadd_f32(t.val[0], t.val[1]);
+    #else
     float32x2_t sum = t.val[0] + t.val[1];
+    #endif
     return v4f( details::combine( sum, sum ) );
 }
 
@@ -1492,7 +1564,11 @@ RBX_SIMD_INLINE v4f sumAcross3( v4fArg a, v4fArg b )
 {
     float32x2x2_t t01 = vtrn_f32( details::low( a.v ), details::low( b.v ) );
     float32x2x2_t t2 = vtrn_f32( details::high( a.v ), details::high( b.v ) );
+    #if defined(_MSC_VER)
+    float32x2_t sum = vadd_f32(vadd_f32(t01.val[0], t01.val[1]), t2.val[0]);
+    #else
     float32x2_t sum = t01.val[0] + t01.val[1] + t2.val[0];
+    #endif
     return v4f( details::combine( sum, sum ) );
 }
 
@@ -1500,7 +1576,11 @@ RBX_SIMD_INLINE v4f sumAcross4( v4fArg a, v4fArg b )
 {
     float32x2x2_t t01 = vtrn_f32( details::low( a.v ), details::low( b.v ) );
     float32x2x2_t t23 = vtrn_f32( details::high( a.v ), details::high( b.v ) );
+    #if defined(_MSC_VER)
+    float32x2_t sum = vadd_f32(vadd_f32( t01.val[0], t01.val[1] ), vadd_f32( t23.val[0], t23.val[1] ));
+    #else
     float32x2_t sum = ( t01.val[0] + t01.val[1] ) + ( t23.val[0] + t23.val[1] );
+    #endif
     return v4f( details::combine( sum, sum ) );
 }
 

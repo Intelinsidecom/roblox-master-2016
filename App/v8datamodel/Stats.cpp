@@ -35,7 +35,7 @@ extern std::string robloxVersion; // JNIMain.cpp
 #include <rapidjson/stringbuffer.h>
 #include <rapidjson/writer.h>
 
-#ifdef WIN32
+#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 #include "VMProtectSDK.h"
 #endif
 
@@ -699,13 +699,13 @@ static const bool jobsAsArray = true;
 				shared_ptr<ScriptContext> sc = shared_from(d->create<ScriptContext>());
 				if (sc)
 				{
-					#ifdef WIN32
+					#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 					VMProtectBeginMutation("19");
 					#endif
 					ProtectedString verifiedSource = ProtectedString::fromTrustedSource(script);
 					ContentProvider::verifyRequestedScriptSignature(verifiedSource, "StatsScript", true);
 					sc->executeInNewThread(Security::RobloxGameScript_, verifiedSource, "StatsReporting");
-					#ifdef WIN32
+					#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 					VMProtectEnd();
 					#endif
 				}

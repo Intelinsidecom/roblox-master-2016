@@ -45,7 +45,7 @@
 #include "Security/FuzzyTokens.h"
 #include "Security/JunkCode.h"
 
-#ifdef WIN32
+#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 #include "VMProtectSDK.h"
 #endif
 
@@ -753,7 +753,7 @@ void HumanoidState::changeState(shared_ptr<HumanoidState>& state, StateType newT
 
 void HumanoidState::doSimulatorStateTable(shared_ptr<HumanoidState>& state, float dt)
 {
-	#ifdef WIN32
+	#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
     VMProtectBeginMutation(NULL);
     #endif
 	bool isBadNvReg = false;
@@ -796,7 +796,7 @@ void HumanoidState::doSimulatorStateTable(shared_ptr<HumanoidState>& state, floa
         isBadNvReg = isBadNvReg || (e != eBackup || newType != newTypeBackup) // exploit: nv reg changed
             || (newType != getStateFast(oldType, e));   // exploit: invalid table jump
 	}
-	#ifdef WIN32
+	#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
     VMProtectEnd();
     VMProtectBeginVirtualization(NULL);
 	#endif
@@ -815,7 +815,7 @@ void HumanoidState::doSimulatorStateTable(shared_ptr<HumanoidState>& state, floa
         Tokens::simpleToken |= HATE_HSCE_EBX;
         RBX::Security::setHackFlagVmp<LINE_RAND1>(RBX::Security::hackFlag7, HATE_HSCE_EBX);
     }
-	#ifdef WIN32
+	#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
     VMProtectEnd();
 	#endif
 }
@@ -1819,7 +1819,7 @@ void HumanoidState::setNearlyTouched()
 // prevent inlining of computeEvent
 unsigned int HumanoidState::checkComputeEvent()
 {
-	#ifdef WIN32
+	#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
     VMProtectBeginMutation(NULL);
 	#endif
     // these all return true:
@@ -1841,7 +1841,7 @@ unsigned int HumanoidState::checkComputeEvent()
         || computeEvent(PLATFORM_STAND_CMD) || computeEvent(FACE_LDR));
 
     volatile unsigned int returnValue = static_cast<unsigned int>(positiveTests) + static_cast<unsigned int>(negativeTests);
-    #ifdef WIN32
+    #if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 	VMProtectEnd();
     #endif
 	return returnValue;

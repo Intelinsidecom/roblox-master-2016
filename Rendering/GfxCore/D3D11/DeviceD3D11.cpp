@@ -22,6 +22,10 @@ namespace RBX
 {
 namespace Graphics
 {
+#if defined(RBX_PLATFORM_UWP)
+    extern "C" void getUWPCompositionScale(float* scaleX, float* scaleY);
+#endif
+
     static unsigned int getMaxSamplesSupported(ID3D11Device* device11)
     {
         unsigned int result = 1;
@@ -102,7 +106,14 @@ namespace Graphics
         caps.needsHalfPixelOffset = false;
         caps.requiresRenderTargetFlipping = false;
 
+#if defined(RBX_PLATFORM_UWP)
+        float scaleX = 1.0f, scaleY = 1.0f;
+        getUWPCompositionScale(&scaleX, &scaleY);
+        caps.uiScale = scaleX;
+        caps.retina = (scaleX >= 2.0f);
+#else
         caps.retina = false;
+#endif
 
         std::pair<unsigned int, unsigned int> dimensions = getFramebufferSize();
         createMainFramebuffer(dimensions.first, dimensions.second);

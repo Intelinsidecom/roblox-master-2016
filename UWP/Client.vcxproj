@@ -1,0 +1,1804 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{93d18b79-cf78-4004-8447-f098d66e8824}</ProjectGuid>
+    <RootNamespace>Client</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <WindowsTargetPlatformVersion>10.0.10240.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.10240.0</WindowsTargetPlatformMinVersion>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>false</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props')" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props')" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props')" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props')" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props')" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props')" />
+    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <PackageCertificateKeyFile>Client_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <AppxBundle>Never</AppxBundle>
+    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Base\include;..\Network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(CONTRIB_PATH)\windows\UWP\\openssl\build\lib\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <LargeAddressAware>true</LargeAddressAware>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <ShowProgress>LinkVerbose</ShowProgress>
+      <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmodL_ARM.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+    <PreBuildEvent>
+      <Command>..\CoreScriptConverter2\tool\win32\BuildCoreScripts.bat ..\rsc.config</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Base\include;..\Network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(CONTRIB_PATH)\windows\UWP\\openssl\build\lib\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <LargeAddressAware>true</LargeAddressAware>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <ShowProgress>LinkVerbose</ShowProgress>
+      <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
+      <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmod_ARM.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+    <PreBuildEvent>
+      <Command>..\CoreScriptConverter2\tool\win32\BuildCoreScripts.bat ..\rsc.config</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Base\include;..\Network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(CONTRIB_PATH)\windows\UWP\openssl;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <LargeAddressAware>true</LargeAddressAware>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <ShowProgress>LinkVerbose</ShowProgress>
+      <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;libcurl.lib;fmodL_X86.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+    <PostBuildEvent>
+      <Command>
+xcopy /b /y /D /I /E $(SolutionDir)..\content "$(LayoutDir)\content\"
+xcopy /b /y /D /I /E $(SolutionDir)..\content "$(LayoutDir)\..\content\"
+xcopy /b /y /D /I /E $(SolutionDir)..\PlatformContent\pc "$(LayoutDir)\PlatformContent\pc\"
+xcopy /b /y /D /I /E $(SolutionDir)..\PlatformContent\pc "$(LayoutDir)\..\PlatformContent\pc\"
+xcopy /b /y /D /I /E $(SolutionDir)..\shaders "$(LayoutDir)\shaders\"
+xcopy /b /y /D /I /E $(SolutionDir)..\shaders "$(LayoutDir)\..\shaders\"
+call "$(SolutionDir)..\buildshaders.bat"</Command>
+    </PostBuildEvent>
+    <PreBuildEvent>
+      <Command>..\CoreScriptConverter2\tool\win32\BuildCoreScripts.bat ..\rsc.config</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Base\include;..\Network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(CONTRIB_PATH)\windows\UWP\openssl;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <LargeAddressAware>true</LargeAddressAware>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <ShowProgress>LinkVerbose</ShowProgress>
+      <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
+      <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;libcurl.lib;fmod_X86.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+    <PreBuildEvent>
+      <Command>..\CoreScriptConverter2\tool\win32\BuildCoreScripts.bat ..\rsc.config</Command>
+    </PreBuildEvent>
+    <PostBuildEvent>
+      <Command>
+xcopy /b /y /D /I /E $(SolutionDir)..\content "$(LayoutDir)\content\"
+xcopy /b /y /D /I /E $(SolutionDir)..\content "$(LayoutDir)\..\content\"
+xcopy /b /y /D /I /E $(SolutionDir)..\PlatformContent\pc "$(LayoutDir)\PlatformContent\pc\"
+xcopy /b /y /D /I /E $(SolutionDir)..\PlatformContent\pc "$(LayoutDir)\..\PlatformContent\pc\"
+xcopy /b /y /D /I /E $(SolutionDir)..\shaders "$(LayoutDir)\shaders\"
+xcopy /b /y /D /I /E $(SolutionDir)..\shaders "$(LayoutDir)\..\shaders\"
+call "$(SolutionDir)..\buildshaders.bat"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Base\include;..\Network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(CONTRIB_PATH)\windows\UWP\openssl\build\lib\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\x64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <LargeAddressAware>true</LargeAddressAware>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <ShowProgress>LinkVerbose</ShowProgress>
+      <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmodL_X64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+    <PreBuildEvent>
+      <Command>..\CoreScriptConverter2\tool\win32\BuildCoreScripts.bat ..\rsc.config</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <AdditionalIncludeDirectories>..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Base\include;..\Network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>false</SDLCheck>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(CONTRIB_PATH)\windows\UWP\openssl\build\lib\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\x64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <LargeAddressAware>true</LargeAddressAware>
+      <EnableCOMDATFolding>false</EnableCOMDATFolding>
+      <ShowProgress>LinkVerbose</ShowProgress>
+      <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
+      <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
+      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmod_X64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
+    </Link>
+    <PreBuildEvent>
+      <Command>..\CoreScriptConverter2\tool\win32\BuildCoreScripts.bat ..\rsc.config</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="RenderJob.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="App.xaml.h">
+      <DependentUpon>App.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="MainPage.xaml.h">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Marshaller.h" />
+    <ClInclude Include="UWPPlatform.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Media Include="..\fmod\UWP\fmodL_X86.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Media>
+    <Media Include="content\music\bass.wav" />
+    <Media Include="content\music\ufofly.wav" />
+    <Media Include="content\sounds\action_falling.mp3" />
+    <Media Include="content\sounds\action_footsteps_plastic.mp3" />
+    <Media Include="content\sounds\action_get_up.mp3" />
+    <Media Include="content\sounds\action_jump.mp3" />
+    <Media Include="content\sounds\action_jump_land.mp3" />
+    <Media Include="content\sounds\action_swim.mp3" />
+    <Media Include="content\sounds\bass.mp3" />
+    <Media Include="content\sounds\bfsl-minifigfoots1.mp3" />
+    <Media Include="content\sounds\bfsl-minifigfoots2.mp3" />
+    <Media Include="content\sounds\button.mp3" />
+    <Media Include="content\sounds\clickfast.mp3" />
+    <Media Include="content\sounds\collide.mp3" />
+    <Media Include="content\sounds\electronicpingshort.mp3" />
+    <Media Include="content\sounds\flashbulb.mp3" />
+    <Media Include="content\sounds\grass.mp3" />
+    <Media Include="content\sounds\grass2.mp3" />
+    <Media Include="content\sounds\grass3.mp3" />
+    <Media Include="content\sounds\grassstone.mp3" />
+    <Media Include="content\sounds\grassstone2.mp3" />
+    <Media Include="content\sounds\grassstone3.mp3" />
+    <Media Include="content\sounds\hit.mp3" />
+    <Media Include="content\sounds\ice.mp3" />
+    <Media Include="content\sounds\ice2.mp3" />
+    <Media Include="content\sounds\ice3.mp3" />
+    <Media Include="content\sounds\icegrass.mp3" />
+    <Media Include="content\sounds\icegrass2.mp3" />
+    <Media Include="content\sounds\icegrass3.mp3" />
+    <Media Include="content\sounds\icemetal.mp3" />
+    <Media Include="content\sounds\icemetal2.mp3" />
+    <Media Include="content\sounds\icemetal3.mp3" />
+    <Media Include="content\sounds\icestone.mp3" />
+    <Media Include="content\sounds\icestone2.mp3" />
+    <Media Include="content\sounds\icestone3.mp3" />
+    <Media Include="content\sounds\impact_bodyfall.mp3" />
+    <Media Include="content\sounds\impact_explosion_01.mp3" />
+    <Media Include="content\sounds\impact_explosion_02.mp3" />
+    <Media Include="content\sounds\impact_explosion_03.mp3" />
+    <Media Include="content\sounds\impact_water.mp3" />
+    <Media Include="content\sounds\Kerplunk.mp3" />
+    <Media Include="content\sounds\Kid saying Ouch.mp3" />
+    <Media Include="content\sounds\metal.mp3" />
+    <Media Include="content\sounds\metal2.mp3" />
+    <Media Include="content\sounds\metal3.mp3" />
+    <Media Include="content\sounds\metalgrass.mp3" />
+    <Media Include="content\sounds\metalgrass2.mp3" />
+    <Media Include="content\sounds\metalgrass3.mp3" />
+    <Media Include="content\sounds\metalstone.mp3" />
+    <Media Include="content\sounds\metalstone2.mp3" />
+    <Media Include="content\sounds\metalstone3.mp3" />
+    <Media Include="content\sounds\plasticgrass.mp3" />
+    <Media Include="content\sounds\plasticgrass2.mp3" />
+    <Media Include="content\sounds\plasticgrass3.mp3" />
+    <Media Include="content\sounds\plasticice.mp3" />
+    <Media Include="content\sounds\plasticice2.mp3" />
+    <Media Include="content\sounds\plasticice3.mp3" />
+    <Media Include="content\sounds\plasticmetal.mp3" />
+    <Media Include="content\sounds\plasticmetal2.mp3" />
+    <Media Include="content\sounds\plasticmetal3.mp3" />
+    <Media Include="content\sounds\plasticplastic.mp3" />
+    <Media Include="content\sounds\plasticplastic2.mp3" />
+    <Media Include="content\sounds\plasticplastic3.mp3" />
+    <Media Include="content\sounds\plasticstone.mp3" />
+    <Media Include="content\sounds\plasticstone2.mp3" />
+    <Media Include="content\sounds\plasticstone3.mp3" />
+    <Media Include="content\sounds\Rubber band sling shot.mp3" />
+    <Media Include="content\sounds\Rubber band.mp3" />
+    <Media Include="content\sounds\snap.mp3" />
+    <Media Include="content\sounds\splat.mp3" />
+    <Media Include="content\sounds\stone.mp3" />
+    <Media Include="content\sounds\stone2.mp3" />
+    <Media Include="content\sounds\stone3.mp3" />
+    <Media Include="content\sounds\switch.mp3" />
+    <Media Include="content\sounds\SWITCH3.mp3" />
+    <Media Include="content\sounds\swoosh.mp3" />
+    <Media Include="content\sounds\swordlunge.mp3" />
+    <Media Include="content\sounds\swordslash.mp3" />
+    <Media Include="content\sounds\unsheath.mp3" />
+    <Media Include="content\sounds\uuhhh.mp3" />
+    <Media Include="content\sounds\victory.mp3" />
+    <Media Include="content\sounds\woodgrass.mp3" />
+    <Media Include="content\sounds\woodgrass2.mp3" />
+    <Media Include="content\sounds\woodgrass3.mp3" />
+    <Media Include="content\sounds\woodice.mp3" />
+    <Media Include="content\sounds\woodice2.mp3" />
+    <Media Include="content\sounds\woodice3.mp3" />
+    <Media Include="content\sounds\woodmetal.mp3" />
+    <Media Include="content\sounds\woodmetal2.mp3" />
+    <Media Include="content\sounds\woodmetal3.mp3" />
+    <Media Include="content\sounds\woodplastic.mp3" />
+    <Media Include="content\sounds\woodplastic2.mp3" />
+    <Media Include="content\sounds\woodplastic3.mp3" />
+    <Media Include="content\sounds\woodstone.mp3" />
+    <Media Include="content\sounds\woodstone2.mp3" />
+    <Media Include="content\sounds\woodstone3.mp3" />
+    <Media Include="content\sounds\woodwood.mp3" />
+    <Media Include="content\sounds\woodwood2.mp3" />
+    <Media Include="content\sounds\woodwood3.mp3" />
+    <None Include="..\fmod\UWP\fmodL_ARM.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DeploymentContent>
+    </None>
+    <None Include="..\fmod\UWP\fmodL_X64.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+    </None>
+    <None Include="..\fmod\UWP\fmod_ARM.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DeploymentContent>
+    </None>
+    <None Include="..\fmod\UWP\fmod_X64.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DeploymentContent>
+    </None>
+    <None Include="..\fmod\UWP\fmod_X86.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <FileType>Document</FileType>
+    </None>
+    <None Include="..\SDL2\UWP\ARM\SDL2.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DeploymentContent>
+    </None>
+    <None Include="..\SDL2\UWP\x64\SDL2.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DeploymentContent>
+      <DeploymentContent>true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
+    </None>
+    <None Include="..\SDL2\UWP\x86\SDL2.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+    </None>
+    <None Include="..\VMProtect\VMProtectSDK32.dll">
+      <DeploymentContent>true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DeploymentContent>
+    </None>
+    <None Include="..\VMProtect\VMProtectSDK64.dll">
+      <DeploymentContent>true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+    </None>
+    <None Include="..\Client_TemporaryKey.pfx" />
+    <None Include="content\fonts\Arial.font">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\ArialBold.font">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\character.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\character3.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\characterCameraScript.rbxmx">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\characterControlScript.rbxmx">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\characterR15.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\comics.fnt">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositExtraSlot0.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositExtraSlot1.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositExtraSlot2.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositExtraSlot3.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositExtraSlot4.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositFullAtlasBaseTexture.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositFullAtlasOverlayTexture.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositLeftArmBase.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositLeftLegBase.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositPantsTemplate.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositRightArmBase.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositRightLegBase.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositShirtTemplate.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositTorsoBase.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositTShirt.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\diogenes.fnt">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\head.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headA.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headB.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headC.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headD.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headE.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headF.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headG.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headH.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headI.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headJ.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headK.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headL.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headM.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headN.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headO.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headP.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidAnimate.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidAnimateLocal.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidAnimateLocalKeyframe.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidAnimateLocalKeyframe2.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidAnimateR15.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidExtra.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidSound.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidSound2.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidSoundNew.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidSoundNewLocal.rbxmx">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidStatic.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\leftarm.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\leftleg.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\LoadingScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\rightarm.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\rightleg.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\Rocket.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\SlingshotPellet.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\SourceSans.font">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\SourceSansBold.font">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\SourceSansItalic.font">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\SourceSansLight.font">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\torso.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\particles\explosion.particle" />
+    <None Include="content\particles\fire.particle" />
+    <None Include="content\particles\forceFieldBeam.particle" />
+    <None Include="content\particles\forceFieldRadial.particle" />
+    <None Include="content\particles\smoke.particle" />
+    <None Include="content\particles\sparkles.particle" />
+    <None Include="content\scripts\CoreScripts\BubbleChat.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\BuildToolsScripts\BuildToolManager.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\BuildToolsScripts\BuildToolsScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\BuildToolsScripts\PersonalServerScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\ContextActionTouch.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\DeveloperConsole.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\GamepadMenu.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\HealthScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\MainBotChatScript2.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\NotificationScript2.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\PurchasePromptScript2.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\Topbar.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\VehicleHud.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Libraries\RbxGui.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Libraries\RbxStamper.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Libraries\RbxUtility.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\LoadingScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\BackpackScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Chat.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\DeveloperConsoleModule.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\PlayerDropDown.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\PlayerlistModule.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\GameSettings.lua" />
+    <None Include="content\scripts\Modules\Settings\Pages\Help.lua" />
+    <None Include="content\scripts\Modules\Settings\Pages\Home.lua" />
+    <None Include="content\scripts\Modules\Settings\Pages\LeaveGame.lua" />
+    <None Include="content\scripts\Modules\Settings\Pages\Players.lua" />
+    <None Include="content\scripts\Modules\Settings\Pages\Record.lua" />
+    <None Include="content\scripts\Modules\Settings\Pages\ReportAbuseMenu.lua" />
+    <None Include="content\scripts\Modules\Settings\Pages\ResetCharacter.lua" />
+    <None Include="content\scripts\Modules\Settings\SettingsHub.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Settings\SettingsPageFactory.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Utility.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\TenFootInterface.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\ServerCoreScripts\ServerSocialScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\ServerStarterScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\StarterScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\pc\terrain\materials.json">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\pc\textures\sky\sky512_bk.tex">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\pc\textures\sky\sky512_dn.tex">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\pc\textures\sky\sky512_ft.tex">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\pc\textures\sky\sky512_lf.tex">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\pc\textures\sky\sky512_rt.tex">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\pc\textures\sky\sky512_up.tex">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="shaders\shaders.json">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="shaders\shaders_d3d11.pack">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="shaders\shaders_d3d11_durango.pack">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="shaders\shaders_d3d11_level_9_3.pack">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="shaders\shaders_d3d9.pack">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="shaders\shaders_glsl.pack">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="shaders\shaders_glsl3.pack">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="shaders\shaders_glsles.pack">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="shaders\shaders_glsles3.pack">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\TestPlace.rbxl">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\BadgeLogo.scale-100.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\BadgeLogo.scale-125.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\BadgeLogo.scale-150.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\BadgeLogo.scale-200.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\BadgeLogo.scale-400.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-100.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-125.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-150.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-200.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\BadgeLogo\RobloxBadge.scale-400.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\LandingPage\home_bkg.png" />
+    <Image Include="Assets\LandingPage\roblox_logo_red.png" />
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-100.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-125.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-150.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-400.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-100.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-125.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-150.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-400.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square310x310Logo.scale-100.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square310x310Logo.scale-125.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square310x310Logo.scale-150.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square310x310Logo.scale-200.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square310x310Logo.scale-400.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-100.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-125.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-150.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-400.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-100.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-125.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-150.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-200.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-400.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\StoreLogo.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-100.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-125.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-150.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-200.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-400.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-100.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-125.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-150.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-200.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Tiles\RobloxStoreLogo.scale-400.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-100.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-125.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-150.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-400.png">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="content\fonts\fonts.dds">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="content\sky\lensflare.jpg" />
+    <Image Include="content\sky\moon-alpha.jpg" />
+    <Image Include="content\sky\moon.jpg" />
+    <Image Include="content\sky\null_plainsky512_bk.jpg" />
+    <Image Include="content\sky\null_plainsky512_dn.jpg" />
+    <Image Include="content\sky\null_plainsky512_ft.jpg" />
+    <Image Include="content\sky\null_plainsky512_lf.jpg" />
+    <Image Include="content\sky\null_plainsky512_rt.jpg" />
+    <Image Include="content\sky\null_plainsky512_up.jpg" />
+    <Image Include="content\sky\skyspheremap.jpg" />
+    <Image Include="content\sky\sun-rays.jpg" />
+    <Image Include="content\sky\sun.jpg" />
+    <Image Include="content\textures\advancedMove.png" />
+    <Image Include="content\textures\advancedMoveResize.png" />
+    <Image Include="content\textures\advancedMove_joint.png" />
+    <Image Include="content\textures\advancedMove_keysOnly.png" />
+    <Image Include="content\textures\advancedMove_noJoint.png" />
+    <Image Include="content\textures\advClosed-hand-no-weld.png" />
+    <Image Include="content\textures\advClosed-hand-weld.png" />
+    <Image Include="content\textures\advClosed-hand.png" />
+    <Image Include="content\textures\advCursor-default.png" />
+    <Image Include="content\textures\advCursor-openedHand.png" />
+    <Image Include="content\textures\advCursor-white.png" />
+    <Image Include="content\textures\AnchorCursor.png" />
+    <Image Include="content\textures\ArrowCursor.png" />
+    <Image Include="content\textures\ArrowCursorDecalDrag.png" />
+    <Image Include="content\textures\ArrowFarCursor.png" />
+    <Image Include="content\textures\BackgroundImage.png" />
+    <Image Include="content\textures\blackBkg_round.png" />
+    <Image Include="content\textures\blackBkg_square.png" />
+    <Image Include="content\textures\Blank.png" />
+    <Image Include="content\textures\BWGradient.png" />
+    <Image Include="content\textures\chatBubble_botBlue_bkg.png" />
+    <Image Include="content\textures\chatBubble_botBlue_notify_bkg.png" />
+    <Image Include="content\textures\chatBubble_botBlue_tail.png" />
+    <Image Include="content\textures\chatBubble_botBlue_tailRight.png" />
+    <Image Include="content\textures\chatBubble_botGreen_bkg.png" />
+    <Image Include="content\textures\chatBubble_botGreen_notify_bkg.png" />
+    <Image Include="content\textures\chatBubble_botGreen_tail.png" />
+    <Image Include="content\textures\chatBubble_botGreen_tailRight.png" />
+    <Image Include="content\textures\chatBubble_botRed_bkg.png" />
+    <Image Include="content\textures\chatBubble_botRed_notify_bkg.png" />
+    <Image Include="content\textures\chatBubble_botRed_tail.png" />
+    <Image Include="content\textures\chatBubble_botRed_tailRight.png" />
+    <Image Include="content\textures\chatBubble_bot_notifyGray_dotDotDot.png" />
+    <Image Include="content\textures\chatBubble_bot_notify_bang.png" />
+    <Image Include="content\textures\chatBubble_bot_notify_dotDotDot.png" />
+    <Image Include="content\textures\chatBubble_bot_notify_money.png" />
+    <Image Include="content\textures\chatBubble_bot_notify_question.png" />
+    <Image Include="content\textures\chatBubble_white_bkg.png" />
+    <Image Include="content\textures\chatBubble_white_notify_bkg.png" />
+    <Image Include="content\textures\chatBubble_white_tail.png" />
+    <Image Include="content\textures\Clone.png" />
+    <Image Include="content\textures\CloneCursor.png" />
+    <Image Include="content\textures\CloneDownCursor.png" />
+    <Image Include="content\textures\CloneOverCursor.png" />
+    <Image Include="content\textures\Cursors\Gamepad\Pointer%402x.png" />
+    <Image Include="content\textures\Cursors\Gamepad\Pointer.png" />
+    <Image Include="content\textures\Cursors\Gamepad\PointerOver%402x.png" />
+    <Image Include="content\textures\Cursors\Gamepad\PointerOver.png" />
+    <Image Include="content\textures\DialogHelp.png" />
+    <Image Include="content\textures\DialogQuest.png" />
+    <Image Include="content\textures\DialogShop.png" />
+    <Image Include="content\textures\dirt.jpg" />
+    <Image Include="content\textures\DragCursor.png" />
+    <Image Include="content\textures\DropperCursor.png" />
+    <Image Include="content\textures\Exit.png" />
+    <Image Include="content\textures\Exit_dn.png" />
+    <Image Include="content\textures\Exit_ovr.png" />
+    <Image Include="content\textures\explosion.png" />
+    <Image Include="content\textures\face.png" />
+    <Image Include="content\textures\FillCursor.png" />
+    <Image Include="content\textures\fire_0.png" />
+    <Image Include="content\textures\FlagCursor.png" />
+    <Image Include="content\textures\FlatCursor.png" />
+    <Image Include="content\textures\glow.png" />
+    <Image Include="content\textures\GrabCursor.png" />
+    <Image Include="content\textures\GrabRotateCursor.png" />
+    <Image Include="content\textures\gradient.png" />
+    <Image Include="content\textures\Grass_Texture.jpg" />
+    <Image Include="content\textures\GunCursor.png" />
+    <Image Include="content\textures\GunWaitCursor.png" />
+    <Image Include="content\textures\HammerCursor.png" />
+    <Image Include="content\textures\HammerDownCursor.png" />
+    <Image Include="content\textures\HammerOverCursor.png" />
+    <Image Include="content\textures\HingeCursor.png" />
+    <Image Include="content\textures\loading\cancelButton.png" />
+    <Image Include="content\textures\loading\darkLoadingTexture.png" />
+    <Image Include="content\textures\loading\loadingCircle.png" />
+    <Image Include="content\textures\loading\loadingTexture.png" />
+    <Image Include="content\textures\loading\loadingvignette.png" />
+    <Image Include="content\textures\loading\robloxlogo.png" />
+    <Image Include="content\textures\LockCursor.png" />
+    <Image Include="content\textures\lua.png" />
+    <Image Include="content\textures\MotorCursor.png" />
+    <Image Include="content\textures\MouseLockedCursor.png" />
+    <Image Include="content\textures\particles\common_alpha.dds" />
+    <Image Include="content\textures\particles\explosion01_core_alpha.png" />
+    <Image Include="content\textures\particles\explosion01_core_main.dds" />
+    <Image Include="content\textures\particles\explosion01_implosion_color.png" />
+    <Image Include="content\textures\particles\explosion01_implosion_main.dds" />
+    <Image Include="content\textures\particles\explosion01_shockwave_main.dds" />
+    <Image Include="content\textures\particles\explosion01_smoke_alpha.dds" />
+    <Image Include="content\textures\particles\explosion01_smoke_color_new.dds" />
+    <Image Include="content\textures\particles\explosion01_smoke_main.dds" />
+    <Image Include="content\textures\particles\explosion_alpha.dds" />
+    <Image Include="content\textures\particles\explosion_color.dds" />
+    <Image Include="content\textures\particles\fire_alpha.dds" />
+    <Image Include="content\textures\particles\fire_color.dds" />
+    <Image Include="content\textures\particles\fire_main.dds" />
+    <Image Include="content\textures\particles\fire_sparks_color.dds" />
+    <Image Include="content\textures\particles\fire_sparks_main.dds" />
+    <Image Include="content\textures\particles\forcefield_alpha.dds" />
+    <Image Include="content\textures\particles\forcefield_glow_alpha.dds" />
+    <Image Include="content\textures\particles\forcefield_glow_color.dds" />
+    <Image Include="content\textures\particles\forcefield_glow_main.dds" />
+    <Image Include="content\textures\particles\forcefield_vortex_color.dds" />
+    <Image Include="content\textures\particles\forcefield_vortex_main.dds" />
+    <Image Include="content\textures\particles\legacy_fire_alpha_color.dds" />
+    <Image Include="content\textures\particles\smoke_color.dds" />
+    <Image Include="content\textures\particles\smoke_main.dds" />
+    <Image Include="content\textures\particles\sparkles_color.dds" />
+    <Image Include="content\textures\particles\sparkles_main.dds" />
+    <Image Include="content\textures\ResizeCursor.png" />
+    <Image Include="content\textures\Roblox-loading%402x.png" />
+    <Image Include="content\textures\Roblox-loading-glow%402x.png" />
+    <Image Include="content\textures\Roblox-loading-glow.png" />
+    <Image Include="content\textures\Roblox-loading.png" />
+    <Image Include="content\textures\roblox-logo.png" />
+    <Image Include="content\textures\Roblox.bmp" />
+    <Image Include="content\textures\rotationArrow.png" />
+    <Image Include="content\textures\RustGradient.png" />
+    <Image Include="content\textures\script.png" />
+    <Image Include="content\textures\shadowmask.png" />
+    <Image Include="content\textures\Smoke.png" />
+    <Image Include="content\textures\spark.png" />
+    <Image Include="content\textures\sparkle.png" />
+    <Image Include="content\textures\SpawnCursor.png" />
+    <Image Include="content\textures\SpawnLocation.png" />
+    <Image Include="content\textures\SurfacesDefault.png" />
+    <Image Include="content\textures\transformFiveDegrees.png" />
+    <Image Include="content\textures\transformNinetyDegrees.png" />
+    <Image Include="content\textures\transformOneDegree.png" />
+    <Image Include="content\textures\transformTwentyTwoDegrees.png" />
+    <Image Include="content\textures\ui\Backpack\Backpack%402x.png" />
+    <Image Include="content\textures\ui\Backpack\Backpack.png" />
+    <Image Include="content\textures\ui\Backpack\Backpack_Down%402x.png" />
+    <Image Include="content\textures\ui\Backpack\Backpack_Down.png" />
+    <Image Include="content\textures\ui\Backpack_Close%402x.png" />
+    <Image Include="content\textures\ui\Backpack_Close.png" />
+    <Image Include="content\textures\ui\Backpack_Open%402x.png" />
+    <Image Include="content\textures\ui\Backpack_Open.png" />
+    <Image Include="content\textures\ui\btn_grey.png" />
+    <Image Include="content\textures\ui\btn_greyTransp.png" />
+    <Image Include="content\textures\ui\btn_newBlue%402x.png" />
+    <Image Include="content\textures\ui\btn_newBlue.png" />
+    <Image Include="content\textures\ui\btn_newBlueGlow%402x.png" />
+    <Image Include="content\textures\ui\btn_newBlueGlow.png" />
+    <Image Include="content\textures\ui\btn_newGrey%402x.png" />
+    <Image Include="content\textures\ui\btn_newGrey.png" />
+    <Image Include="content\textures\ui\btn_newGreyGlow%402x.png" />
+    <Image Include="content\textures\ui\btn_newGreyGlow.png" />
+    <Image Include="content\textures\ui\btn_newWhite%402x.png" />
+    <Image Include="content\textures\ui\btn_newWhite.png" />
+    <Image Include="content\textures\ui\btn_newWhiteGlow%402x.png" />
+    <Image Include="content\textures\ui\btn_newWhiteGlow.png" />
+    <Image Include="content\textures\ui\btn_red.png" />
+    <Image Include="content\textures\ui\btn_redGlow.png" />
+    <Image Include="content\textures\ui\btn_white.png" />
+    <Image Include="content\textures\ui\ButtonLeft.png" />
+    <Image Include="content\textures\ui\ButtonLeftDown.png" />
+    <Image Include="content\textures\ui\ButtonRight.png" />
+    <Image Include="content\textures\ui\ButtonRightDown.png" />
+    <Image Include="content\textures\ui\chatBubble_blue_notify_bkg.png" />
+    <Image Include="content\textures\ui\chatBubble_green_notify_bkg.png" />
+    <Image Include="content\textures\ui\chatBubble_red_notify_bkg.png" />
+    <Image Include="content\textures\ui\chatBubble_white_notify_bkg.png" />
+    <Image Include="content\textures\ui\Chat\Chat%402x.png" />
+    <Image Include="content\textures\ui\Chat\Chat.png" />
+    <Image Include="content\textures\ui\Chat\ChatDown%402x.png" />
+    <Image Include="content\textures\ui\Chat\ChatDown.png" />
+    <Image Include="content\textures\ui\Chat\MessageCounter%402x.png" />
+    <Image Include="content\textures\ui\Chat\MessageCounter.png" />
+    <Image Include="content\textures\ui\Chat\ToggleChat%402x.png" />
+    <Image Include="content\textures\ui\Chat\ToggleChat.png" />
+    <Image Include="content\textures\ui\Chat\ToggleChatDown%402x.png" />
+    <Image Include="content\textures\ui\Chat\ToggleChatDown.png" />
+    <Image Include="content\textures\ui\chat_teamButton%402x.png" />
+    <Image Include="content\textures\ui\chat_teamButton.png" />
+    <Image Include="content\textures\ui\CloneButton.png" />
+    <Image Include="content\textures\ui\CloneButton_dn.png" />
+    <Image Include="content\textures\ui\CloseButton.png" />
+    <Image Include="content\textures\ui\CloseButton_dn.png" />
+    <Image Include="content\textures\ui\Concrete.png" />
+    <Image Include="content\textures\ui\CorrodedMetal.png" />
+    <Image Include="content\textures\ui\DeleteButton.png" />
+    <Image Include="content\textures\ui\DeleteButton_dn.png" />
+    <Image Include="content\textures\ui\dialog_blue%402x.png" />
+    <Image Include="content\textures\ui\dialog_blue.png" />
+    <Image Include="content\textures\ui\dialog_ellipses.png" />
+    <Image Include="content\textures\ui\dialog_green%402x.png" />
+    <Image Include="content\textures\ui\dialog_green.png" />
+    <Image Include="content\textures\ui\dialog_purpose_help.png" />
+    <Image Include="content\textures\ui\dialog_purpose_quest.png" />
+    <Image Include="content\textures\ui\dialog_purpose_shop.png" />
+    <Image Include="content\textures\ui\dialog_red%402x.png" />
+    <Image Include="content\textures\ui\dialog_red.png" />
+    <Image Include="content\textures\ui\dialog_tail%402x.png" />
+    <Image Include="content\textures\ui\dialog_tail.png" />
+    <Image Include="content\textures\ui\dialog_white%402x.png" />
+    <Image Include="content\textures\ui\dialog_white.png" />
+    <Image Include="content\textures\ui\DiamondPlate.png" />
+    <Image Include="content\textures\ui\DPadSheet.png" />
+    <Image Include="content\textures\ui\dropdown_arrow%402x.png" />
+    <Image Include="content\textures\ui\dropdown_arrow.png" />
+    <Image Include="content\textures\ui\ErrorIcon.png" />
+    <Image Include="content\textures\ui\ErrorIconSmall.png" />
+    <Image Include="content\textures\ui\expandPlayerList%402x.png" />
+    <Image Include="content\textures\ui\expandPlayerList.png" />
+    <Image Include="content\textures\ui\Foil.png" />
+    <Image Include="content\textures\ui\Gear.png" />
+    <Image Include="content\textures\ui\Gear_dn.png" />
+    <Image Include="content\textures\ui\Glue.png" />
+    <Image Include="content\textures\ui\Grass.png" />
+    <Image Include="content\textures\ui\GroupMoveButton.png" />
+    <Image Include="content\textures\ui\GroupMoveButton_dn.png" />
+    <Image Include="content\textures\ui\Health-BKG-Center%402x.png" />
+    <Image Include="content\textures\ui\Health-BKG-Center.png" />
+    <Image Include="content\textures\ui\Health-BKG-Left-Cap%402x.png" />
+    <Image Include="content\textures\ui\Health-BKG-Left-Cap.png" />
+    <Image Include="content\textures\ui\Health-BKG-Right-Cap%402x.png" />
+    <Image Include="content\textures\ui\Health-BKG-Right-Cap.png" />
+    <Image Include="content\textures\ui\Hinge.png" />
+    <Image Include="content\textures\ui\homeButton%402x.png" />
+    <Image Include="content\textures\ui\homeButton.png" />
+    <Image Include="content\textures\ui\Ice.png" />
+    <Image Include="content\textures\ui\icon_admin-16.png" />
+    <Image Include="content\textures\ui\icon_BC-16.png" />
+    <Image Include="content\textures\ui\icon_follower-16.png" />
+    <Image Include="content\textures\ui\icon_following-16.png" />
+    <Image Include="content\textures\ui\icon_friendrequestrecieved-16.png" />
+    <Image Include="content\textures\ui\icon_friendrequestsent_16.png" />
+    <Image Include="content\textures\ui\icon_friends_16.png" />
+    <Image Include="content\textures\ui\icon_mutualfollowing-16.png" />
+    <Image Include="content\textures\ui\icon_OBC-16.png" />
+    <Image Include="content\textures\ui\icon_placeowner.png" />
+    <Image Include="content\textures\ui\icon_TBC-16.png" />
+    <Image Include="content\textures\ui\Inlets.png" />
+    <Image Include="content\textures\ui\InsertButton.png" />
+    <Image Include="content\textures\ui\InsertButton_dn.png" />
+    <Image Include="content\textures\ui\LoadingBKG.png" />
+    <Image Include="content\textures\ui\MaterialButton.png" />
+    <Image Include="content\textures\ui\MaterialButton_dn.png" />
+    <Image Include="content\textures\ui\MaterialMenu.png" />
+    <Image Include="content\textures\ui\Menu\Hamburger%402x.png" />
+    <Image Include="content\textures\ui\Menu\Hamburger.png" />
+    <Image Include="content\textures\ui\Menu\HamburgerDown%402x.png" />
+    <Image Include="content\textures\ui\Menu\HamburgerDown.png" />
+    <Image Include="content\textures\ui\Modal.png" />
+    <Image Include="content\textures\ui\Motor.png" />
+    <Image Include="content\textures\ui\mouseLock_off%402x.png" />
+    <Image Include="content\textures\ui\mouseLock_off.png" />
+    <Image Include="content\textures\ui\mouseLock_on%402x.png" />
+    <Image Include="content\textures\ui\mouseLock_on.png" />
+    <Image Include="content\textures\ui\newBkg_square%402x.png" />
+    <Image Include="content\textures\ui\newBkg_square.png" />
+    <Image Include="content\textures\ui\PaintButton.png" />
+    <Image Include="content\textures\ui\PaintButton_dn.png" />
+    <Image Include="content\textures\ui\PartMoveButton.png" />
+    <Image Include="content\textures\ui\PartMoveButton_dn.png" />
+    <Image Include="content\textures\ui\Plastic.png" />
+    <Image Include="content\textures\ui\PlayerlistFriendIcon.png" />
+    <Image Include="content\textures\ui\PlayerListFriendRequestReceivedIcon.png" />
+    <Image Include="content\textures\ui\PlayerListFriendRequestSentIcon.png" />
+    <Image Include="content\textures\ui\PlayerList\BlockedIcon.png" />
+    <Image Include="content\textures\ui\PlayerList\CharacterImageBackground.png" />
+    <Image Include="content\textures\ui\PlayerList\TileShadowMissingTop.png" />
+    <Image Include="content\textures\ui\PropertyButton.png" />
+    <Image Include="content\textures\ui\PropertyButton_dn.png" />
+    <Image Include="content\textures\ui\RecordDown.png" />
+    <Image Include="content\textures\ui\RecordStop.png" />
+    <Image Include="content\textures\ui\ResetIcon.png" />
+    <Image Include="content\textures\ui\RobuxIcon.png" />
+    <Image Include="content\textures\ui\ScaleButton.png" />
+    <Image Include="content\textures\ui\ScaleButton_dn.png" />
+    <Image Include="content\textures\ui\scroll-bottom%402x.png" />
+    <Image Include="content\textures\ui\scroll-bottom.png" />
+    <Image Include="content\textures\ui\scroll-middle%402x.png" />
+    <Image Include="content\textures\ui\scroll-middle.png" />
+    <Image Include="content\textures\ui\scroll-top%402x.png" />
+    <Image Include="content\textures\ui\scroll-top.png" />
+    <Image Include="content\textures\ui\scrollbar.png" />
+    <Image Include="content\textures\ui\scrollbuttonDown.png" />
+    <Image Include="content\textures\ui\scrollbuttonDown_dn.png" />
+    <Image Include="content\textures\ui\scrollbuttonDown_ds.png" />
+    <Image Include="content\textures\ui\scrollbuttonDown_ovr.png" />
+    <Image Include="content\textures\ui\scrollbuttonUp.png" />
+    <Image Include="content\textures\ui\scrollbuttonUp_dn.png" />
+    <Image Include="content\textures\ui\scrollbuttonUp_ds.png" />
+    <Image Include="content\textures\ui\scrollbuttonUp_ovr.png" />
+    <Image Include="content\textures\ui\Scroll\scroll-bottom%402x.png" />
+    <Image Include="content\textures\ui\Scroll\scroll-bottom.png" />
+    <Image Include="content\textures\ui\Scroll\scroll-middle%402x.png" />
+    <Image Include="content\textures\ui\Scroll\scroll-middle.png" />
+    <Image Include="content\textures\ui\Scroll\scroll-top%402x.png" />
+    <Image Include="content\textures\ui\Scroll\scroll-top.png" />
+    <Image Include="content\textures\ui\SearchIcon.png" />
+    <Image Include="content\textures\ui\SelectionBox%402x.png" />
+    <Image Include="content\textures\ui\SelectionBox.png" />
+    <Image Include="content\textures\ui\SettingsButton.png" />
+    <Image Include="content\textures\ui\SettingsButton_dn.png" />
+    <Image Include="content\textures\ui\SettingsButton_ds.png" />
+    <Image Include="content\textures\ui\SettingsButton_ovr.png" />
+    <Image Include="content\textures\ui\Settings\DropDown\DropDown%402x.png" />
+    <Image Include="content\textures\ui\Settings\DropDown\DropDown.png" />
+    <Image Include="content\textures\ui\Settings\Help\AButtonDark%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\AButtonDark.png" />
+    <Image Include="content\textures\ui\Settings\Help\AButtonLight%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\AButtonLight.png" />
+    <Image Include="content\textures\ui\Settings\Help\AButtonLightSmall.png" />
+    <Image Include="content\textures\ui\Settings\Help\BButtonDark%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\BButtonDark.png" />
+    <Image Include="content\textures\ui\Settings\Help\BButtonLight%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\BButtonLight.png" />
+    <Image Include="content\textures\ui\Settings\Help\EscapeIcon.png" />
+    <Image Include="content\textures\ui\Settings\Help\GenericController%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\GenericController.png" />
+    <Image Include="content\textures\ui\Settings\Help\LeaveIcon.png" />
+    <Image Include="content\textures\ui\Settings\Help\ResetIcon.png" />
+    <Image Include="content\textures\ui\Settings\Help\RotateCameraGesture.png" />
+    <Image Include="content\textures\ui\Settings\Help\UseToolGesture.png" />
+    <Image Include="content\textures\ui\Settings\Help\XboxController.png" />
+    <Image Include="content\textures\ui\Settings\Help\XButtonDark%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\XButtonDark.png" />
+    <Image Include="content\textures\ui\Settings\Help\XButtonLight%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\XButtonLight.png" />
+    <Image Include="content\textures\ui\Settings\Help\YButtonDark%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\YButtonDark.png" />
+    <Image Include="content\textures\ui\Settings\Help\YButtonLight%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\YButtonLight.png" />
+    <Image Include="content\textures\ui\Settings\Help\ZoomGesture.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuBackground.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButton%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButton.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButtonSelected%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButtonSelected.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuSelection%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuSelection.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\GameSettingsTab%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\GameSettingsTab.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HelpTab%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HelpTab.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HomeTab%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HomeTab.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\PlayersTabIcon%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\PlayersTabIcon.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\RecordTab%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\RecordTab.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\ReportAbuseTab%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\ReportAbuseTab.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Alert%402x.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Alert.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Backpack%402x.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Backpack.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Bottom.png" />
+    <Image Include="content\textures\ui\Settings\Radial\BottomLeft.png" />
+    <Image Include="content\textures\ui\Settings\Radial\BottomLeftSelected.png" />
+    <Image Include="content\textures\ui\Settings\Radial\BottomRight.png" />
+    <Image Include="content\textures\ui\Settings\Radial\BottomRightSelected.png" />
+    <Image Include="content\textures\ui\Settings\Radial\BottomSelected.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Chat%402x.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Chat.png" />
+    <Image Include="content\textures\ui\Settings\Radial\EmptyBottom.png" />
+    <Image Include="content\textures\ui\Settings\Radial\EmptyBottomLeft.png" />
+    <Image Include="content\textures\ui\Settings\Radial\EmptyBottomRight.png" />
+    <Image Include="content\textures\ui\Settings\Radial\EmptyTop.png" />
+    <Image Include="content\textures\ui\Settings\Radial\EmptyTopLeft.png" />
+    <Image Include="content\textures\ui\Settings\Radial\EmptyTopRight.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Leave%402x.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Leave.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Menu%402x.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Menu.png" />
+    <Image Include="content\textures\ui\Settings\Radial\PlayerList%402x.png" />
+    <Image Include="content\textures\ui\Settings\Radial\PlayerList.png" />
+    <Image Include="content\textures\ui\Settings\Radial\RadialLabel%402x.png" />
+    <Image Include="content\textures\ui\Settings\Radial\RadialLabel.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Top.png" />
+    <Image Include="content\textures\ui\Settings\Radial\TopLeft.png" />
+    <Image Include="content\textures\ui\Settings\Radial\TopLeftSelected.png" />
+    <Image Include="content\textures\ui\Settings\Radial\TopRight.png" />
+    <Image Include="content\textures\ui\Settings\Radial\TopRightSelected.png" />
+    <Image Include="content\textures\ui\Settings\Radial\TopSelected.png" />
+    <Image Include="content\textures\ui\Settings\Slider\BarLeft%402x.png" />
+    <Image Include="content\textures\ui\Settings\Slider\BarLeft.png" />
+    <Image Include="content\textures\ui\Settings\Slider\BarRight%402x.png" />
+    <Image Include="content\textures\ui\Settings\Slider\BarRight.png" />
+    <Image Include="content\textures\ui\Settings\Slider\Left%402x.png" />
+    <Image Include="content\textures\ui\Settings\Slider\Left.png" />
+    <Image Include="content\textures\ui\Settings\Slider\Right%402x.png" />
+    <Image Include="content\textures\ui\Settings\Slider\Right.png" />
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarLeft%402x.png" />
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarLeft.png" />
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarRight%402x.png" />
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarRight.png" />
+    <Image Include="content\textures\ui\SingleButton.png" />
+    <Image Include="content\textures\ui\SingleButtonDown.png" />
+    <Image Include="content\textures\ui\Slate.png" />
+    <Image Include="content\textures\ui\Slider-BKG-Center%402x.png" />
+    <Image Include="content\textures\ui\Slider-BKG-Center.png" />
+    <Image Include="content\textures\ui\Slider-BKG-Left-Cap%402x.png" />
+    <Image Include="content\textures\ui\Slider-BKG-Left-Cap.png" />
+    <Image Include="content\textures\ui\Slider-BKG-Right-Cap%402x.png" />
+    <Image Include="content\textures\ui\Slider-BKG-Right-Cap.png" />
+    <Image Include="content\textures\ui\Slider-Fill-Center%402x.png" />
+    <Image Include="content\textures\ui\Slider-Fill-Center.png" />
+    <Image Include="content\textures\ui\Slider-Fill-Left-Cap%402x.png" />
+    <Image Include="content\textures\ui\Slider-Fill-Left-Cap.png" />
+    <Image Include="content\textures\ui\Slider-Fill-Right-Cap%402x.png" />
+    <Image Include="content\textures\ui\Slider-Fill-Right-Cap.png" />
+    <Image Include="content\textures\ui\Slider.png" />
+    <Image Include="content\textures\ui\Slider_dn.png" />
+    <Image Include="content\textures\ui\slider_new_tab%402x.png" />
+    <Image Include="content\textures\ui\slider_new_tab.png" />
+    <Image Include="content\textures\ui\Slider_sel.png" />
+    <Image Include="content\textures\ui\Smooth.png" />
+    <Image Include="content\textures\ui\StampToolButton.png" />
+    <Image Include="content\textures\ui\StampToolButton_dn.png" />
+    <Image Include="content\textures\ui\Studs.png" />
+    <Image Include="content\textures\ui\SurfaceButton.png" />
+    <Image Include="content\textures\ui\SurfaceButton_dn.png" />
+    <Image Include="content\textures\ui\SurfaceMenu.png" />
+    <Image Include="content\textures\ui\TinyBcIcon.png" />
+    <Image Include="content\textures\ui\TinyObcIcon.png" />
+    <Image Include="content\textures\ui\TinyTbcIcon.png" />
+    <Image Include="content\textures\ui\TixIcon.png" />
+    <Image Include="content\textures\ui\ToggleFullScreen_ds.png" />
+    <Image Include="content\textures\ui\ToolButton.png" />
+    <Image Include="content\textures\ui\ToolButton_dn.png" />
+    <Image Include="content\textures\ui\ToolButton_ds.png" />
+    <Image Include="content\textures\ui\TopBar\dropshadow%402x.png" />
+    <Image Include="content\textures\ui\TopBar\dropshadow.png" />
+    <Image Include="content\textures\ui\TouchControlsSheet.png" />
+    <Image Include="content\textures\ui\Universal.png" />
+    <Image Include="content\textures\ui\Vehicle\SpeedBar%402x.png" />
+    <Image Include="content\textures\ui\Vehicle\SpeedBar.png" />
+    <Image Include="content\textures\ui\Vehicle\SpeedBarBKG%402x.png" />
+    <Image Include="content\textures\ui\Vehicle\SpeedBarBKG.png" />
+    <Image Include="content\textures\ui\Vehicle\SpeedBarEmpty%402x.png" />
+    <Image Include="content\textures\ui\Vehicle\SpeedBarEmpty.png" />
+    <Image Include="content\textures\ui\Weld.png" />
+    <Image Include="content\textures\ui\Wood.png" />
+    <Image Include="content\textures\UnAnchorCursor.png" />
+    <Image Include="content\textures\UnlockCursor.png" />
+    <Image Include="content\textures\water_Subsurface.dds" />
+    <Image Include="content\textures\water_Wave.dds" />
+    <Image Include="content\textures\WeldCursor.png" />
+    <Image Include="content\textures\WhiteCircle.png" />
+    <Image Include="content\textures\wrench.png" />
+    <Image Include="PlatformContent\pc\terrain\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="PlatformContent\pc\terrain\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="PlatformContent\pc\terrain\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="PlatformContent\pc\textures\aluminum\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\aluminum\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\aluminum\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\aluminum\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\brick\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\brick\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\brick\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\brick\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\cobblestone\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\cobblestone\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\cobblestone\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\cobblestone\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\concrete\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\concrete\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\concrete\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\concrete\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\diamondplate\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\diamondplate\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\diamondplate\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\diamondplate\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\fabric\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\fabric\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\fabric\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\fabric\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\granite\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\granite\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\granite\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\granite\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\grass\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\grass\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\grass\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\grass\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\ice\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\ice\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\ice\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\ice\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\marble\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\marble\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\marble\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\marble\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\metal\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\metal\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\metal\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\metal\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\pebble\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\pebble\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\pebble\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\pebble\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\plastic\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\plastic\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\plastic\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\rust\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\rust\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\rust\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\rust\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\sand\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\sand\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\sand\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\sand\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\slate\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\slate\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\slate\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\slate\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\studs.dds" />
+    <Image Include="PlatformContent\pc\textures\terrain\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\terrain\diffusefar.dds" />
+    <Image Include="PlatformContent\pc\textures\terrain\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\terrain\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\wangIndex.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_01.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_02.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_03.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_04.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_05.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_06.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_07.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_08.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_09.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_10.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_11.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_12.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_13.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_14.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_15.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_16.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_17.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_18.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_19.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_20.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_21.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_22.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_23.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_24.dds" />
+    <Image Include="PlatformContent\pc\textures\water\normal_25.dds" />
+    <Image Include="PlatformContent\pc\textures\woodplanks\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\woodplanks\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\woodplanks\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\woodplanks\specular.dds" />
+    <Image Include="PlatformContent\pc\textures\wood\diffuse.dds" />
+    <Image Include="PlatformContent\pc\textures\wood\normal.dds" />
+    <Image Include="PlatformContent\pc\textures\wood\normaldetail.dds" />
+    <Image Include="PlatformContent\pc\textures\wood\specular.dds" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\ClientBase\ReflectionMetadata.cpp" />
+    <ClCompile Include="..\ClientBase\RenderSettingsItem.cpp" />
+    <ClCompile Include="..\ClientShared\SDLGameController.cpp" />
+    <ClCompile Include="App.xaml.cpp">
+      <DependentUpon>App.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainPage.xaml.cpp">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="RenderJob.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Marshaller.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="UserInput.cpp" />
+    <ClCompile Include="UWPPlatform.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\ClientShared\DataModelEmptySerialize.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Projects\App.BulletPhysics.vcxproj">
+      <Project>{6fcb3ae6-f8f4-48b5-a9ab-ced15c7e1730}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\App.vcxproj">
+      <Project>{213899e0-8a32-4c9c-9b09-89fb51d6ccd5}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\AppDraw.vcxproj">
+      <Project>{f2a6b73b-9bba-43de-be59-25ebd4e672b5}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\Base.vcxproj">
+      <Project>{9cd6ba71-768b-4758-a393-91ee7bed80c3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\boost.static.vcxproj">
+      <Project>{a160527a-f9ac-4b1a-8afd-bdb9c1f8e38d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\CSG.vcxproj">
+      <Project>{e29629a7-a5db-4548-ba65-d919e166a56f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\GfxBase.vcxproj">
+      <Project>{2329fe5d-880f-4de4-8e1b-a600e25f8910}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\GfxCore.vcxproj">
+      <Project>{3c3b9618-0393-4ee5-9d7d-61b2512264b0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\GfxRender.vcxproj">
+      <Project>{acd9e2df-f5d6-4db6-a693-ba5e8ff7991e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\graphics3D.vcxproj">
+      <Project>{483cdf9b-f198-4e8c-b5d9-fa2b56b33db9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\Log.vcxproj">
+      <Project>{3b1eb63b-b964-46ba-b5ae-d28ef1cb9a13}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\Network.vcxproj">
+      <Project>{b02f4dbc-b479-4792-938c-c3dc941aaf5e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\RbxG3D.vcxproj">
+      <Project>{3686b548-83ff-4e4f-94c2-6aed0bd87b3a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\zlib.vcxproj">
+      <Project>{0197d2c5-c361-4fd5-90e1-98f402545b20}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="WindowsDesktop, Version=10.0.10240.0" />
+    <SDKReference Include="WindowsMobile, Version=10.0.10240.0" />
+    <SDKReference Include="XboxDevKitExtensions, Version=8.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="content\fonts\arial.ttf">
+      <DeploymentContent>true</DeploymentContent>
+    </Font>
+    <Font Include="content\fonts\arialbd.ttf">
+      <DeploymentContent>true</DeploymentContent>
+    </Font>
+    <Font Include="content\fonts\SourceSansPro-Bold.ttf">
+      <DeploymentContent>true</DeploymentContent>
+    </Font>
+    <Font Include="content\fonts\SourceSansPro-It.ttf">
+      <DeploymentContent>true</DeploymentContent>
+    </Font>
+    <Font Include="content\fonts\SourceSansPro-Light.ttf">
+      <DeploymentContent>true</DeploymentContent>
+    </Font>
+    <Font Include="content\fonts\SourceSansPro-Regular.ttf">
+      <DeploymentContent>true</DeploymentContent>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="content\fonts\gamecontrollerdb.txt">
+      <DeploymentContent>true</DeploymentContent>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="content\fonts\safechat.xml">
+      <DeploymentContent>true</DeploymentContent>
+    </Xml>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Target Name="CopyContentToAppX" AfterTargets="PostBuildEvent" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM' Or '$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Message Text="Copying folders to client folder..." Importance="high" />
+    <ItemGroup>
+      <ContentFiles Include="$(SolutionDir)..\content\**\*" />
+      <PlatformContentFiles Include="$(SolutionDir)..\PlatformContent\pc\**\*" />
+      <ShaderFiles Include="$(SolutionDir)..\shaders\**\*" />
+    </ItemGroup>
+    <Copy SourceFiles="@(ContentFiles)" DestinationFolder="$(SolutionDir)\content\%(ContentFiles.RecursiveDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(PlatformContentFiles)" DestinationFolder="$(SolutionDir)\PlatformContent\pc\%(PlatformContentFiles.RecursiveDir)" SkipUnchangedFiles="true" />
+    <Copy SourceFiles="@(ShaderFiles)" DestinationFolder="$(SolutionDir)\shaders\%(ShaderFiles.RecursiveDir)" SkipUnchangedFiles="true" />
+    <Message Text="Folders copied successfully." Importance="high" />
+  </Target>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

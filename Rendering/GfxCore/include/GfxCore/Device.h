@@ -94,6 +94,9 @@ struct DeviceCaps
     bool requiresRenderTargetFlipping;
     
     bool retina;
+#if defined(RBX_PLATFORM_UWP)
+    float uiScale;
+#endif
 
     void dumpToFLog(int channel) const;
 };

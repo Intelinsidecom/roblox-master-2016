@@ -12,11 +12,13 @@
 
 #include <map>
 
+#if !defined(RBX_PLATFORM_UWP)
 #ifdef _WIN32
    using std::mem_fun1;
 #else
 #include <ext/functional>
    using __gnu_cxx::mem_fun1;
+#endif
 #endif
 
 using std::string;
@@ -97,8 +99,12 @@ public:
 		
 		count += count_if(
 			idrefBindings.begin(), 
-			idrefBindings.end(), 
+			idrefBindings.end(),
+			#if !defined(RBX_PLATFORM_UWP)
 			std::bind1st(mem_fun1(&ArchiveBinder::resolveIDREF),this)
+			#else
+			[this](const IDREFBinding& binding) { return resolveIDREF(binding); }
+			#endif
 		);
 
 		return Super::resolveRefs() && (count == idrefBindings.size());

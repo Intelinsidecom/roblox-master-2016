@@ -18,7 +18,7 @@
 #include "Script/ScriptContext.h"
 #include "FastLog.h"
 
-#ifdef WIN32
+#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 #include "VMProtectSDK.h"
 #endif
 
@@ -2072,7 +2072,7 @@ void GuiButton::onServiceProvider(ServiceProvider* oldProvider, ServiceProvider*
 void GuiButton::setVerb(std::string verbString)
 {
     // People were modifying verbString when it was loaded into a register by using CE.
-	#ifdef WIN32
+	#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
     VMProtectBeginMutation(NULL);
 	#endif
 	if(Workspace* workspace = ServiceProvider::find<Workspace>(this))
@@ -2095,7 +2095,7 @@ void GuiButton::setVerb(std::string verbString)
 	}
 	else
 		verbToSet = verbString; // our object isn't in the workspace yet, save string for later use (when we reset our parent)
-    #ifdef WIN32
+    #if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 	VMProtectEnd();
 	#endif
 }
@@ -2397,7 +2397,7 @@ GuiResponse GuiButton::checkForSelectedObjectClick(const shared_ptr<InputObject>
                     {
                         mouseButton1ClickSignal();
 
-						#ifdef WIN32
+						#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 						VMProtectBeginMutation(NULL);
 						#endif
 						if (verb != NULL)
@@ -2408,7 +2408,7 @@ GuiResponse GuiButton::checkForSelectedObjectClick(const shared_ptr<InputObject>
 								Verb::doItWithChecks(verb, RBX::DataModel::get(this));
 							}
 						}
-						#ifdef WIN32
+						#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 						VMProtectEnd();
 						#endif
 						lastSelectedObjectEvent = weak_ptr<InputObject>();
@@ -2473,7 +2473,7 @@ GuiResponse GuiButton::processMouseEvent(const shared_ptr<InputObject>& event)
     
     GuiResponse answer = Super::processMouseEvent(event);			//We need to call our classParent to deal with the state table
     
-	#ifdef WIN32
+	#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
     VMProtectBeginMutation(NULL);
 	#endif
 	
@@ -2485,7 +2485,7 @@ GuiResponse GuiButton::processMouseEvent(const shared_ptr<InputObject>& event)
             Verb::doItWithChecks(verb, RBX::DataModel::get(this));
         }
     }
-	#ifdef WIN32
+	#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
     VMProtectEnd();
 	#endif
 

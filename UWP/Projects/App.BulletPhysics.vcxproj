@@ -392,10 +392,6 @@
     <ClInclude Include="..\..\App.BulletPhysics\LinearMath\btVector3.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\App.BulletPhysics\Extras\ConvexDecomposition\CMakeLists.txt" />
-    <Text Include="..\..\App.BulletPhysics\LinearMath\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\..\App.BulletPhysics\Extras\ConvexDecomposition\premake4.lua" />
     <None Include="..\..\App.BulletPhysics\LinearMath\premake4.lua" />
   </ItemGroup>
@@ -504,7 +500,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>../../App.BulletPhysics</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;</PreprocessorDefinitions>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -519,7 +515,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>../../App.BulletPhysics</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;</PreprocessorDefinitions>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -534,9 +530,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>../../App.BulletPhysics</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WINAPI_FAMILY=WINAPI_FAMILY_APP;RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;</PreprocessorDefinitions>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
@@ -549,9 +545,9 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>../../App.BulletPhysics</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WINAPI_FAMILY=WINAPI_FAMILY_APP;RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;</PreprocessorDefinitions>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
@@ -564,7 +560,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>../../App.BulletPhysics</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;</PreprocessorDefinitions>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
@@ -579,7 +575,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>../../App.BulletPhysics</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;BOOST_THREAD_BUILD_LIB;_MBCS;</PreprocessorDefinitions>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>

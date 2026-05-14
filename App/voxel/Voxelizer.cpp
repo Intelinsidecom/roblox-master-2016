@@ -33,11 +33,11 @@ LOGVARIABLE(Voxelizer, 0);
 
 FASTINTVARIABLE(CSGVoxelizerFadeRadius, 300);
 
-#if defined(_WIN32) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS))
+#if ((defined(_WIN32) && !defined(_M_ARM) && !defined(_M_ARM64)) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS)))
 #define SIMD_SSE2
 #endif
 
-#if (defined(RBX_PLATFORM_IOS) && !TARGET_IPHONE_SIMULATOR) || defined(__ANDROID__)
+#if (defined(_WIN32) && defined(_M_ARM)) || (defined(_WIN32) && defined(_M_ARM64)) || (defined(RBX_PLATFORM_IOS) && !TARGET_IPHONE_SIMULATOR) || defined(__ANDROID__)
 #define SIMD_NEON
 #endif
 
@@ -1081,9 +1081,19 @@ namespace RBX { namespace Voxel {
 		Vector3int32 chunkOffsetTerrain = chunkOffset;
 
     #ifdef SIMD_NEON_VTBL_WORKAROUND
-        uint8x16_t table = {255, 128, 42, 213, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	#if defined(_MSC_VER)
+        static const uint8_t tableData[16] = {255, 128, 42, 213, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        uint8x16_t table = vld1q_u8(tableData);
+	#else
+	uint8x16_t table = {255, 128, 42, 213, 128, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+	#endif
     #else
-        uint8x8_t table =  {255, 128, 42, 213, 128, 0, 0, 0};
+	#if defined(_MSC_VER)
+        static const uint8_t tableData[8] = {255, 128, 42, 213, 128, 0, 0, 0};
+        uint8x8_t table = vld1_u8(tableData);
+	#else
+		uint8x8_t table =  {255, 128, 42, 213, 128, 0, 0, 0};
+	#endif
     #endif
         
 		const int blockShift = 3;

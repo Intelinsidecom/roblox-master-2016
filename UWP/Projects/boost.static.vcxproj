@@ -131,7 +131,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;ZLIB_WINAPI;NDEBUG;_LIB;_WIN32_WINNT=0x0602;WINVER=0x0602;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -147,7 +147,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;ZLIB_WINAPI;NDEBUG;_LIB;_WIN32_WINNT=0x0602;WINVER=0x0602;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -163,7 +163,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;ZLIB_WINAPI;NDEBUG;_LIB;_WIN32_WINNT=0x0602;WINVER=0x0602;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -179,7 +179,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;ZLIB_WINAPI;NDEBUG;_LIB;_WIN32_WINNT=0x0602;WINVER=0x0602;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -195,7 +195,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;ZLIB_WINAPI;NDEBUG;_LIB;_WIN32_WINNT=0x0602;WINVER=0x0602;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -211,7 +211,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <TreatWarningAsError>false</TreatWarningAsError>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;ZLIB_WINAPI;NDEBUG;_LIB;_WIN32_WINNT=0x0602;WINVER=0x0602;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>

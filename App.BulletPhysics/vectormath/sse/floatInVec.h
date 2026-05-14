@@ -31,7 +31,9 @@
 #define _FLOATINVEC_H
 
 #include <math.h>
+#if !defined(_M_ARM) && !defined(_M_ARM64)
 #include <xmmintrin.h>
+#endif
 
 namespace Vectormath {
 

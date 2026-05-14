@@ -24,7 +24,9 @@
 #include "Script/scriptcontext.h"
 
 #include "RakNetStatistics.h"
+#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 #include "VMProtectSDK.h"
+#endif
 
 LOGGROUP(US14116)
 DYNAMIC_FASTFLAG(DebugDisableTimeoutDisconnect)
@@ -327,7 +329,9 @@ void Client::OnFailedConnectionAttempt(RakNet::Packet *packet, RakNet::PI2_Faile
 #if !defined(RBX_STUDIO_BUILD)
 static void programMemoryPermissionsHackChecker(weak_ptr<DataModel> weakDataModel) {
 	static const unsigned int kSleepBetweenStealthEditChecksMillis = 2 * 1000;
+	#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 	VMProtectBeginMutation("24");
+	#endif
 	while (true) {
 		shared_ptr<DataModel> dataModel = weakDataModel.lock();
 		if (!dataModel) { break; }
@@ -344,7 +348,9 @@ static void programMemoryPermissionsHackChecker(weak_ptr<DataModel> weakDataMode
 		//FASTLOG1(FLog::US14116, "Sleeping stealth for %ums", kSleepBetweenStealthEditChecksMillis);
 		boost::this_thread::sleep(boost::posix_time::milliseconds(kSleepBetweenStealthEditChecksMillis));
 	}
+	#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 	VMProtectEnd();
+	#endif
 }
 #endif
 
@@ -384,8 +390,10 @@ void Client::HandleConnection(RakNet::Packet *packet)
 
         proxy->setAndLockParent(this);
 
-#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) 
+#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
         VMProtectBeginMutation("25");
+#endif
 		{
             weak_ptr<DataModel> weakDataModel = weak_from(DataModel::get(this));
 
@@ -396,7 +404,9 @@ void Client::HandleConnection(RakNet::Packet *packet)
                 DataModel::get(this)->addHackFlag(HATE_WEAK_DM_POINTER_BROKEN);
             }
         }
+		#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
         VMProtectEnd();
+		#endif
 #endif
 
         connectionAcceptedSignal(RakNetAddressToString(packet->systemAddress), proxy);

@@ -243,7 +243,11 @@ static Vector2 computeCanvasSize(Device* device)
 	}
 	else if (Framebuffer* framebuffer = device->getMainFramebuffer())
 	{
+#if defined(RBX_PLATFORM_UWP)
+		float viewScale = device->getCaps().uiScale;
+#else
 		int viewScale = (device->getCaps().retina) ? 2 : 1;
+#endif
 
 		return Vector2(framebuffer->getWidth(), framebuffer->getHeight()) / viewScale;
 	}

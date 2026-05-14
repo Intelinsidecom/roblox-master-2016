@@ -12,7 +12,7 @@
 #define RBX_SIMD_X64
 #endif
 
-#if defined( __ARM_NEON ) || defined( __arm__ ) || defined( _M_ARM ) // __ARM_NEON on apple clang for iOS, __arm__ on GCC, _M_ARM in MVC for Windows Phone
+#if defined( __ARM_NEON ) || defined( __arm__ ) || defined( _M_ARM ) || defined( _M_ARM64 ) 
 #define RBX_SIMD_ARM
 #endif
 
@@ -22,7 +22,7 @@
 #define RBX_SIMD_USE_NEON
 #endif
 
-#ifdef RBX_SIMD_USE_SSE
+#if defined(RBX_SIMD_USE_SSE) && !defined(_M_ARM) && !defined(_M_ARM64)
 #include <xmmintrin.h>
 #include <emmintrin.h>
 #include <mmintrin.h>

@@ -38,11 +38,11 @@ LOGVARIABLE(RenderLightGridAgeProportion, 5)
 LOGVARIABLE(RenderLightGridBorderGlobalCutoff, 32)
 LOGVARIABLE(RenderLightGridBorderSkylightCutoff, 32)
 
-#if defined(_WIN32) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS))
+#if defined(_WIN32) && !defined(_M_ARM) && !defined(_M_ARM64) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS))
 #define SIMD_SSE2
 #endif
 
-#if (defined(RBX_PLATFORM_IOS) && !TARGET_IPHONE_SIMULATOR) || defined(__ANDROID__)
+#if defined(_WIN32) && defined(_M_ARM) || defined(_WIN32) && defined(_M_ARM64) || (defined(RBX_PLATFORM_IOS) && !TARGET_IPHONE_SIMULATOR) || defined(__ANDROID__)
 #define SIMD_NEON
 #endif
 
@@ -1436,7 +1436,7 @@ void LightGrid::lightingUpdateSkylightRow(LightGridChunk& chunk, int y, int z, c
 #undef IRRADIANCE
 }
 
-#ifdef SIMD_SSE2
+#if defined(SIMD_SSE2)
 void LightGrid::lightingUpdateSkylightRowSIMD(LightGridChunk& chunk, int y, int z, const unsigned char* powerCurveLUT)
 {
 #define IRRADIANCE(x, y, z) irradianceScratch[(y)+1][(z)+1][(x)+1]
@@ -2295,7 +2295,12 @@ template <bool Shadows> void LightGrid::lightingUpdatePointLightScratchSIMD(cons
     float32x4_t zero = vdupq_n_f32(0);
     float32x4_t one = vdupq_n_f32(1.f);
     float32x4_t half = vdupq_n_f32(0.5f);
+    #if defined(RBX_PLATFORM_UWP)
+    static const float offsetXData[4] = {-0.5f, 0.5f, 1.5f, 2.5f};
+    float32x4_t offsetX = vld1q_f32(offsetXData);
+    #else
     float32x4_t offsetX = {-0.5f, 0.5f, 1.5f, 2.5f};
+    #endif
 
     float32x4_t lightRadiusInvSq = vdupq_n_f32(1 / (lightRadius * lightRadius));
     float32x4_t lightIntensity = vdupq_n_f32(lightIntensity_);
@@ -2505,7 +2510,8 @@ template <bool Shadows> void LightGrid::lightingUpdateSpotLightScratchSIMD(const
     float32x4_t zero = vdupq_n_f32(0);
     float32x4_t one = vdupq_n_f32(1.f);
     float32x4_t half = vdupq_n_f32(0.5f);
-    float32x4_t offsetX = {-0.5f, 0.5f, 1.5f, 2.5f};
+    static const float offsetXData[4] = {-0.5f, 0.5f, 1.5f, 2.5f};
+    float32x4_t offsetX = vld1q_f32(offsetXData);
 
     float lightConeHalfAngleCos_ = cosf(G3D::toRadians(lightConeAngle / 2));
 
@@ -2767,7 +2773,8 @@ template <bool Shadows> void LightGrid::lightingUpdateSurfaceLightScratchSIMD(co
     float32x4_t zero = vdupq_n_f32(0);
     float32x4_t one = vdupq_n_f32(1.f);
     float32x4_t half = vdupq_n_f32(0.5f);
-    float32x4_t offsetX = {-0.5f, 0.5f, 1.5f, 2.5f};
+    static const float offsetXData[4] = {-0.5f, 0.5f, 1.5f, 2.5f};
+    float32x4_t offsetX = vld1q_f32(offsetXData);
 
     float lightConeHalfAngleCos_ = cosf(G3D::toRadians(lightConeAngle / 2));
 
@@ -3005,7 +3012,7 @@ void LightGrid::lightingBlurAxisXScratchToChunk(LightGridChunk& chunk)
 #undef LIGHTING
 }
 
-#ifdef SIMD_SSE2
+#if defined(SIMD_SSE2)
 void LightGrid::lightingBlurAxisXScratchToChunkSIMD(LightGridChunk& chunk)
 {
 #define LIGHTING(k) lightingScratch[i][j][k]
@@ -3113,7 +3120,7 @@ void LightGrid::lightingUpdateAverageImpl(LightGridChunk& chunk)
     }
 }
 
-#ifdef SIMD_SSE2
+#if defined(SIMD_SSE2)
 void LightGrid::lightingUpdateAverageImplSIMD(LightGridChunk& chunk)
 {
     __m128i zero = _mm_setzero_si128();
@@ -3406,7 +3413,7 @@ void LightGrid::lightingCompositImpl(const LightGridChunk& chunk, unsigned char*
     }
 }
 
-#ifdef SIMD_SSE2
+#if defined(SIMD_SSE2)
 void LightGrid::lightingCompositImplSIMD(const LightGridChunk& chunk, unsigned char* data, unsigned int rowPitch, unsigned int slicePitch, const Color3uint8& skyAmbient)
 {
     __m128i zero = _mm_setzero_si128();

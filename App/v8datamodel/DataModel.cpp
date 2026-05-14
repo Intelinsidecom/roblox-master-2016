@@ -128,7 +128,7 @@
 
 #include "util/RbxStringTable.h"
 #include "format_string.h"
-#ifdef WIN32
+#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 #include "VMProtectSDK.h"
 #endif
 
@@ -4105,7 +4105,7 @@ DataModel::scoped_write_transfer::~scoped_write_transfer()
 unsigned int DataModel::allHackFlagsOredTogether() {
     unsigned int result = 0;
 #if !defined(RBX_STUDIO_BUILD)
-	#ifdef WIN32
+	#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 	VMProtectBeginMutation("18");
 	#endif
 	boost::mutex::scoped_lock l(hackFlagSetMutex);
@@ -4114,7 +4114,7 @@ unsigned int DataModel::allHackFlagsOredTogether() {
 			itr != hackFlagSet.end(); ++itr) {
 		result |= *itr;
 	}
-	#ifdef WIN32
+	#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 	VMProtectEnd();
 	#endif
 #endif

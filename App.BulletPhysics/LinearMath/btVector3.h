@@ -66,13 +66,30 @@ subject to the following restrictions:
 
 #endif
 
-#ifdef BT_USE_NEON
+#if defined(BT_USE_NEON)
 
+#if defined(_MSC_VER)
+#define BT_DECLARE_NEON_MASK(name, v0, v1, v2, v3) const float v01##name[2] = {v0, v1}; const float v23##name[2] = {v2, v3}; const btSimdFloat4 name = vcombine_f32(vld1_f32(v01##name), vld1_f32(v23##name));
+#define BT_DECLARE_NEON_INT_MASK(name, v0, v1, v2, v3) const int32_t v01##name[2] = {v0, v1}; const int32_t v23##name[2] = {v2, v3}; const int32x4_t name = vcombine_s32(vld1_s32(v01##name), vld1_s32(v23##name));
+
+const float v01btvMzeroMask[2] = {-0.0f, -0.0f}; const float v23btvMzeroMask[2] = {-0.0f, -0.0f};
+const btSimdFloat4 btvMzeroMask = vcombine_f32(vld1_f32(v01btvMzeroMask), vld1_f32(v23btvMzeroMask));
+
+const int32_t v01btvFFF0Mask[2] = {static_cast<int32_t>(0xFFFFFFFF), static_cast<int32_t>(0xFFFFFFFF)}; const int32_t v23btvFFF0Mask[2] = {static_cast<int32_t>(0xFFFFFFFF), 0x0};
+const int32x4_t btvFFF0Mask = vcombine_s32(vld1_s32(v01btvFFF0Mask), vld1_s32(v23btvFFF0Mask));
+
+const int32_t v01btvAbsMask[2] = {0x7FFFFFFF, 0x7FFFFFFF}; const int32_t v23btvAbsMask[2] = {0x7FFFFFFF, 0x7FFFFFFF};
+const int32x4_t btvAbsMask = vcombine_s32(vld1_s32(v01btvAbsMask), vld1_s32(v23btvAbsMask));
+
+const int32_t v01btv3AbsMask[2] = {0x7FFFFFFF, 0x7FFFFFFF}; const int32_t v23btv3AbsMask[2] = {0x7FFFFFFF, 0x0};
+const int32x4_t btv3AbsMask = vcombine_s32(vld1_s32(v01btv3AbsMask), vld1_s32(v23btv3AbsMask));
+#else
 const float32x4_t ATTRIBUTE_ALIGNED16(btvMzeroMask) = (float32x4_t){-0.0f, -0.0f, -0.0f, -0.0f};
 const int32x4_t ATTRIBUTE_ALIGNED16(btvFFF0Mask) = (int32x4_t){static_cast<int32_t>(0xFFFFFFFF),
 	static_cast<int32_t>(0xFFFFFFFF), static_cast<int32_t>(0xFFFFFFFF), 0x0};
 const int32x4_t ATTRIBUTE_ALIGNED16(btvAbsMask) = (int32x4_t){0x7FFFFFFF, 0x7FFFFFFF, 0x7FFFFFFF, 0x7FFFFFFF};
 const int32x4_t ATTRIBUTE_ALIGNED16(btv3AbsMask) = (int32x4_t){0x7FFFFFFF, 0x7FFFFFFF, 0x7FFFFFFF, 0x0};
+#endif
 
 #endif
 
@@ -732,7 +749,12 @@ public:
         return btVector3(r);
         
 #elif defined(BT_USE_NEON)
+#if defined(_MSC_VER)
+        const uint32_t xyzMask_data[4] = { static_cast<uint32_t>(-1), static_cast<uint32_t>(-1), static_cast<uint32_t>(-1), 0 };
+        const uint32x4_t xyzMask = vld1q_u32(xyzMask_data);
+#else
         static const uint32x4_t xyzMask = (const uint32x4_t){ static_cast<uint32_t>(-1), static_cast<uint32_t>(-1), static_cast<uint32_t>(-1), 0 };
+#endif
         float32x4_t a0 = vmulq_f32( v0.mVec128, this->mVec128);
         float32x4_t a1 = vmulq_f32( v1.mVec128, this->mVec128);
         float32x4_t a2 = vmulq_f32( v2.mVec128, this->mVec128);

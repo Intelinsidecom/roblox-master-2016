@@ -1260,6 +1260,9 @@
     <ClCompile Include="..\..\App\util\FileSystemIndependent.cpp">
       <Filter>util</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\App\util\UWP\FileSystemUWP.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\App\util\gpc.c">
       <Filter>util</Filter>
     </ClCompile>
@@ -1306,9 +1309,6 @@
       <Filter>util</Filter>
     </ClCompile>
     <ClCompile Include="..\..\App\util\Math.cpp">
-      <Filter>util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\App\util\md5.c">
       <Filter>util</Filter>
     </ClCompile>
     <ClCompile Include="..\..\App\util\MD5Hasher.cpp">
@@ -1675,6 +1675,14 @@
       <Filter>reflection</Filter>
     </ClCompile>
     <ClCompile Include="..\..\App\util\UWP\ProgramMemoryChecker.cpp">
+      <Filter>util\UWP</Filter>
+    </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src\HTList.c" />
+    <ClCompile Include="$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src\HTMemory.c" />
+    <ClCompile Include="$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src\HTParse.c" />
+    <ClCompile Include="$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src\HTString.c" />
+    <ClCompile Include="$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src\HTTrace.c" />
+    <ClCompile Include="..\..\App\util\UWP\HttpUWP.cpp">
       <Filter>util\UWP</Filter>
     </ClCompile>
   </ItemGroup>

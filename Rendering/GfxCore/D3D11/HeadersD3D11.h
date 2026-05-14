@@ -6,8 +6,12 @@
 #   include <xdk.h>
 #elif defined(RBX_PLATFORM_UWP)
 #   include <windows.h>
-#   include <D3D11.h>
+#   include <d3d11.h>
+#   include <dxgi1_2.h>
+#   include <dxgi1_3.h>
 #   include <D3Dcompiler.h>
+#   include <inspectable.h>
+#   include <unknwn.h>
 #else
 #   include <D3D11.h>
 #   include <D3Dcompiler.h>

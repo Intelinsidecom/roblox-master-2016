@@ -39,8 +39,16 @@ subject to the following restrictions:
 
 #elif defined(BT_USE_NEON)
 
+#if defined(_MSC_VER)
+const float v01vQInv[2] = { -0.0f, -0.0f }; const float v23vQInv[2] = { -0.0f, +0.0f };
+const btSimdFloat4 vQInv = vcombine_f32(vld1_f32(v01vQInv), vld1_f32(v23vQInv));
+
+const float v01vPPPM[2] = { +0.0f, +0.0f }; const float v23vPPPM[2] = { +0.0f, -0.0f };
+const btSimdFloat4 vPPPM = vcombine_f32(vld1_f32(v01vPPPM), vld1_f32(v23vPPPM));
+#else
 const btSimdFloat4 ATTRIBUTE_ALIGNED16(vQInv) = {-0.0f, -0.0f, -0.0f, +0.0f};
 const btSimdFloat4 ATTRIBUTE_ALIGNED16(vPPPM) = {+0.0f, +0.0f, +0.0f, -0.0f};
+#endif
 
 #endif
 

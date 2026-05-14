@@ -12,7 +12,7 @@
 #include <streambuf>
 #include <sstream>
 
-#ifdef WIN32
+#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 #include "VMProtectSDK.h"
 #endif
 
@@ -91,7 +91,7 @@ const size_t hashSize = 16;
 
 std::string CSGMesh::createHash(const std::string saltIn) const
 {
-    #ifdef WIN32
+    #if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 	VMProtectBeginMutation("17");
     #endif
 
@@ -133,7 +133,7 @@ std::string CSGMesh::createHash(const std::string saltIn) const
 
     std::string hashStr(&hash[0], hashSize + saltSize);
 
-    #ifdef WIN32
+    #if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
     VMProtectEnd();
     #endif
 

@@ -1000,6 +1000,16 @@ void StudioConfigurer::configure(RBX::Security::Identities identity, DataModel* 
     }
 #endif
 
+#if defined(RBX_PLATFORM_UWP)
+    if (ScriptContext* scriptContext = dataModel->create<ScriptContext>())
+    {
+        if(starterScript.empty()) 
+            starterScript = "StarterScript";
+        scriptContext->addCoreScriptLocal(starterScript, shared_ptr<Instance>());
+        return;
+    }
+#endif
+
 
 	// this will be called in case of old play solo
 	if (ScriptContext* scriptContext = dataModel->create<ScriptContext>())

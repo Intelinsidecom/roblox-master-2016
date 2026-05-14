@@ -11,7 +11,7 @@
 #include "security/ApiSecurity.h"
 #include "v8datamodel/HackDefines.h"
 
-#ifdef WIN32
+#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 #include "VMProtectSDK.h"
 #endif
 
@@ -580,7 +580,7 @@ bool Instance::setParentInternal(Instance* newParent, bool ignoreLock)
     checkRbxCaller<kCallCheckCallArg, callCheckSetBasicFlag<HATE_RETURN_CHECK> >(thisFunction);    
 
 	// signals for the child being added
-#if !defined(RBX_RCC_SECURITY) && !defined(RBX_STUDIO_BUILD) && !defined(_NOOPT) && !defined(_DEBUG) && defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if !defined(RBX_RCC_SECURITY) && !defined(RBX_STUDIO_BUILD) && !defined(_NOOPT) && !defined(_DEBUG) && defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
     bool detectedExploit = false;
 #endif
 	if (newParent != NULL)
@@ -595,7 +595,7 @@ bool Instance::setParentInternal(Instance* newParent, bool ignoreLock)
 
 		checkParentWaitingForChildren();
 	}
-#if !defined(RBX_RCC_SECURITY) && !defined(RBX_STUDIO_BUILD) && !defined(_NOOPT) && !defined(_DEBUG) && defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if !defined(RBX_RCC_SECURITY) && !defined(RBX_STUDIO_BUILD) && !defined(_NOOPT) && !defined(_DEBUG) && defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
     else
     {
         detectedExploit = (detectDllByExceptionChainStack<4>(&newParent, RBX::Security::kCheckDefault) != 0);
@@ -608,12 +608,16 @@ bool Instance::setParentInternal(Instance* newParent, bool ignoreLock)
 
 	raiseChanged(propParent);
 
-#if !defined(RBX_RCC_SECURITY) && !defined(RBX_STUDIO_BUILD) && !defined(_NOOPT) && !defined(_DEBUG) && defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if !defined(RBX_RCC_SECURITY) && !defined(RBX_STUDIO_BUILD) && !defined(_NOOPT) && !defined(_DEBUG) && defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
     if (detectedExploit)
     {
+		#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
         VMProtectBeginVirtualization(NULL);
+		#endif
         RBX::Security::setHackFlagVs<0>(RBX::Security::hackFlag3, HATE_SEH_CHECK);
-        VMProtectEnd();
+        #if defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
+		VMProtectEnd();
+		#endif
     }
 #endif
 	

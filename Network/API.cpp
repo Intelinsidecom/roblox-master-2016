@@ -25,7 +25,9 @@
 #include "StringCompressor.h"
 #include "StringTable.h"
 
+#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 #include "VMProtectSDK.h"
+#endif
 
 #include <boost/algorithm/string.hpp>
 
@@ -111,7 +113,7 @@ static void initVersion1()
 
 	// security key: generated externally (version+platform+product+salt), modify per release, send from client to server
 
-#if (defined(_WIN32) && (defined(LOVE_ALL_ACCESS) || defined(_NOOPT) || defined(_DEBUG) || defined(RBX_TEST_BUILD))) || (defined(__APPLE__) && defined(__arm__)) || defined(__ANDROID__) || (defined(__APPLE__) && defined(__aarch64__)) || defined(RBX_PLATFORM_DURANGO)
+#if (defined(_WIN32) && (defined(LOVE_ALL_ACCESS) || defined(_NOOPT) || defined(_DEBUG) || defined(RBX_TEST_BUILD))) || (defined(__APPLE__) && defined(__arm__)) || defined(__ANDROID__) || (defined(__APPLE__) && defined(__aarch64__)) || defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_UWP)
 	// If we are Apple iOS, Android, or if we are Windows noopt/debug/test, use this fixed key:
 	// INTERNALiosapp, 2e427f51c4dab762fe9e3471c6cfa1650841723b
 	RBX::Network::securityKey = RBX::rot13("2r427s51p4qno762sr9r3471p6psn1650841723o");
@@ -167,7 +169,9 @@ void RBX::Network::initWithCloudEditSecurity()
 
 void RBX::Network::initWithoutSecurity()
 {
+#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 	VMProtectBeginMutation("22");
+#endif
 	_isPlayerAuthenticationEnabled = false;
 
 	static SafeInitFree safeInitFree;
@@ -184,7 +188,9 @@ void RBX::Network::initWithoutSecurity()
 
 	// Force instantiation of NetworkSettings singleton
 	NetworkSettings::singleton();
+#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 	VMProtectEnd();
+#endif
 }
 
 void RBX::Network::setVersion(const char* version)
@@ -247,10 +253,11 @@ bool RBX::Network::isTrustedContent(const char* url)
 		urlString.substr(foundPos,13)		== "placerolesets";
 }
 
-#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 namespace {
 void isDebuggedDirectThreadFunc(weak_ptr<RBX::DataModel> weakDataModel) {
 #if !defined(LOVE_ALL_ACCESS) && !defined(_NOOPT) && !defined(_DEBUG)
+#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 	VMProtectBeginMutation("23");
 	static const int kSleepBetweenChecksMillis = 1500;
 
@@ -266,6 +273,7 @@ void isDebuggedDirectThreadFunc(weak_ptr<RBX::DataModel> weakDataModel) {
 		boost::this_thread::sleep(boost::posix_time::milliseconds(kSleepBetweenChecksMillis));
 	}
 	VMProtectEnd();
+#endif
 #endif
 }
 }

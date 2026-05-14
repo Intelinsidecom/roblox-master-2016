@@ -51,7 +51,7 @@
 #include <lstate.h>
 #include <ldebug.h>
 
-#ifdef WIN32
+#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 #include "VMProtectSDK.h"
 #endif
 
@@ -618,7 +618,9 @@ bool ScriptContext::openState(size_t idx)
 	}
 
 	if (!allocator)
+	{
 		allocator.reset(new RBX::LuaAllocator(FLog::UseLuaMemoryPool != 0));
+	}
 
 	lua_State* globalState = lua_newstate(LuaAllocator::alloc, allocator.get());
 	if (globalState==NULL)
@@ -1364,7 +1366,7 @@ std::auto_ptr<Reflection::Tuple> ScriptContext::executeInNewThread(
 		RBX::Security::Identities identity, const ProtectedString& script,
 		const char* name, const Reflection::Tuple& arguments)
 {
-	#ifdef WIN32
+	#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 	VMProtectBeginMutation("1");
 	#endif
 	std::auto_ptr<Reflection::Tuple> result;
@@ -1376,7 +1378,7 @@ std::auto_ptr<Reflection::Tuple> ScriptContext::executeInNewThread(
 		boost::bind(&readResults, boost::ref(result), _1, _2),
 		Scripts::Continuations()
 		);
-	#ifdef WIN32
+	#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 	VMProtectEnd();
 	#endif
 
@@ -1387,7 +1389,7 @@ void ScriptContext::executeInNewThreadWithExtraGlobals(
 	RBX::Security::Identities identity, const ProtectedString& script,
 	const char* name, const std::map<std::string, shared_ptr<Instance> >& extraGlobals)
 {
-	#ifdef WIN32
+	#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 	VMProtectBeginMutation("2");
 	#endif
 	executeInNewThread(
@@ -1399,7 +1401,7 @@ void ScriptContext::executeInNewThreadWithExtraGlobals(
 		Scripts::Continuations(),
 		NULL,
 		&extraGlobals);
-	#ifdef WIN32
+	#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 	VMProtectEnd();
 	#endif
 }
@@ -1443,7 +1445,7 @@ void ScriptContext::executeInNewThread(RBX::Security::Identities identity, const
     unsigned int modkey)
 {
 	
-#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD)
+#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
     VMProtectBeginMutation("3");
 	// check xxhash integrity
 	static const char* kXHIntData = STRING_BY_ID(ExecScriptNewThread);
@@ -1469,7 +1471,7 @@ void ScriptContext::executeInNewThread(RBX::Security::Identities identity, const
 
     const bool isCmdLine = (identity==RBX::Security::CmdLine_);
     const bool clSandboxEmpty = (commandLineSandbox.empty());
-#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD)
+#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
     VMProtectEnd();
 #endif
 
@@ -1536,7 +1538,7 @@ void ScriptContext::executeInNewThread(RBX::Security::Identities identity, const
 		// Check for somebody using CheatEngine to inject a direct call.
 		// They probably haven't used a scoped_write_request
 #if !defined(RBX_STUDIO_BUILD)
-		#ifdef WIN32
+		#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
         VMProtectBeginMutation("4");
 		#endif
 		if (DataModel* dataModel = DataModel::get(this))
@@ -1544,7 +1546,7 @@ void ScriptContext::executeInNewThread(RBX::Security::Identities identity, const
 			if (!dataModel->currentThreadHasWriteLock())
 				dataModel->addHackFlag(HATE_ILLEGAL_SCRIPTS);
 		}
-		#ifdef WIN32
+		#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
         VMProtectEnd();
 		#endif
 #endif
@@ -2771,11 +2773,11 @@ void ScriptContext::onServiceProvider(ServiceProvider* oldProvider, ServiceProvi
             globalStates[Security::VM_RobloxScriptPlus].state->l_G->ckey = LuaVM::getKeyCore();
         }
 
-		#ifdef WIN32
+		#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
         VMProtectBeginVirtualization("");
 		#endif
         securityAnchor.update(&(this->securityAnchor));
-		#ifdef WIN32
+		#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
         VMProtectEnd();
 		#endif
 

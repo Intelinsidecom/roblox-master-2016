@@ -155,7 +155,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>../../Base/include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Log\include;$(CONTRIB_PATH)\Telemetry\Telemetry2SDKWin32_20M\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>UNICODE;RBX_PLATFORM_UWP;WIN32;_DEBUG;_LIB;_WIN32_WINNT=0x0601;NTDDI_VERSION=0x06010000;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);RBX_TEST_BUILD</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -170,7 +170,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>../../Base/include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Log\include;$(CONTRIB_PATH)\Telemetry\Telemetry2SDKWin32_20M\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>UNICODE;RBX_PLATFORM_UWP;WIN32;NDEBUG;_LIB;_WIN32_WINNT=0x0601;NTDDI_VERSION=0x06010000;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -185,7 +185,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>../../Base/include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Log\include;$(CONTRIB_PATH)\Telemetry\Telemetry2SDKWin32_20M\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>UNICODE;RBX_PLATFORM_UWP;WIN32;_DEBUG;_LIB;_WIN32_WINNT=0x0601;NTDDI_VERSION=0x06010000;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);RBX_TEST_BUILD</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -200,7 +200,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>../../Base/include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Log\include;$(CONTRIB_PATH)\Telemetry\Telemetry2SDKWin32_20M\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>UNICODE;RBX_PLATFORM_UWP;WIN32;NDEBUG;_LIB;_WIN32_WINNT=0x0601;NTDDI_VERSION=0x06010000;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -215,7 +215,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>../../Base/include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Log\include;$(CONTRIB_PATH)\Telemetry\Telemetry2SDKWin32_20M\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>UNICODE;RBX_PLATFORM_UWP;WIN32;_DEBUG;_LIB;_WIN32_WINNT=0x0601;NTDDI_VERSION=0x06010000;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);RBX_TEST_BUILD</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -230,7 +230,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>../../Base/include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Log\include;$(CONTRIB_PATH)\Telemetry\Telemetry2SDKWin32_20M\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>UNICODE;RBX_PLATFORM_UWP;WIN32;NDEBUG;_LIB;_WIN32_WINNT=0x0601;NTDDI_VERSION=0x06010000;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -257,6 +257,7 @@
     <ClCompile Include="..\..\Base\rbx\Tasks\Coordinator.cpp" />
     <ClCompile Include="..\..\Base\rbx\ThreadSafe.cpp" />
     <ClCompile Include="..\..\Base\rbx\Time.cpp" />
+    <ClCompile Include="..\..\Base\rbx\MathUtil.cpp" />
     <ClCompile Include="..\..\Base\rbx\UWP\SystemUtil.cpp" />
     <ClCompile Include="..\..\Base\util\Debug.cpp" />
     <ClCompile Include="..\..\Base\util\Log.cpp" />

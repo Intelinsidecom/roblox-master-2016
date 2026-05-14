@@ -120,7 +120,7 @@ namespace RBX
 {
 namespace Security
 {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 // This generates an "or" operation in a way that is closer to what a compiler would
 // generate.
 template<unsigned int key> __forceinline void setHackFlagVs(unsigned int& y, const unsigned int x)

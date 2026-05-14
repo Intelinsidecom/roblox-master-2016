@@ -136,7 +136,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>..\..\Rendering\RbxG3D\include;..\..\Base\include;..\..\Rendering\GfxBase;..\..\Rendering\GfxBase\include;..\RenderLibNew\include;..\..\Rendering\G3D\png;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\TBB_4_1\include;..\..\app\include;..\..\Rendering\AppDraw;..\..\Rendering\AppDraw\include;..\..\log\include;$(CONTRIB_PATH)\SDK\Includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;_DEBUG;_LIB;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -153,7 +153,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>..\..\Rendering\RbxG3D\include;..\..\Base\include;..\..\Rendering\GfxBase;..\..\Rendering\GfxBase\include;..\RenderLibNew\include;..\..\Rendering\G3D\png;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\TBB_4_1\include;..\..\app\include;..\..\Rendering\AppDraw;..\..\Rendering\AppDraw\include;..\..\log\include;$(CONTRIB_PATH)\SDK\Includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;NDEBUG;_LIB;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -170,7 +170,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>..\..\Rendering\RbxG3D\include;..\..\Base\include;..\..\Rendering\GfxBase;..\..\Rendering\GfxBase\include;..\RenderLibNew\include;..\..\Rendering\G3D\png;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\TBB_4_1\include;..\..\app\include;..\..\Rendering\AppDraw;..\..\Rendering\AppDraw\include;..\..\log\include;$(CONTRIB_PATH)\SDK\Includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;NDEBUG;_LIB;_ARM_WINAPI_PARTITION_DESKTOP_SDK_AVAILABLE=1;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -187,7 +187,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>..\..\Rendering\RbxG3D\include;..\..\Base\include;..\..\Rendering\GfxBase;..\..\Rendering\GfxBase\include;..\RenderLibNew\include;..\..\Rendering\G3D\png;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\TBB_4_1\include;..\..\app\include;..\..\Rendering\AppDraw;..\..\Rendering\AppDraw\include;..\..\log\include;$(CONTRIB_PATH)\SDK\Includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;NDEBUG;_LIB;_ARM_WINAPI_PARTITION_DESKTOP_SDK_AVAILABLE=1;%(ClCompile.PreprocessorDefinitions)</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -204,7 +204,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>..\..\Rendering\RbxG3D\include;..\..\Base\include;..\..\Rendering\GfxBase;..\..\Rendering\GfxBase\include;..\RenderLibNew\include;..\..\Rendering\G3D\png;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\TBB_4_1\include;..\..\app\include;..\..\Rendering\AppDraw;..\..\Rendering\AppDraw\include;..\..\log\include;$(CONTRIB_PATH)\SDK\Includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;NDEBUG;_LIB;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>
@@ -221,7 +221,7 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <CompileAsWinRT>false</CompileAsWinRT>
-      <SDLCheck>true</SDLCheck>
+      <SDLCheck>false</SDLCheck>
       <AdditionalIncludeDirectories>..\..\Rendering\RbxG3D\include;..\..\Base\include;..\..\Rendering\GfxBase;..\..\Rendering\GfxBase\include;..\RenderLibNew\include;..\..\Rendering\G3D\png;..\..\Rendering\g3d\include;..\..\Rendering\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\TBB_4_1\include;..\..\app\include;..\..\Rendering\AppDraw;..\..\Rendering\AppDraw\include;..\..\log\include;$(CONTRIB_PATH)\SDK\Includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;NDEBUG;_LIB;_UNICODE;UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <FloatingPointModel>Fast</FloatingPointModel>

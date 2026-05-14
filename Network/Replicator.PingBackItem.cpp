@@ -9,7 +9,9 @@
 #include "RakNetTime.h"
 #include "BitStream.h"
 
+#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 #include "VMProtectSDK.h"
+#endif
 
 namespace RBX {
 namespace Network {
@@ -19,7 +21,9 @@ Replicator::PingBackItem::PingBackItem(Replicator* replicator, RakNet::Time time
 	{}
 
 bool Replicator::PingBackItem::write(RakNet::BitStream& bitStream) {
+    #if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 	VMProtectBeginMutation("32");
+    #endif
 
     int byteStart = bitStream.GetNumberOfBytesUsed();
 
@@ -51,8 +55,9 @@ bool Replicator::PingBackItem::write(RakNet::BitStream& bitStream) {
         replicator.replicatorStats.incrementPacketsSent(ReplicatorStats::PACKET_TYPE_Ping);
         replicator.replicatorStats.samplePacketsSent(ReplicatorStats::PACKET_TYPE_Ping, bitStream.GetNumberOfBytesUsed()-byteStart);
     }
-
+#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 	VMProtectEnd();
+#endif
 	return true;
 }
 

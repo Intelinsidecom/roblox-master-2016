@@ -11,7 +11,7 @@
 #include "util/standardout.h"
 #include "Network/Players.h"
 #include "rbx/Log.h"
-#ifdef WIN32
+#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 #include "VMProtectSDK.h"
 #endif
 #include "V8DataModel/HackDefines.h"
@@ -214,7 +214,7 @@ public:
         // NoClip Check
         Vector3 noclipHighCheck = Tolerance::maxExtents().max();
         Vector3 noclipLowCheck = Tolerance::maxExtents().min();
-		#ifdef WIN32
+		#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
         VMProtectBeginMutation("16");
 		#endif
         if ((lerpCheck > 0.051 || lerpCheck < 0.049)
@@ -233,7 +233,7 @@ public:
                 dataModelLocal->addHackFlag(HATE_SPEEDHACK);
             }
         }
-		#ifdef WIN32
+		#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
         VMProtectEnd();
 		#endif
 #endif

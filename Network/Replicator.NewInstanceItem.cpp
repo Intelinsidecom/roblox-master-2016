@@ -13,7 +13,9 @@
 #include "RakNetTime.h"
 #include "BitStream.h"
 
+#if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
 #include "VMProtectSDK.h"
+#endif
 
 namespace RBX { 
 namespace Network {
