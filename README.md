@@ -24,4 +24,4 @@ Its just an Showcase and not an full fledged alternative to WindowsClient or som
 
 ## Contribs
 
-The contribs come seperately and include everything prebuilt, these can be optained from here: insert links later.
+The contribs come seperately and include everything prebuilt, these can be optained from here: https://www.mediafire.com/file/2srfgcurru99dfu/Contribs.zip/file
