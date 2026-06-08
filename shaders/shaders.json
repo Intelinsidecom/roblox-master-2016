@@ -87,10 +87,10 @@
     { "name": "MegaClusterHQGBufferFS", "source": "megacluster.hlsl", "target": "ps_2_a", "entrypoint": "MegaClusterPS", "defines": "PIN_HQ PIN_GBUFFER", "exclude": "glsles" },
 
     { "name": "SmoothClusterVS", "source": "smoothcluster.hlsl", "target": "vs_2_0", "entrypoint": "TerrainVS" },
-    { "name": "SmoothClusterHQVS", "source": "smoothcluster.hlsl", "target": "vs_3_0", "entrypoint": "TerrainVS", "defines": "PIN_HQ" },
+    { "name": "SmoothClusterHQVS", "source": "smoothcluster.hlsl", "target": "vs_3_0", "entrypoint": "TerrainVS", "defines": "PIN_HQ", "exclude": "d3d11_level_9_3" },
     { "name": "SmoothClusterFS", "source": "smoothcluster.hlsl", "target": "ps_2_0", "entrypoint": "TerrainPS" },
-    { "name": "SmoothClusterHQFS", "source": "smoothcluster.hlsl", "target": "ps_3_0", "entrypoint": "TerrainPS", "defines": "PIN_HQ" },
-    { "name": "SmoothClusterHQGBufferFS", "source": "smoothcluster.hlsl", "target": "ps_3_0", "entrypoint": "TerrainPS", "defines": "PIN_HQ PIN_GBUFFER", "exclude": "glsles" },
+    { "name": "SmoothClusterHQFS", "source": "smoothcluster.hlsl", "target": "ps_3_0", "entrypoint": "TerrainPS", "defines": "PIN_HQ", "exclude": "d3d11_level_9_3" },
+    { "name": "SmoothClusterHQGBufferFS", "source": "smoothcluster.hlsl", "target": "ps_3_0", "entrypoint": "TerrainPS", "defines": "PIN_HQ PIN_GBUFFER", "exclude": "glsles d3d11_level_9_3" },
 
     { "name": "ParticleVS", "source": "particle.hlsl", "target": "vs_1_1", "entrypoint": "vs" },
     { "name": "ParticleAddFS", "source": "particle.hlsl", "target": "ps_2_0", "entrypoint": "psAdd" },
@@ -119,8 +119,8 @@
     { "name": "SmoothWaterVS", "source": "smoothwater.hlsl", "target": "vs_2_0", "entrypoint": "WaterVS" },
     { "name": "SmoothWaterHQVS", "source": "smoothwater.hlsl", "target": "vs_3_0", "entrypoint": "WaterVS", "defines": "PIN_HQ" },
     { "name": "SmoothWaterFS", "source": "smoothwater.hlsl", "target": "ps_2_0", "entrypoint": "WaterPS" },
-    { "name": "SmoothWaterHQFS", "source": "smoothwater.hlsl", "target": "ps_3_0", "entrypoint": "WaterPS", "defines": "PIN_HQ" },
-    { "name": "SmoothWaterHQGBufferFS", "source": "smoothwater.hlsl", "target": "ps_3_0", "entrypoint": "WaterPS", "defines": "PIN_HQ PIN_GBUFFER", "exclude": "glsles" },
+    { "name": "SmoothWaterHQFS", "source": "smoothwater.hlsl", "target": "ps_3_0", "entrypoint": "WaterPS", "defines": "PIN_HQ", "exclude": "d3d11_level_9_3" },
+    { "name": "SmoothWaterHQGBufferFS", "source": "smoothwater.hlsl", "target": "ps_3_0", "entrypoint": "WaterPS", "defines": "PIN_HQ PIN_GBUFFER", "exclude": "glsles d3d11_level_9_3" },
     
     { "name": "SSAOFS", "source": "ssao.hlsl", "target": "ps_2_a", "entrypoint": "ssao_ps", "exclude": "glsles" },
     { "name": "SSAODepthDownVS", "source": "ssao.hlsl", "target": "vs_1_1", "entrypoint": "ssaoDepthDown_vs", "exclude": "glsles" },
