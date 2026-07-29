@@ -366,12 +366,21 @@ void UWPPlatform::tick()
                     m_dataModel->close();
                 break;
             case SDL_CONTROLLERDEVICEADDED:
+                if (m_gameController)
+                    m_gameController->addController(event.cdevice.which);
+                break;
             case SDL_CONTROLLERDEVICEREMOVED:
+                if (m_gameController)
+                    m_gameController->removeController(event.cdevice.which);
+                break;
             case SDL_CONTROLLERAXISMOTION:
+                if (m_gameController)
+                    m_gameController->onControllerAxis(event.caxis);
+                break;
             case SDL_CONTROLLERBUTTONDOWN:
             case SDL_CONTROLLERBUTTONUP:
                 if (m_gameController)
-                    m_gameController->handleEvent(event);
+                    m_gameController->onControllerButton(event.cbutton);
                 break;
             case SDL_KEYDOWN:
             case SDL_KEYUP:

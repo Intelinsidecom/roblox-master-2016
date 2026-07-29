@@ -81,37 +81,31 @@
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
-    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props')" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
-    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props')" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
-    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props')" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
-    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props')" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
-    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props')" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props')" />
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsMobile, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsMobile.props')" />
-    <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`XboxDevKitExtensions, Version=8.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\XboxDevKitExtensions.props')" />
     <Import Project="$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props" Condition="exists('$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformExtensionSDKLocation(`WindowsDesktop, Version=10.0.10240.0`, $(TargetPlatformIdentifier), $(TargetPlatformVersion),  $(SDKReferenceDirectoryRoot), $(SDKExtensionDirectoryRoot), $(SDKReferenceRegistryRoot)))\DesignTime\CommonConfiguration\Neutral\WindowsDesktop.props')" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
@@ -119,8 +113,8 @@
     <PackageCertificateKeyFile>Client_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
-    <AppxBundle>Never</AppxBundle>
-    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -141,13 +135,13 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(CONTRIB_PATH)\windows\UWP\\openssl\build\lib\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(CONTRIB_PATH)\windows\UWP\\openssl\build\lib\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
       <ShowProgress>LinkVerbose</ShowProgress>
       <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmodL_ARM.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurlUWP.lib;fmodL_ARM.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
@@ -165,14 +159,14 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(CONTRIB_PATH)\windows\UWP\\openssl\build\lib\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(CONTRIB_PATH)\windows\UWP\\openssl\build\lib\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
       <ShowProgress>LinkVerbose</ShowProgress>
       <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmod_ARM.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurlUWP.lib;fmod_ARM.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
@@ -190,13 +184,13 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(CONTRIB_PATH)\windows\UWP\openssl;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(CONTRIB_PATH)\windows\UWP\openssl\build\lib\win32;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;..\fmod\UWP;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
       <ShowProgress>LinkVerbose</ShowProgress>
       <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;libcurl.lib;fmodL_X86.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;libcurlUWP.lib;fmodL_X86.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
@@ -224,14 +218,14 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(CONTRIB_PATH)\windows\UWP\openssl;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(CONTRIB_PATH)\windows\UWP\openssl\build\lib\win32;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;..\fmod\UWP;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
       <ShowProgress>LinkVerbose</ShowProgress>
       <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;libcurl.lib;fmod_X86.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurlUWP.lib;fmod_X86.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
@@ -259,7 +253,7 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(CONTRIB_PATH)\windows\UWP\openssl\build\lib\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\x64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(CONTRIB_PATH)\windows\UWP\openssl\build\lib\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\x64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
@@ -283,7 +277,7 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(CONTRIB_PATH)\windows\UWP\openssl\build\lib\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\x64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(CONTRIB_PATH)\windows\UWP\openssl\build\lib\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\x64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
@@ -1754,7 +1748,6 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
   <ItemGroup>
     <SDKReference Include="WindowsDesktop, Version=10.0.10240.0" />
     <SDKReference Include="WindowsMobile, Version=10.0.10240.0" />
-    <SDKReference Include="XboxDevKitExtensions, Version=8.0" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="content\fonts\arial.ttf">

@@ -5,7 +5,7 @@
 
 #pragma once
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
     #include "atlutil.h"
     #include "ProcessInformation.h"
 #endif
@@ -39,7 +39,7 @@ namespace SharedLauncher
 		Edit
 	};
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 	CRegKey GetKey(CString& out_operation, bool isStudioKey, bool is64bits = false);
 	HRESULT PreStartGame(const CLSID& clsid);
 	__declspec(dllexport) HRESULT StartGame(simple_logger<wchar_t> &logger, BSTR authenTicket, BSTR authenticationUrl, BSTR script, const CLSID& clsid, bool silentMode, TCHAR *guidName, bool startInHiddenMode, TCHAR *unhideEventName, LaunchMode launchMode);

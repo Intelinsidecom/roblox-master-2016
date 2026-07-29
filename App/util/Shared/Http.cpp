@@ -554,7 +554,7 @@ void Http::SetUseCurl(bool value)
 void Http::setCookiesForDomain(const std::string& domain, const std::string& cookies)
 {
     HttpPlatformImpl::setCookiesForDomain(domain, cookies);
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 	if (!useCurlHttpImpl && Http::defaultApi == WinInet)
 	{
 		setCookiesForDomainWinInet(domain, cookies);
@@ -575,7 +575,7 @@ void Http::ThrowIfFailure(bool success, const char* url, const char* message)
 {
     if (!success)
     {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
         ThrowLastError(GetLastError(), url, message);
 #else
         throw RBX::runtime_error("%s: %s", url, message);
@@ -583,7 +583,7 @@ void Http::ThrowIfFailure(bool success, const char* url, const char* message)
     }
 }
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 void Http::ThrowLastError(int err, const char* url, const char* message)
 {
     TCHAR buffer[256];
@@ -735,7 +735,7 @@ void Http::httpGetPost(bool isPost, std::istream& dataStream,
 		}
 		return;
 	}
-#elif defined(_WIN32)
+#elif defined(_WIN32) && !WINAPI_FAMILY == WINAPI_FAMILY_APP
 	if (!useCurlHttpImpl || forceNativeHttp)
     {
         try
@@ -841,7 +841,7 @@ void Http::get(
     threadPool->schedule(boost::bind(&doGet, *this, externalRequest, handler));
 }
 
-#if defined(_WIN32)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
 void Http::onWinHttpRedirect(unsigned long dwInternetStatus, std::string redirectUrl)
 {
     // This function determines if we are redirecting to a CDN.
