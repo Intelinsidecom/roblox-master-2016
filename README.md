@@ -12,7 +12,7 @@ https://discord.gg/9ypw3ytK4t
 
 - For C# Ones, you will need Visual Studio 2015 with Update 3 or without.
 
-- If building Android, you will need JDK 11, ninja on PATH, cmake installed and NDK 10e on Path and on ANDROID_NDK environment variable (Compiling the contribs needs linux or WSL and ndk 10e)
+- If building Android, you will need JDK 11, ninja on PATH, cmake installed and NDK 10e on Path and on ANDROID_NDK environment variable (Compiling the contribs needs linux or WSL and ndk 10e, you might also need WSL to compile Roblox obb assets as bat file causes issues at runtime)
 
 - If building for Xbox Client, you will need 2015-08 XDK release, if you know someone who has Xbox One Devkit, please contact me so i could get in touch with him on order to test if it works.
 
