@@ -136,7 +136,7 @@
       <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(SolutionDir)\..\openssl\UWP\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(SolutionDir)\..\openssl\UWP\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;$(SolutionDir)\..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
@@ -162,7 +162,7 @@
       <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(SolutionDir)\..\openssl\UWP\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(SolutionDir)\..\openssl\UWP\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;$(SolutionDir)\..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
@@ -187,7 +187,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(SolutionDir)\..\openssl\UWP\win32;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win32;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(SolutionDir)\..\openssl\UWP\win32;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;$(SolutionDir)\..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win32;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
@@ -221,7 +221,7 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(SolutionDir)\..\openssl\UWP\win32;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win32;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(SolutionDir)\..\openssl\UWP\win32;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;$(SolutionDir)\..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win32;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
@@ -256,7 +256,7 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\openssl\UWP\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\openssl\UWP\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;$(SolutionDir)\..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
@@ -280,7 +280,7 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\openssl\UWP\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\openssl\UWP\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;$(SolutionDir)\..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
@@ -1060,9 +1060,6 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
       <DeploymentContent>true</DeploymentContent>
     </None>
     <None Include="shaders\shaders_glsles3.pack">
-      <DeploymentContent>true</DeploymentContent>
-    </None>
-    <None Include="content\TestPlace.rbxl">
       <DeploymentContent>true</DeploymentContent>
     </None>
   </ItemGroup>

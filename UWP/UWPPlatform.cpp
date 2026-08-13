@@ -116,8 +116,6 @@ void applyLowMemTuning()
     FLog::SetValue("RenderTextureCompositorBudget", "4");
     FLog::SetValue("RenderTextureCompositorDisabled", "1");
 
-    RBX::StandardOut::singleton()->printf(RBX::MESSAGE_INFO,
-        "UWP: low-mem engine tuning applied (streaming 10%%, watermarks 90/60/40 MB, texture budget 16 MB, max tex 512, compositor off)");
 }
 
 static float getRecommendedRenderScale()
@@ -430,10 +428,6 @@ void UWPPlatform::setSwapChainPanel(Windows::UI::Xaml::Controls::SwapChainPanel^
     g_cachedCompScaleX.store(effScaleX, std::memory_order_release);
     g_cachedCompScaleY.store(effScaleY, std::memory_order_release);
 
-    RBX::StandardOut::singleton()->printf(RBX::MESSAGE_INFO,
-        "UWP: framebuffer %ux%u scale %.2f (panel %.0fx%.0f DIP, composition %.2f, phone=%d)",
-        w, h, effScaleX, panel->ActualWidth, panel->ActualHeight, scaleX,
-        isUWPWindowsPhone() ? 1 : 0);
 
     panel->SizeChanged += ref new Windows::UI::Xaml::SizeChangedEventHandler(
         [panel](Platform::Object^, Windows::UI::Xaml::SizeChangedEventArgs^ args)
@@ -555,12 +549,6 @@ void UWPPlatform::HandleMemoryPressure()
     }
     catch (Platform::Exception^) { }
 
-    RBX::StandardOut::singleton()->printf(RBX::MESSAGE_INFO,
-        "UWP: memory-pressure GC reclaimed %.2f MB (used %.1f -> %.1f MB, limit %.1f MB)",
-        static_cast<double>(preBytes - postBytes) / (1024.0 * 1024.0),
-        static_cast<double>(preBytes) / (1024.0 * 1024.0),
-        static_cast<double>(postBytes) / (1024.0 * 1024.0),
-        static_cast<double>(limit) / (1024.0 * 1024.0));
 
     if (RBX::Graphics::RenderView* renderView = dynamic_cast<RBX::Graphics::RenderView*>(rbxView->getView()))
     {
@@ -570,9 +558,6 @@ void UWPPlatform::HandleMemoryPressure()
         std::string scene = renderView->getRenderStatsMetric("RenderStatsPassScene");
         std::string res = renderView->getRenderStatsMetric("RenderStatsResolution");
         std::string frm = renderView->getRenderStatsMetric("RenderStatsFRMConfig");
-        RBX::StandardOut::singleton()->printf(RBX::MESSAGE_INFO,
-            "UWP: texture manager: %s | compositor: %s | clusters: %s | scene: %s | res %s | %s",
-            tm.c_str(), tc.c_str(), clusters.c_str(), scene.c_str(), res.c_str(), frm.c_str());
     }
 }
 
@@ -718,11 +703,6 @@ void UWPPlatform::ShedFrontendMemory()
             catch (Platform::Exception^) { }
 
             const unsigned long long oneMB = 1024ull * 1024ull;
-            RBX::StandardOut::singleton()->printf(RBX::MESSAGE_INFO,
-                "UWP: Frontend shed WebView pages (usage %llu/%llu MB, reclaimed %llu MB)",
-                usageAfter / oneMB,
-                limit / oneMB,
-                (usageBefore > usageAfter) ? (usageBefore - usageAfter) / oneMB : 0ull);
         }));
 }
 

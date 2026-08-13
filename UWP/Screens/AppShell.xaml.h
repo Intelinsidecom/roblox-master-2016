@@ -40,31 +40,13 @@ namespace Roblox
 
         void ResetToDefaults();
 
-        // Read-only view of the currently active nav destination (as its int
-        // value, see Roblox::Controls::NavMenuDestination). Used by the game
-        // layer to restore the page the user was on after rebuilding the
-        // AppShell on leave-game in low-memory mode.
         property int CurrentDestination
         {
             int get() { return static_cast<int>(m_currentDestination); }
         }
 
-        // Navigate the rebuilt AppShell to a nav destination (its int value).
         void NavigateToDestination(int destination);
-
-        // Low-memory mode: tears down every cached WebView page (each backed
-        // by an out-of-process WebView process charged against the UWP app's
-        // AppMemoryUsageLimit) and blanks the active WebView, so the XAML UI
-        // layer holds no remote content while a native game runs. The caller is
-        // expected to drop its AppShell reference afterwards and rebuild a new
-        // AppShell on leave-game.
         void ReleaseWebViews();
-
-        // Memory-aware page cache: evicts cached WebView pages until at most
-        // maxCount remain, always keeping the page currently shown in the frame
-        // (oldest-first via an LRU order). Called on low-memory devices in
-        // ShowPage and by the frontend memory-pressure handler so the process
-        // stays under AppMemoryUsageLimit during browsing.
         void EvictCachedPages(size_t maxCount);
 
     internal:
@@ -99,7 +81,7 @@ namespace Roblox
         std::chrono::steady_clock::time_point m_lastTap;
         Roblox::Controls::NavMenuDestination m_currentDestination;
         std::map<int, Windows::UI::Xaml::Controls::Page^> m_pageCache;
-        std::vector<int> m_pageCacheOrder; // LRU order (back = most recently used)
+        std::vector<int> m_pageCacheOrder;
         Roblox::Controls::WebView^ m_activeWebView;
         Windows::Foundation::EventRegistrationToken m_backRequestedToken;
         Windows::Foundation::EventRegistrationToken m_navCompletedToken;

@@ -36,10 +36,6 @@ using namespace Windows::UI::Popups;
 
 namespace
 {
-    // Steady-state page-cache cap for low-memory devices. Each cached page owns
-    // a WebView whose out-of-process engine is charged to the app's
-    // AppMemoryUsageLimit, so on 512 MB-class phones we keep at most this many
-    // cached pages (plus the active one) to bound WebView process count.
     const size_t kLowMemMaxCachedPages = 2;
 }
 
@@ -254,7 +250,6 @@ void AppShell::ShowPage(NavMenuDestination destination)
     frame->Content = page;
     m_currentDestination = destination;
 
-    // Update the LRU order (back = most recently used).
     for (auto it = m_pageCacheOrder.begin(); it != m_pageCacheOrder.end(); ++it)
     {
         if (*it == key)
@@ -295,10 +290,6 @@ void AppShell::ShowPage(NavMenuDestination destination)
         }
     }
 
-    // Low-memory devices: bound the page cache so browsing never accumulates
-    // WebView processes beyond the cap. The frontend memory-pressure handler
-    // (UWPPlatform::ShedFrontendMemory) can tighten this further while the app
-    // is under AppMemoryUsageLimit pressure.
     if (UWPPlatform::GetInstance().IsLowMemoryDevice())
     {
         EvictCachedPages(kLowMemMaxCachedPages);
@@ -309,20 +300,12 @@ void AppShell::ShowPage(NavMenuDestination destination)
 
 void AppShell::NavigateToDestination(int destination)
 {
-    // Reset the tap-echo guard so the very first nav request after a rebuild is
-    // honored (the guard suppresses rapid duplicate taps in normal browsing).
     m_lastTap = std::chrono::steady_clock::time_point();
     InvokeDestination(static_cast<NavMenuDestination>(destination));
 }
 
 void AppShell::ReleaseWebViews()
 {
-    // Blanks every cached WebView page and drops the page cache entirely so the
-    // separate out-of-process WebView processes (charged to the app's
-    // AppMemoryUsageLimit on UWP) can be torn down. On 512 MB phones a handful
-    // of live WebView pages is the difference between a playable game and an
-    // OOM crash at join time, so the game layer calls this before swapping to
-    // the engine surface and rebuilds the AppShell on leave-game.
     if (m_activeWebView != nullptr)
     {
         try { m_activeWebView->onNavigationCompleted -= m_navCompletedToken; }
@@ -350,8 +333,6 @@ void AppShell::ReleaseWebViews()
     m_pageCache.clear();
     m_homePage = nullptr;
 
-    // Drop the frame's current page too so no cached page (and its WebView
-    // tree) lingers solely because the frame holds it.
     if (frame != nullptr)
     {
         try { frame->Content = nullptr; } catch (Platform::Exception^) { }
@@ -360,9 +341,6 @@ void AppShell::ReleaseWebViews()
     auto nav = SystemNavigationManager::GetForCurrentView();
     if (nav != nullptr)
     {
-        // Unsubscribe the back-request handler: the system singleton would
-        // otherwise hold the dropped AppShell (and its LoginService/NavMenu)
-        // alive for the rest of the process.
         try { nav->BackRequested -= m_backRequestedToken; } catch (Platform::Exception^) { }
         nav->AppViewBackButtonVisibility = AppViewBackButtonVisibility::Collapsed;
     }
@@ -372,8 +350,6 @@ void AppShell::ReleaseWebViews()
 
 void AppShell::EvictCachedPages(size_t maxCount)
 {
-    // Always keep the page currently shown in the frame; only background pages
-    // (which may own a live WebView process each) are evicted.
     const int activeKey = static_cast<int>(m_currentDestination);
 
     size_t toEvict = (m_pageCache.size() > maxCount) ? (m_pageCache.size() - maxCount) : 0;
@@ -382,8 +358,6 @@ void AppShell::EvictCachedPages(size_t maxCount)
         return;
     }
 
-    // Walk the LRU order (oldest first); tolerate stale entries by verifying
-    // each key against the cache before touching its WebView.
     for (auto it = m_pageCacheOrder.begin(); it != m_pageCacheOrder.end() && toEvict > 0; )
     {
         int key = *it;

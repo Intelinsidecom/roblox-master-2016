@@ -2454,6 +2454,12 @@
     <Image Include="Assets\LandingPage\roblox_logo_red.png">
       <Filter>Assets</Filter>
     </Image>
+    <Image Include="Assets\LandingPage\home_bkg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\LandingPage\roblox_logo_red.png">
+      <Filter>Assets</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <None Include="content\fonts\Arial.font">
@@ -2834,7 +2840,6 @@
     <None Include="..\SDL2\UWP\ARM\SDL2.dll" />
     <None Include="..\SDL2\UWP\x86\SDL2.dll" />
     <None Include="..\SDL2\UWP\x64\SDL2.dll" />
-    <None Include="content\TestPlace.rbxl" />
     <None Include="RobloxUWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
