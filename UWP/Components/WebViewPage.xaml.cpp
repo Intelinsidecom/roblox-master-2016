@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "WebViewPage.xaml.h"
 #include "WebView.xaml.h"
+#include "..\Roblox\AuthStorage.h"
 #include "..\Roblox\RobloxSettings.h"
 #include "..\Roblox\ResourceStrings.h"
 #include "..\Services\LoginService.h"
@@ -39,6 +40,12 @@ WebViewPage::WebViewPage()
 
     btnRobux_balance->Text = L"";
     btnRobux_balance->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
+
+    if (!Roblox::AuthStorage::HasSession())
+    {
+        btnBC->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
+        btnRobux->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
+    }
 
     btnBC->Click += ref new Windows::UI::Xaml::RoutedEventHandler(this, &WebViewPage::OnBCButtonClick);
     btnRobux->Click += ref new Windows::UI::Xaml::RoutedEventHandler(this, &WebViewPage::OnRobuxButtonClick);

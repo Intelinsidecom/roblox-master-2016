@@ -42,12 +42,12 @@
                         <Button x:Name="playNow_button"
                             Content="Play Now"
                             HorizontalAlignment="Center"
+                            Margin="0,0,0,20"
                             FontSize="26"
                             Background="#FFFFFFFF"
                             Width="200"
                             BorderBrush="#FF000000"
-                            BorderThickness="0.8"
-                            Visibility="Collapsed" />
+                            BorderThickness="0.8" />
                     </StackPanel.Children>
                 </StackPanel>
                 <TextBlock x:Name="txtVersion" Text="2.238.73406" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,5,5" />

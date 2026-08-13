@@ -16,6 +16,7 @@
 #include "LandingPage.xaml.h"
 #include "..\Components\NavMenu.xaml.h"
 #include "..\Components\WebViewPage.xaml.h"
+#include "..\Roblox\AuthStorage.h"
 #include "..\Roblox\RobloxSettings.h"
 #include "..\Roblox\ResourceStrings.h"
 #include "..\Services\LoginService.h"
@@ -142,6 +143,15 @@ bool AppShell::IsTapEcho()
 
 void AppShell::InvokeDestination(NavMenuDestination destination)
 {
+    if (!Roblox::AuthStorage::HasSession() &&
+        destination != NavMenuDestination::Games &&
+        destination != NavMenuDestination::Logout)
+    {
+        auto frame = this->Frame;
+        if (frame == nullptr) return;
+        frame->Content = ref new Roblox::Views::LandingPage();
+        return;
+    }
 
     if (destination == NavMenuDestination::Logout)
     {

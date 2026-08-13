@@ -44,6 +44,9 @@ void LandingPage::OnSignupButtonClick(Platform::Object^ sender, Windows::UI::Xam
 
 void LandingPage::OnPlayNowButtonClick(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
+    auto frame = this->Frame;
+    if (frame == nullptr) return;
+    frame->Content = ref new Roblox::AppShell();
 }
 
 void LandingPage::ShowLoginDialog()
