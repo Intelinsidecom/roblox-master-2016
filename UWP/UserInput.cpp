@@ -46,7 +46,9 @@ UserInput::UserInput(RBX::DataModel* dataModel, std::function<void(const std::st
     , m_lockHidCursor(false)
 	, m_loggedRecenter(false)
     , m_isShuttingDown(false)
+    , m_initialized(false)
     , m_lockTimer(nullptr)
+    , m_lockTickToken(Windows::Foundation::EventRegistrationToken{})
     , m_wrapMousePosition(RBX::Vector2::zero())
     , m_wrapMouseDelta(RBX::Vector2::zero())
 {
@@ -61,6 +63,9 @@ UserInput::~UserInput()
 
 void UserInput::initialize()
 {
+    if (m_isShuttingDown || m_initialized)
+        return;
+
     auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
     if (window)
     {
@@ -120,9 +125,11 @@ void UserInput::initialize()
         Windows::Foundation::TimeSpan lockInterval;
         lockInterval.Duration = 16 * 10000; // 16ms (~60Hz)
         m_lockTimer->Interval = lockInterval;
-        m_lockTimer->Tick += ref new Windows::Foundation::EventHandler<Platform::Object^>(
+        m_lockTickToken = m_lockTimer->Tick += ref new Windows::Foundation::EventHandler<Platform::Object^>(
             [this](Platform::Object^, Platform::Object^) { onLockTick(); });
         m_lockTimer->Start();
+
+        m_initialized = true;
     }
     else
     {
@@ -151,9 +158,12 @@ void UserInput::shutdown()
         if (m_lockTimer)
         {
             m_lockTimer->Stop();
+            m_lockTimer->Tick -= m_lockTickToken;
             m_lockTimer = nullptr;
         }
     }
+
+    m_initialized = false;
 }
 
 void UserInput::setViewportSize(int width, int height)

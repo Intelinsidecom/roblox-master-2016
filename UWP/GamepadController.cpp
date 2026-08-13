@@ -18,6 +18,7 @@ using namespace Windows::UI::Xaml;
 
 GamepadController::GamepadController(RBX::DataModel* dataModel)
     : m_dataModel(dataModel)
+    , m_isShuttingDown(false)
     , m_pollTimer(nullptr)
 {
     m_gamepadAddedToken.Value = 0;
@@ -40,6 +41,9 @@ GamepadController::~GamepadController()
 
 void GamepadController::initialize()
 {
+    if (m_isShuttingDown)
+        return;
+
     if (m_pollTimer == nullptr)
     {
         m_pollTimer = ref new DispatcherTimer();
@@ -69,6 +73,8 @@ void GamepadController::initialize()
 
 void GamepadController::shutdown()
 {
+    m_isShuttingDown = true;
+
     if (m_pollTimer != nullptr)
     {
         m_pollTimer->Stop();
@@ -166,9 +172,6 @@ void GamepadController::pollGamepads()
 
     if (padSetChanged)
     {
-        // A pad connected/disconnected: re-sync the device list and reset the
-        // previous-reading baseline. On normal ticks the baseline is preserved
-        // so button press/release transitions can be diffed across polls.
         m_gamepads = current;
         m_previousReadings.assign(m_gamepads.size(), GamepadReading());
     }
@@ -285,7 +288,6 @@ RBX::InputObject::UserInputType GamepadController::mapDeviceIdToControllerEnum(i
         return deviceIdToGamepadId[deviceId];
     }
 
-    // find first free gamepad slot
     for (RBX::InputObject::UserInputType controllerNum = RBX::InputObject::TYPE_GAMEPAD1;
          controllerNum <= RBX::InputObject::TYPE_GAMEPAD8;
          controllerNum = static_cast<RBX::InputObject::UserInputType>(controllerNum + 1))
@@ -476,7 +478,7 @@ void GamepadController::processControllerBufferMap()
                     if (state != RBX::InputObject::INPUT_STATE_NONE)
                     {
                         G3D::Vector3 newPosition = (*vecIter);
-                        if (isButton) // don't use pressure sensitive values to keep consistent behavior on all platforms
+                        if (isButton)
                         {
                             (newPosition.z > 0.0f) ? newPosition.z = 1.0f : newPosition.z = 0.0f;
                         }

@@ -139,7 +139,10 @@ public:
         {
             if (renderInFlight)
             {
-                return RBX::TaskScheduler::Stepped;
+                if (uiStallBackoff && (RBX::Time::nowFastSec() - stallSince) >= kUiStallBackoffSeconds)
+                    renderInFlight = false;
+                else
+                    return RBX::TaskScheduler::Stepped;
             }
 
             const double timeJobStart = RBX::Time::nowFastSec();
@@ -317,6 +320,8 @@ RobloxView::RobloxView(void* wnd, unsigned int width, unsigned int height)
 
 RobloxView::~RobloxView()
 {
+    leaveGameVerb.reset();
+
     if (renderJob)
     {
         renderJob->abortRender();

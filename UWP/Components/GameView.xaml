@@ -8,7 +8,7 @@
     <UserControl.Content>
         <Grid>
             <Grid.Children>
-                <SwapChainPanel x:Name="rbxSwapChain" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+                <SwapChainPanel x:Name="rbxSwapChain" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF3C3C3C" />
                 <TextBox x:Name="ChatTextBox"
                     FontSize="18.667"
                     InputScope="Text"

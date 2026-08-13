@@ -101,7 +101,9 @@ private:
     bool m_lockHidCursor;
 	bool m_loggedRecenter;
     std::atomic<bool> m_isShuttingDown;
+    bool m_initialized;
     Windows::UI::Xaml::DispatcherTimer^ m_lockTimer;
+    Windows::Foundation::EventRegistrationToken m_lockTickToken;
 
     RBX::Vector2 m_wrapMousePosition;
     RBX::Vector2 m_wrapMouseDelta;

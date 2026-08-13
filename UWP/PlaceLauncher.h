@@ -41,8 +41,8 @@ class PlaceLauncher
 {
     RobloxView* rbxView;
     boost::scoped_ptr<Teleporter> teleporter;
-    std::unique_ptr<UserInput> m_userInput;
-    std::unique_ptr<GamepadController> m_gamepadController;
+    boost::shared_ptr<UserInput> m_userInput;
+    boost::shared_ptr<GamepadController> m_gamepadController;
 
     bool isCurrentlyPlayingGame;
     StartGameParams gameParams;

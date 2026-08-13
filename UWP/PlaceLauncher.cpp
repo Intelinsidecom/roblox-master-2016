@@ -492,7 +492,10 @@ shared_ptr<RBX::Game> PlaceLauncher::setupGame(const StartGameParams& sgp)
 
             RBX::FunctionMarshaller* marshaller = RBX::FunctionMarshaller::GetWindow();
             if (marshaller)
-                marshaller->Submit(boost::bind(&UserInput::initialize, m_userInput.get()));
+            {
+                boost::shared_ptr<UserInput> ui = m_userInput;
+                marshaller->Submit([ui]() { ui->initialize(); });
+            }
 
             RBX::DataModel* dataModel = currentGame->getDataModel().get();
             if (dataModel)
@@ -517,7 +520,10 @@ shared_ptr<RBX::Game> PlaceLauncher::setupGame(const StartGameParams& sgp)
 
             RBX::FunctionMarshaller* marshaller = RBX::FunctionMarshaller::GetWindow();
             if (marshaller)
-                marshaller->Submit(boost::bind(&GamepadController::initialize, m_gamepadController.get()));
+            {
+                boost::shared_ptr<GamepadController> gc = m_gamepadController;
+                marshaller->Submit([gc]() { gc->initialize(); });
+            }
         }
         catch (const std::exception& e)
         {

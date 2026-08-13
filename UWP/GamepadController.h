@@ -18,18 +18,14 @@ namespace RBX
     typedef boost::unordered_map<RBX::KeyCode, boost::shared_ptr<RBX::InputObject> > Gamepad;
 }
 
-// Native Windows::Gaming::Input gamepad driver.
-// Polls connected gamepads on the UI thread and pushes changes into a
-// mutex-guarded buffer which is drained on the DataModel thread via
-// UserInputService::updateInputSignal (see processControllerBufferMap).
 class GamepadController
 {
 public:
     GamepadController(RBX::DataModel* dataModel);
     ~GamepadController();
 
-    void initialize(); // must be called on the UI thread (via FunctionMarshaller)
-    void shutdown();   // disconnects signals / stops polling
+    void initialize();
+    void shutdown();
 
 private:
     typedef std::vector<G3D::Vector3> KeycodeInputs;
@@ -57,6 +53,7 @@ private:
     static bool vectorContains(const std::vector<Windows::Gaming::Input::Gamepad^>& pads, Windows::Gaming::Input::Gamepad^ pad);
 
     RBX::DataModel* m_dataModel;
+    bool m_isShuttingDown;
 
     Windows::UI::Xaml::DispatcherTimer^ m_pollTimer;
     Windows::Foundation::EventRegistrationToken m_pollTickToken;
