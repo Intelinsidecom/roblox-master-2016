@@ -1,0 +1,31 @@
+<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Roblox.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="Roblox.Controls.WebView">
+    <UserControl.Content>
+        <Grid Background="#FFFFFFFF">
+            <Grid.Children>
+                <WebView x:Name="WebViewImpl" IsRightTapEnabled="False" IsHoldingEnabled="False" IsDoubleTapEnabled="False" />
+                <Rectangle x:Name="progressRingBackground"
+                    Width="120"
+                    Height="120"
+                    Fill="#AA000000"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,30"
+                    VerticalAlignment="Center"
+                    RadiusY="18"
+                    RadiusX="18" />
+                <ProgressRing x:Name="progressRing"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,30"
+                    VerticalAlignment="Center"
+                    Width="60"
+                    Height="60"
+                    Foreground="#FFFFFFFF" />
+            </Grid.Children>
+        </Grid>
+    </UserControl.Content>
+</UserControl>

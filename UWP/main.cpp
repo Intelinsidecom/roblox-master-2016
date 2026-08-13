@@ -14,7 +14,8 @@ void dprintf(const char* fmt, ...)
     char buffer[4096];
     vsnprintf(buffer, sizeof(buffer), fmt, va);
     va_end(va);
-    OutputDebugStringA(buffer);
+    if (IsDebuggerPresent())
+        OutputDebugStringA(buffer);
 }
 
 ref class ViewProvider sealed : public Windows::ApplicationModel::Core::IFrameworkView

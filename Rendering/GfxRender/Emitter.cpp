@@ -51,7 +51,7 @@ static const float kCutoffAlpha = 10/255.0f;
 static const float kAlphaBoost  = 0.6f;
 static const float kMaxLife = 20;
 
-#if defined(RBX_PLATFORM_IOS) || defined(__ANDROID__)
+#if defined(RBX_PLATFORM_IOS) || defined(__ANDROID__) || (defined(RBX_PLATFORM_UWP) && (defined(_M_ARM) || defined(_M_ARM64)))
 static const int kMaxParticles = 14000/4;
 static const float kMaxThrottle = 0.7f;
 static const float kMaxEmissionRate = 100;

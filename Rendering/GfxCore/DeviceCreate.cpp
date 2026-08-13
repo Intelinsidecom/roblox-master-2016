@@ -22,7 +22,6 @@ Device* Device::create(API api, void* windowHandle)
         return new DeviceD3D11(windowHandle);
 #endif
 
-	// gl can be added though
 #if !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
 	if (api == API_OpenGL)
         return new DeviceGL(windowHandle);

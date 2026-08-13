@@ -1,74 +1,59 @@
 #pragma once
 
-#include "stdafx.h"
-#include "Marshaller.h"
-#include "GfxBase/ViewBase.h"
-#include <map>
-#include <atomic>
+#include <functional>
+#include <chrono>
 
-#include <boost/shared_ptr.hpp>
-#include <boost/scoped_ptr.hpp>
-
-#include "SDL.h"
-#include "SDLGameController.h"
-#include "rbx/signal.h"
-
-class UserInput;
+#include "FunctionMarshaller.h"
+#include "util/standardout.h"
 
 namespace RBX
 {
-    class Game;
     class DataModel;
-    class BaseRenderJob;
-    class StandardOut;
-    struct StandardOutMessage;
 }
 
-class RenderJob;
+extern "C" bool isUWPWindowsPhone();
+extern "C" IUnknown* getUWPSwapChainPanel();
+extern "C" void getUWPFramebufferSize(unsigned int* width, unsigned int* height);
+extern "C" void getUWPCompositionScale(float* scaleX, float* scaleY);
+extern "C" void setSwapChainOnUIThread(IUnknown* swapChain);
+extern "C" void uwpNotifyFramePresented();
 
 class UWPPlatform
 {
 public:
-    UWPPlatform();
-    virtual ~UWPPlatform();
+    static UWPPlatform& GetInstance();
 
-    void tick();
-    Marshaller* getMarshaller() { return m_marshaller; }
     void initialize();
-    void shutdown();
-    void onLogMessage(const std::string& message);
-    void setLogCallback(std::function<void(const std::string&)> callback);
+    void tick();
     void setSwapChainPanel(Windows::UI::Xaml::Controls::SwapChainPanel^ panel);
-    void setRenderingInitializedCallback(std::function<void()> callback);
-    void setLoadingStatusCallback(std::function<void(const std::string&)> callback);
-    bool isInitializationComplete() const { return m_initializationComplete.load(std::memory_order_acquire); }
+    void setLeaveGameCallback(std::function<void()> callback);
+    void setGameReadyCallback(std::function<void()> callback);
+    void setGameFailedCallback(std::function<void()> callback);
+    void fireGameReady();
+    void fireGameFailed();
+    bool isInitialized() const { return m_initialized; }
+    bool IsLowMemoryDevice() const;
+    void HandleMemoryPressure();
+    void StartMemoryPressureMonitor();
+    void ShedFrontendMemory();
+    bool ShouldDropShellForGame() const;
 
 private:
-    Marshaller* m_marshaller;
-    RBX::Game* m_game;
-    boost::shared_ptr<RBX::DataModel> m_dataModel;
-    RBX::ViewBase* m_view;
-    boost::shared_ptr<RenderJob> m_renderJob;
-    RBX::OSContext m_context;
-    Windows::UI::Xaml::Controls::SwapChainPanel^ m_swapChainPanel;
-    Windows::UI::Core::CoreDispatcher^ m_dispatcher;
-    boost::scoped_ptr<SDLGameController> m_gameController;
-    SDL_Window* m_sdlWindow;
-    std::unique_ptr<UserInput> m_userInput;
-    std::function<void(const std::string&)> m_logCallback;
-    std::function<void()> m_renderingInitializedCallback;
-    std::function<void(const std::string&)> m_loadingStatusCallback;
-    std::mutex m_logMutex;
-    std::atomic<bool> m_initializationComplete;
-    std::atomic<bool> m_cachedIsWindowsPhone;
-    bool m_sdlInitialized;
-    rbx::signals::connection m_standardOutConnection;
-    void onStandardOutMessage(const RBX::StandardOutMessage& message);
-    void initializeBackground();
-    void initializeGameWorld();
-    void initializeRendering();
-    void initializeInput();
+    UWPPlatform();
+    ~UWPPlatform();
+
     void initializeLogging();
-    void initializeSettings();
-    void updateLoadingStatus(const std::string& status);
+    void onStandardOutMessage(const RBX::StandardOutMessage& message);
+    void onMemoryUsageIncreased();
+    Windows::Foundation::EventRegistrationToken m_memUsageIncreasedToken;
+    Windows::Foundation::EventRegistrationToken m_memLimitChangingToken;
+    Windows::UI::Xaml::DispatcherTimer^ m_memPressureTimer;
+    bool m_memPressureStarted;
+    std::chrono::steady_clock::time_point m_lastPressureGc;
+
+    bool m_initialized;
+    Windows::UI::Xaml::Controls::SwapChainPanel^ m_swapChainPanel;
+    std::function<void()> m_gameReadyCallback;
+    std::function<void()> m_gameFailedCallback;
+    rbx::signals::connection m_standardOutConnection;
 };

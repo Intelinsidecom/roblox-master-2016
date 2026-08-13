@@ -73,6 +73,7 @@ public:
 	~SDLGameController();
 
 	void updateControllers();
+	void handleEvent(const SDL_Event& event);
 
 	void onControllerAxis( const SDL_ControllerAxisEvent sdlEvent );
 	void onControllerButton( const SDL_ControllerButtonEvent sdlEvent );

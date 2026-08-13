@@ -1,3 +1,8 @@
+//
+// pch.h
+// Standard system include files (merged engine + frontend).
+//
+
 #pragma once
 
 #include <collection.h>
@@ -11,3 +16,5 @@
 
 #include <wrl.h>
 #include <wrl/client.h>
+
+#include "App.xaml.h"

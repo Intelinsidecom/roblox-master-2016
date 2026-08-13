@@ -3,29 +3,103 @@
 #include "stdafx.h"
 #include "util/Http.h"
 #include "util/standardout.h"
+#include "StringConv.h"
 
 #include <collection.h>
 #include <ppltasks.h>
 #include <wrl/client.h>
+#include <windows.web.http.filters.h>
+#include <windows.security.cryptography.h>
+#include <windows.system.threading.h>
 
 using namespace Windows::Web::Http;
+using namespace Windows::Web::Http::Filters;
 using namespace Windows::Web::Http::Headers;
 using namespace Windows::Storage::Streams;
+using namespace Windows::Security::Cryptography;
 using namespace Windows::Foundation;
+using namespace Windows::System::Threading;
 using namespace Platform;
 using namespace concurrency;
 
 namespace RBX
 {
+	static std::string toUtf8(Platform::String^ s)
+	{
+		if (s == nullptr || s->IsEmpty())
+			return std::string();
+		std::wstring ws(s->Data());
+		return RBX::utf8_encode(ws);
+	}
+
+	static bool waitForTaskWithTimeout(task<void> requestTask, int timeoutMillis, const std::string& what)
+	{
+		if (timeoutMillis <= 0)
+		{
+			requestTask.wait();
+			return true;
+		}
+
+		task_completion_event<void> deadline;
+		TimeSpan delay;
+		delay.Duration = static_cast<LONGLONG>(timeoutMillis) * 10000;
+
+		ThreadPoolTimer^ timer = ThreadPoolTimer::CreateTimer(
+			ref new TimerElapsedHandler([deadline](ThreadPoolTimer^ t) {
+				try { deadline.set(); }
+				catch (...) { /* timer may already have been cancelled */ }
+			}),
+			delay);
+
+		try
+		{
+			(requestTask || task<void>(deadline)).wait();
+			timer->Cancel();
+		}
+		catch (...)
+		{
+			timer->Cancel();
+			throw;
+		}
+
+		if (!requestTask.is_done())
+		{
+			throw RBX::runtime_error("UWP HTTP: %s timed out after %d ms", what.c_str(), timeoutMillis);
+		}
+		return true;
+	}
+
+	static std::string contentEncodingToString(HttpContentCodingHeaderValueCollection^ encodings)
+	{
+		std::string result;
+		if (encodings != nullptr)
+		{
+			for each (HttpContentCodingHeaderValue^ coding in encodings)
+			{
+				if (!result.empty())
+					result += ", ";
+				result += toUtf8(coding->ContentCoding);
+			}
+		}
+		return result.empty() ? "<none>" : result;
+	}
+
 	void Http::httpGetPostUWP(bool isPost, std::istream& dataStream, const std::string& contentType, bool compressData,
 		const HttpAux::AdditionalHeaders& additionalHeaders, bool externalRequest, HttpCache::Policy cachePolicy, std::string& response)
 	{
+
 		try
 		{
-			HttpClient^ httpClient = ref new HttpClient();
+
+			HttpBaseProtocolFilter^ filter = ref new HttpBaseProtocolFilter();
+			filter->AutomaticDecompression = false;
+
+			HttpClient^ httpClient = ref new HttpClient(filter);
 
 			std::wstring userAgentW(Http::rbxUserAgent.begin(), Http::rbxUserAgent.end());
 			httpClient->DefaultRequestHeaders->UserAgent->ParseAdd(ref new String(userAgentW.c_str()));
+
+			httpClient->DefaultRequestHeaders->TryAppendWithoutValidation("Accept-Encoding", "identity");
 
 			for (HttpAux::AdditionalHeaders::const_iterator it = additionalHeaders.begin(); it != additionalHeaders.end(); ++it)
 			{
@@ -63,10 +137,14 @@ namespace RBX
 				request = ref new HttpRequestMessage(HttpMethod::Get, uri);
 			}
 
-			auto task = create_task(httpClient->SendRequestAsync(request));
-			task.wait();
 
-			HttpResponseMessage^ httpResponse = task.get();
+			auto requestTask = create_task(httpClient->SendRequestAsync(request));
+			auto requestGuard = requestTask.then([](task<HttpResponseMessage^> responseTask) {
+				try { responseTask.get(); } catch (...) { }
+			});
+			waitForTaskWithTimeout(requestGuard, responseTimeoutMillis, "request send");
+
+			HttpResponseMessage^ httpResponse = requestTask.get();
 
 			unsigned int statusCode = static_cast<unsigned int>(httpResponse->StatusCode);
 			if (statusCode < 200 || statusCode > 299 || statusCode == 202)
@@ -80,12 +158,21 @@ namespace RBX
 				throw RBX::http_status_error(statusCode, reason);
 			}
 
-			auto contentTask = create_task(httpResponse->Content->ReadAsStringAsync());
-			contentTask.wait();
 
-			String^ responseString = contentTask.get();
-			std::wstring wResponse(responseString->Data());
-			response.assign(wResponse.begin(), wResponse.end());
+			auto contentTask = create_task(httpResponse->Content->ReadAsBufferAsync());
+			auto contentGuard = contentTask.then([](task<IBuffer^> bodyTask) {
+				try { bodyTask.get(); } catch (...) { }
+			});
+			waitForTaskWithTimeout(contentGuard, responseTimeoutMillis, "body read");
+
+			IBuffer^ buffer = contentTask.get();
+			if (buffer != nullptr && buffer->Length > 0)
+			{
+				Platform::Array<unsigned char>^ bytes = nullptr;
+				Windows::Security::Cryptography::CryptographicBuffer::CopyToByteArray(buffer, &bytes);
+				if (bytes != nullptr && bytes->Length > 0)
+					response.assign(reinterpret_cast<const char*>(bytes->Data), bytes->Length);
+			}
 		}
 		catch (const http_status_error&)
 		{

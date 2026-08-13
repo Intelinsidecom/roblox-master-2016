@@ -1,0 +1,57 @@
+<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Roblox"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="Roblox.Views.LandingPage">
+    <Page.Content>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.Background>
+                <ImageBrush Stretch="Fill" ImageSource="ms-appx:///Assets/LandingPage/home_bkg.png" />
+            </Grid.Background>
+            <Grid.Children>
+                <StackPanel>
+                    <StackPanel.Children>
+                        <Image x:Name="roblox_logo" Width="400" Height="300" Source="ms-appx:///Assets/LandingPage/roblox_logo_red.png" />
+                        <Button x:Name="login_button"
+                            Content="Login"
+                            HorizontalAlignment="Center"
+                            Margin="0,50,0,20"
+                            FontSize="26"
+                            Height="45"
+                            Width="200"
+                            Background="#FFFFFFFF"
+                            BorderBrush="#FF000000"
+                            BorderThickness="0.8" />
+                        <Button x:Name="signup_button"
+                            Content="Sign Up"
+                            HorizontalAlignment="Center"
+                            Margin="0,0,0,20"
+                            FontSize="26"
+                            Width="200"
+                            Background="#FFFFFFFF"
+                            BorderBrush="#FF000000"
+                            BorderThickness="0.8" />
+                        <Button x:Name="playNow_button"
+                            Content="Play Now"
+                            HorizontalAlignment="Center"
+                            FontSize="26"
+                            Background="#FFFFFFFF"
+                            Width="200"
+                            BorderBrush="#FF000000"
+                            BorderThickness="0.8"
+                            Visibility="Collapsed" />
+                    </StackPanel.Children>
+                </StackPanel>
+                <TextBlock x:Name="txtVersion" Text="2.238.73406" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,5,5" />
+            </Grid.Children>
+        </Grid>
+    </Page.Content>
+</Page>

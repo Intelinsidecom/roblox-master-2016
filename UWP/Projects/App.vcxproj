@@ -748,7 +748,14 @@
     <ClCompile Include="..\..\App\util\MachineIdUploader.cpp" />
     <ClCompile Include="..\..\App\util\Math.cpp" />
     <ClCompile Include="..\..\App\util\MD5Hasher.cpp" />
-    <ClCompile Include="..\..\App\util\MemoryStats.cpp" />
+    <ClCompile Include="..\..\App\util\MemoryStats.cpp">
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</CompileAsWinRT>
+    </ClCompile>
     <ClCompile Include="..\..\App\util\MemoryStatsCommon.cpp" />
     <ClCompile Include="..\..\App\util\MeshContentProvider.cpp" />
     <ClCompile Include="..\..\App\util\MeshId.cpp" />
@@ -1290,7 +1297,7 @@
       <FloatingPointModel>Fast</FloatingPointModel>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include;$(CONTRIB_PATH)\VMProtectWin_2.13;$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src;..\..\App\include;..\..\Base\include;..\..\fmod\UWP\include;..\..\App\lua-5.1.4\src;..\..\Rendering;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\RbxG3D\include;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Network\include;..\RBXCookies;..\..\Log\Include;..\..\ClientShared;..\..\App.BulletPhysics;..\..\Win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/bigobj %(AdditionalOptions) /FS</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -1307,7 +1314,7 @@
       <FloatingPointModel>Fast</FloatingPointModel>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include;$(CONTRIB_PATH)\VMProtectWin_2.13;$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src;..\..\App\include;..\..\Base\include;..\..\fmod\UWP\include;..\..\App\lua-5.1.4\src;..\..\Rendering;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\RbxG3D\include;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Network\include;..\RBXCookies;..\..\Log\Include;..\..\ClientShared;..\..\App.BulletPhysics;..\..\Win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/bigobj %(AdditionalOptions) /FS</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -1324,7 +1331,7 @@
       <FloatingPointModel>Fast</FloatingPointModel>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include;$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src;..\..\App\include;..\..\Base\include;..\..\fmod\UWP\include;..\..\App\lua-5.1.4\src;..\..\Rendering;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\RbxG3D\include;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Network\include;..\RBXCookies;..\..\Log\Include;..\..\ClientShared;..\..\App.BulletPhysics;..\..\Win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>/bigobj /FS %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/bigobj /FS %(AdditionalOptions) /FS</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -1341,7 +1348,7 @@
       <FloatingPointModel>Fast</FloatingPointModel>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include;$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src;..\..\App\include;..\..\Base\include;..\..\fmod\UWP\include;..\..\App\lua-5.1.4\src;..\..\Rendering;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\RbxG3D\include;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Network\include;..\RBXCookies;..\..\Log\Include;..\..\ClientShared;..\..\App.BulletPhysics;..\..\Win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>/bigobj /FS %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/bigobj /FS %(AdditionalOptions) /FS</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -1358,7 +1365,7 @@
       <FloatingPointModel>Fast</FloatingPointModel>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include;$(CONTRIB_PATH)\VMProtectWin_2.13;$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src;..\..\App\include;..\..\Base\include;..\..\fmod\UWP\include;..\..\App\lua-5.1.4\src;..\..\Rendering;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\RbxG3D\include;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Network\include;..\RBXCookies;..\..\Log\Include;..\..\ClientShared;..\..\App.BulletPhysics;..\..\Win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/bigobj %(AdditionalOptions) /FS</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -1375,7 +1382,7 @@
       <FloatingPointModel>Fast</FloatingPointModel>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include;$(CONTRIB_PATH)\VMProtectWin_2.13;$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src;..\..\App\include;..\..\Base\include;..\..\fmod\UWP\include;..\..\App\lua-5.1.4\src;..\..\Rendering;..\..\Rendering\g3d\include;..\..\Rendering\g3d\zlib;..\..\Rendering\RbxG3D\include;..\..\Rendering\AppDraw\include;..\..\Rendering\GfxBase\include;..\..\Network\include;..\RBXCookies;..\..\Log\Include;..\..\ClientShared;..\..\App.BulletPhysics;..\..\Win;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/bigobj %(AdditionalOptions) /FS</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

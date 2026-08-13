@@ -110,11 +110,11 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <PackageCertificateKeyFile>Client_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>RobloxUWP_TemporaryKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
-    <AppxBundle>Always</AppxBundle>
-    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <AppxBundle>Never</AppxBundle>
+    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -129,19 +129,20 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Base\include;..\Network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\AppBridge;..\Base\include;..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxRender;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Network;$(GeneratedFilesDir)\Screens;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(CONTRIB_PATH)\windows\UWP\\openssl\build\lib\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(SolutionDir)\..\openssl\UWP\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
       <ShowProgress>LinkVerbose</ShowProgress>
       <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurlUWP.lib;fmodL_ARM.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmodL_ARM.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
@@ -153,20 +154,22 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Base\include;..\Network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\AppBridge;..\Base\include;..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxRender;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Network;$(GeneratedFilesDir)\Screens;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(CONTRIB_PATH)\windows\UWP\\openssl\build\lib\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(SolutionDir)\..\openssl\UWP\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
       <ShowProgress>LinkVerbose</ShowProgress>
       <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurlUWP.lib;fmod_ARM.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmod_ARM.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
@@ -178,19 +181,19 @@
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Base\include;..\Network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\AppBridge;..\Base\include;..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxRender;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Network;$(GeneratedFilesDir)\Screens;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(CONTRIB_PATH)\windows\UWP\openssl\build\lib\win32;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;..\fmod\UWP;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(SolutionDir)\..\openssl\UWP\win32;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win32;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
       <ShowProgress>LinkVerbose</ShowProgress>
       <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;libcurlUWP.lib;fmodL_X86.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;libcurl.lib;fmodL_X86.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
@@ -212,20 +215,20 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Base\include;..\Network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\AppBridge;..\Base\include;..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxRender;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Network;$(GeneratedFilesDir)\Screens;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(CONTRIB_PATH)\windows\UWP\openssl\build\lib\win32;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;..\fmod\UWP;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(SolutionDir)\..\openssl\UWP\win32;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win32;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
       <ShowProgress>LinkVerbose</ShowProgress>
       <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurlUWP.lib;fmod_X86.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;libcurl.lib;fmod_X86.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
@@ -247,19 +250,19 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <ClCompile>
       <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Base\include;..\Network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\AppBridge;..\Base\include;..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxRender;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Network;$(GeneratedFilesDir)\Screens;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(CONTRIB_PATH)\windows\UWP\openssl\build\lib\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\x64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\openssl\UWP\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
       <ShowProgress>LinkVerbose</ShowProgress>
       <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmodL_X64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmodL_X64.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
@@ -269,22 +272,22 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>/bigobj /FS %(AdditionalOptions)</AdditionalOptions>
       <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
-      <AdditionalIncludeDirectories>..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Base\include;..\Network;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\AppBridge;..\Base\include;..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxRender;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Network;$(GeneratedFilesDir)\Screens;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>false</SDLCheck>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(CONTRIB_PATH)\windows\UWP\openssl\build\lib\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\lib;$(CONTRIB_PATH)\windows\UWP\curl\lib\x64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\openssl\UWP\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;..\fmod\UWP\lib;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <LargeAddressAware>true</LargeAddressAware>
       <EnableCOMDATFolding>false</EnableCOMDATFolding>
       <ShowProgress>LinkVerbose</ShowProgress>
       <AdditionalOptions>/TIME %(AdditionalOptions)</AdditionalOptions>
       <GenerateDebugInformation>DebugFastLink</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmod_X64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;SDL2.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmod_X64.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>
       </IgnoreSpecificDefaultLibraries>
     </Link>
@@ -294,29 +297,210 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="RenderJob.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="App.xaml.h">
       <DependentUpon>App.xaml</DependentUpon>
     </ClInclude>
-    <ClInclude Include="MainPage.xaml.h">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </ClInclude>
-    <ClInclude Include="Marshaller.h" />
+    <ClInclude Include="UserInput.h" />
     <ClInclude Include="UWPPlatform.h" />
+    <ClInclude Include="FunctionMarshaller.h" />
+    <ClInclude Include="GamepadController.h" />
+    <ClInclude Include="PlaceLauncher.h" />
+    <ClInclude Include="Teleporter.h" />
+    <ClInclude Include="..\AppBridge\RobloxView.h" />
+    <ClInclude Include="..\AppBridge\LogManager.h" />
+    <ClInclude Include="Components\DatePicker.xaml.h">
+      <DependentUpon>Components\DatePicker.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Components\WebView.xaml.h">
+      <DependentUpon>Components\WebView.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Components\NavMenuItem.xaml.h">
+      <DependentUpon>Components\NavMenuItem.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Components\NavMenu.xaml.h">
+      <SubType>Code</SubType>
+    </ClInclude>
+    <ClInclude Include="Components\WebViewPage.xaml.h">
+      <DependentUpon>Components\WebViewPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Components\GameView.xaml.h">
+      <DependentUpon>Components\GameView.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Components\GameParameters.h" />
+    <ClInclude Include="Components\InputManager.h" />
+    <ClInclude Include="Components\GameClosedEventHandler.h" />
+    <ClInclude Include="Components\DateChangedHandler.h" />
+    <ClInclude Include="Roblox\CloseLandingPageShowAppShell.h" />
+    <ClInclude Include="Roblox\OnNavigationCompletedHandler.h" />
+    <ClInclude Include="Roblox\OnNavigationStartingHandler.h" />
+    <ClInclude Include="Roblox\StorePurchaseCallback.h" />
+    <ClInclude Include="Roblox\UpgradeStatus.h" />
+    <ClInclude Include="Roblox\UpgradeCallback.h" />
+    <ClInclude Include="Roblox.NativeHybrid\Bridge.h" />
+    <ClInclude Include="Roblox.NativeHybrid\Command.h" />
+    <ClInclude Include="Roblox.NativeHybrid\Module.h" />
+    <ClInclude Include="Roblox.NativeHybrid\ModuleFunction.h" />
+    <ClInclude Include="Roblox.NativeHybrid\GameModule.h" />
+    <ClInclude Include="Roblox.NativeHybrid\SocialModule.h" />
+    <ClInclude Include="Components\Page.h">
+      <SubType>Code</SubType>
+    </ClInclude>
+    <ClInclude Include="Components\RobloxTheme.h">
+      <SubType>Code</SubType>
+    </ClInclude>
+    <ClInclude Include="Components\SearchType.h">
+      <SubType>Code</SubType>
+    </ClInclude>
+    <ClInclude Include="Roblox\RobloxSettings.h" />
+    <ClInclude Include="Roblox\AuthStorage.h" />
+    <ClInclude Include="Roblox\NoInternetDialog.h" />
+    <ClInclude Include="Roblox\ResourceStrings.h" />
+    <ClInclude Include="Services\StoreService.h" />
+    <ClInclude Include="Screens\LandingPage.xaml.h">
+      <DependentUpon>LandingPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\CaptchaModal.xaml.h">
+      <DependentUpon>Screens\CaptchaModal.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\LoginPage.xaml.h">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\RbxSplashScreen.xaml.h">
+      <DependentUpon>RbxSplashScreen.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\SignupPage.xaml.h">
+      <DependentUpon>SignupPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\AppShell.xaml.h">
+      <DependentUpon>Screens\AppShell.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\HomePage.xaml.h">
+      <DependentUpon>Screens\HomePage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\GamesPage.xaml.h">
+      <DependentUpon>Screens\GamesPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\GamePage.xaml.h">
+      <DependentUpon>Screens\GamePage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\FriendsPage.xaml.h">
+      <DependentUpon>Screens\FriendsPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\CatalogPage.xaml.h">
+      <DependentUpon>Screens\CatalogPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\MessagesPage.xaml.h">
+      <DependentUpon>Screens\MessagesPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\ProfilePage.xaml.h">
+      <DependentUpon>Screens\ProfilePage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\CharacterPage.xaml.h">
+      <DependentUpon>Screens\CharacterPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\InventoryPage.xaml.h">
+      <DependentUpon>Screens\InventoryPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\TradePage.xaml.h">
+      <DependentUpon>Screens\TradePage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\GroupsPage.xaml.h">
+      <DependentUpon>Screens\GroupsPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\ForumPage.xaml.h">
+      <DependentUpon>Screens\ForumPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\SettingsPage.xaml.h">
+      <DependentUpon>Screens\SettingsPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\HelpPage.xaml.h">
+      <DependentUpon>Screens\HelpPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\PurchaseBCPage.xaml.h">
+      <DependentUpon>Screens\PurchaseBCPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Screens\PurchaseRobuxPage.xaml.h">
+      <DependentUpon>Screens\PurchaseRobuxPage.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="Roblox\OnCaptchaSolved.h" />
+    <ClInclude Include="Services\SignupService.h" />
+    <ClInclude Include="Services\AnalyticsService.h" />
+    <ClInclude Include="Services\LoginService.h" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="Colors.xaml" />
+    <Page Include="Components\DatePicker.xaml" />
+    <Page Include="Components\WebView.xaml" />
+    <Page Include="Components\NavMenuItem.xaml" />
+    <Page Include="Components\WebViewPage.xaml" />
+    <Page Include="Components\GameView.xaml" />
+    <Page Include="Screens\CaptchaModal.xaml" />
+    <Page Include="Screens\LandingPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Screens\LoginPage.xaml" />
+    <Page Include="Screens\RbxSplashScreen.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\SignupPage.xaml" />
+    <Page Include="Screens\AppShell.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\HomePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\GamesPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\GamePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\FriendsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\CatalogPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\MessagesPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\ProfilePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\CharacterPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\InventoryPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\TradePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\GroupsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\ForumPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\HelpPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Screens\PurchaseBCPage.xaml" />
+    <Page Include="Screens\PurchaseRobuxPage.xaml" />
+    <Page Include="Styles.xaml" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
       <SubType>Designer</SubType>
     </AppxManifest>
+    <None Include="RobloxUWP_TemporaryKey.pfx" />
     <Media Include="..\fmod\UWP\fmodL_X86.dll">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
@@ -535,36 +719,6 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
       <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
-    </None>
-    <None Include="..\VMProtect\VMProtectSDK32.dll">
-      <DeploymentContent>true</DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DeploymentContent>
-    </None>
-    <None Include="..\VMProtect\VMProtectSDK64.dll">
-      <DeploymentContent>true</DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
-      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
     </None>
     <None Include="..\Client_TemporaryKey.pfx" />
     <None Include="content\fonts\Arial.font">
@@ -1646,18 +1800,101 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <Image Include="PlatformContent\pc\textures\wood\normal.dds" />
     <Image Include="PlatformContent\pc\textures\wood\normaldetail.dds" />
     <Image Include="PlatformContent\pc\textures\wood\specular.dds" />
+    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-100.png" />
+    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-125.png" />
+    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-150.png" />
+    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-200.png" />
+    <Image Include="Assets\BadgeLogo\RobloxBadge24x24.scale-400.png" />
+    <Image Include="Assets\LandingPage\home_bkg.png" />
+    <Image Include="Assets\LandingPage\roblox_logo_red.png" />
+    <Image Include="Assets\Logo.scale-100.png" />
+    <Image Include="Assets\Shell\cancelButton.png" />
+    <Image Include="Assets\Shell\icon_BC.png" />
+    <Image Include="Assets\Shell\icon_BC_on.png" />
+    <Image Include="Assets\Shell\icon_blog.png" />
+    <Image Include="Assets\Shell\icon_blog_on.png" />
+    <Image Include="Assets\Shell\icon_catalog.png" />
+    <Image Include="Assets\Shell\icon_catalog_on.png" />
+    <Image Include="Assets\Shell\icon_character.png" />
+    <Image Include="Assets\Shell\icon_character_on.png" />
+    <Image Include="Assets\Shell\icon_forum.png" />
+    <Image Include="Assets\Shell\icon_forum_on.png" />
+    <Image Include="Assets\Shell\icon_friends.png" />
+    <Image Include="Assets\Shell\icon_friends_on.png" />
+    <Image Include="Assets\Shell\icon_game.png" />
+    <Image Include="Assets\Shell\icon_game_on.png" />
+    <Image Include="Assets\Shell\icon_groups.png" />
+    <Image Include="Assets\Shell\icon_groups_on.png" />
+    <Image Include="Assets\Shell\icon_help.png" />
+    <Image Include="Assets\Shell\icon_help_on.png" />
+    <Image Include="Assets\Shell\icon_home.png" />
+    <Image Include="Assets\Shell\icon_home_on.png" />
+    <Image Include="Assets\Shell\icon_inventory.png" />
+    <Image Include="Assets\Shell\icon_inventory_on.png" />
+    <Image Include="Assets\Shell\icon_logout.png" />
+    <Image Include="Assets\Shell\icon_messages.png" />
+    <Image Include="Assets\Shell\icon_messages_on.png" />
+    <Image Include="Assets\Shell\icon_profile.png" />
+    <Image Include="Assets\Shell\icon_profile_on.png" />
+    <Image Include="Assets\Shell\icon_ROBUX.png" />
+    <Image Include="Assets\Shell\icon_ROBUX_on.png" />
+    <Image Include="Assets\Shell\icon_settings.png" />
+    <Image Include="Assets\Shell\icon_settings_on.png" />
+    <Image Include="Assets\Shell\icon_trade.png" />
+    <Image Include="Assets\Shell\icon_trade_on.png" />
+    <Image Include="Assets\Splash.scale-100.png" />
+    <Image Include="Assets\SplashScreen\RobloxSplash620x300.scale-100.png" />
+    <Image Include="Assets\SplashScreen\RobloxSplash620x300.scale-125.png" />
+    <Image Include="Assets\SplashScreen\RobloxSplash620x300.scale-150.png" />
+    <Image Include="Assets\SplashScreen\RobloxSplash620x300.scale-200.png" />
+    <Image Include="Assets\SplashScreen\RobloxSplash620x300.scale-400.png" />
+    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-100.png" />
+    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-125.png" />
+    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-150.png" />
+    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-200.png" />
+    <Image Include="Assets\Tiles\RobloxStoreLogo50x50.scale-400.png" />
+    <Image Include="Assets\Tiles\RobloxTile150x150.scale-100.png" />
+    <Image Include="Assets\Tiles\RobloxTile150x150.scale-125.png" />
+    <Image Include="Assets\Tiles\RobloxTile150x150.scale-150.png" />
+    <Image Include="Assets\Tiles\RobloxTile150x150.scale-200.png" />
+    <Image Include="Assets\Tiles\RobloxTile150x150.scale-400.png" />
+    <Image Include="Assets\Tiles\RobloxTile310x150.scale-100.png" />
+    <Image Include="Assets\Tiles\RobloxTile310x150.scale-125.png" />
+    <Image Include="Assets\Tiles\RobloxTile310x150.scale-150.png" />
+    <Image Include="Assets\Tiles\RobloxTile310x150.scale-200.png" />
+    <Image Include="Assets\Tiles\RobloxTile310x150.scale-400.png" />
+    <Image Include="Assets\Tiles\RobloxTile310x310.scale-100.png" />
+    <Image Include="Assets\Tiles\RobloxTile310x310.scale-125.png" />
+    <Image Include="Assets\Tiles\RobloxTile310x310.scale-150.png" />
+    <Image Include="Assets\Tiles\RobloxTile310x310.scale-200.png" />
+    <Image Include="Assets\Tiles\RobloxTile310x310.scale-400.png" />
+    <Image Include="Assets\Tiles\RobloxTile44x44.scale-100.png" />
+    <Image Include="Assets\Tiles\RobloxTile44x44.scale-125.png" />
+    <Image Include="Assets\Tiles\RobloxTile44x44.scale-150.png" />
+    <Image Include="Assets\Tiles\RobloxTile44x44.scale-200.png" />
+    <Image Include="Assets\Tiles\RobloxTile44x44.scale-400.png" />
+    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-16_altform-unplated.png" />
+    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-24_altform-unplated.png" />
+    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-256_altform-unplated.png" />
+    <Image Include="Assets\Tiles\RobloxTile44x44.targetsize-48_altform-unplated.png" />
+    <Image Include="Assets\Tiles\RobloxTile71x71.scale-100.png" />
+    <Image Include="Assets\Tiles\RobloxTile71x71.scale-125.png" />
+    <Image Include="Assets\Tiles\RobloxTile71x71.scale-150.png" />
+    <Image Include="Assets\Tiles\RobloxTile71x71.scale-200.png" />
+    <Image Include="Assets\Tiles\RobloxTile71x71.scale-400.png" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\ClientBase\ReflectionMetadata.cpp" />
     <ClCompile Include="..\ClientBase\RenderSettingsItem.cpp" />
     <ClCompile Include="..\ClientShared\SDLGameController.cpp" />
+    <ClCompile Include="..\AppBridge\RobloxView.cpp" />
+    <ClCompile Include="..\AppBridge\LogManager.cpp" />
     <ClCompile Include="App.xaml.cpp">
       <DependentUpon>App.xaml</DependentUpon>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="MainPage.xaml.cpp">
-      <DependentUpon>MainPage.xaml</DependentUpon>
-    </ClCompile>
+    <ClCompile Include="FunctionMarshaller.cpp" />
+    <ClCompile Include="PlaceLauncher.cpp" />
+    <ClCompile Include="Teleporter.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -1666,7 +1903,6 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="RenderJob.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -1675,7 +1911,7 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Marshaller.cpp">
+    <ClCompile Include="UWPPlatform.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">NotUsing</PrecompiledHeader>
@@ -1683,8 +1919,15 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="UserInput.cpp" />
-    <ClCompile Include="UWPPlatform.cpp">
+    <ClCompile Include="UserInput.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="GamepadController.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">NotUsing</PrecompiledHeader>
@@ -1700,6 +1943,103 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Components\DatePicker.xaml.cpp">
+      <DependentUpon>Components\DatePicker.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Components\WebView.xaml.cpp">
+      <DependentUpon>Components\WebView.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Components\NavMenuItem.xaml.cpp">
+      <DependentUpon>Components\NavMenuItem.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Components\NavMenu.xaml.cpp" />
+    <ClCompile Include="Components\WebViewPage.xaml.cpp">
+      <DependentUpon>Components\WebViewPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Components\GameView.xaml.cpp">
+      <DependentUpon>Components\GameView.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Components\GameParameters.cpp" />
+    <ClCompile Include="Components\InputManager.cpp" />
+    <ClCompile Include="Components\Page.cpp" />
+    <ClCompile Include="Roblox\RobloxSettings.cpp" />
+    <ClCompile Include="Roblox\AuthStorage.cpp" />
+    <ClCompile Include="Roblox\NoInternetDialog.cpp" />
+    <ClCompile Include="Screens\LandingPage.xaml.cpp">
+      <DependentUpon>LandingPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\LoginPage.xaml.cpp">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\CaptchaModal.xaml.cpp">
+      <DependentUpon>Screens\CaptchaModal.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\RbxSplashScreen.xaml.cpp">
+      <DependentUpon>RbxSplashScreen.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\SignupPage.xaml.cpp">
+      <DependentUpon>SignupPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\AppShell.xaml.cpp">
+      <DependentUpon>Screens\AppShell.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\HomePage.xaml.cpp">
+      <DependentUpon>Screens\HomePage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\GamesPage.xaml.cpp">
+      <DependentUpon>Screens\GamesPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\GamePage.xaml.cpp">
+      <DependentUpon>Screens\GamePage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\FriendsPage.xaml.cpp">
+      <DependentUpon>Screens\FriendsPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\CatalogPage.xaml.cpp">
+      <DependentUpon>Screens\CatalogPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\MessagesPage.xaml.cpp">
+      <DependentUpon>Screens\MessagesPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\ProfilePage.xaml.cpp">
+      <DependentUpon>Screens\ProfilePage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\CharacterPage.xaml.cpp">
+      <DependentUpon>Screens\CharacterPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\InventoryPage.xaml.cpp">
+      <DependentUpon>Screens\InventoryPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\TradePage.xaml.cpp">
+      <DependentUpon>Screens\TradePage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\GroupsPage.xaml.cpp">
+      <DependentUpon>Screens\GroupsPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\ForumPage.xaml.cpp">
+      <DependentUpon>Screens\ForumPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\SettingsPage.xaml.cpp">
+      <DependentUpon>Screens\SettingsPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\HelpPage.xaml.cpp">
+      <DependentUpon>Screens\HelpPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\PurchaseBCPage.xaml.cpp">
+      <DependentUpon>Screens\PurchaseBCPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Screens\PurchaseRobuxPage.xaml.cpp">
+      <DependentUpon>Screens\PurchaseRobuxPage.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="Services\SignupService.cpp" />
+    <ClCompile Include="Services\AnalyticsService.cpp" />
+    <ClCompile Include="Services\LoginService.cpp" />
+    <ClCompile Include="Services\StoreService.cpp" />
+    <ClCompile Include="Roblox.NativeHybrid\Bridge.cpp" />
+    <ClCompile Include="Roblox.NativeHybrid\Command.cpp" />
+    <ClCompile Include="Roblox.NativeHybrid\Module.cpp" />
+    <ClCompile Include="Roblox.NativeHybrid\GameModule.cpp" />
+    <ClCompile Include="Roblox.NativeHybrid\SocialModule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Projects\App.BulletPhysics.vcxproj">
@@ -1778,6 +2118,13 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     <Xml Include="content\fonts\safechat.xml">
       <DeploymentContent>true</DeploymentContent>
     </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="Managers\Debug-WindowsStoreProxy.xml" />
+    <Xml Include="RobloxCommandSet.xml" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Target Name="CopyContentToAppX" AfterTargets="PostBuildEvent" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32' Or '$(Configuration)|$(Platform)'=='Release|Win32' Or '$(Configuration)|$(Platform)'=='Debug|x64' Or '$(Configuration)|$(Platform)'=='Release|x64' Or '$(Configuration)|$(Platform)'=='Debug|ARM' Or '$(Configuration)|$(Platform)'=='Release|ARM'">

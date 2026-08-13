@@ -1,0 +1,34 @@
+<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Roblox"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="Roblox.Views.RbxSplashScreen">
+    <Page.Content>
+        <Grid Background="#FF0074BD" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.Children>
+                <Canvas x:Name="splashCanvas" Grid.Row="0">
+                    <Canvas.Children>
+                        <Image x:Name="splashImage" Visibility="Collapsed" Source="ms-appx:///Assets/SplashScreen/RobloxSplash620x300.scale-400.png" Grid.Row="0" />
+                    </Canvas.Children>
+                </Canvas>
+                <StackPanel x:Name="splashProgressContainer" Orientation="Horizontal" Grid.Row="1">
+                    <StackPanel.Children>
+                        <ProgressRing x:Name="splashProgressRing" IsActive="True" Width="80" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        <TextBlock x:Name="splashStatusText"
+                            Text="Loading..."
+                            FontSize="32"
+                            Foreground="#FFFFFFFF"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center" />
+                    </StackPanel.Children>
+                </StackPanel>
+            </Grid.Children>
+        </Grid>
+    </Page.Content>
+</Page>

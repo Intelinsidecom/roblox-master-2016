@@ -9,9 +9,9 @@
 #include "internal/stack.h"
 #include <csetjmp>
 
-#ifdef RAPIDJSON_SSE42
+#if defined(RAPIDJSON_SSE42)  && !defined(_M_ARM) && !defined(_M_ARM64) && defined(_MSC_VER)
 #include <nmmintrin.h>
-#elif defined(RAPIDJSON_SSE2)
+#elif defined(RAPIDJSON_SSE2) && !defined(_M_ARM) && !defined(_M_ARM64) && defined(_MSC_VER)
 #include <emmintrin.h>
 #endif
 

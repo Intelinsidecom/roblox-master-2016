@@ -79,7 +79,7 @@
 #endif
 
 // SIMM include
-#if !defined(G3D_IOS) && !defined(G3D_ANDROID)  && !defined(_M_ARM) && !defined(_M_ARM64)// ROBLOX
+#if !defined(G3D_IOS) && !defined(G3D_ANDROID) && !defined(_M_ARM) && !defined(_M_ARM64)// ROBLOX
 #include <xmmintrin.h>
 #endif
 
@@ -194,7 +194,7 @@ void System::init() {
 
 
     // Get the operating system name (also happens to read some other information)
-#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_UWP) 
+#    ifdef RBX_PLATFORM_DURANGO
 
     m_hasSSE = true;
     m_hasSSE2 = true;
@@ -243,6 +243,9 @@ void System::init() {
             m_cpuArch = c;
         }
 
+#if defined(WINAPI_FAMILY) && (WINAPI_FAMILY != WINAPI_FAMILY_DESKTOP_APP)
+        m_operatingSystem = "Windows (UWP)";
+#else
         OSVERSIONINFO osVersionInfo;
         osVersionInfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
         success = GetVersionEx(&osVersionInfo) != 0;
@@ -259,6 +262,7 @@ void System::init() {
         } else {
             m_operatingSystem = "Windows";
         }
+#endif
     
 #    elif defined(G3D_LINUX) || defined(G3D_FREEBSD)
 
@@ -661,7 +665,7 @@ void System::cpuid(CPUIDFunction func, uint32& eax, uint32& ebx, uint32& ecx, ui
     edx = 0;
 }
 
-#elif (!defined(RBX_PLATFORM_DURANGO) || !defined(RBX_PLATFORM_UWP))
+#elif !defined(RBX_PLATFORM_DURANGO)
 
 // See http://sam.zoy.org/blog/2007-04-13-shlib-with-non-pic-code-have-inline-assembly-and-pic-mix-well
 // for a discussion of why the second version saves ebx; it allows 32-bit code to compile with the -fPIC option.

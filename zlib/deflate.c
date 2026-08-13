@@ -51,8 +51,10 @@
 
 #include "deflate.h"
 
-/*const char deflate_copyright[] =
-   " deflate 1.2.8 Copyright 1995-2013 Jean-loup Gailly and Mark Adler ";*/
+#if !defined(RBX_PLATFORM_UWP)
+const char deflate_copyright[] =
+   " deflate 1.2.8 Copyright 1995-2013 Jean-loup Gailly and Mark Adler ";
+#endif
 /*
   If you use the zlib library in a product, an acknowledgment is welcome
   in the documentation of your product. If for some reason you cannot

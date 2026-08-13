@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<VoiceCommands xmlns="http://schemas.microsoft.com/voicecommands/1.2">
+  <CommandSet xml:lang="en-us" Name="AdventureWorksCommandSet_en-us">
+    <AppName> Roblox </AppName>
+    <Example> find games </Example>
+
+    <Command Name="searchGames">
+      <Example> Find Pizza Place </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> find {findText} </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> look up {findText} </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> search [for] {findText} </ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> search {builtin:AppName} [for] {findText} </ListenFor>
+      <Feedback> Searching for game </Feedback>
+      <Navigate />            
+    </Command>
+    
+    <PhraseTopic Label="findText" Scenario="Search">
+      <Subject> Text Hint Here </Subject>
+    </PhraseTopic>
+    
+  </CommandSet>
+
+  <CommandSet xml:lang="en-gb" Name="AdventureWorksCommandSet_en-gb">
+    <AppName> Roblox </AppName>
+    <Example> Show trip to London </Example>
+
+    <Command Name="searchGames">
+      <Example> Find Pizza Place </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> find {findText} </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> look up {findText} </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> search [for] {findText} </ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> search {builtin:AppName} [for] {findText} </ListenFor>
+      <Feedback> Searching for game </Feedback>
+      <Navigate />      
+    </Command>
+    
+    <PhraseTopic Label="findText" Scenario="Search">
+      <Subject> Text Hint Here </Subject>
+    </PhraseTopic>
+  </CommandSet>
+
+  <CommandSet xml:lang="en-au" Name="AdventureWorksCommandSet_en-au">
+    <AppName> Roblox </AppName>
+    <Example> Show trip to London </Example>
+
+    <Command Name="searchGames">
+      <Example> Find Pizza Place </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> find {findText} </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> look up {findText} </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> search [for] {findText} </ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> search {builtin:AppName} [for] {findText} </ListenFor>
+      <Feedback> Searching for game </Feedback>
+      <Navigate />
+    </Command>
+    
+    <PhraseTopic Label="findText" Scenario="Search">
+      <Subject> Text Hint Here </Subject>
+    </PhraseTopic>    
+  </CommandSet>
+
+  <CommandSet xml:lang="en-in" Name="AdventureWorksCommandSet_en-in">
+    <AppName> Roblox </AppName>
+    <Example> Show trip to London </Example>
+
+    <Command Name="searchGames">
+      <Example> Find Pizza Place </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> find {findText} </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> look up {findText} </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> search [for] {findText} </ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> search {builtin:AppName} [for] {findText} </ListenFor>
+      <Feedback> Searching for game </Feedback>
+      <Navigate />
+    </Command>
+
+    <PhraseTopic Label="findText" Scenario="Search">
+      <Subject> Text Hint Here </Subject>
+    </PhraseTopic>  
+  </CommandSet>
+
+  <CommandSet xml:lang="en-ca" Name="AdventureWorksCommandSet_en-ca">
+    <AppName> Roblox </AppName>
+    <Example> Show trip to London </Example>
+
+    <Command Name="searchGames">
+      <Example> Find Pizza Place </Example>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> find {findText} </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> look up {findText} </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> search [for] {findText} </ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> search {builtin:AppName} [for] {findText} </ListenFor>
+      <Feedback> Searching for game </Feedback>
+      <Navigate />
+    </Command>
+    
+    <PhraseTopic Label="findText" Scenario="Search">
+      <Subject> Text Hint Here </Subject>
+    </PhraseTopic>  
+  </CommandSet>
+
+</VoiceCommands>

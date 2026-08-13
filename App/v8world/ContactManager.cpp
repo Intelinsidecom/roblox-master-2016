@@ -245,10 +245,15 @@ void ContactManager::getPrimitivesTouchingExtents(const Extents& extents,
 
 void ContactManager::getPrimitivesOverlapping(const Extents& extents, DenseHashSet<Primitive*>& result)
 {
+#if defined(RBX_PLATFORM_UWP) && (defined(_M_ARM) || defined(_M_ARM64))
+	// AI offered this as a optimization for mobiles, not sure how much it improved performance.
+	spatialHash->getPrimitivesOverlappingRec(extents, result);
+#else
 	if (DFFlag::ContactManagerOptimizedQueryExtents)
 		spatialHash->getPrimitivesOverlappingRec(extents, result);
 	else
 		spatialHash->getPrimitivesOverlapping(extents, result);
+#endif
 }
 
 Primitive* ContactManager::getSlowHit(	const G3D::Array<Primitive*>& primitives,

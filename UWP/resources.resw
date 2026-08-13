@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BlogTitle" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="CancelTitle" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="CaptchaMessage" xml:space="preserve">
+    <value>Please solve the Captcha to prove you aren't a robot.</value>
+  </data>
+  <data name="CaptchaTitle" xml:space="preserve">
+    <value>Captcha</value>
+  </data>
+  <data name="CatalogTitle" xml:space="preserve">
+    <value>Catalog</value>
+  </data>
+  <data name="CharacterTitle" xml:space="preserve">
+    <value>Character</value>
+  </data>
+  <data name="ForumTitle" xml:space="preserve">
+    <value>Forum</value>
+  </data>
+  <data name="FriendsTitle" xml:space="preserve">
+    <value>Friends</value>
+  </data>
+  <data name="GamesTitle" xml:space="preserve">
+    <value>Games</value>
+  </data>
+  <data name="GroupsTitle" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="HelpTitle" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="HomeTitle" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="InternetConnectionMissing" xml:space="preserve">
+    <value>No Internet!</value>
+  </data>
+  <data name="InternetConnectionRequired" xml:space="preserve">
+    <value>ROBLOX requires an internet connection.</value>
+  </data>
+  <data name="InventoryTitle" xml:space="preserve">
+    <value>Inventory</value>
+  </data>
+  <data name="LandingPage" xml:space="preserve">
+    <value>TEST</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LogoutAction" xml:space="preserve">
+    <value>Log Out</value>
+  </data>
+  <data name="LogoutMessage" xml:space="preserve">
+    <value>Are you sure you want to logout?</value>
+  </data>
+  <data name="LogoutTitle" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="MessagesTitle" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="NumberShorthandBillionPlus" xml:space="preserve">
+    <value>B+</value>
+  </data>
+  <data name="NumberShorthandMillionPlus" xml:space="preserve">
+    <value>M+</value>
+  </data>
+  <data name="NumberShorthandThousandPlus" xml:space="preserve">
+    <value>K+</value>
+  </data>
+  <data name="ProfileTitle" xml:space="preserve">
+    <value>Profile</value>
+  </data>
+  <data name="PurchaseBCTitle" xml:space="preserve">
+    <value>Buy Builders Club</value>
+  </data>
+  <data name="PurchaseRobuxTitle" xml:space="preserve">
+    <value>Buy Robux</value>
+  </data>
+  <data name="PurchasingErrorConsumableAlreadyPurchased" xml:space="preserve">
+    <value>It appears that you have already purchased this item.</value>
+  </data>
+  <data name="PurchasingErrorConsumableNotFulfilled" xml:space="preserve">
+    <value>A previous purchase has not yet been completed. Please try again later.</value>
+  </data>
+  <data name="PurchasingErrorConsumableNotPurchased" xml:space="preserve">
+    <value>The purchase was canceled. You have not been charged.</value>
+  </data>
+  <data name="PurchasingErrorConsumableUnknown" xml:space="preserve">
+    <value>This consumable product could not be purchased. Please try again later.</value>
+  </data>
+  <data name="PurchasingErrorFulfillException" xml:space="preserve">
+    <value>An unexpected problem has occured. Please come back later.</value>
+  </data>
+  <data name="PurchasingErrorFulfillNothing" xml:space="preserve">
+    <value>This product has already been granted.</value>
+  </data>
+  <data name="PurchasingErrorFulfillPurchasePending" xml:space="preserve">
+    <value>Processing your payment is taking longer than expected. Please come back later.</value>
+  </data>
+  <data name="PurchasingErrorFulfillPurchaseReverted" xml:space="preserve">
+    <value>It appears that you have cancelled your payment for this product. It will be here if you need it.</value>
+  </data>
+  <data name="PurchasingErrorFulfillServerError" xml:space="preserve">
+    <value>A server error has caused a temporary disruption. Please come back later.</value>
+  </data>
+  <data name="PurchasingErrorFulfillUnknown" xml:space="preserve">
+    <value>Your purchase could not be granted at this time. Please try again later.</value>
+  </data>
+  <data name="PurchasingErrorGrantBadRequest" xml:space="preserve">
+    <value>Something is not right with this purchase. Please try again later.</value>
+  </data>
+  <data name="PurchasingErrorGrantCouldNotVerify" xml:space="preserve">
+    <value>This purchase could not be verified. Please try again later.</value>
+  </data>
+  <data name="PurchasingErrorGrantPageMissing" xml:space="preserve">
+    <value>The ROBLOX billing service is temporarily down. Your payment will be processed later.</value>
+  </data>
+  <data name="PurchasingErrorGrantUnknown" xml:space="preserve">
+    <value>Your purchase could not be completed at this time. Please try again later.</value>
+  </data>
+  <data name="PurchasingErrorStoreDisabled" xml:space="preserve">
+    <value>Purchasing items from the Windows Store is temporarily disabled. Please try again later.</value>
+  </data>
+  <data name="PurchasingErrorUserNotLoggedIn" xml:space="preserve">
+    <value>You must first log into your ROBLOX account before you can make purchases.</value>
+  </data>
+  <data name="PurchasingErrorValidationPageMissing" xml:space="preserve">
+    <value>This product cannot be validated at this time. Try again later.</value>
+  </data>
+  <data name="PurchasingErrorValidationProductUnavailable" xml:space="preserve">
+    <value>This product is unavailable at this time. Try again later.</value>
+  </data>
+  <data name="PurchasingErrorValidationUnknown" xml:space="preserve">
+    <value>This product could not be validated.</value>
+  </data>
+  <data name="PurchasingMsgTitleGrantFailed" xml:space="preserve">
+    <value>Server Refused Purchase!</value>
+  </data>
+  <data name="PurchasingMsgTitleIncomplete" xml:space="preserve">
+    <value>Purchase Could Not Be Completed!</value>
+  </data>
+  <data name="PurchasingMsgTitleStoreDisabled" xml:space="preserve">
+    <value>Windows Store Temporarily Disabled</value>
+  </data>
+  <data name="PurchasingMsgTitleSuccess" xml:space="preserve">
+    <value>Purchase Success!</value>
+  </data>
+  <data name="PurchasingMsgTitleValidationFailed" xml:space="preserve">
+    <value>Could Not Find Product!</value>
+  </data>
+  <data name="PurchasingSuccessConsumableGranted" xml:space="preserve">
+    <value>This consumable has been purchased for your account!</value>
+  </data>
+  <data name="PurchasingSuccessFulfilled" xml:space="preserve">
+    <value>Congratulations on a successful purchase! Your account will be updated shortly.</value>
+  </data>
+  <data name="PurchasingSuccessServerGranted" xml:space="preserve">
+    <value>This consumable has successfully been credited to your account!</value>
+  </data>
+  <data name="PurchasingSuccessValidated" xml:space="preserve">
+    <value>This product exists on the Windows Store!</value>
+  </data>
+  <data name="SearchGames" xml:space="preserve">
+    <value>Search Games</value>
+  </data>
+  <data name="SearchPeople" xml:space="preserve">
+    <value>Search People</value>
+  </data>
+  <data name="SettingsTitle" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SignupTitle" xml:space="preserve">
+    <value>Signup</value>
+  </data>
+  <data name="SplashCheckAuthentication" xml:space="preserve">
+    <value>Checking authentication credentials...</value>
+  </data>
+  <data name="SplashCheckUpdate" xml:space="preserve">
+    <value>Checking for updates...</value>
+  </data>
+  <data name="SplashInitializingDevice" xml:space="preserve">
+    <value>Initializing device...</value>
+  </data>
+  <data name="TradeTitle" xml:space="preserve">
+    <value>Trade</value>
+  </data>
+  <data name="UpgradeButtonNotNow" xml:space="preserve">
+    <value>Not Now</value>
+  </data>
+  <data name="UpgradeButtonUpgrade" xml:space="preserve">
+    <value>Upgrade</value>
+  </data>
+  <data name="UpgradeRecommendedTitle" xml:space="preserve">
+    <value>Update Recommended</value>
+  </data>
+  <data name="UpgradeRecommenedMessage" xml:space="preserve">
+    <value>The latest and greatest updates are available for ROBLOX! You do not need to update right now to continue playing. Would you like to update ROBLOX now?</value>
+  </data>
+  <data name="UpgradeRequiredMessage" xml:space="preserve">
+    <value>In order to play ROBLOX, you must update it first. The 'Upgrade' button will take you to the Store app to download the latest version.</value>
+  </data>
+  <data name="UpgradeRequiredTitle" xml:space="preserve">
+    <value>Update Required</value>
+  </data>
+</root>

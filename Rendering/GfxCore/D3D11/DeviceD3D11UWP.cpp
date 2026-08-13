@@ -28,6 +28,7 @@ extern "C" IUnknown* getUWPSwapChainPanel();
     extern "C" void getUWPFramebufferSize(unsigned int* width, unsigned int* height);
     extern "C" void getUWPCompositionScale(float* scaleX, float* scaleY);
     extern "C" void setSwapChainOnUIThread(IUnknown* swapChain);
+    extern "C" void uwpNotifyFramePresented();
 
     static bool isXbox()
     {
@@ -356,7 +357,25 @@ else
         HRESULT hr = static_cast<IDXGISwapChain1*>(swapChain11)->Present1(1, 0, &parameters);
         if (FAILED(hr))
         {
-            RBX::StandardOut::singleton()->printf(RBX::MESSAGE_ERROR, "Present1 failed: %x", hr);
+            if (hr == DXGI_ERROR_DEVICE_REMOVED)
+            {
+                HRESULT reason = device11 ? device11->GetDeviceRemovedReason() : S_OK;
+                RBX::StandardOut::singleton()->printf(RBX::MESSAGE_ERROR,
+                    "Present1: D3D11 device removed (hr=%08x, removed reason=%08x)", hr, reason);
+            }
+            else if (hr == DXGI_ERROR_DEVICE_RESET)
+            {
+                RBX::StandardOut::singleton()->printf(RBX::MESSAGE_ERROR,
+                    "Present1: D3D11 device reset (hr=%08x)", hr);
+            }
+            else
+            {
+                RBX::StandardOut::singleton()->printf(RBX::MESSAGE_ERROR, "Present1 failed: %08x", hr);
+            }
+        }
+        else
+        {
+            uwpNotifyFramePresented();
         }
     }
 
@@ -364,11 +383,18 @@ else
     {
         IDXGISwapChain1* swapChain1 = static_cast<IDXGISwapChain1*>(swapChain11);
 
-        HRESULT hr = swapChain1->ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, 0);
+        // Resize to the exact engine framebuffer size (DIP resolution on
+        // Windows Mobile, physical resolution elsewhere) so the back buffer
+        // always matches createMainFramebuffer's dimensions. ResizeBuffers
+        // with 0,0 would instead adopt the panel's physical size, which on a
+        // high-DPI phone would silently grow the back buffer back to full
+        // resolution and reintroduce the GPU overload.
+        std::pair<unsigned int, unsigned int> dimensions = getFramebufferSize();
+
+        HRESULT hr = swapChain1->ResizeBuffers(0, dimensions.first, dimensions.second, DXGI_FORMAT_UNKNOWN, 0);
         if (FAILED(hr))
         {
             RBX::StandardOut::singleton()->printf(RBX::MESSAGE_OUTPUT, "ResizeBuffers failed: %x, recreating swap chain", hr);
-            std::pair<unsigned int, unsigned int> dimensions = getFramebufferSize();
             ReleaseCheck(swapChain11);
             swapChain11 = createSwapchain(device11, dimensions.first, dimensions.second);
         }

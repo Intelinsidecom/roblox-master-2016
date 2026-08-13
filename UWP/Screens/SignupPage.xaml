@@ -1,0 +1,81 @@
+<ContentDialog
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Roblox"
+    xmlns:controls="using:Roblox.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="Roblox.Views.SignupPage"
+    Height="750"
+    MaxWidth="1000"
+    HorizontalAlignment="Stretch">
+    <ContentDialog.Content>
+        <StackPanel Orientation="Vertical" Background="{StaticResource RbxShadow}">
+            <StackPanel.Children>
+                <StackPanel
+                    Margin="10"
+                    Background="#FFFFFFFF"
+                    Padding="20,10,0,0"
+                    Width="NaN"
+                    Height="530">
+                    <StackPanel.Children>
+                        <TextBlock Text="Signup" Foreground="#FF000000" FontSize="36" />
+                        <TextBlock Text="Username" Foreground="#FF000000" FontSize="22" Margin="0,10,0,0" />
+                        <TextBox x:Name="username_textbox"
+                            Background="{StaticResource RbxGray5}"
+                            HorizontalAlignment="Left"
+                            Width="540"
+                            Height="32"
+                            InputScope="EmailNameOrAddress" />
+                        <TextBlock Text="Password" Foreground="#FF000000" FontSize="22" Margin="0,10,0,0" />
+                        <PasswordBox x:Name="password_textbox" Background="{StaticResource RbxGray5}" Width="540" HorizontalAlignment="Left" Height="32" />
+                        <TextBlock Text="Confirm Password" Foreground="#FF000000" FontSize="22" Margin="0,10,0,0" />
+                        <PasswordBox x:Name="confirm_password_textbox" Background="{StaticResource RbxGray5}" Width="540" HorizontalAlignment="Left" Height="32" />
+                        <TextBlock Text="Birthday" Foreground="#FF000000" FontSize="22" Margin="0,10,0,0" />
+                        <controls:DatePicker x:Name="birthday_picker" HorizontalAlignment="Left" Height="32" />
+                        <TextBlock Text="Gender" Foreground="#FF000000" FontSize="22" Margin="0,10,0,0" />
+                        <StackPanel x:Name="gender_container" Orientation="Horizontal" HorizontalAlignment="Left" Margin="5,0,0,0">
+                            <StackPanel.Children>
+                                <RadioButton x:Name="male_button" GroupName="gender" Content="Male" FontSize="16" Height="32" />
+                                <RadioButton x:Name="female_button" GroupName="gender" Content="Female" FontSize="16" Height="32" />
+                            </StackPanel.Children>
+                        </StackPanel>
+                        <TextBlock x:Name="status_display"
+                            Text="Error placeholder text."
+                            Margin="0,10,0,5"
+                            Width="550"
+                            Foreground="#FFFFFFFF"
+                            FontSize="16" />
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0">
+                            <StackPanel.Children>
+                                <Button x:Name="signup_button"
+                                    Content="Signup"
+                                    Width="100"
+                                    Height="40"
+                                    FontSize="18"
+                                    Background="{StaticResource RbxBlue2}"
+                                    BorderBrush="#FF000000"
+                                    BorderThickness="0.8" />
+                                <Button x:Name="cancel_button"
+                                    Margin="20,0,0,0"
+                                    Background="#FFFFFFFF"
+                                    Content="Cancel"
+                                    Width="100"
+                                    Height="40"
+                                    FontSize="18"
+                                    BorderBrush="#FF000000"
+                                    BorderThickness="0.8" />
+                            </StackPanel.Children>
+                        </StackPanel>
+                        <Button x:Name="login_button"
+                            Content="Already a member? Log in to your account."
+                            HorizontalAlignment="Center"
+                            Background="#FFFFFFFF"
+                            Foreground="{StaticResource RbxBlue3}"
+                            Margin="0" />
+                    </StackPanel.Children>
+                </StackPanel>
+            </StackPanel.Children>
+        </StackPanel>
+    </ContentDialog.Content>
+</ContentDialog>

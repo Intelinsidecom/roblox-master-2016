@@ -1,89 +1,171 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "UWPPlatform.h"
-#include "UserInput.h"
+
+#include <atomic>
+#include <cmath>
+#include <string>
+#include <utility>
+
+#include <wrl.h>
+
+#include <Windows.h>
+
+#include <windows.ui.xaml.media.dxinterop.h>
+#include <dxgi.h>
+
+#include <windows.system.h>
+#include <windows.ui.xaml.h>
+#include <windows.ui.core.h>
 
 #include "util/standardout.h"
+#include "util/Http.h"
+#include "rbx/rbxTime.h"
 
-#include "v8datamodel/GameSettings.h"
-#include "v8datamodel/StarterPlayerService.h"
-#include "v8datamodel/PlayerScripts.h"
-#include "V8DataModel/GameBasicSettings.h"
-#include "v8datamodel/DebugSettings.h"
-#include "v8datamodel/Lighting.h"
-#include "v8datamodel/Sky.h"
-#include "v8datamodel/Workspace.h"
-#include "v8datamodel/ContentProvider.h"
-#include "util/ContentId.h"
-#include "v8datamodel/BasicPartInstance.h"
-#include "v8datamodel/Camera.h"
-#include "v8datamodel/UserInputService.h"
-#include "script/IScriptFilter.h"
-#include "script/script.h"
-#include "script/LuaSourceContainer.h"
-#include "v8xml/Serializer.h"
-#include "util/RunStateOwner.h"
-#include "NetworkSettings.h"
-#include "Network/Players.h"
-#include "Network/Player.h"
-#include "Server.h"
-#include "Client.h"
-#include "rbx/TaskScheduler.h"
-#include "script/ScriptContext.h"
+#include "PlaceLauncher.h"
+#include "RobloxView.h"
+#include "Screens/AppShell.xaml.h"
 
+#include "util/MemoryStats.h"
 #include "GfxBase/ViewBase.h"
-#include "GfxBase/RenderSettings.h"
-#include "GfxBase/FrameRateManager.h"
-#include "RenderJob.h"
-#include "SDLGameController.h"
+#include "RenderView.h"
 
-#include <SDL.h>
+#include "Roblox\RobloxSettings.h"
+#include "Roblox\AuthStorage.h"
+#include "util/Statistics.h"
 
-#include <string>
-#include <atomic>
-#include <chrono>
-#include <condition_variable>
-#include <thread>
-#include <fstream>
-#include <Windows.h>
-#include <boost/filesystem.hpp>
-#include <algorithm>
+namespace
+{
+Windows::UI::Xaml::Controls::SwapChainPanel^ g_swapChainPanel = nullptr;
 
-namespace FFlag { extern bool DebugD3D11DebugMode; }
+std::atomic<unsigned int> g_cachedFbWidth{ 0 };
+std::atomic<unsigned int> g_cachedFbHeight{ 0 };
+std::atomic<float> g_cachedCompScaleX{ 1.0f };
+std::atomic<float> g_cachedCompScaleY{ 1.0f };
+std::atomic<bool> g_isWindowsPhone{ false };
+std::atomic<bool> g_isLowMemoryDevice{ false };
+std::atomic<bool> g_isLowMemoryDeviceKnown{ false };
 
-#include <Unknwn.h>
-#include <guiddef.h>
-#include <dxgi.h>
-#include <windows.ui.xaml.media.dxinterop.h>
+static double getPhysicalRamBytes();
 
-// Needed for X64 builds
-#ifndef IID_IUnknown
-extern "C" const GUID IID_IUnknown = { 0x00000000, 0x0000, 0x0000, { 0xc0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x46 } };
-#endif
+static bool computeIsLowMemoryDevice()
+{
+    try
+    {
+        auto limit = Windows::System::MemoryManager::AppMemoryUsageLimit;
+        if (limit > 0)
+            return limit <= (384ull * 1024 * 1024);
+    }
+    catch (Platform::Exception^) { }
 
-static Windows::UI::Xaml::Controls::SwapChainPanel^ g_swapChainPanel = nullptr;
+    double gb = getPhysicalRamBytes() / (1024.0 * 1024.0 * 1024.0);
+    return gb <= 1.0;
+}
 
-static std::atomic<unsigned int> g_cachedFbWidth{0};
-static std::atomic<unsigned int> g_cachedFbHeight{0};
-static std::atomic<float> g_cachedCompScaleX{1.0f};
-static std::atomic<float> g_cachedCompScaleY{1.0f};
-static std::atomic<bool> g_isWindowsPhone{ false };
+std::atomic<bool> g_gameReadyFired{ false };
+
+const float kRenderScaleMin      = 0.5f;
+const float kRenderScaleMax      = 2.0f;
+const float kRenderScaleOverride = 0.0f;
+
+#pragma comment(lib, "OneCoreUAP.lib")
+struct MemoryStatusExLocal
+{
+    DWORD     dwLength;
+    DWORD     dwMemoryLoad;
+    DWORDLONG ullTotalPhys;
+    DWORDLONG ullAvailPhys;
+    DWORDLONG ullTotalPageFile;
+    DWORDLONG ullAvailPageFile;
+    DWORDLONG ullTotalVirtual;
+    DWORDLONG ullAvailVirtual;
+    DWORDLONG ullAvailExtendedVirtual;
+};
+
+extern "C" __declspec(dllimport) BOOL WINAPI GlobalMemoryStatusEx(MemoryStatusExLocal* lpBuffer);
+
+static double getPhysicalRamBytes()
+{
+    MemoryStatusExLocal status;
+    status.dwLength = sizeof(status);
+    if (!GlobalMemoryStatusEx(&status))
+        return 0.0;
+    return static_cast<double>(status.ullTotalPhys);
+}
+
+static double getAvailablePhysicalRamBytes()
+{
+    MemoryStatusExLocal status;
+    status.dwLength = sizeof(status);
+    if (!GlobalMemoryStatusEx(&status))
+        return 0.0;
+    return static_cast<double>(status.ullAvailPhys);
+}
+
+void applyLowMemTuning()
+{
+    if (!UWPPlatform::GetInstance().IsLowMemoryDevice())
+        return;
+
+    FLog::SetValue("StreamingMemoryUsagePercent", "10");
+    FLog::SetValue("StreamingSafeMemWatermarkMB", "90");
+    FLog::SetValue("StreamingLowMemWatermarkMB", "60");
+    FLog::SetValue("StreamingCriticalLowMemWatermarkMB", "40");
+    FLog::SetValue("RenderTextureManagerBudget", "16");
+    FLog::SetValue("RenderTextureManagerBudgetFor4k", "256");
+    FLog::SetValue("RenderTextureManagerMaxTextureSize", "512");
+    FLog::SetValue("RenderTextureCompositorBudget", "4");
+    FLog::SetValue("RenderTextureCompositorDisabled", "1");
+
+    RBX::StandardOut::singleton()->printf(RBX::MESSAGE_INFO,
+        "UWP: low-mem engine tuning applied (streaming 10%%, watermarks 90/60/40 MB, texture budget 16 MB, max tex 512, compositor off)");
+}
+
+static float getRecommendedRenderScale()
+{
+    double gb = getPhysicalRamBytes() / (1024.0 * 1024.0 * 1024.0);
+    if (gb <= 0.0)
+        gb = 2.0;
+
+    double scale;
+    if (gb <= 0.5)
+        scale = 0.5;
+    else if (gb <= 1.0)
+        scale = 0.5 + (gb - 0.5);
+    else if (gb <= 3.0)
+        scale = 1.0 + 0.25 * (gb - 1.0);
+    else
+        scale = 1.5 + 0.5 * (gb - 3.0);
+    if (scale > kRenderScaleMax) scale = kRenderScaleMax;
+    if (scale < kRenderScaleMin) scale = kRenderScaleMin;
+    return static_cast<float>(scale);
+}
+
+static float computeEffectiveScale(float compositionScale)
+{
+    float effectiveMax = kRenderScaleOverride > 0.0f
+        ? kRenderScaleOverride
+        : getRecommendedRenderScale();
+    if (effectiveMax > compositionScale)
+        effectiveMax = compositionScale;
+    float eff = compositionScale;
+    if (eff > effectiveMax) eff = effectiveMax;
+    if (eff < kRenderScaleMin) eff = kRenderScaleMin;
+    return eff;
+}
+} // namespace
 
 extern "C" bool isUWPWindowsPhone()
 {
     return g_isWindowsPhone.load(std::memory_order_relaxed);
 }
 
-// logic moved to initialize()
-
-class UWPPlatform;
-
 extern "C" IUnknown* getUWPSwapChainPanel()
 {
     if (g_swapChainPanel)
     {
         Microsoft::WRL::ComPtr<IUnknown> unknown;
-        HRESULT hr = reinterpret_cast<IUnknown*>(g_swapChainPanel)->QueryInterface(IID_IUnknown, &unknown);
-        if (SUCCEEDED(hr))
+        HRESULT hr = reinterpret_cast<IUnknown*>(g_swapChainPanel)->QueryInterface(IID_PPV_ARGS(&unknown));
+        if (SUCCEEDED(hr) && unknown)
         {
             IUnknown* result = unknown.Detach();
             return result;
@@ -99,14 +181,15 @@ extern "C" void getUWPFramebufferSize(unsigned int* width, unsigned int* height)
             auto family = Windows::System::Profile::AnalyticsInfo::VersionInfo->DeviceFamily;
             std::wstring wfamily(family->Begin(), family->End());
             return std::string(wfamily.begin(), wfamily.end());
-        } catch (...) {
+        }
+        catch (...) {
             return std::string("Windows.Desktop");
         }
     }();
 
     if (deviceFamily == "Windows.Xbox")
     {
-        if (width)  *width  = 1920;
+        if (width)  *width = 1920;
         if (height) *height = 1080;
         return;
     }
@@ -116,30 +199,38 @@ extern "C" void getUWPFramebufferSize(unsigned int* width, unsigned int* height)
 
     if (w == 0 || h == 0)
     {
-            auto displayInfo = Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
-            if (displayInfo)
-            {
-                auto bounds = Windows::UI::Core::CoreWindow::GetForCurrentThread()->Bounds;
-                float scale = displayInfo->RawPixelsPerViewPixel;
-                w = static_cast<unsigned int>(bounds.Width * scale);
-                h = static_cast<unsigned int>(bounds.Height * scale);
-            }
+        try
+        {
+            auto bounds = Windows::UI::Core::CoreWindow::GetForCurrentThread()->Bounds;
+            w = static_cast<unsigned int>(bounds.Width);
+            h = static_cast<unsigned int>(bounds.Height);
+        }
+        catch (...)
+        {
+        }
     }
 
-    if (width)  *width  = w;
+    if (w == 0) w = 800;
+    if (h == 0) h = 600;
+
+    if (width)  *width = w;
     if (height) *height = h;
 }
 
 extern "C" void getUWPCompositionScale(float* scaleX, float* scaleY)
 {
-    if (scaleX) *scaleX = g_cachedCompScaleX.load(std::memory_order_relaxed);
-    if (scaleY) *scaleY = g_cachedCompScaleY.load(std::memory_order_relaxed);
+    float x = g_cachedCompScaleX.load(std::memory_order_relaxed);
+    float y = g_cachedCompScaleY.load(std::memory_order_relaxed);
+    if (scaleX) *scaleX = x;
+    if (scaleY) *scaleY = y;
 }
 
 extern "C" void setSwapChainOnUIThread(IUnknown* swapChain)
 {
     if (!g_swapChainPanel || !swapChain)
         return;
+
+    g_gameReadyFired.store(false, std::memory_order_release);
 
     swapChain->AddRef();
 
@@ -156,329 +247,129 @@ extern "C" void setSwapChainOnUIThread(IUnknown* swapChain)
                 if (SUCCEEDED(hr) && dxgiSwapChain != nullptr)
                 {
                     panelNative->SetSwapChain(dxgiSwapChain);
+
                     dxgiSwapChain->Release();
                 }
                 panelNative->Release();
             }
             swapChain->Release();
+
+            auto gameReadyTimer = ref new Windows::UI::Xaml::DispatcherTimer();
+            gameReadyTimer->Interval = Windows::Foundation::TimeSpan{ 15000000 }; // 1.5s in 100ns units
+            gameReadyTimer->Tick +=
+                ref new Windows::Foundation::EventHandler<Platform::Object^>(
+                    [gameReadyTimer](Platform::Object^, Platform::Object^)
+                    {
+                        gameReadyTimer->Stop();
+                        if (!g_gameReadyFired.exchange(true, std::memory_order_acq_rel))
+                            UWPPlatform::GetInstance().fireGameReady();
+                    });
+            gameReadyTimer->Start();
         }));
 }
 
-static const char* const kBaseUrl = "https://www.freblx.xyz/";
+extern "C" void uwpNotifyFramePresented()
+{
+    bool expected = false;
+    if (!g_gameReadyFired.compare_exchange_strong(expected, true, std::memory_order_acq_rel))
+        return;
 
-static RBX::CRenderSettings g_renderSettings;
-
-// -----------------------------------------------------------------------------
+    UWPPlatform::GetInstance().fireGameReady();
+}
 
 UWPPlatform::UWPPlatform()
-    : m_marshaller(nullptr)
-    , m_game(nullptr)
-    , m_dataModel()
-    , m_view(nullptr)
-    , m_renderJob()
-    , m_context()
-    , m_sdlWindow(nullptr)
-    , m_dispatcher(nullptr)
-    , m_initializationComplete(false)
-    , m_cachedIsWindowsPhone(false)
-    , m_sdlInitialized(false)
+    : m_initialized(false)
+    , m_swapChainPanel(nullptr)
+    , m_memUsageIncreasedToken{ 0 }
+    , m_memLimitChangingToken{ 0 }
+    , m_memPressureTimer(nullptr)
+    , m_memPressureStarted(false)
+    , m_lastPressureGc()
 {
 }
 
 UWPPlatform::~UWPPlatform()
 {
-    shutdown();
+}
+
+UWPPlatform& UWPPlatform::GetInstance()
+{
+    static UWPPlatform instance;
+    return instance;
+}
+
+bool UWPPlatform::IsLowMemoryDevice() const
+{
+    if (!g_isLowMemoryDeviceKnown.load(std::memory_order_acquire))
+    {
+        g_isLowMemoryDevice.store(computeIsLowMemoryDevice(), std::memory_order_release);
+        g_isLowMemoryDeviceKnown.store(true, std::memory_order_release);
+    }
+    return g_isLowMemoryDevice.load(std::memory_order_acquire);
 }
 
 void UWPPlatform::initialize()
 {
-    m_marshaller = new Marshaller();
+    if (m_initialized)
+        return;
+
+    RBX::FunctionMarshaller::GetWindow();
+
     initializeLogging();
-    initializeSettings();
 
-    if (g_swapChainPanel)
-        m_dispatcher = g_swapChainPanel->Dispatcher;
-    else
     {
-        try { m_dispatcher = Windows::UI::Core::CoreWindow::GetForCurrentThread()->Dispatcher; }
-        catch (...) {}
-    }
-
-    if (g_swapChainPanel)
-    {
-        float scaleX = static_cast<float>(g_swapChainPanel->CompositionScaleX);
-        float scaleY = static_cast<float>(g_swapChainPanel->CompositionScaleY);
-        unsigned int w = static_cast<unsigned int>(g_swapChainPanel->ActualWidth * scaleX);
-        unsigned int h = static_cast<unsigned int>(g_swapChainPanel->ActualHeight * scaleY);
-
-        if (w == 0 || h == 0)
+        Platform::String^ baseUrl = Roblox::RobloxSettings::GetInstance()->GetBaseURL();
+        if (baseUrl != nullptr && !baseUrl->IsEmpty())
         {
-            try {
-                auto bounds = Windows::UI::Core::CoreWindow::GetForCurrentThread()->Bounds;
-                auto displayInfo = Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
-                float rawScale = displayInfo ? displayInfo->RawPixelsPerViewPixel : 1.0f;
-                w = static_cast<unsigned int>(bounds.Width * rawScale);
-                h = static_cast<unsigned int>(bounds.Height * rawScale);
-            } catch (...) {}
+            std::wstring w(baseUrl->Begin(), baseUrl->End());
+            std::string url(w.begin(), w.end());
+            if (!url.empty() && url[url.length() - 1] != '/')
+            {
+                url.push_back('/');
+            }
+            ::SetBaseURL(url);
         }
-
-        g_cachedFbWidth.store(w,  std::memory_order_release);
-        g_cachedFbHeight.store(h, std::memory_order_release);
-        g_cachedCompScaleX.store(scaleX, std::memory_order_release);
-        g_cachedCompScaleY.store(scaleY, std::memory_order_release);
     }
 
+    RBX::Http::rbxUserAgent = "Roblox/UWP";
 
-    bool currentIsMobile = []() -> bool {
-        try {
+    if (Roblox::AuthStorage::HasSession())
+    {
+        Platform::String^ sessionCookie = Roblox::AuthStorage::SessionCookie();
+        if (sessionCookie != nullptr && !sessionCookie->IsEmpty())
+        {
+            std::wstring wCookie(sessionCookie->Begin(), sessionCookie->End());
+            std::string cookie(wCookie.begin(), wCookie.end());
+
+            std::string cookieDomain = GetBaseURL();
+            size_t schemeEnd = cookieDomain.find("://");
+            if (schemeEnd != std::string::npos)
+                cookieDomain.erase(0, schemeEnd + 3);
+            while (!cookieDomain.empty() && cookieDomain[cookieDomain.size() - 1] == '/')
+                cookieDomain.resize(cookieDomain.size() - 1);
+            if (cookieDomain.compare(0, 4, "www.") == 0)
+                cookieDomain.erase(0, 4);
+            cookieDomain = "." + cookieDomain;
+
+            RBX::Http::setCookiesForDomain(cookieDomain, ".ROBLOSECURITY=" + cookie + "; ");
+        }
+    }
+
+    bool isMobile = []() -> bool {
+        try
+        {
             auto family = Windows::System::Profile::AnalyticsInfo::VersionInfo->DeviceFamily;
             std::wstring wf(family->Begin(), family->End());
             return std::string(wf.begin(), wf.end()) == "Windows.Mobile";
         }
-        catch (...) { return false; }
+        catch (...)
+        {
+            return false;
+        }
     }();
-    m_cachedIsWindowsPhone.store(currentIsMobile);
-    g_isWindowsPhone.store(currentIsMobile);
+    g_isWindowsPhone.store(isMobile);
 
-    if (m_swapChainPanel)
-    {
-        m_swapChainPanel->SizeChanged +=
-            ref new Windows::UI::Xaml::SizeChangedEventHandler(
-                [this](Platform::Object^, Windows::UI::Xaml::SizeChangedEventArgs^ args)
-                {
-                    auto sz = args->NewSize;
-                    if (sz.Width > 0 && sz.Height > 0)
-                    {
-                        float scaleX = static_cast<float>(m_swapChainPanel->CompositionScaleX);
-                        float scaleY = static_cast<float>(m_swapChainPanel->CompositionScaleY);
-                        unsigned int w = static_cast<unsigned int>(sz.Width * scaleX);
-                        unsigned int h = static_cast<unsigned int>(sz.Height * scaleY);
-
-                        g_cachedFbWidth.store(w,  std::memory_order_release);
-                        g_cachedFbHeight.store(h, std::memory_order_release);
-
-                        if (m_userInput)
-                            m_userInput->setViewportSize(static_cast<int>(sz.Width),
-                                                         static_cast<int>(sz.Height));
-                    }
-                });
-
-        m_swapChainPanel->CompositionScaleChanged +=
-            ref new Windows::Foundation::TypedEventHandler<
-                Windows::UI::Xaml::Controls::SwapChainPanel^, Platform::Object^>(
-                [](Windows::UI::Xaml::Controls::SwapChainPanel^ panel, Platform::Object^)
-                {
-                    float scaleX = static_cast<float>(panel->CompositionScaleX);
-                    float scaleY = static_cast<float>(panel->CompositionScaleY);
-                    g_cachedCompScaleX.store(scaleX, std::memory_order_release);
-                    g_cachedCompScaleY.store(scaleY, std::memory_order_release);
-                    unsigned int w = static_cast<unsigned int>(panel->ActualWidth * scaleX);
-                    unsigned int h = static_cast<unsigned int>(panel->ActualHeight * scaleY);
-                    if (w > 0 && h > 0)
-                    {
-                        g_cachedFbWidth.store(w,  std::memory_order_release);
-                        g_cachedFbHeight.store(h, std::memory_order_release);
-                    }
-                });
-    }
-
-    SDL_SetMainReady();
-    SDL_SetHint(SDL_HINT_JOYSTICK_ALLOW_BACKGROUND_EVENTS, "1");
-    SDL_SetHint(SDL_HINT_XINPUT_ENABLED, "1");
-    if (SDL_Init(SDL_INIT_VIDEO) == 0)
-        m_sdlInitialized = true;
-    else
-        onLogMessage("SDL_Init failed - input may not function correctly");
-
-    updateLoadingStatus("Starting...");
-
-    Windows::System::Threading::ThreadPool::RunAsync(
-        ref new Windows::System::Threading::WorkItemHandler(
-            [this](Windows::Foundation::IAsyncAction^)
-            {
-                initializeBackground();
-            }),
-        Windows::System::Threading::WorkItemPriority::Normal,
-        Windows::System::Threading::WorkItemOptions::TimeSliced);
-}
-
-void UWPPlatform::shutdown()
-{
-    RBX::GlobalBasicSettings::singleton()->saveState();
-    RBX::GlobalAdvancedSettings::singleton()->saveState();
-
-    if (m_renderJob)
-    {
-        m_renderJob->stop();
-        m_renderJob.reset();
-    }
-
-    if (m_view)
-    {
-        delete m_view;
-        m_view = nullptr;
-    }
-
-    if (m_game)
-    {
-        m_game->shutdown();
-        delete m_game;
-        m_game = nullptr;
-        m_dataModel.reset();
-    }
-
-    if (m_sdlWindow)
-    {
-        SDL_DestroyWindow(m_sdlWindow);
-        m_sdlWindow = nullptr;
-    }
-
-    if (m_userInput)
-    {
-        m_userInput->shutdown();
-        m_userInput.reset();
-    }
-
-    if (m_standardOutConnection.connected())
-        m_standardOutConnection.disconnect();
-
-    if (m_marshaller)
-    {
-        delete m_marshaller;
-        m_marshaller = nullptr;
-    }
-}
-
-void UWPPlatform::tick()
-{
-    if (!m_marshaller)
-        return;
-
-    SDL_Event event;
-    while (SDL_PollEvent(&event))
-    {
-        try
-        {
-            switch (event.type)
-            {
-            case SDL_QUIT:
-                if (m_dataModel)
-                    m_dataModel->close();
-                break;
-            case SDL_CONTROLLERDEVICEADDED:
-                if (m_gameController)
-                    m_gameController->addController(event.cdevice.which);
-                break;
-            case SDL_CONTROLLERDEVICEREMOVED:
-                if (m_gameController)
-                    m_gameController->removeController(event.cdevice.which);
-                break;
-            case SDL_CONTROLLERAXISMOTION:
-                if (m_gameController)
-                    m_gameController->onControllerAxis(event.caxis);
-                break;
-            case SDL_CONTROLLERBUTTONDOWN:
-            case SDL_CONTROLLERBUTTONUP:
-                if (m_gameController)
-                    m_gameController->onControllerButton(event.cbutton);
-                break;
-            case SDL_KEYDOWN:
-            case SDL_KEYUP:
-                if (m_userInput)
-                    m_userInput->processKeyboardEvent(event.key);
-                break;
-            case SDL_MOUSEBUTTONDOWN:
-            case SDL_MOUSEBUTTONUP:
-            case SDL_MOUSEMOTION:
-            case SDL_MOUSEWHEEL:
-                if (m_userInput)
-                    m_userInput->processMouseEvent(event);
-                break;
-            }
-        }
-        catch (const std::exception& e)
-        {
-            char buf[512];
-            sprintf_s(buf, "Exception in event processing: %s", e.what());
-            onLogMessage(buf);
-        }
-        catch (...) { onLogMessage("Unknown exception in event processing"); }
-    }
-
-    if (m_gameController)
-        m_gameController->updateControllers();
-
-    m_marshaller->process();
-
-    if (m_renderJob)
-    {
-        RBX::TaskScheduler::Job::Stats stats(*m_renderJob, RBX::Time::nowFast());
-        m_renderJob->step(stats);
-    }
-}
-
-void UWPPlatform::onLogMessage(const std::string& message)
-{
-    std::lock_guard<std::mutex> lock(m_logMutex);
-
-    std::wstring wmsg(message.begin(), message.end());
-    wmsg += L"\n";
-    OutputDebugStringW(wmsg.c_str());
-
-    if (m_logCallback)
-        m_logCallback(message);
-}
-
-void UWPPlatform::onStandardOutMessage(const RBX::StandardOutMessage& message)
-{
-    std::string prefix;
-    switch (message.type)
-    {
-        case RBX::MESSAGE_OUTPUT:    prefix = "[OUTPUT] "; break;
-        case RBX::MESSAGE_INFO:      prefix = "[INFO] ";   break;
-        case RBX::MESSAGE_WARNING:   prefix = "[WARNING] "; break;
-        case RBX::MESSAGE_ERROR:     prefix = "[ERROR] ";  break;
-        case RBX::MESSAGE_SENSITIVE: prefix = "[SENSITIVE] "; break;
-        default:                     prefix = "[UNKNOWN] "; break;
-    }
-    onLogMessage(prefix + message.message);
-}
-
-void UWPPlatform::setLogCallback(std::function<void(const std::string&)> callback)
-{
-    std::lock_guard<std::mutex> lock(m_logMutex);
-    m_logCallback = callback;
-}
-
-void UWPPlatform::setRenderingInitializedCallback(std::function<void()> callback)
-{
-    m_renderingInitializedCallback = callback;
-}
-
-void UWPPlatform::setLoadingStatusCallback(std::function<void(const std::string&)> callback)
-{
-    std::lock_guard<std::mutex> lock(m_logMutex);
-    m_loadingStatusCallback = callback;
-}
-
-void UWPPlatform::setSwapChainPanel(Windows::UI::Xaml::Controls::SwapChainPanel^ panel)
-{
-    m_swapChainPanel = panel;
-    g_swapChainPanel = panel;
-
-    if (panel != nullptr && m_userInput != nullptr)
-        m_userInput->setViewportSize(static_cast<int>(panel->ActualWidth),
-                                      static_cast<int>(panel->ActualHeight));
-}
-
-void UWPPlatform::updateLoadingStatus(const std::string& status)
-{
-    std::function<void(const std::string&)> cb;
-    {
-        std::lock_guard<std::mutex> lock(m_logMutex);
-        cb = m_loadingStatusCallback;
-    }
-    if (cb) cb(status);
+    m_initialized = true;
 }
 
 void UWPPlatform::initializeLogging()
@@ -488,312 +379,374 @@ void UWPPlatform::initializeLogging()
     );
 }
 
-void UWPPlatform::initializeSettings()
+void UWPPlatform::onStandardOutMessage(const RBX::StandardOutMessage& message)
 {
-    RBX::GameBasicSettings::singleton();
-    RBX::NetworkSettings::singleton();
-    RBX::DebugSettings::singleton();
+    if (!IsDebuggerPresent())
+        return;
 
-#if defined(_DEBUG) && !defined(_M_ARM64) && !defined(_M_ARM) 
-    FFlag::DebugD3D11DebugMode = true;
-#else
-    FFlag::DebugD3D11DebugMode = false;
-#endif
-
+    std::string prefix;
+    switch (message.type)
     {
-        Platform::String^ installPath = Windows::ApplicationModel::Package::Current->InstalledLocation->Path;
-        std::wstring wInstall(installPath->Begin(), installPath->End());
-
-        boost::filesystem::path packagePath(wInstall);
-        boost::filesystem::path contentPath = packagePath / "content";
-
-        boost::system::error_code ec;
-        if (boost::filesystem::exists(contentPath, ec))
-        {
-            std::string localBaseUrl = "file:///" + contentPath.string() + "/";
-            std::replace(localBaseUrl.begin(), localBaseUrl.end(), '\\', '/');
-            ::SetBaseURL(localBaseUrl);
-            RBX::ContentProvider::setAssetFolder(contentPath.string().c_str());
-        }
-        else
-        {
-            RBX::ContentProvider::setAssetFolder("content");
-        }
+        case RBX::MESSAGE_OUTPUT:    prefix = "[OUTPUT] ";   break;
+        case RBX::MESSAGE_INFO:      prefix = "[INFO] ";     break;
+        case RBX::MESSAGE_WARNING:   prefix = "[WARNING] ";  break;
+        case RBX::MESSAGE_ERROR:     prefix = "[ERROR] ";    break;
+        case RBX::MESSAGE_SENSITIVE: prefix = "[SENSITIVE] "; break;
+        default:                     prefix = "[UNKNOWN] ";  break;
     }
 
-    RBX::TaskScheduler::singleton().setThreadCount(RBX::TaskScheduler::Auto);
-    RBX::GameBasicSettings::singleton().setStudioMode(true);
+    std::string full = prefix + message.message;
+    std::wstring wmsg(full.begin(), full.end());
+    wmsg += L"\n";
+    OutputDebugStringW(wmsg.c_str());
 }
 
-void UWPPlatform::initializeBackground()
+void UWPPlatform::tick()
 {
-    try
-    {
-        updateLoadingStatus("Initializing engine...");
-        RBX::Game::globalInit(false);
-        updateLoadingStatus("Creating data model...");
-        std::string baseUrl = ::GetBaseURL();
-        m_game = new RBX::UnsecuredStudioGame(nullptr, baseUrl.c_str(), false, false);
-        m_dataModel = m_game->getDataModel();
-		if (!isUWPWindowsPhone()) {
-			updateLoadingStatus("Creating renderer...");
-		}
-		else {
-			updateLoadingStatus("Creating renderer... Will take a while. Be patient.");
-		}
-        initializeRendering();
-        updateLoadingStatus("Initializing input...");
-        initializeInput();
-        updateLoadingStatus("Setting up world...");
-        initializeGameWorld();
-
-        if (m_view)
-        {
-            m_renderJob.reset(new RenderJob(m_view, m_marshaller));
-            RBX::TaskScheduler::singleton().add(m_renderJob);
-        }
-
-        m_initializationComplete.store(true, std::memory_order_release);
-        updateLoadingStatus("Ready!");
-
-        if (m_dispatcher)
-        {
-            m_dispatcher->RunAsync(
-                Windows::UI::Core::CoreDispatcherPriority::Normal,
-                ref new Windows::UI::Core::DispatchedHandler([this]()
-                {
-                    if (m_renderingInitializedCallback)
-                        m_renderingInitializedCallback();
-                }));
-        }
-    }
-    catch (const std::exception& e)
-    {
-        onLogMessage(std::string("Background initialization failed: ") + e.what());
-        updateLoadingStatus("Initialization failed!");
-    }
-    catch (...)
-    {
-        onLogMessage("Unknown error during background initialization");
-        updateLoadingStatus("Initialization failed!");
-    }
+    RBX::FunctionMarshaller* marshaller = RBX::FunctionMarshaller::GetWindow();
+    if (marshaller)
+        marshaller->ProcessMessages();
 }
 
-void UWPPlatform::initializeRendering()
+void UWPPlatform::setSwapChainPanel(Windows::UI::Xaml::Controls::SwapChainPanel^ panel)
 {
-    try
-    {
-        if (!m_swapChainPanel)
+    m_swapChainPanel = panel;
+    g_swapChainPanel = panel;
+
+    if (!panel)
+        return;
+
+    float scaleX = static_cast<float>(panel->CompositionScaleX);
+    float scaleY = static_cast<float>(panel->CompositionScaleY);
+    float effScaleX = computeEffectiveScale(scaleX);
+    float effScaleY = computeEffectiveScale(scaleY);
+    unsigned int w = static_cast<unsigned int>(ceil(panel->ActualWidth * effScaleX));
+    unsigned int h = static_cast<unsigned int>(ceil(panel->ActualHeight * effScaleY));
+    if (w == 0) w = 800;
+    if (h == 0) h = 600;
+
+    g_cachedFbWidth.store(w, std::memory_order_release);
+    g_cachedFbHeight.store(h, std::memory_order_release);
+    g_cachedCompScaleX.store(effScaleX, std::memory_order_release);
+    g_cachedCompScaleY.store(effScaleY, std::memory_order_release);
+
+    RBX::StandardOut::singleton()->printf(RBX::MESSAGE_INFO,
+        "UWP: framebuffer %ux%u scale %.2f (panel %.0fx%.0f DIP, composition %.2f, phone=%d)",
+        w, h, effScaleX, panel->ActualWidth, panel->ActualHeight, scaleX,
+        isUWPWindowsPhone() ? 1 : 0);
+
+    panel->SizeChanged += ref new Windows::UI::Xaml::SizeChangedEventHandler(
+        [panel](Platform::Object^, Windows::UI::Xaml::SizeChangedEventArgs^ args)
         {
-            onLogMessage("initializeRendering: No SwapChainPanel set");
-            return;
-        }
+            auto sz = args->NewSize;
+            if (sz.Width <= 0 || sz.Height <= 0)
+                return;
 
-        RBX::ViewBase::InitPluginModules();
+            float eX = computeEffectiveScale(static_cast<float>(panel->CompositionScaleX));
+            float eY = computeEffectiveScale(static_cast<float>(panel->CompositionScaleY));
+            unsigned int nw = static_cast<unsigned int>(ceil(sz.Width * eX));
+            unsigned int nh = static_cast<unsigned int>(ceil(sz.Height * eY));
 
-        m_context.hWnd = (HWND)this;
+            g_cachedFbWidth.store(nw, std::memory_order_release);
+            g_cachedFbHeight.store(nh, std::memory_order_release);
+            g_cachedCompScaleX.store(eX, std::memory_order_release);
+            g_cachedCompScaleY.store(eY, std::memory_order_release);
 
-        {
-            int waitedMs = 0;
-            while (g_cachedFbWidth.load(std::memory_order_acquire)  == 0 ||
-                   g_cachedFbHeight.load(std::memory_order_acquire) == 0)
+            if (PlaceLauncher::getPlaceLauncher().getRbxView())
+                PlaceLauncher::getPlaceLauncher().getRbxView()->setBounds(nw, nh);
+        });
+
+    panel->CompositionScaleChanged +=
+        ref new Windows::Foundation::TypedEventHandler<Windows::UI::Xaml::Controls::SwapChainPanel^, Platform::Object^>(
+            [](Windows::UI::Xaml::Controls::SwapChainPanel^ p, Platform::Object^)
             {
-                std::this_thread::sleep_for(std::chrono::milliseconds(16));
-                waitedMs += 16;
-                if (waitedMs >= 5000)
+                float eX = computeEffectiveScale(static_cast<float>(p->CompositionScaleX));
+                float eY = computeEffectiveScale(static_cast<float>(p->CompositionScaleY));
+                g_cachedCompScaleX.store(eX, std::memory_order_release);
+                g_cachedCompScaleY.store(eY, std::memory_order_release);
+
+                unsigned int nw = static_cast<unsigned int>(ceil(p->ActualWidth * eX));
+                unsigned int nh = static_cast<unsigned int>(ceil(p->ActualHeight * eY));
+                if (nw > 0 && nh > 0)
                 {
-                    if (m_cachedIsWindowsPhone.load())
-                    { g_cachedFbWidth.store(360); g_cachedFbHeight.store(640); }
-                    else
-                    { g_cachedFbWidth.store(800); g_cachedFbHeight.store(600); }
-                    break;
+                    g_cachedFbWidth.store(nw, std::memory_order_release);
+                    g_cachedFbHeight.store(nh, std::memory_order_release);
+
+                    if (PlaceLauncher::getPlaceLauncher().getRbxView())
+                        PlaceLauncher::getPlaceLauncher().getRbxView()->setBounds(nw, nh);
                 }
-            }
-        }
+            });
+}
 
-        m_context.width  = static_cast<int>(g_cachedFbWidth.load(std::memory_order_acquire));
-        m_context.height = static_cast<int>(g_cachedFbHeight.load(std::memory_order_acquire));
-        m_view = RBX::ViewBase::CreateView(RBX::CRenderSettings::Direct3D11, &m_context, &g_renderSettings);
+void UWPPlatform::setLeaveGameCallback(std::function<void()> callback)
+{
+    RBX::getLeaveGameCallback() = callback;
+}
 
-        if (!m_view)
+void UWPPlatform::setGameReadyCallback(std::function<void()> callback)
+{
+    m_gameReadyCallback = std::move(callback);
+}
+
+void UWPPlatform::setGameFailedCallback(std::function<void()> callback)
+{
+    m_gameFailedCallback = std::move(callback);
+}
+
+void UWPPlatform::fireGameReady()
+{
+    RBX::FunctionMarshaller* marshaller = RBX::FunctionMarshaller::GetWindow();
+    if (!marshaller)
+        return;
+
+    marshaller->Submit([this]()
+    {
+        if (m_gameReadyCallback)
+            m_gameReadyCallback();
+    });
+}
+
+void UWPPlatform::fireGameFailed()
+{
+    RBX::FunctionMarshaller* marshaller = RBX::FunctionMarshaller::GetWindow();
+    if (!marshaller)
+        return;
+
+    marshaller->Submit([this]()
+    {
+        if (m_gameFailedCallback)
+            m_gameFailedCallback();
+    });
+}
+
+void UWPPlatform::HandleMemoryPressure()
+{
+    auto now = std::chrono::steady_clock::now();
+    if (m_lastPressureGc != std::chrono::steady_clock::time_point()
+        && (now - m_lastPressureGc) < std::chrono::seconds(20))
+    {
+        return;
+    }
+    m_lastPressureGc = now;
+
+    RobloxView* rbxView = PlaceLauncher::getPlaceLauncher().getRbxView();
+    if (rbxView == nullptr)
+        return;
+
+    uint64_t preBytes = RBX::MemoryStats::usedMemoryBytes();
+
+    try
+    {
+        rbxView->getView()->garbageCollect();
+    }
+    catch (...) { }
+
+    try
+    {
+        RBX::MemoryStats::releaseAllPoolMemory();
+    }
+    catch (...) { }
+
+    uint64_t postBytes = RBX::MemoryStats::usedMemoryBytes();
+    unsigned long long limit = 0;
+    try
+    {
+        limit = Windows::System::MemoryManager::AppMemoryUsageLimit;
+    }
+    catch (Platform::Exception^) { }
+
+    RBX::StandardOut::singleton()->printf(RBX::MESSAGE_INFO,
+        "UWP: memory-pressure GC reclaimed %.2f MB (used %.1f -> %.1f MB, limit %.1f MB)",
+        static_cast<double>(preBytes - postBytes) / (1024.0 * 1024.0),
+        static_cast<double>(preBytes) / (1024.0 * 1024.0),
+        static_cast<double>(postBytes) / (1024.0 * 1024.0),
+        static_cast<double>(limit) / (1024.0 * 1024.0));
+
+    if (RBX::Graphics::RenderView* renderView = dynamic_cast<RBX::Graphics::RenderView*>(rbxView->getView()))
+    {
+        std::string tm = renderView->getRenderStatsMetric("RenderStatsTM");
+        std::string tc = renderView->getRenderStatsMetric("RenderStatsTC");
+        std::string clusters = renderView->getRenderStatsMetric("RenderStatsClusters");
+        std::string scene = renderView->getRenderStatsMetric("RenderStatsPassScene");
+        std::string res = renderView->getRenderStatsMetric("RenderStatsResolution");
+        std::string frm = renderView->getRenderStatsMetric("RenderStatsFRMConfig");
+        RBX::StandardOut::singleton()->printf(RBX::MESSAGE_INFO,
+            "UWP: texture manager: %s | compositor: %s | clusters: %s | scene: %s | res %s | %s",
+            tm.c_str(), tc.c_str(), clusters.c_str(), scene.c_str(), res.c_str(), frm.c_str());
+    }
+}
+
+void UWPPlatform::onMemoryUsageIncreased()
+{
+    unsigned long long limit  = 0;
+    unsigned long long usage  = 0;
+    try
+    {
+        limit = Windows::System::MemoryManager::AppMemoryUsageLimit;
+        usage = Windows::System::MemoryManager::AppMemoryUsage;
+    }
+    catch (Platform::Exception^) { return; }
+
+    if (limit == 0)
+        return;
+
+    if (IsLowMemoryDevice())
+    {
+        double physFreeMB = getAvailablePhysicalRamBytes() / (1024.0 * 1024.0);
+        if (physFreeMB < 60.0)
         {
-            onLogMessage("initializeRendering: CreateView returned null");
+            HandleMemoryPressure();
+            ShedFrontendMemory();
             return;
         }
+    }
 
-        // NOTE: On Qualcomm ARM (Lumia 950 / Adreno) initResources() compiles
-        // shaders via qcdx11compiler8994.dll.  Even with precompiled shader pakcs the
-        // Qualcomm driver must still translate DXBC -> GLSL -> Adreno ISA at runtime.
-        // This step takes 20-40 s on ARM.  Running it here (background thread) keeps
-        // the UI thread free so the XAML loading screen stays animated and the
-        // Marshaller queue keeps draining.
-		// TODO: Find a way to drastically speed it up.
-        m_view->initResources();
-        m_view->bindWorkspace(m_dataModel);
+    if (usage < limit)
+    {
+        unsigned long long freeBytes = limit - usage;
+        const unsigned long long kHeadroomBytes = 30ull * 1024 * 1024;
+        if (freeBytes >= kHeadroomBytes)
+            return;
+    }
 
+    HandleMemoryPressure();
+    ShedFrontendMemory();
+}
+
+void UWPPlatform::StartMemoryPressureMonitor()
+{
+    if (m_memPressureStarted)
+        return;
+    m_memPressureStarted = true;
+
+    applyLowMemTuning();
+
+    try
+    {
+        m_memUsageIncreasedToken = Windows::System::MemoryManager::AppMemoryUsageIncreased +=
+            ref new Windows::Foundation::EventHandler<Platform::Object^>(
+                [](Platform::Object^, Platform::Object^)
+                {
+                    GetInstance().onMemoryUsageIncreased();
+                });
     }
     catch (Platform::Exception^ e)
     {
-        std::wstring wmsg(e->Message->Begin(), e->Message->End());
-        onLogMessage("Platform exception in initializeRendering: "
-                     + std::string(wmsg.begin(), wmsg.end()));
-        if (m_view) { delete m_view; m_view = nullptr; }
+        (void)e;
+        RBX::StandardOut::singleton()->printf(RBX::MESSAGE_WARNING,
+            "UWP: AppMemoryUsageIncreased subscription failed");
     }
-    catch (const std::exception& e)
-    {
-        onLogMessage(std::string("Exception during rendering initialization: ") + e.what());
-        if (m_view) { delete m_view; m_view = nullptr; }
-    }
-    catch (...)
-    {
-        onLogMessage("Unknown exception during rendering initialization");
-        if (m_view) { delete m_view; m_view = nullptr; }
-    }
-}
 
-void UWPPlatform::initializeInput()
-{
     try
     {
-
-        if (m_dataModel)
-        {
-            if (RBX::UserInputService* uis = RBX::ServiceProvider::find<RBX::UserInputService>(m_dataModel.get()))
-            {
-                bool isPhone = m_cachedIsWindowsPhone.load();
-                uis->setTouchEnabled(isPhone);
-                uis->setKeyboardEnabled(!isPhone);
-                uis->setMouseEnabled(!isPhone);
-            }
-        }
-
-        if (m_dataModel)
-        {
-            if (!m_cachedIsWindowsPhone.load())
-            {
-                m_gameController.reset(new SDLGameController(m_dataModel));
-            }
-
-            m_userInput.reset(new UserInput(m_dataModel.get(), m_marshaller, [this](const std::string& msg) { onLogMessage(msg); }));
-
-            if (m_userInput)
-            {
-                m_userInput->setViewportSize(
-                    static_cast<int>(g_cachedFbWidth.load(std::memory_order_relaxed)),
-                    static_cast<int>(g_cachedFbHeight.load(std::memory_order_relaxed)));
-            }
-
-            if (m_dispatcher)
-            {
-                std::mutex mtx;
-                std::condition_variable cv;
-                bool done = false;
-
-                m_dispatcher->RunAsync(
-                    Windows::UI::Core::CoreDispatcherPriority::Normal,
-                    ref new Windows::UI::Core::DispatchedHandler([this, &mtx, &cv, &done]()
-                    {
-                        m_userInput->initialize();
-                        {
-                            std::lock_guard<std::mutex> lk(mtx);
-                            done = true;
-                        }
-                        cv.notify_one();
-                    }));
-
-                std::unique_lock<std::mutex> lk(mtx);
-                cv.wait(lk, [&done]() { return done; });
-            }
-            else
-            {
-            }
-        }
-    }
-    catch (const std::exception& e)
-    {
-        onLogMessage(std::string("Exception during input initialization: ") + e.what());
-    }
-}
-
-void UWPPlatform::initializeGameWorld()
-{
-    try
-    {
-        RBX::DataModel::LegacyLock lock(m_dataModel.get(), RBX::DataModelJob::Write);
- 
-        RBX::Security::Impersonator impersonate(RBX::Security::RobloxGameScript_);
-
-        try 
-        {
-            m_dataModel->startCoreScripts(true, "StarterScript");
-        } 
-        catch(const std::exception& e) 
-        {
-            onLogMessage(std::string("startCoreScripts threw: ") + e.what());
-        }
- 
-        if (RBX::ScriptContext* sc = RBX::ServiceProvider::find<RBX::ScriptContext>(m_dataModel.get()))
-        {
-            sc->setRobloxPlace(false);
-        }
-        try 
-        {
-            m_dataModel->loadContent(RBX::ContentId("rbxasset://TestPlace.rbxl"));
-        }
-        catch(const std::exception& e)
-        {
-            onLogMessage(std::string("Failed to loadContent: ") + e.what());
-        }
- 
-        if (RBX::Network::Players* players = RBX::ServiceProvider::create<RBX::Network::Players>(m_dataModel.get()))
-{
-    try {
-        auto player = RBX::Instance::fastSharedDynamicCast<RBX::Network::Player>(
-            players->createLocalPlayer(1));
-        
-        if (player)
-        {
-            player->loadCharacter(true, "");
- 
-            RBX::StarterPlayerScripts* starterPlayerScripts = nullptr;
-            if (RBX::StarterPlayerService* sps = RBX::ServiceProvider::find<RBX::StarterPlayerService>(m_dataModel.get()))
-            {
-                sps->setupPlayerScripts();
-                starterPlayerScripts = sps->findFirstChildOfType<RBX::StarterPlayerScripts>();
-            }
- 
-            if (starterPlayerScripts)
-            {
-                starterPlayerScripts->requestDefaultScriptsServer(player);
-            }
-
-            if (RBX::Workspace* workspace = RBX::ServiceProvider::find<RBX::Workspace>(m_dataModel.get()))
-            {
-                if (RBX::Camera* camera = workspace->getCamera())
+        m_memLimitChangingToken = Windows::System::MemoryManager::AppMemoryUsageLimitChanging +=
+            ref new Windows::Foundation::EventHandler<
+                Windows::System::AppMemoryUsageLimitChangingEventArgs^>(
+                [](Platform::Object^, Windows::System::AppMemoryUsageLimitChangingEventArgs^ e)
                 {
-                    if (RBX::ModelInstance* character = player->getCharacter())
+                    if (e != nullptr && e->NewLimit < Windows::System::MemoryManager::AppMemoryUsage)
                     {
-                        camera->setCameraSubject(character);
-                        camera->setCameraType(RBX::Camera::FOLLOW_CAMERA);
+                        GetInstance().HandleMemoryPressure();
+                        GetInstance().ShedFrontendMemory();
                     }
-                }
-            }
-        }
-    } catch (const std::exception& e) {
-        onLogMessage(std::string("Exception during player initialization: ") + e.what());
+                });
     }
+    catch (Platform::Exception^ e)
+    {
+        (void)e;
+        RBX::StandardOut::singleton()->printf(RBX::MESSAGE_WARNING,
+            "UWP: AppMemoryUsageLimitChanging subscription failed");
+    }
+
+    try
+    {
+        m_memPressureTimer = ref new Windows::UI::Xaml::DispatcherTimer();
+        Windows::Foundation::TimeSpan interval;
+        interval.Duration = 50000000; // 5s in 100ns units
+        m_memPressureTimer->Interval = interval;
+        m_memPressureTimer->Tick +=
+            ref new Windows::Foundation::EventHandler<Platform::Object^>(
+                [](Platform::Object^, Platform::Object^)
+                {
+                    GetInstance().onMemoryUsageIncreased();
+                });
+        m_memPressureTimer->Start();
+    }
+    catch (Platform::Exception^) { }
 }
 
-        if (RBX::RunService* runService = RBX::ServiceProvider::create<RBX::RunService>(m_dataModel.get()))
-            runService->run();
- 
-        m_dataModel->gameLoaded();
- 
-        if (m_userInput)
-            m_userInput->sendFocusEvent(true);
-    }
-    catch (const std::exception& e)
+void UWPPlatform::ShedFrontendMemory()
+{
+    auto window = Windows::UI::Xaml::Window::Current;
+    if (window == nullptr || window->Dispatcher == nullptr)
     {
-        onLogMessage(std::string("Exception during game world setup: ") + e.what());
+        return;
+    }
+
+    window->Dispatcher->RunAsync(
+        Windows::UI::Core::CoreDispatcherPriority::Normal,
+        ref new Windows::UI::Core::DispatchedHandler([]()
+        {
+            auto current = Windows::UI::Xaml::Window::Current;
+            if (current == nullptr)
+            {
+                return;
+            }
+
+            auto hostFrame = dynamic_cast<Windows::UI::Xaml::Controls::Frame^>(current->Content);
+            auto shell = (hostFrame != nullptr)
+                ? dynamic_cast<Roblox::AppShell^>(hostFrame->Content)
+                : nullptr;
+            if (shell == nullptr)
+            {
+                return;
+            }
+
+            unsigned long long usageBefore = 0;
+            try { usageBefore = Windows::System::MemoryManager::AppMemoryUsage; }
+            catch (Platform::Exception^) { }
+
+            shell->EvictCachedPages(1);
+
+            unsigned long long usageAfter = 0;
+            unsigned long long limit = 0;
+            try
+            {
+                usageAfter = Windows::System::MemoryManager::AppMemoryUsage;
+                limit = Windows::System::MemoryManager::AppMemoryUsageLimit;
+            }
+            catch (Platform::Exception^) { }
+
+            const unsigned long long oneMB = 1024ull * 1024ull;
+            RBX::StandardOut::singleton()->printf(RBX::MESSAGE_INFO,
+                "UWP: Frontend shed WebView pages (usage %llu/%llu MB, reclaimed %llu MB)",
+                usageAfter / oneMB,
+                limit / oneMB,
+                (usageBefore > usageAfter) ? (usageBefore - usageAfter) / oneMB : 0ull);
+        }));
+}
+
+bool UWPPlatform::ShouldDropShellForGame() const
+{
+    if (IsLowMemoryDevice())
+    {
+        return true;
+    }
+
+    try
+    {
+        unsigned long long limit = Windows::System::MemoryManager::AppMemoryUsageLimit;
+        unsigned long long usage = Windows::System::MemoryManager::AppMemoryUsage;
+        if (limit == 0)
+        {
+            return false;
+        }
+
+        const unsigned long long kLaunchHeadroomBytes = 64ull * 1024 * 1024; // 64 MB
+        return usage >= limit || (limit - usage) < kLaunchHeadroomBytes;
+    }
+    catch (Platform::Exception^)
+    {
+        return false;
     }
 }

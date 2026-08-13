@@ -1,0 +1,16 @@
+<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Roblox.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="Roblox.Controls.DatePicker">
+    <UserControl.Content>
+        <RelativePanel Width="296" Height="32">
+            <RelativePanel.Children>
+                <TextBox x:Name="UnselectedDateMask" Background="{StaticResource RbxGray5}" Margin="0,0,-296,0" Visibility="Visible" Text="MM/DD/YYYY" />
+                <DatePicker x:Name="DatePickerImpl" Background="{StaticResource RbxGray5}" Opacity="0" />
+            </RelativePanel.Children>
+        </RelativePanel>
+    </UserControl.Content>
+</UserControl>

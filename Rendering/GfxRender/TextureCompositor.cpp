@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "TextureCompositor.h"
 
+#include "util/standardout.h"
+
 #include "GfxBase/AsyncResult.h"
 
 #include "v8datamodel/ContentProvider.h"
@@ -32,7 +34,7 @@ namespace RBX
 namespace Graphics
 {
 
-#if defined(RBX_PLATFORM_IOS) || defined(__ANDROID__)
+#if defined(RBX_PLATFORM_IOS) || defined(__ANDROID__) || (defined(RBX_PLATFORM_UWP) && (defined(_M_ARM) || defined(_M_ARM64)))
 static const size_t kTextureCompositorActiveJobs = 2;
 #else
 static const size_t kTextureCompositorActiveJobs = 8;
@@ -722,6 +724,7 @@ void TextureCompositor::cancelPendingRequests()
 
 void TextureCompositor::update(const Vector3& pointOfInterest)
 {
+
     // this gets rid of all jobs that we don't need to process anyway
     updatePrioritiesAndOrphanJobs(pointOfInterest);
     

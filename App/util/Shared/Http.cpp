@@ -71,7 +71,7 @@ int rbx_isMoneySite(const char* url);
 
 namespace
 {
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_UWP)
 static bool useCurlHttpImpl = false;
 #else
 static bool useCurlHttpImpl = true;
@@ -735,7 +735,40 @@ void Http::httpGetPost(bool isPost, std::istream& dataStream,
 		}
 		return;
 	}
+<<<<<<< Updated upstream
 #elif defined(_WIN32) && !WINAPI_FAMILY == WINAPI_FAMILY_APP
+=======
+#elif defined(RBX_PLATFORM_UWP)
+	if (!useCurlHttpImpl || forceNativeHttp)
+	{
+		try
+		{
+			httpGetPostUWP(isPost, dataStream, contentType, compressData, headers, externalRequest, cachePolicy, response);
+			if (recordStatistics)
+			{
+				HTTPStatistics::success(httpTimer.delta().msec(), url.c_str(), response.size());
+			}
+		}
+		catch (const RBX::http_status_error& e)
+		{
+			if (recordStatistics)
+			{
+				HTTPStatistics::failure(httpTimer.delta().msec(), url.c_str(), response.size(), e.what(), e.statusCode);
+			}
+			throw;
+		}
+		catch (const std::exception& e)
+		{
+			if (recordStatistics)
+			{
+				HTTPStatistics::failure(httpTimer.delta().msec(), url.c_str(), response.size(), e.what());
+			}
+			throw;
+		}
+		return;
+	}
+#elif defined(_WIN32)
+>>>>>>> Stashed changes
 	if (!useCurlHttpImpl || forceNativeHttp)
     {
         try

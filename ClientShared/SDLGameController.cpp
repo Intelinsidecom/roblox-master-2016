@@ -505,36 +505,34 @@ void SDLGameController::onControllerAxis( const SDL_ControllerAxisEvent sdlEvent
 	}
 }
 
+void SDLGameController::handleEvent(const SDL_Event& sdlEvent)
+{
+	switch( sdlEvent.type ) 
+	{
+	case SDL_CONTROLLERDEVICEADDED:
+		addController( sdlEvent.cdevice.which );
+		break;
+
+	case SDL_CONTROLLERDEVICEREMOVED:
+		removeController( sdlEvent.cdevice.which );
+		break;
+
+	case SDL_CONTROLLERBUTTONDOWN:
+	case SDL_CONTROLLERBUTTONUP:
+		onControllerButton( sdlEvent.cbutton );
+		break;
+
+	case SDL_CONTROLLERAXISMOTION:
+		onControllerAxis( sdlEvent.caxis );
+		break;
+
+	default:
+		break;
+	}
+}
+
 void SDLGameController::updateControllers()
 {
-	SDL_Event sdlEvent;
-
-	while( SDL_PollEvent( &sdlEvent ) ) 
-	{
-		switch( sdlEvent.type ) 
-		{
-		case SDL_CONTROLLERDEVICEADDED:
-			addController( sdlEvent.cdevice.which );
-			break;
-
-		case SDL_CONTROLLERDEVICEREMOVED:
-			removeController( sdlEvent.cdevice.which );
-			break;
-
-		case SDL_CONTROLLERBUTTONDOWN:
-		case SDL_CONTROLLERBUTTONUP:
-			onControllerButton( sdlEvent.cbutton );
-			break;
-
-		case SDL_CONTROLLERAXISMOTION:
-			onControllerAxis( sdlEvent.caxis );
-			break;
-
-		default:
-			break;
-		}
-	}
-
 	refreshHapticEffects();
 }
 

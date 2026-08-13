@@ -723,7 +723,7 @@ double FrameRateManager::GetParticleThrottleFactor()
 
 bool FrameRateManager::getGBufferSetting()
 {
-#if defined(RBX_PLATFORM_IOS) || defined(__ANDROID__)
+#if defined(RBX_PLATFORM_IOS) || defined(__ANDROID__) || (defined(RBX_PLATFORM_UWP) && (defined(_M_ARM) || defined(_M_ARM64)))
     return false;
 #else
     return FFlag::DebugSSAOForce || (isSSAOSupported() && GetQualityLevel() >= FInt::RenderGBufferMinQLvl);

@@ -1,0 +1,68 @@
+<ContentDialog
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Roblox.Views"
+    xmlns:controls="using:Roblox.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Class="Roblox.Views.PurchaseBCPage"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    MaxWidth="1000"
+    MaxHeight="800">
+    <ContentDialog.Content>
+        <Grid Width="600" Height="650">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="48" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.Children>
+                <Grid Grid.Row="0" Background="{ThemeResource SystemControlHighlightAccentBrush}" Margin="-30,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="30" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="150" />
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="10" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.Children>
+                        <TextBlock x:Name="txtTitle"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Left"
+                            Margin="20,0"
+                            Grid.Column="1"
+                            FontWeight="Bold"
+                            FontSize="17"
+                            Foreground="#FFFFFFFF"
+                            Text="PurchaseBCTitle" />
+                        <TextBlock x:Name="txtBalance"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            Margin="20,0"
+                            Grid.Column="2"
+                            FontWeight="Bold"
+                            FontSize="17"
+                            Foreground="#FFFFFFFF"
+                            Text="Balance" />
+                        <Button x:Name="btnClose"
+                            Background="#00FFFFFF"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Grid.Column="3"
+                            Width="50"
+                            Height="50">
+                            <Button.Content>
+                                <Image x:Name="btnClose_image"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"
+                                    Stretch="Fill"
+                                    Width="32"
+                                    Height="32" />
+                            </Button.Content>
+                        </Button>
+                    </Grid.Children>
+                </Grid>
+                <controls:WebView x:Name="wvContent" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            </Grid.Children>
+        </Grid>
+    </ContentDialog.Content>
+</ContentDialog>

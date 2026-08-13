@@ -76,9 +76,14 @@ VisualEngine::VisualEngine(Device* device, CRenderSettings* settings)
         device->getShadingLanguage() == "glsles"
         ? LightGrid::Texture_2D
         :
+#if defined(_M_ARM) || defined(_M_ARM64)
+            LightGrid::Texture_2D
+#else
             (device->getCaps().supportsShaders && device->getCaps().supportsTexture3D)
             ? LightGrid::Texture_3D
-            : LightGrid::Texture_None;
+            : LightGrid::Texture_None
+#endif
+        ;
 
     // Note: if there is no texture support we still create a 4x4x4 texture
     // We would really like the height to be constant since anything above the height does not cast shadows, so this affects ceiling heights

@@ -250,7 +250,7 @@ static inline int IROUND_POS(float f)
    return (int) (f + 0.5F);
 }
 
-#ifdef __x86_64__
+#if defined(__x86_64__) && !defined(_M_ARM) && !defined(_M_ARM64)
 #  include <xmmintrin.h>
 #endif
 

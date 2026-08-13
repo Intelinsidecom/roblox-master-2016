@@ -156,7 +156,7 @@ float3 lgridPrepareSample(float3 c)
     return c.yxz * G(LightConfig0).xyz + G(LightConfig1).xyz;
 }
 
-#if defined(GLSLES) && !defined(GL3)
+#if (defined(GLSLES) && !defined(GL3)) || defined(WIN_MOBILE)
 #define LGRID_SAMPLER(name, register) TEX_DECLARE2D(name, register)
 
 float4 lgridSample(TEXTURE_IN_2D(t), TEXTURE_IN_2D(lut), float3 data)

@@ -1,24 +1,57 @@
-#include "stdafx.h"
+#include "pch.h"
 #include "UserInput.h"
 
+#include "UWPPlatform.h"
+#include "RobloxView.h"
+
+#include "util/KeyCode.h"
+#include "util/G3DCore.h"
+#include "util/Math.h"
+#include "v8datamodel/InputObject.h"
 #include "v8datamodel/UserInputService.h"
+#include "v8datamodel/TouchInputService.h"
 #include "v8datamodel/DataModelJob.h"
+#include "v8tree/Service.h"
 #include "rbx/TaskScheduler.h"
 
-#include <SDL.h>
+namespace
+{
 
-UserInput::UserInput(RBX::DataModel* dataModel, Marshaller* marshaller, std::function<void(const std::string&)> logCallback)
+const float kTapSensitivity = 0.25f;
+const int kTapTouchMoveTolerance = 20;
+const long long kCursorLockTimeoutMs = 100;
+const int kKeyStateSize = 1024;
+} // namespace
+
+UserInput::UserInput(RBX::DataModel* dataModel, std::function<void(const std::string&)> logCallback)
     : m_dataModel(dataModel)
-    , m_marshaller(marshaller)
     , m_logCallback(logCallback)
     , m_isMouseCaptured(false)
-    , m_isMouseInside(false)
+    , m_activeMouseButton(RBX::InputObject::TYPE_MOUSEBUTTON1)
     , m_lastMouseX(0)
     , m_lastMouseY(0)
     , m_viewWidth(0)
     , m_viewHeight(0)
     , m_hasFocus(true)
+    , m_tapEventId(-1)
+    , m_tapBeginX(0.0f)
+    , m_tapBeginY(0.0f)
+    , m_lastCenterRequestMs(0)
+	, m_recentering(false)
+	, m_recenterTargetX(0)
+	, m_recenterTargetY(0)
+    , m_uiLastMouseX(0)
+    , m_uiLastMouseY(0)
+    , m_pointerInsideWindow(false)
+    , m_lockHidCursor(false)
+	, m_loggedRecenter(false)
+    , m_isShuttingDown(false)
+    , m_lockTimer(nullptr)
+    , m_wrapMousePosition(RBX::Vector2::zero())
+    , m_wrapMouseDelta(RBX::Vector2::zero())
 {
+    for (int i = 0; i < kKeyStateSize; ++i)
+        m_keyState[i].store(false);
 }
 
 UserInput::~UserInput()
@@ -31,55 +64,65 @@ void UserInput::initialize()
     auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
     if (window)
     {
-        m_pointerPressedToken = window->PointerPressed += ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
-            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerPressed(sender, args); });
-        m_pointerMovedToken = window->PointerMoved += ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
-            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerMoved(sender, args); });
-        m_pointerReleasedToken = window->PointerReleased += ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
-            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerReleased(sender, args); });
-        m_pointerWheelChangedToken = window->PointerWheelChanged += ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
-            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerWheelChanged(sender, args); });
-        m_keyDownToken = window->KeyDown += ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::KeyEventArgs^>(
-            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::KeyEventArgs^ args) { onKeyDown(sender, args); });
-        m_keyUpToken = window->KeyUp += ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::KeyEventArgs^>(
-            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::KeyEventArgs^ args) { onKeyUp(sender, args); });
-        
-    m_activatedToken = window->Activated += ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::WindowActivatedEventArgs^>(
-        [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::WindowActivatedEventArgs^ args) {
-            bool activated = (args->WindowActivationState != Windows::UI::Core::CoreWindowActivationState::Deactivated);
-            m_marshaller->submit([this, activated]() {
-                sendFocusEvent(activated);
-                if (activated) hideMouse();
-                else showMouse();
-            });
-        });
+        m_pointerPressedToken = window->PointerPressed +=
+            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
+                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerPressed(sender, args); });
+        m_pointerMovedToken = window->PointerMoved +=
+            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
+                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerMoved(sender, args); });
+        m_pointerReleasedToken = window->PointerReleased +=
+            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
+                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerReleased(sender, args); });
+        m_pointerWheelChangedToken = window->PointerWheelChanged +=
+            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
+                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerWheelChanged(sender, args); });
 
-    window->VisibilityChanged += ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::VisibilityChangedEventArgs^>(
-        [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::VisibilityChangedEventArgs^ args) {
-            bool visible = args->Visible;
-            m_marshaller->submit([this, visible]() {
-                if (!visible)
-                {
-                    sendFocusEvent(false);
-                    showMouse();
-                }
-                else
-                {
-                    hideMouse();
-                }
-            });
-        });
 
-    window->PointerEntered += ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
-        [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) {
-            m_marshaller->submit([this]() { hideMouse(); });
-        });
+        m_keyDownToken = window->KeyDown +=
+            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::KeyEventArgs^>(
+                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::KeyEventArgs^ args) { onKeyDown(sender, args); });
+        m_keyUpToken = window->KeyUp +=
+            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::KeyEventArgs^>(
+                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::KeyEventArgs^ args) { onKeyUp(sender, args); });
 
-    window->PointerExited += ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
-        [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) {
-            m_marshaller->submit([this]() { showMouse(); });
-        });
+        m_activatedToken = window->Activated +=
+            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::WindowActivatedEventArgs^>(
+                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::WindowActivatedEventArgs^ args) {
+                    bool activated = (args->WindowActivationState != Windows::UI::Core::CoreWindowActivationState::Deactivated);
+                    sendFocusEvent(activated);
+                    if (activated) hideMouse();
+                    else showMouse();
+                });
 
+        m_visibilityChangedToken = window->VisibilityChanged +=
+            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::VisibilityChangedEventArgs^>(
+                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::VisibilityChangedEventArgs^ args) {
+                    if (!args->Visible)
+                    {
+                        sendFocusEvent(false);
+                        showMouse();
+                    }
+                    else
+                    {
+                        hideMouse();
+                    }
+                });
+
+        m_pointerEnteredToken = window->PointerEntered +=
+            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
+				[this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { m_pointerInsideWindow = true; hideMouse(); });
+
+        m_pointerExitedToken = window->PointerExited +=
+            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
+				[this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { m_pointerInsideWindow = false; showMouse(); });
+
+        m_lockTimer = ref new Windows::UI::Xaml::DispatcherTimer();
+        Windows::Foundation::TimeSpan lockInterval;
+        lockInterval.Duration = 16 * 10000; // 16ms (~60Hz)
+        m_lockTimer->Interval = lockInterval;
+        m_lockTimer->Tick += ref new Windows::Foundation::EventHandler<Platform::Object^>(
+            [this](Platform::Object^, Platform::Object^) { onLockTick(); });
+        m_lockTimer->Start();
     }
     else
     {
@@ -89,6 +132,8 @@ void UserInput::initialize()
 
 void UserInput::shutdown()
 {
+    m_isShuttingDown = true;
+
     auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
     if (window)
     {
@@ -99,6 +144,15 @@ void UserInput::shutdown()
         window->KeyDown -= m_keyDownToken;
         window->KeyUp -= m_keyUpToken;
         window->Activated -= m_activatedToken;
+        window->VisibilityChanged -= m_visibilityChangedToken;
+        window->PointerEntered -= m_pointerEnteredToken;
+        window->PointerExited -= m_pointerExitedToken;
+
+        if (m_lockTimer)
+        {
+            m_lockTimer->Stop();
+            m_lockTimer = nullptr;
+        }
     }
 }
 
@@ -108,139 +162,203 @@ void UserInput::setViewportSize(int width, int height)
     m_viewHeight = height;
 }
 
-
-void UserInput::processKeyboardEvent(const SDL_KeyboardEvent& event)
+void UserInput::setLogCallback(std::function<void(const std::string&)> callback)
 {
-    if (!m_dataModel)
-        return;
-
-    RBX::DataModel::LegacyLock lock(m_dataModel, RBX::DataModelJob::Write);
-
-    RBX::UserInputService* userInputService = RBX::ServiceProvider::find<RBX::UserInputService>(m_dataModel);
-    if (!userInputService)
-        return;
-
-    RBX::KeyCode keyCode = static_cast<RBX::KeyCode>(event.keysym.sym);
-    bool isDown = (event.state == SDL_PRESSED);
-    
-    RBX::ModCode modCode = RBX::KMOD_NONE;
-    if (event.keysym.mod & KMOD_CTRL)
-        modCode = static_cast<RBX::ModCode>(modCode | RBX::KMOD_LCTRL);
-    if (event.keysym.mod & KMOD_SHIFT)
-        modCode = static_cast<RBX::ModCode>(modCode | RBX::KMOD_LSHIFT);
-    if (event.keysym.mod & KMOD_ALT)
-        modCode = static_cast<RBX::ModCode>(modCode | RBX::KMOD_LALT);
-
-    char modifiedKey = 0;
-    if (keyCode >= 32 && keyCode <= 126)
-    {
-        modifiedKey = (char)keyCode;
-    }
-    else if (keyCode >= RBX::SDLK_KP0 && keyCode <= RBX::SDLK_KP9)
-    {
-        modifiedKey = (char)('0' + (keyCode - RBX::SDLK_KP0));
-    }
-
-    userInputService->setKeyState(keyCode, modCode, modifiedKey, isDown);
-
-    shared_ptr<RBX::InputObject> keyInput = RBX::Creatable<RBX::Instance>::create<RBX::InputObject>(
-        RBX::InputObject::TYPE_KEYBOARD,
-        isDown ? RBX::InputObject::INPUT_STATE_BEGIN : RBX::InputObject::INPUT_STATE_END,
-        keyCode,
-        modCode,
-        modifiedKey,
-        m_dataModel
-    );
-
-    keyInput->setScanCode(static_cast<SDL_Scancode>(event.keysym.scancode));
-    userInputService->fireInputEvent(keyInput, NULL);
+    m_logCallback = callback;
 }
 
-void UserInput::processMouseEvent(const SDL_Event& event)
+void UserInput::centerCursor()
 {
+    long long now = std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::steady_clock::now().time_since_epoch()).count();
+    m_lastCenterRequestMs.store(now);
+}
+
+bool UserInput::isCursorLockActive() const
+{
+    long long lastRequest = m_lastCenterRequestMs.load();
+    if (lastRequest == 0)
+        return false;
+
+    long long now = std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::steady_clock::now().time_since_epoch()).count();
+
+    return (now - lastRequest) <= kCursorLockTimeoutMs;
+}
+
+bool UserInput::isLockActive() const
+{
+    if (RBX::UwpInput::wrapMode.load() == RBX::UserInputService::WRAP_NONEANDCENTER)
+        return true;
+
+    return isCursorLockActive();
+}
+
+void UserInput::applyCursorLock(bool active)
+{
+    if (active == m_lockHidCursor)
+        return;
+
+    m_lockHidCursor = active;
+    if (m_logCallback)
+        m_logCallback(active ? "[lock] engaged: hiding pointer" : "[lock] released: showing pointer");
+
+    if (active)
+        seedWrapMousePosition();
+
+	if (active || !m_pointerInsideWindow)
+		hideMouse();
+	else
+        showMouse();
+}
+
+void UserInput::onLockTick()
+{
+	if (m_isShuttingDown)
+		return;
+
+	const bool active = isLockActive();
+	applyCursorLock(active);
+	if (!active)
+		return;
+
+	auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
+	if (!window)
+		return;
+
+	Windows::Foundation::Point pos = window->PointerPosition;
+	Windows::Foundation::Rect bounds = window->Bounds;
+	const float cx = bounds.X + bounds.Width * 0.5f;
+	const float cy = bounds.Y + bounds.Height * 0.5f;
+	if (pos.X < cx - 2.0f || pos.X > cx + 2.0f || pos.Y < cy - 2.0f || pos.Y > cy + 2.0f)
+		recenterCursor();
+}
+
+void UserInput::recenterCursor()
+{
+	auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
+	if (!window)
+		return;
+
+	Windows::Foundation::Rect bounds = window->Bounds;
+
+	int targetX = static_cast<int>(bounds.Width * 0.5f);
+	int targetY = static_cast<int>(bounds.Height * 0.5f);
+
+	if (!m_loggedRecenter)
+	{
+		m_loggedRecenter = true;
+		if (m_logCallback) m_logCallback("[lock] recenterCursor: pinning pointer to window center");
+	}
+
+	m_recentering = true;
+	m_recenterTargetX = targetX;
+	m_recenterTargetY = targetY;
+	m_uiLastMouseX = targetX;
+	m_uiLastMouseY = targetY;
+	m_lastMouseX = targetX;
+	m_lastMouseY = targetY;
+
+	window->PointerPosition = Windows::Foundation::Point(
+		bounds.X + bounds.Width * 0.5f,
+		bounds.Y + bounds.Height * 0.5f);
+}
+
+RBX::Vector2 UserInput::getCursorPosition()
+{
+    return RBX::Vector2(static_cast<float>(m_lastMouseX.load()), static_cast<float>(m_lastMouseY.load()));
+}
+
+RBX::Vector2 UserInput::getWindowCenter() const
+{
+    auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
+    if (window)
+    {
+        Windows::Foundation::Rect bounds = window->Bounds;
+        return RBX::Vector2(bounds.Width * 0.5f, bounds.Height * 0.5f);
+    }
+    return RBX::Vector2(static_cast<float>(m_viewWidth) * 0.5f, static_cast<float>(m_viewHeight) * 0.5f);
+}
+
+RBX::Vector2 UserInput::getGameCursorPositionInternal() const
+{
+    return getWindowCenter() + m_wrapMousePosition;
+}
+
+void UserInput::doWrapMouse(const RBX::Vector2& delta, RBX::Vector2& wrapMouseDelta)
+{
+    wrapMouseDelta = RBX::Vector2::zero();
+
+    switch (RBX::UserInputService::WrapMode(RBX::UwpInput::wrapMode.load()))
+    {
+    case RBX::UserInputService::WRAP_NONEANDCENTER:
+        m_wrapMousePosition = RBX::Vector2::zero();
+    case RBX::UserInputService::WRAP_NONE:
+    case RBX::UserInputService::WRAP_CENTER:
+        wrapMouseDelta += delta;
+        break;
+    case RBX::UserInputService::WRAP_HYBRID:
+        wrapMouseDelta += delta;
+        break;
+    case RBX::UserInputService::WRAP_AUTO:
+    default:
+        m_wrapMousePosition += delta;
+        break;
+    }
+}
+
+void UserInput::seedWrapMousePosition()
+{
+    auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
+    if (!window)
+        return;
+
+    Windows::Foundation::Rect bounds = window->Bounds;
+    Windows::Foundation::Point pos = window->PointerPosition;
+
+    RBX::Vector2 center(bounds.X + bounds.Width * 0.5f, bounds.Y + bounds.Height * 0.5f);
+    RBX::Vector2 pointer(pos.X, pos.Y);
+
+    m_wrapMousePosition = RBX::Math::expandVector2(pointer - center, -10);
+}
+
+bool UserInput::keyDown(RBX::KeyCode code) const
+{
+    int index = static_cast<int>(code);
+    if (index < 0 || index >= kKeyStateSize)
+        return false;
+
+    return m_keyState[index].load();
+}
+
+void UserInput::setKeyState(RBX::KeyCode code, RBX::ModCode modCode, char modifiedKey, bool isDown)
+{
+    int index = static_cast<int>(code);
+    if (index >= 0 && index < kKeyStateSize)
+        m_keyState[index].store(isDown);
+
     if (!m_dataModel)
         return;
 
-    RBX::DataModel::LegacyLock lock(m_dataModel, RBX::DataModelJob::Write);
-
-    RBX::UserInputService* userInputService = RBX::ServiceProvider::find<RBX::UserInputService>(m_dataModel);
-    if (!userInputService)
-        return;
-
-    if (event.type == SDL_MOUSEMOTION)
+    m_dataModel->submitTask([this, code, modCode, modifiedKey, isDown](RBX::DataModel* dm)
     {
-        int x = event.motion.x;
-        int y = event.motion.y;
-        int dx = event.motion.xrel;
-        int dy = event.motion.yrel;
+        RBX::UserInputService* userInputService = RBX::ServiceProvider::find<RBX::UserInputService>(dm);
+        if (!userInputService)
+            return;
 
-        RBX::Vector3 position(static_cast<float>(x), static_cast<float>(y), 0.0f);
-        RBX::Vector3 delta(static_cast<float>(dx), static_cast<float>(dy), 0.0f);
+        userInputService->setKeyState(code, modCode, modifiedKey, isDown);
 
-        shared_ptr<RBX::InputObject> mouseMove = RBX::Creatable<RBX::Instance>::create<RBX::InputObject>(
-            RBX::InputObject::TYPE_MOUSEMOVEMENT,
-            RBX::InputObject::INPUT_STATE_CHANGE,
-            position,
-            delta,
-            m_dataModel
+        shared_ptr<RBX::InputObject> keyInput = RBX::Creatable<RBX::Instance>::create<RBX::InputObject>(
+            RBX::InputObject::TYPE_KEYBOARD,
+            isDown ? RBX::InputObject::INPUT_STATE_BEGIN : RBX::InputObject::INPUT_STATE_END,
+            code,
+            modCode,
+            modifiedKey,
+            dm
         );
-        userInputService->fireInputEvent(mouseMove, NULL);
 
-        if (dx != 0 || dy != 0)
-        {
-            shared_ptr<RBX::InputObject> mouseDelta = RBX::Creatable<RBX::Instance>::create<RBX::InputObject>(
-                RBX::InputObject::TYPE_MOUSEDELTA,
-                RBX::InputObject::INPUT_STATE_CHANGE,
-                position,
-                delta,
-                m_dataModel
-            );
-            userInputService->fireInputEvent(mouseDelta, NULL);
-        }
-
-        m_lastMouseX = x;
-        m_lastMouseY = y;
-    }
-    else if (event.type == SDL_MOUSEBUTTONDOWN || event.type == SDL_MOUSEBUTTONUP)
-    {
-        RBX::InputObject::UserInputType buttonType;
-        switch (event.button.button)
-        {
-            case SDL_BUTTON_LEFT: buttonType = RBX::InputObject::TYPE_MOUSEBUTTON1; break;
-            case SDL_BUTTON_RIGHT: buttonType = RBX::InputObject::TYPE_MOUSEBUTTON2; break;
-            case SDL_BUTTON_MIDDLE: buttonType = RBX::InputObject::TYPE_MOUSEBUTTON3; break;
-            default: return;
-        }
-
-        RBX::Vector3 position(static_cast<float>(event.button.x), static_cast<float>(event.button.y), 0.0f);
-        bool isDown = (event.type == SDL_MOUSEBUTTONDOWN);
-        RBX::InputObject::UserInputState inputState = isDown ? RBX::InputObject::INPUT_STATE_BEGIN : RBX::InputObject::INPUT_STATE_END;
-
-        shared_ptr<RBX::InputObject> mouseButton = RBX::Creatable<RBX::Instance>::create<RBX::InputObject>(
-            buttonType, inputState, position, RBX::Vector3::zero(), m_dataModel
-        );
-        userInputService->fireInputEvent(mouseButton, NULL);
-
-        if (event.button.button == SDL_BUTTON_LEFT && isDown)
-        {
-            sendFocusEvent(true);
-        }
-    }
-    else if (event.type == SDL_MOUSEWHEEL)
-    {
-        int mouseX, mouseY;
-        SDL_GetMouseState(&mouseX, &mouseY);
-        RBX::Vector3 position(static_cast<float>(mouseX), static_cast<float>(mouseY), static_cast<float>(event.wheel.y));
-
-        shared_ptr<RBX::InputObject> mouseWheel = RBX::Creatable<RBX::Instance>::create<RBX::InputObject>(
-            RBX::InputObject::TYPE_MOUSEWHEEL,
-            RBX::InputObject::INPUT_STATE_CHANGE,
-            position,
-            RBX::Vector3::zero(),
-            m_dataModel
-        );
-        userInputService->fireInputEvent(mouseWheel, NULL);
-    }
+        userInputService->fireInputEvent(keyInput, NULL);
+    }, RBX::DataModelJob::Write);
 }
 
 bool UserInput::isGamepadVirtualKey(int vk)
@@ -323,37 +441,24 @@ void UserInput::onKeyDown(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Co
     int vk = (int)args->VirtualKey;
 
     if (args->KeyStatus.WasKeyDown)
-    {
         return;
-    }
 
     if (isGamepadVirtualKey(vk))
-    {
         return;
-    }
-
-    RBX::KeyCode sym = mapVirtualKeyToKeyCode(vk);
-    if (sym == RBX::SDLK_UNKNOWN)
-    {
-        return;
-    }
 
     if (m_keyDownState[vk])
-    {
         return;
-    }
     m_keyDownState[vk] = true;
 
-    SDL_Event event;
-    event.type = SDL_KEYDOWN;
-    event.key.type = SDL_KEYDOWN;
-    event.key.state = SDL_PRESSED;
-    event.key.keysym.sym = (SDL_Keycode)sym;
-    event.key.keysym.scancode = SDL_GetScancodeFromKey(event.key.keysym.sym);
-    event.key.keysym.mod = 0;
-    event.key.repeat = 0;
+    RBX::KeyCode keyCode = mapVirtualKeyToKeyCode(vk);
+    if (keyCode != RBX::SDLK_UNKNOWN)
+    {
+        int index = static_cast<int>(keyCode);
+        if (index >= 0 && index < kKeyStateSize)
+            m_keyState[index].store(true);
+    }
 
-    SDL_PushEvent(&event);
+    fireKeyEvent(vk, true, (int)args->KeyStatus.ScanCode);
 }
 
 void UserInput::onKeyUp(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::KeyEventArgs^ args)
@@ -362,97 +467,397 @@ void UserInput::onKeyUp(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core
     int vk = (int)args->VirtualKey;
 
     if (isGamepadVirtualKey(vk))
-    {
         return;
-    }
 
     if (!m_keyDownState[vk])
-    {
         return;
-    }
     m_keyDownState[vk] = false;
 
-    RBX::KeyCode sym = mapVirtualKeyToKeyCode(vk);
-    if (sym == RBX::SDLK_UNKNOWN)
+    RBX::KeyCode keyCode = mapVirtualKeyToKeyCode(vk);
+    if (keyCode != RBX::SDLK_UNKNOWN)
+    {
+        int index = static_cast<int>(keyCode);
+        if (index >= 0 && index < kKeyStateSize)
+            m_keyState[index].store(false);
+    }
+
+    fireKeyEvent(vk, false, (int)args->KeyStatus.ScanCode);
+}
+
+void UserInput::fireKeyEvent(int vk, bool isDown, int scanCode)
+{
+    if (!m_dataModel)
         return;
 
-    SDL_Event event;
-    event.type = SDL_KEYUP;
-    event.key.type = SDL_KEYUP;
-    event.key.state = SDL_RELEASED;
-    event.key.keysym.sym = (SDL_Keycode)sym;
-    event.key.keysym.scancode = SDL_GetScancodeFromKey(event.key.keysym.sym);
-    event.key.keysym.mod = 0;
+    RBX::ModCode modCode = RBX::KMOD_NONE;
+    auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
+    if (window)
+    {
+        if ((window->GetKeyState(Windows::System::VirtualKey::Shift) & Windows::UI::Core::CoreVirtualKeyStates::Down) == Windows::UI::Core::CoreVirtualKeyStates::Down)
+            modCode = static_cast<RBX::ModCode>(modCode | RBX::KMOD_LSHIFT);
+        if ((window->GetKeyState(Windows::System::VirtualKey::Control) & Windows::UI::Core::CoreVirtualKeyStates::Down) == Windows::UI::Core::CoreVirtualKeyStates::Down)
+            modCode = static_cast<RBX::ModCode>(modCode | RBX::KMOD_LCTRL);
+        if ((window->GetKeyState(Windows::System::VirtualKey::Menu) & Windows::UI::Core::CoreVirtualKeyStates::Down) == Windows::UI::Core::CoreVirtualKeyStates::Down)
+            modCode = static_cast<RBX::ModCode>(modCode | RBX::KMOD_LALT);
+    }
 
-    SDL_PushEvent(&event);
+    m_dataModel->submitTask([this, vk, isDown, modCode](RBX::DataModel* dm)
+    {
+        RBX::UserInputService* userInputService = RBX::ServiceProvider::find<RBX::UserInputService>(dm);
+        if (!userInputService)
+            return;
+
+        RBX::KeyCode keyCode = mapVirtualKeyToKeyCode(vk);
+        if (keyCode == RBX::SDLK_UNKNOWN)
+            return;
+
+        char modifiedKey = 0;
+        if (keyCode >= 32 && keyCode <= 126)
+        {
+            modifiedKey = (char)keyCode;
+        }
+        else if (keyCode >= RBX::SDLK_KP0 && keyCode <= RBX::SDLK_KP9)
+        {
+            modifiedKey = (char)('0' + (keyCode - RBX::SDLK_KP0));
+        }
+
+        userInputService->setKeyState(keyCode, modCode, modifiedKey, isDown);
+
+        shared_ptr<RBX::InputObject> keyInput = RBX::Creatable<RBX::Instance>::create<RBX::InputObject>(
+            RBX::InputObject::TYPE_KEYBOARD,
+            isDown ? RBX::InputObject::INPUT_STATE_BEGIN : RBX::InputObject::INPUT_STATE_END,
+            keyCode,
+            modCode,
+            modifiedKey,
+            dm
+        );
+
+        userInputService->fireInputEvent(keyInput, NULL);
+    }, RBX::DataModelJob::Write);
 }
 
 void UserInput::onPointerPressed(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args)
 {
-    int x = (int)args->CurrentPoint->Position.X;
-    int y = (int)args->CurrentPoint->Position.Y;
-    m_lastMouseX = x;
-    m_lastMouseY = y;
-    m_isMouseInside = true;
+    if (args->CurrentPoint->PointerDevice->PointerDeviceType == Windows::Devices::Input::PointerDeviceType::Touch)
+    {
+        handleTouch(sender, args, RBX::InputObject::INPUT_STATE_BEGIN);
+        return;
+    }
 
-    SDL_Event event;
-    event.type = SDL_MOUSEBUTTONDOWN;
-    event.button.type = SDL_MOUSEBUTTONDOWN;
-    event.button.state = SDL_PRESSED;
-    event.button.x = x;
-    event.button.y = y;
+    float x = static_cast<float>(args->CurrentPoint->Position.X);
+    float y = static_cast<float>(args->CurrentPoint->Position.Y);
 
-    if (args->CurrentPoint->Properties->IsLeftButtonPressed) event.button.button = SDL_BUTTON_LEFT;
-    else if (args->CurrentPoint->Properties->IsRightButtonPressed) event.button.button = SDL_BUTTON_RIGHT;
-    else if (args->CurrentPoint->Properties->IsMiddleButtonPressed) event.button.button = SDL_BUTTON_MIDDLE;
-    else return;
+    if (isLockActive())
+    {
+        RBX::Vector2 pos = getGameCursorPositionInternal();
+        x = pos.x;
+        y = pos.y;
+    }
 
-    SDL_PushEvent(&event);
+    m_lastMouseX = static_cast<int>(x);
+    m_lastMouseY = static_cast<int>(y);
+    m_uiLastMouseX = static_cast<int>(x);
+    m_uiLastMouseY = static_cast<int>(y);
+    m_isMouseCaptured = true;
+
+    if (!args->CurrentPoint->Properties->IsLeftButtonPressed &&
+        !args->CurrentPoint->Properties->IsRightButtonPressed &&
+        !args->CurrentPoint->Properties->IsMiddleButtonPressed)
+        return;
+
+    RBX::InputObject::UserInputType buttonType = RBX::InputObject::TYPE_MOUSEBUTTON1;
+    if (args->CurrentPoint->Properties->IsLeftButtonPressed)
+        buttonType = RBX::InputObject::TYPE_MOUSEBUTTON1;
+    else if (args->CurrentPoint->Properties->IsRightButtonPressed)
+        buttonType = RBX::InputObject::TYPE_MOUSEBUTTON2;
+    else if (args->CurrentPoint->Properties->IsMiddleButtonPressed)
+        buttonType = RBX::InputObject::TYPE_MOUSEBUTTON3;
+    m_activeMouseButton = buttonType;
+
+    firePointerButtonEvent(x, y, true, buttonType);
 }
 
 void UserInput::onPointerReleased(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args)
 {
-    SDL_Event event;
-    event.type = SDL_MOUSEBUTTONUP;
-    event.button.type = SDL_MOUSEBUTTONUP;
-    event.button.state = SDL_RELEASED;
-    event.button.x = (int)args->CurrentPoint->Position.X;
-    event.button.y = (int)args->CurrentPoint->Position.Y;
+    if (args->CurrentPoint->PointerDevice->PointerDeviceType == Windows::Devices::Input::PointerDeviceType::Touch)
+    {
+        handleTouch(sender, args, RBX::InputObject::INPUT_STATE_END);
+        return;
+    }
 
-    if (!args->CurrentPoint->Properties->IsLeftButtonPressed) event.button.button = SDL_BUTTON_LEFT;
-    else if (!args->CurrentPoint->Properties->IsRightButtonPressed) event.button.button = SDL_BUTTON_RIGHT;
-    else if (!args->CurrentPoint->Properties->IsMiddleButtonPressed) event.button.button = SDL_BUTTON_MIDDLE;
+    float x = static_cast<float>(args->CurrentPoint->Position.X);
+    float y = static_cast<float>(args->CurrentPoint->Position.Y);
+    m_isMouseCaptured = false;
 
-    SDL_PushEvent(&event);
+    if (isLockActive())
+    {
+        RBX::Vector2 pos = getGameCursorPositionInternal();
+        x = pos.x;
+        y = pos.y;
+    }
+
+    firePointerButtonEvent(x, y, false, m_activeMouseButton);
 }
 
 void UserInput::onPointerMoved(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args)
 {
-    int x = (int)args->CurrentPoint->Position.X;
-    int y = (int)args->CurrentPoint->Position.Y;
+    if (args->CurrentPoint->PointerDevice->PointerDeviceType == Windows::Devices::Input::PointerDeviceType::Touch)
+    {
+        handleTouch(sender, args, RBX::InputObject::INPUT_STATE_CHANGE);
+        return;
+    }
 
-    SDL_Event event;
-    event.type = SDL_MOUSEMOTION;
-    event.motion.type = SDL_MOUSEMOTION;
-    event.motion.x = x;
-    event.motion.y = y;
-    event.motion.xrel = x - m_lastMouseX;
-    event.motion.yrel = y - m_lastMouseY;
+    float x = static_cast<float>(args->CurrentPoint->Position.X);
+    float y = static_cast<float>(args->CurrentPoint->Position.Y);
+    int ix = static_cast<int>(x);
+    int iy = static_cast<int>(y);
 
-    m_lastMouseX = x;
-    m_lastMouseY = y;
-    m_isMouseInside = true;
+	if (m_recentering &&
+		ix >= m_recenterTargetX - 2 && ix <= m_recenterTargetX + 2 &&
+		iy >= m_recenterTargetY - 2 && iy <= m_recenterTargetY + 2)
+	{
+		m_recentering = false;
+		m_uiLastMouseX = ix;
+		m_uiLastMouseY = iy;
+		m_lastMouseX = ix;
+		m_lastMouseY = iy;
+		return;
+	}
+	m_recentering = false;
 
-    SDL_PushEvent(&event);
+    int dx = ix - m_uiLastMouseX;
+    int dy = iy - m_uiLastMouseY;
+    m_uiLastMouseX = ix;
+    m_uiLastMouseY = iy;
+
+    const bool lockActive = isLockActive();
+    applyCursorLock(lockActive);
+
+    if (lockActive)
+    {
+        RBX::Vector2 wrapMouseDelta;
+        doWrapMouse(RBX::Vector2(static_cast<float>(dx), static_cast<float>(dy)), wrapMouseDelta);
+
+        RBX::Vector2 pos = getGameCursorPositionInternal();
+        m_lastMouseX = static_cast<int>(pos.x);
+        m_lastMouseY = static_cast<int>(pos.y);
+
+        firePointerMoveEvent(pos.x, pos.y, static_cast<int>(wrapMouseDelta.x), static_cast<int>(wrapMouseDelta.y));
+
+        recenterCursor();
+    }
+    else
+    {
+        m_lastMouseX = ix;
+        m_lastMouseY = iy;
+
+        firePointerMoveEvent(x, y, dx, dy);
+    }
 }
 
 void UserInput::onPointerWheelChanged(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args)
 {
-    SDL_Event event;
-    event.type = SDL_MOUSEWHEEL;
-    event.wheel.type = SDL_MOUSEWHEEL;
-    event.wheel.y = args->CurrentPoint->Properties->MouseWheelDelta / 120; // Standard wheel notch
-    SDL_PushEvent(&event);
+    int wheelDelta = args->CurrentPoint->Properties->MouseWheelDelta / 120;
+    firePointerWheelEvent(wheelDelta);
+
+}
+
+void UserInput::firePointerButtonEvent(float x, float y, bool isDown, RBX::InputObject::UserInputType buttonType)
+{
+    if (!m_dataModel)
+        return;
+
+    auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
+    if (!window)
+        return;
+
+    m_dataModel->submitTask([this, x, y, isDown, buttonType](RBX::DataModel* dm)
+    {
+        RBX::UserInputService* userInputService = RBX::ServiceProvider::find<RBX::UserInputService>(dm);
+        if (!userInputService)
+            return;
+
+        RBX::Vector3 position(x, y, 0.0f);
+        RBX::InputObject::UserInputState inputState = isDown ? RBX::InputObject::INPUT_STATE_BEGIN : RBX::InputObject::INPUT_STATE_END;
+
+        shared_ptr<RBX::InputObject> mouseButton = RBX::Creatable<RBX::Instance>::create<RBX::InputObject>(
+            buttonType, inputState, position, RBX::Vector3::zero(), dm
+        );
+        userInputService->fireInputEvent(mouseButton, NULL);
+
+        if (isDown)
+        {
+            sendFocusEvent(true);
+        }
+    }, RBX::DataModelJob::Write);
+}
+
+void UserInput::firePointerMoveEvent(float x, float y, int dx, int dy)
+{
+    if (!m_dataModel)
+        return;
+
+    m_dataModel->submitTask([this, x, y, dx, dy](RBX::DataModel* dm)
+    {
+        RBX::UserInputService* userInputService = RBX::ServiceProvider::find<RBX::UserInputService>(dm);
+        if (!userInputService)
+            return;
+
+        RBX::Vector3 position(x, y, 0.0f);
+        RBX::Vector3 delta(static_cast<float>(dx), static_cast<float>(dy), 0.0f);
+
+        shared_ptr<RBX::InputObject> mouseMove = RBX::Creatable<RBX::Instance>::create<RBX::InputObject>(
+            RBX::InputObject::TYPE_MOUSEMOVEMENT,
+            RBX::InputObject::INPUT_STATE_CHANGE,
+            position,
+            delta,
+            dm
+        );
+        userInputService->fireInputEvent(mouseMove, NULL);
+
+        if (dx != 0 || dy != 0)
+        {
+            shared_ptr<RBX::InputObject> mouseDelta = RBX::Creatable<RBX::Instance>::create<RBX::InputObject>(
+                RBX::InputObject::TYPE_MOUSEDELTA,
+                RBX::InputObject::INPUT_STATE_CHANGE,
+                position,
+                delta,
+                dm
+            );
+            userInputService->fireInputEvent(mouseDelta, NULL);
+        }
+    }, RBX::DataModelJob::Write);
+}
+
+void UserInput::firePointerWheelEvent(int wheelDelta)
+{
+    if (!m_dataModel)
+        return;
+
+    m_dataModel->submitTask([this, wheelDelta](RBX::DataModel* dm)
+    {
+        RBX::UserInputService* userInputService = RBX::ServiceProvider::find<RBX::UserInputService>(dm);
+        if (!userInputService)
+            return;
+
+        RBX::Vector3 position(static_cast<float>(m_lastMouseX.load()), static_cast<float>(m_lastMouseY.load()), static_cast<float>(wheelDelta));
+
+        shared_ptr<RBX::InputObject> mouseWheel = RBX::Creatable<RBX::Instance>::create<RBX::InputObject>(
+            RBX::InputObject::TYPE_MOUSEWHEEL,
+            RBX::InputObject::INPUT_STATE_CHANGE,
+            position,
+            RBX::Vector3::zero(),
+            dm
+        );
+        userInputService->fireInputEvent(mouseWheel, NULL);
+    }, RBX::DataModelJob::Write);
+}
+
+void UserInput::handleTouch(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args, RBX::InputObject::UserInputState state)
+{
+    if (!m_dataModel)
+        return;
+
+    unsigned int pointerId = args->CurrentPoint->PointerId;
+    float x = static_cast<float>(args->CurrentPoint->Position.X);
+    float y = static_cast<float>(args->CurrentPoint->Position.Y);
+
+    bool isTap = false;
+    switch (state)
+    {
+    case RBX::InputObject::INPUT_STATE_BEGIN:
+        if (!m_activeTouchIds.insert(pointerId).second)
+            return;
+        if (m_tapEventId < 0)
+        {
+            m_tapEventId = static_cast<int>(pointerId);
+            m_tapBeginX = x;
+            m_tapBeginY = y;
+            m_tapStartTime = std::chrono::steady_clock::now();
+        }
+        break;
+    case RBX::InputObject::INPUT_STATE_CHANGE:
+        if (m_activeTouchIds.find(pointerId) == m_activeTouchIds.end())
+            return;
+        if (m_tapEventId == static_cast<int>(pointerId))
+        {
+            float dx = x - m_tapBeginX;
+            float dy = y - m_tapBeginY;
+            if (dx * dx + dy * dy > kTapTouchMoveTolerance * kTapTouchMoveTolerance)
+            {
+                m_tapEventId = -1;
+            }
+        }
+        break;
+    case RBX::InputObject::INPUT_STATE_END:
+    case RBX::InputObject::INPUT_STATE_CANCEL:
+        if (m_activeTouchIds.erase(pointerId) == 0)
+            return;
+        if (m_tapEventId == static_cast<int>(pointerId))
+        {
+            if (state == RBX::InputObject::INPUT_STATE_END)
+            {
+                std::chrono::duration<float> elapsed = std::chrono::steady_clock::now() - m_tapStartTime;
+                if (elapsed.count() <= kTapSensitivity)
+                {
+                    isTap = true;
+                }
+            }
+            m_tapEventId = -1;
+        }
+        break;
+    default:
+        return;
+    }
+
+    void* touchKey = reinterpret_cast<void*>(static_cast<uintptr_t>(pointerId));
+    m_dataModel->submitTask([this, touchKey, x, y, state, isTap](RBX::DataModel* dm)
+    {
+        RBX::TouchInputService* touchInputService = RBX::ServiceProvider::find<RBX::TouchInputService>(dm);
+        if (!touchInputService)
+        {
+            touchInputService = RBX::ServiceProvider::create<RBX::TouchInputService>(dm);
+        }
+
+        if (touchInputService)
+        {
+            touchInputService->addTouchToBuffer(touchKey, RBX::Vector3(x, y, 0.0f), state);
+        }
+
+        if (isTap)
+        {
+            sendWorkspaceEvent(x, y);
+        }
+    }, RBX::DataModelJob::Write);
+}
+
+void UserInput::sendWorkspaceEvent(float x, float y)
+{
+    if (!m_dataModel)
+        return;
+
+    RBX::UserInputService* userInputService = RBX::ServiceProvider::find<RBX::UserInputService>(m_dataModel);
+    if (!userInputService)
+        return;
+
+    RBX::Vector3 touchPosition(x, y, 0.0f);
+    shared_ptr<RBX::InputObject> fakeMouseDownEvent = RBX::Creatable<RBX::Instance>::create<RBX::InputObject>(
+        RBX::InputObject::TYPE_MOUSEBUTTON1,
+        RBX::InputObject::INPUT_STATE_BEGIN,
+        touchPosition,
+        RBX::Vector3::zero(),
+        m_dataModel
+    );
+    userInputService->processToolEvent(fakeMouseDownEvent);
+
+    shared_ptr<RBX::InputObject> fakeMouseUpEvent = RBX::Creatable<RBX::Instance>::create<RBX::InputObject>(
+        RBX::InputObject::TYPE_MOUSEBUTTON1,
+        RBX::InputObject::INPUT_STATE_END,
+        touchPosition,
+        RBX::Vector3::zero(),
+        m_dataModel
+    );
+    userInputService->processToolEvent(fakeMouseUpEvent);
 }
 
 void UserInput::sendFocusEvent(bool hasFocus)
@@ -460,24 +865,25 @@ void UserInput::sendFocusEvent(bool hasFocus)
     if (!m_dataModel)
         return;
 
-    RBX::DataModel::LegacyLock lock(m_dataModel, RBX::DataModelJob::Write);
-
-    RBX::InputObject::UserInputState state = hasFocus ? RBX::InputObject::INPUT_STATE_BEGIN : RBX::InputObject::INPUT_STATE_END;
-
-    shared_ptr<RBX::InputObject> focusEvent = RBX::Creatable<RBX::Instance>::create<RBX::InputObject>(
-        RBX::InputObject::TYPE_FOCUS,
-        state,
-        RBX::Vector3::zero(),
-        RBX::Vector3::zero(),
-        m_dataModel
-    );
-
-    if (RBX::UserInputService* userInputService = RBX::ServiceProvider::find<RBX::UserInputService>(m_dataModel))
+    m_dataModel->submitTask([this, hasFocus](RBX::DataModel* dm)
     {
-        userInputService->fireInputEvent(focusEvent, NULL);
-    }
+        RBX::InputObject::UserInputState state = hasFocus ? RBX::InputObject::INPUT_STATE_BEGIN : RBX::InputObject::INPUT_STATE_END;
 
-    m_hasFocus = hasFocus;
+        shared_ptr<RBX::InputObject> focusEvent = RBX::Creatable<RBX::Instance>::create<RBX::InputObject>(
+            RBX::InputObject::TYPE_FOCUS,
+            state,
+            RBX::Vector3::zero(),
+            RBX::Vector3::zero(),
+            dm
+        );
+
+        if (RBX::UserInputService* userInputService = RBX::ServiceProvider::find<RBX::UserInputService>(dm))
+        {
+            userInputService->fireInputEvent(focusEvent, NULL);
+        }
+
+        m_hasFocus = hasFocus;
+    }, RBX::DataModelJob::Write);
 }
 
 void UserInput::hideMouse()
