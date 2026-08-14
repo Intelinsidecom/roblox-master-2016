@@ -2,6 +2,7 @@
 #include "LoginService.h"
 #include "..\Roblox\RobloxSettings.h"
 #include "..\Roblox\AuthStorage.h"
+#include <fstream>
 
 using namespace Roblox::Services;
 using namespace Platform;
@@ -188,6 +189,12 @@ void LoginService::RaiseLogoutSucceeded()
 void LoginService::RaiseLogoutFailed(int httpStatus)
 {
     LogoutFailed(httpStatus);
+}
+
+void LoginService::LogoutLocal()
+{
+    ClearAuthStateAndCookies();
+    RaiseLogoutSucceeded();
 }
 
 IAsyncOperation<bool>^ LoginService::LogoutAsync()

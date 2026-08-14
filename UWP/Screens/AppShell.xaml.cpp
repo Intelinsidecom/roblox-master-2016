@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "AppShell.xaml.h"
+#include <fstream>
 #include "HomePage.xaml.h"
 #include "GamesPage.xaml.h"
 #include "FriendsPage.xaml.h"
@@ -161,6 +162,7 @@ void AppShell::InvokeDestination(NavMenuDestination destination)
         if (window == nullptr || window->Dispatcher == nullptr)
         {
             m_logoutInFlight = true;
+            m_loginService->LogoutLocal();
             m_loginService->LogoutAsync();
             return;
         }
@@ -194,6 +196,7 @@ void AppShell::InvokeDestination(NavMenuDestination destination)
                 {
                     if (m_logoutInFlight) return;
                     m_logoutInFlight = true;
+                    m_loginService->LogoutLocal();
                     m_loginService->LogoutAsync();
                 });
                 dialog->Commands->Append(logoutCommand);
@@ -210,6 +213,7 @@ void AppShell::InvokeDestination(NavMenuDestination destination)
                 if (!m_logoutInFlight)
                 {
                     m_logoutInFlight = true;
+                    m_loginService->LogoutLocal();
                     m_loginService->LogoutAsync();
                 }
             }
@@ -427,21 +431,37 @@ void AppShell::OnLogoutSucceeded()
 {
     m_logoutInFlight = false;
 
-    auto nav = SystemNavigationManager::GetForCurrentView();
-    if (nav != nullptr)
-    {
-        nav->AppViewBackButtonVisibility = AppViewBackButtonVisibility::Collapsed;
-        nav->BackRequested -= m_backRequestedToken;
-    }
-
     auto frame = this->Frame;
-    if (frame == nullptr) return;
+    if (frame == nullptr)
+    {
+        auto window = Window::Current;
+        if (window != nullptr)
+        {
+            frame = dynamic_cast<Windows::UI::Xaml::Controls::Frame^>(window->Content);
+        }
+    }
+    if (frame == nullptr)
+    {
+        return;
+    }
     frame->Content = ref new Roblox::Views::LandingPage();
+
+    try
+    {
+        auto nav = SystemNavigationManager::GetForCurrentView();
+        if (nav != nullptr)
+        {
+            nav->AppViewBackButtonVisibility = AppViewBackButtonVisibility::Collapsed;
+            nav->BackRequested -= m_backRequestedToken;
+        }
+    }
+    catch (Platform::Exception^) { }
 }
 
 void AppShell::OnLogoutFailed(int httpStatus)
 {
     m_logoutInFlight = false;
+    m_loginService->LogoutLocal();
 }
 
 Frame^ AppShell::AppFrame::get()

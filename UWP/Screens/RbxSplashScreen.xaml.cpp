@@ -305,6 +305,12 @@ void RbxSplashScreen::CheckAuthenticationAsync()
 
     String^ persistedCookie = AuthStorage::SessionCookie();
 
+    if (persistedCookie == nullptr || persistedCookie->IsEmpty())
+    {
+        NavigateToNextPage(false);
+        return;
+    }
+
     auto request = ref new HttpRequestMessage(
         HttpMethod::Get,
         ref new Uri(accountInfoUrl));

@@ -42,6 +42,7 @@ namespace Roblox
             event LoginFailedHandler^ LoginFailed;
 
             Windows::Foundation::IAsyncOperation<bool>^ LogoutAsync();
+            void LogoutLocal();
 
             event LogoutSucceededHandler^ LogoutSucceeded;
             event LogoutFailedHandler^ LogoutFailed;
