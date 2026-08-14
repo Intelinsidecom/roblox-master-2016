@@ -44,7 +44,15 @@ void LandingPage::OnSignupButtonClick(Platform::Object^ sender, Windows::UI::Xam
 
 void LandingPage::OnPlayNowButtonClick(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
 {
-    auto frame = this->Frame;
+    Windows::UI::Xaml::Controls::Frame^ frame = this->Frame;
+    if (frame == nullptr)
+    {
+        auto window = Window::Current;
+        if (window != nullptr)
+        {
+            frame = dynamic_cast<Windows::UI::Xaml::Controls::Frame^>(window->Content);
+        }
+    }
     if (frame == nullptr) return;
     frame->Content = ref new Roblox::AppShell();
 }
@@ -82,7 +90,15 @@ void LandingPage::OnCloseLandingPageShowAppShell()
     if (m_hasAuthenticated) return;
     m_hasAuthenticated = true;
 
-    auto frame = this->Frame;
+    Windows::UI::Xaml::Controls::Frame^ frame = this->Frame;
+    if (frame == nullptr)
+    {
+        auto window = Window::Current;
+        if (window != nullptr)
+        {
+            frame = dynamic_cast<Windows::UI::Xaml::Controls::Frame^>(window->Content);
+        }
+    }
     if (frame == nullptr) return;
     frame->Content = ref new Roblox::AppShell();
 }

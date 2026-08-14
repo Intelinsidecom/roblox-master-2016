@@ -148,7 +148,15 @@ void AppShell::InvokeDestination(NavMenuDestination destination)
         destination != NavMenuDestination::Games &&
         destination != NavMenuDestination::Logout)
     {
-        auto frame = this->Frame;
+        Windows::UI::Xaml::Controls::Frame^ frame = this->Frame;
+        if (frame == nullptr)
+        {
+            auto window = Window::Current;
+            if (window != nullptr)
+            {
+                frame = dynamic_cast<Windows::UI::Xaml::Controls::Frame^>(window->Content);
+            }
+        }
         if (frame == nullptr) return;
         frame->Content = ref new Roblox::Views::LandingPage();
         return;
