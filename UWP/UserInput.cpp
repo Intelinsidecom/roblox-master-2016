@@ -21,18 +21,29 @@ const float kTapSensitivity = 0.25f;
 const int kTapTouchMoveTolerance = 20;
 const long long kCursorLockTimeoutMs = 100;
 const int kKeyStateSize = 1024;
+const long long kDragEndGraceMs = 150;
+
+long long getSteadyMs()
+{
+    return std::chrono::duration_cast<std::chrono::milliseconds>(
+        std::chrono::steady_clock::now().time_since_epoch()).count();
+}
 } // namespace
 
-UserInput::UserInput(RBX::DataModel* dataModel, std::function<void(const std::string&)> logCallback)
+UserInput::UserInput(RBX::DataModel* dataModel)
     : m_dataModel(dataModel)
-    , m_logCallback(logCallback)
     , m_isMouseCaptured(false)
     , m_activeMouseButton(RBX::InputObject::TYPE_MOUSEBUTTON1)
     , m_lastMouseX(0)
     , m_lastMouseY(0)
+    , m_rightButtonHeld(false)
+    , m_lockAnchorX(0)
+    , m_lockAnchorY(0)
+    , m_rightReleaseTimeMs(0)
     , m_viewWidth(0)
     , m_viewHeight(0)
     , m_hasFocus(true)
+    , m_windowActive(true)
     , m_tapEventId(-1)
     , m_tapBeginX(0.0f)
     , m_tapBeginY(0.0f)
@@ -44,9 +55,9 @@ UserInput::UserInput(RBX::DataModel* dataModel, std::function<void(const std::st
     , m_uiLastMouseY(0)
     , m_pointerInsideWindow(false)
     , m_lockHidCursor(false)
-	, m_loggedRecenter(false)
     , m_isShuttingDown(false)
     , m_initialized(false)
+    , m_textInputActive(false)
     , m_lockTimer(nullptr)
     , m_lockTickToken(Windows::Foundation::EventRegistrationToken{})
     , m_wrapMousePosition(RBX::Vector2::zero())
@@ -67,74 +78,71 @@ void UserInput::initialize()
         return;
 
     auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
-    if (window)
-    {
-        m_pointerPressedToken = window->PointerPressed +=
-            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
-                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerPressed(sender, args); });
-        m_pointerMovedToken = window->PointerMoved +=
-            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
-                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerMoved(sender, args); });
-        m_pointerReleasedToken = window->PointerReleased +=
-            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
-                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerReleased(sender, args); });
-        m_pointerWheelChangedToken = window->PointerWheelChanged +=
-            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
-                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerWheelChanged(sender, args); });
+    if (!window)
+        return;
 
+    m_pointerPressedToken = window->PointerPressed +=
+        ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
+            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerPressed(sender, args); });
+    m_pointerMovedToken = window->PointerMoved +=
+        ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
+            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerMoved(sender, args); });
+    m_pointerReleasedToken = window->PointerReleased +=
+        ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
+            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerReleased(sender, args); });
+    m_pointerWheelChangedToken = window->PointerWheelChanged +=
+        ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
+            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { onPointerWheelChanged(sender, args); });
 
-        m_keyDownToken = window->KeyDown +=
-            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::KeyEventArgs^>(
-                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::KeyEventArgs^ args) { onKeyDown(sender, args); });
-        m_keyUpToken = window->KeyUp +=
-            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::KeyEventArgs^>(
-                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::KeyEventArgs^ args) { onKeyUp(sender, args); });
+    m_keyDownToken = window->KeyDown +=
+        ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::KeyEventArgs^>(
+            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::KeyEventArgs^ args) { onKeyDown(sender, args); });
+    m_keyUpToken = window->KeyUp +=
+        ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::KeyEventArgs^>(
+            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::KeyEventArgs^ args) { onKeyUp(sender, args); });
 
-        m_activatedToken = window->Activated +=
-            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::WindowActivatedEventArgs^>(
-                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::WindowActivatedEventArgs^ args) {
-                    bool activated = (args->WindowActivationState != Windows::UI::Core::CoreWindowActivationState::Deactivated);
-                    sendFocusEvent(activated);
-                    if (activated) hideMouse();
-                    else showMouse();
-                });
+    m_activatedToken = window->Activated +=
+        ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::WindowActivatedEventArgs^>(
+            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::WindowActivatedEventArgs^ args) {
+                bool activated = (args->WindowActivationState != Windows::UI::Core::CoreWindowActivationState::Deactivated);
+                m_windowActive = activated;
+                if (!activated) m_rightButtonHeld.store(false);
+                sendFocusEvent(activated);
+                if (activated) hideMouse();
+                else showMouse();
+            });
 
-        m_visibilityChangedToken = window->VisibilityChanged +=
-            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::VisibilityChangedEventArgs^>(
-                [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::VisibilityChangedEventArgs^ args) {
-                    if (!args->Visible)
-                    {
-                        sendFocusEvent(false);
-                        showMouse();
-                    }
-                    else
-                    {
-                        hideMouse();
-                    }
-                });
+    m_visibilityChangedToken = window->VisibilityChanged +=
+        ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::VisibilityChangedEventArgs^>(
+            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::VisibilityChangedEventArgs^ args) {
+                if (!args->Visible)
+                {
+                    sendFocusEvent(false);
+                    showMouse();
+                }
+                else
+                {
+                    hideMouse();
+                }
+            });
 
-        m_pointerEnteredToken = window->PointerEntered +=
-            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
-				[this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { m_pointerInsideWindow = true; hideMouse(); });
+    m_pointerEnteredToken = window->PointerEntered +=
+        ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
+            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { m_pointerInsideWindow = true; hideMouse(); });
 
-        m_pointerExitedToken = window->PointerExited +=
-            ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
-				[this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { m_pointerInsideWindow = false; showMouse(); });
+    m_pointerExitedToken = window->PointerExited +=
+        ref new Windows::Foundation::TypedEventHandler<Windows::UI::Core::CoreWindow^, Windows::UI::Core::PointerEventArgs^>(
+            [this](Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args) { m_pointerInsideWindow = false; showMouse(); });
 
-        m_lockTimer = ref new Windows::UI::Xaml::DispatcherTimer();
-        Windows::Foundation::TimeSpan lockInterval;
-        lockInterval.Duration = 16 * 10000; // 16ms (~60Hz)
-        m_lockTimer->Interval = lockInterval;
-        m_lockTickToken = m_lockTimer->Tick += ref new Windows::Foundation::EventHandler<Platform::Object^>(
-            [this](Platform::Object^, Platform::Object^) { onLockTick(); });
-        m_lockTimer->Start();
+    m_lockTimer = ref new Windows::UI::Xaml::DispatcherTimer();
+    Windows::Foundation::TimeSpan lockInterval;
+    lockInterval.Duration = 16 * 10000; // 16ms (~60Hz)
+    m_lockTimer->Interval = lockInterval;
+    m_lockTickToken = m_lockTimer->Tick += ref new Windows::Foundation::EventHandler<Platform::Object^>(
+        [this](Platform::Object^, Platform::Object^) { onLockTick(); });
+    m_lockTimer->Start();
 
-        m_initialized = true;
-    }
-    else
-    {
-        if (m_logCallback) m_logCallback("[ERROR] Failed to get CoreWindow for event registration");
-    }
+    m_initialized = true;
 }
 
 void UserInput::shutdown()
@@ -172,11 +180,6 @@ void UserInput::setViewportSize(int width, int height)
     m_viewHeight = height;
 }
 
-void UserInput::setLogCallback(std::function<void(const std::string&)> callback)
-{
-    m_logCallback = callback;
-}
-
 void UserInput::centerCursor()
 {
     long long now = std::chrono::duration_cast<std::chrono::milliseconds>(
@@ -198,7 +201,12 @@ bool UserInput::isCursorLockActive() const
 
 bool UserInput::isLockActive() const
 {
-    if (RBX::UwpInput::wrapMode.load() == RBX::UserInputService::WRAP_NONEANDCENTER)
+    const int wrapMode = RBX::UwpInput::wrapMode.load();
+
+    if (wrapMode == RBX::UserInputService::WRAP_NONEANDCENTER)
+        return true;
+
+    if (m_rightButtonHeld.load() && wrapMode == RBX::UserInputService::WRAP_NONE)
         return true;
 
     return isCursorLockActive();
@@ -210,16 +218,11 @@ void UserInput::applyCursorLock(bool active)
         return;
 
     m_lockHidCursor = active;
-    if (m_logCallback)
-        m_logCallback(active ? "[lock] engaged: hiding pointer" : "[lock] released: showing pointer");
 
     if (active)
         seedWrapMousePosition();
 
-	if (active || !m_pointerInsideWindow)
-		hideMouse();
-	else
-        showMouse();
+    hideMouse();
 }
 
 void UserInput::onLockTick()
@@ -232,46 +235,65 @@ void UserInput::onLockTick()
 	if (!active)
 		return;
 
-	auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
-	if (!window)
+	if (!m_windowActive || !m_pointerInsideWindow)
 		return;
 
-	Windows::Foundation::Point pos = window->PointerPosition;
-	Windows::Foundation::Rect bounds = window->Bounds;
-	const float cx = bounds.X + bounds.Width * 0.5f;
-	const float cy = bounds.Y + bounds.Height * 0.5f;
-	if (pos.X < cx - 2.0f || pos.X > cx + 2.0f || pos.Y < cy - 2.0f || pos.Y > cy + 2.0f)
-		recenterCursor();
+	try
+	{
+		auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
+		if (!window)
+			return;
+
+		Windows::Foundation::Point pos = window->PointerPosition;
+		Windows::Foundation::Rect bounds = window->Bounds;
+		const RBX::Vector2 anchor = getLockAnchor();
+		const float cx = bounds.X + anchor.x;
+		const float cy = bounds.Y + anchor.y;
+		hideMouse();
+		if (pos.X < cx - 2.0f || pos.X > cx + 2.0f || pos.Y < cy - 2.0f || pos.Y > cy + 2.0f)
+		{
+			recenterCursor(anchor.x, anchor.y);
+		}
+	}
+	catch (Platform::Exception^)
+	{
+	}
+	catch (...)
+	{
+	}
 }
 
-void UserInput::recenterCursor()
+void UserInput::recenterCursor(float targetX, float targetY)
 {
 	auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
 	if (!window)
 		return;
 
-	Windows::Foundation::Rect bounds = window->Bounds;
-
-	int targetX = static_cast<int>(bounds.Width * 0.5f);
-	int targetY = static_cast<int>(bounds.Height * 0.5f);
-
-	if (!m_loggedRecenter)
+	try
 	{
-		m_loggedRecenter = true;
-		if (m_logCallback) m_logCallback("[lock] recenterCursor: pinning pointer to window center");
+		Windows::Foundation::Rect bounds = window->Bounds;
+
+		int targetXpx = static_cast<int>(targetX);
+		int targetYpx = static_cast<int>(targetY);
+
+		m_recentering = true;
+		m_recenterTargetX = targetXpx;
+		m_recenterTargetY = targetYpx;
+		m_uiLastMouseX = targetXpx;
+		m_uiLastMouseY = targetYpx;
+		m_lastMouseX = targetXpx;
+		m_lastMouseY = targetYpx;
+
+		window->PointerPosition = Windows::Foundation::Point(
+			bounds.X + targetX,
+			bounds.Y + targetY);
 	}
-
-	m_recentering = true;
-	m_recenterTargetX = targetX;
-	m_recenterTargetY = targetY;
-	m_uiLastMouseX = targetX;
-	m_uiLastMouseY = targetY;
-	m_lastMouseX = targetX;
-	m_lastMouseY = targetY;
-
-	window->PointerPosition = Windows::Foundation::Point(
-		bounds.X + bounds.Width * 0.5f,
-		bounds.Y + bounds.Height * 0.5f);
+	catch (Platform::Exception^)
+	{
+	}
+	catch (...)
+	{
+	}
 }
 
 RBX::Vector2 UserInput::getCursorPosition()
@@ -290,14 +312,35 @@ RBX::Vector2 UserInput::getWindowCenter() const
     return RBX::Vector2(static_cast<float>(m_viewWidth) * 0.5f, static_cast<float>(m_viewHeight) * 0.5f);
 }
 
+RBX::Vector2 UserInput::getLockAnchor() const
+{
+    if (m_rightButtonHeld.load())
+        return RBX::Vector2(static_cast<float>(m_lockAnchorX), static_cast<float>(m_lockAnchorY));
+
+    const long long now = getSteadyMs();
+    if (m_rightReleaseTimeMs > 0 && (now - m_rightReleaseTimeMs) <= kDragEndGraceMs)
+        return RBX::Vector2(static_cast<float>(m_lockAnchorX), static_cast<float>(m_lockAnchorY));
+
+    return getWindowCenter();
+}
+
 RBX::Vector2 UserInput::getGameCursorPositionInternal() const
 {
+    if (m_rightButtonHeld.load())
+        return RBX::Vector2(static_cast<float>(m_lockAnchorX), static_cast<float>(m_lockAnchorY));
     return getWindowCenter() + m_wrapMousePosition;
 }
 
 void UserInput::doWrapMouse(const RBX::Vector2& delta, RBX::Vector2& wrapMouseDelta)
 {
     wrapMouseDelta = RBX::Vector2::zero();
+
+    if (m_rightButtonHeld.load())
+    {
+        m_wrapMousePosition = RBX::Vector2::zero();
+        wrapMouseDelta += delta;
+        return;
+    }
 
     switch (RBX::UserInputService::WrapMode(RBX::UwpInput::wrapMode.load()))
     {
@@ -319,17 +362,26 @@ void UserInput::doWrapMouse(const RBX::Vector2& delta, RBX::Vector2& wrapMouseDe
 
 void UserInput::seedWrapMousePosition()
 {
-    auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
-    if (!window)
-        return;
+	auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
+	if (!window)
+		return;
 
-    Windows::Foundation::Rect bounds = window->Bounds;
-    Windows::Foundation::Point pos = window->PointerPosition;
+	try
+	{
+		Windows::Foundation::Rect bounds = window->Bounds;
+		Windows::Foundation::Point pos = window->PointerPosition;
 
-    RBX::Vector2 center(bounds.X + bounds.Width * 0.5f, bounds.Y + bounds.Height * 0.5f);
-    RBX::Vector2 pointer(pos.X, pos.Y);
+		RBX::Vector2 center(bounds.X + bounds.Width * 0.5f, bounds.Y + bounds.Height * 0.5f);
+		RBX::Vector2 pointer(pos.X, pos.Y);
 
-    m_wrapMousePosition = RBX::Math::expandVector2(pointer - center, -10);
+		m_wrapMousePosition = RBX::Math::expandVector2(pointer - center, -10);
+	}
+	catch (Platform::Exception^)
+	{
+	}
+	catch (...)
+	{
+	}
 }
 
 bool UserInput::keyDown(RBX::KeyCode code) const
@@ -548,6 +600,9 @@ void UserInput::fireKeyEvent(int vk, bool isDown, int scanCode)
 
 void UserInput::onPointerPressed(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args)
 {
+    if (m_textInputActive.load())
+        return;
+
     if (args->CurrentPoint->PointerDevice->PointerDeviceType == Windows::Devices::Input::PointerDeviceType::Touch)
     {
         handleTouch(sender, args, RBX::InputObject::INPUT_STATE_BEGIN);
@@ -556,6 +611,8 @@ void UserInput::onPointerPressed(Windows::UI::Core::CoreWindow^ sender, Windows:
 
     float x = static_cast<float>(args->CurrentPoint->Position.X);
     float y = static_cast<float>(args->CurrentPoint->Position.Y);
+    float rawX = x;
+    float rawY = y;
 
     if (isLockActive())
     {
@@ -585,10 +642,20 @@ void UserInput::onPointerPressed(Windows::UI::Core::CoreWindow^ sender, Windows:
     m_activeMouseButton = buttonType;
 
     firePointerButtonEvent(x, y, true, buttonType);
+
+    if (buttonType == RBX::InputObject::TYPE_MOUSEBUTTON2)
+    {
+        m_rightButtonHeld.store(true);
+        m_lockAnchorX = static_cast<int>(rawX);
+        m_lockAnchorY = static_cast<int>(rawY);
+    }
 }
 
 void UserInput::onPointerReleased(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args)
 {
+    if (m_textInputActive.load())
+        return;
+
     if (args->CurrentPoint->PointerDevice->PointerDeviceType == Windows::Devices::Input::PointerDeviceType::Touch)
     {
         handleTouch(sender, args, RBX::InputObject::INPUT_STATE_END);
@@ -607,10 +674,19 @@ void UserInput::onPointerReleased(Windows::UI::Core::CoreWindow^ sender, Windows
     }
 
     firePointerButtonEvent(x, y, false, m_activeMouseButton);
+
+    if (m_activeMouseButton == RBX::InputObject::TYPE_MOUSEBUTTON2)
+    {
+        m_rightButtonHeld.store(false);
+        m_rightReleaseTimeMs = getSteadyMs();
+    }
 }
 
 void UserInput::onPointerMoved(Windows::UI::Core::CoreWindow^ sender, Windows::UI::Core::PointerEventArgs^ args)
 {
+    if (m_textInputActive.load())
+        return;
+
     if (args->CurrentPoint->PointerDevice->PointerDeviceType == Windows::Devices::Input::PointerDeviceType::Touch)
     {
         handleTouch(sender, args, RBX::InputObject::INPUT_STATE_CHANGE);
@@ -654,7 +730,9 @@ void UserInput::onPointerMoved(Windows::UI::Core::CoreWindow^ sender, Windows::U
 
         firePointerMoveEvent(pos.x, pos.y, static_cast<int>(wrapMouseDelta.x), static_cast<int>(wrapMouseDelta.y));
 
-        recenterCursor();
+        const RBX::Vector2 anchor = getLockAnchor();
+        recenterCursor(anchor.x, anchor.y);
+        hideMouse();
     }
     else
     {
@@ -694,11 +772,6 @@ void UserInput::firePointerButtonEvent(float x, float y, bool isDown, RBX::Input
             buttonType, inputState, position, RBX::Vector3::zero(), dm
         );
         userInputService->fireInputEvent(mouseButton, NULL);
-
-        if (isDown)
-        {
-            sendFocusEvent(true);
-        }
     }, RBX::DataModelJob::Write);
 }
 
@@ -896,20 +969,43 @@ void UserInput::sendFocusEvent(bool hasFocus)
     }, RBX::DataModelJob::Write);
 }
 
+void UserInput::setTextInputActive(bool active)
+{
+    m_textInputActive.store(active);
+}
+
 void UserInput::hideMouse()
 {
-    auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
-    if (window)
-    {
-        window->PointerCursor = nullptr;
-    }
+	try
+	{
+		auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
+		if (window)
+		{
+			window->PointerCursor = nullptr;
+		}
+	}
+	catch (Platform::Exception^)
+	{
+	}
+	catch (...)
+	{
+	}
 }
 
 void UserInput::showMouse()
 {
-    auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
-    if (window)
-    {
-        window->PointerCursor = ref new Windows::UI::Core::CoreCursor(Windows::UI::Core::CoreCursorType::Arrow, 0);
-    }
+	try
+	{
+		auto window = Windows::UI::Core::CoreWindow::GetForCurrentThread();
+		if (window)
+		{
+			window->PointerCursor = ref new Windows::UI::Core::CoreCursor(Windows::UI::Core::CoreCursorType::Arrow, 0);
+		}
+	}
+	catch (Platform::Exception^)
+	{
+	}
+	catch (...)
+	{
+	}
 }

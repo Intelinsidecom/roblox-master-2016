@@ -68,45 +68,91 @@ LoginService::LoginService()
 void LoginService::UpdateCookiesFromResponse(HttpResponseMessage^ response)
 {
     if (!response->Headers->HasKey(L"Set-Cookie")) return;
-    auto cookies = response->Headers->Lookup(L"Set-Cookie");
-    if (cookies == nullptr) return;
 
-    auto raw = cookies->Data();
-    if (raw == nullptr || raw[0] == L'\0') return;
+    String^ raw = response->Headers->Lookup(L"Set-Cookie");
+    if (raw == nullptr || raw->IsEmpty()) return;
 
-    std::wstring cookieStr(raw);
+    std::wstring combined(raw->Data());
 
-    size_t start = 0;
-    while (start < cookieStr.size())
+    size_t pos = 0;
+    while (pos < combined.size())
     {
-        auto end = cookieStr.find(L';', start);
-        if (end == std::wstring::npos) end = cookieStr.size();
-        auto seg = cookieStr.substr(start, end - start);
-
-        auto eq = seg.find(L'=');
-        if (eq != std::wstring::npos)
+        size_t nextCookie = std::wstring::npos;
+        size_t searchPos = pos;
+        while (searchPos < combined.size())
         {
-            auto name = seg.substr(0, eq);
-            auto value = seg.substr(eq + 1);
-            while (!name.empty() && (name.front() == L' ' || name.front() == L'\t')) name.erase(name.begin());
-            while (!name.empty() && (name.back() == L' ' || name.back() == L'\t')) name.pop_back();
-            while (!value.empty() && (value.front() == L' ' || value.front() == L'\t')) value.erase(value.begin());
-            while (!value.empty() && (value.back() == L' ' || value.back() == L'\t')) value.pop_back();
+            size_t commaPos = combined.find(L", ", searchPos);
+            if (commaPos == std::wstring::npos) break;
 
-            if (!name.empty())
+            size_t afterComma = commaPos + 2;
+            if (afterComma < combined.size())
             {
-                String^ nameStr  = ref new String(name.c_str());
-                String^ valueStr = ref new String(value.c_str());
-                m_cookieJar->Insert(nameStr, valueStr);
-                if (nameStr->Equals(ref new String(kRobloSecurityCookieName)))
+                wchar_t c = combined[afterComma];
+                if ((c >= L'A' && c <= L'Z') || (c >= L'a' && c <= L'z') ||
+                    (c >= L'0' && c <= L'9') || c == L'.' || c == L'_')
                 {
-                    m_sessionToken = valueStr;
+                    nextCookie = commaPos;
+                    break;
                 }
             }
+            searchPos = commaPos + 1;
         }
-        if (end >= cookieStr.size()) break;
-        start = end + 1;
-        while (start < cookieStr.size() && cookieStr[start] == L' ') start++;
+
+        std::wstring entry;
+        if (nextCookie != std::wstring::npos)
+        {
+            entry = combined.substr(pos, nextCookie - pos);
+            pos = nextCookie + 2;
+        }
+        else
+        {
+            entry = combined.substr(pos);
+            pos = combined.size();
+        }
+
+        size_t start = entry.find_first_not_of(L" \t\r\n");
+        if (start == std::wstring::npos) continue;
+        entry = entry.substr(start);
+        size_t end2 = entry.find_last_not_of(L" \t\r\n");
+        if (end2 != std::wstring::npos) entry = entry.substr(0, end2 + 1);
+
+        size_t semi = entry.find(L';');
+        if (semi != std::wstring::npos)
+            entry = entry.substr(0, semi);
+
+        auto eq = entry.find(L'=');
+        if (eq == std::wstring::npos) continue;
+
+        auto name = entry.substr(0, eq);
+        auto value = entry.substr(eq + 1);
+        while (!name.empty() && (name.front() == L' ' || name.front() == L'\t')) name.erase(name.begin());
+        while (!name.empty() && (name.back() == L' ' || name.back() == L'\t')) name.pop_back();
+        while (!value.empty() && (value.front() == L' ' || value.front() == L'\t')) value.erase(value.begin());
+        while (!value.empty() && (value.back() == L' ' || value.back() == L'\t')) value.pop_back();
+
+        if (!name.empty())
+        {
+            String^ nameStr  = ref new String(name.c_str());
+            String^ valueStr = ref new String(value.c_str());
+            m_cookieJar->Insert(nameStr, valueStr);
+            if (nameStr->Equals(ref new String(kRobloSecurityCookieName)))
+            {
+                m_sessionToken = valueStr;
+            }
+        }
+    }
+}
+
+void LoginService::MergeCookies(IMap<String^, String^>^ source)
+{
+    if (source == nullptr) return;
+    for (auto pair : source)
+    {
+        m_cookieJar->Insert(pair->Key, pair->Value);
+        if (pair->Key->Equals(ref new String(kRobloSecurityCookieName)))
+        {
+            m_sessionToken = pair->Value;
+        }
     }
 }
 
@@ -195,6 +241,11 @@ void LoginService::LogoutLocal()
 {
     ClearAuthStateAndCookies();
     RaiseLogoutSucceeded();
+}
+
+IMap<String^, String^>^ LoginService::GetAllCookies()
+{
+    return m_cookieJar;
 }
 
 IAsyncOperation<bool>^ LoginService::LogoutAsync()

@@ -50,6 +50,10 @@ namespace Roblox
     {
         auto values = ApplicationData::Current->LocalSettings->Values;
         if (sessionCookie != nullptr) values->Insert(kCookieKey,   sessionCookie);
+        if (userId != nullptr && sessionCookie == nullptr)
+        {
+            values->Insert(kCookieKey, userId);
+        }
         if (userId       != nullptr) values->Insert(kUserIdKey,   userId);
         if (userName     != nullptr) values->Insert(kUserNameKey, userName);
     }

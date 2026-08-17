@@ -164,6 +164,11 @@ String^ RobloxSettings::SignupURL()
     return m_baseSecureURL + L"/signup";
 }
 
+String^ RobloxSettings::SignupV1URL()
+{
+    return m_baseApiURL + L"/signup/v1";
+}
+
 String^ RobloxSettings::UsernameValidationURL(String^ username)
 {
     return m_baseApiURL + L"/signup/is-username-valid?username=" + username;

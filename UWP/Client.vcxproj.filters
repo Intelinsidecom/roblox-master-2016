@@ -201,6 +201,9 @@
     <ClInclude Include="UserInput.h">
       <Filter>Source</Filter>
     </ClInclude>
+    <ClInclude Include="KeyboardController.h">
+      <Filter>Source</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -329,6 +332,9 @@
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include="FunctionMarshaller.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyboardController.cpp">
       <Filter>Source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -2434,6 +2440,12 @@
       <Filter>Assets</Filter>
     </Image>
     <Image Include="Assets\Tiles\RobloxTile71x71.scale-400.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\LandingPage\home_bkg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\LandingPage\roblox_logo_red.png">
       <Filter>Assets</Filter>
     </Image>
     <Image Include="Assets\LandingPage\home_bkg.png">

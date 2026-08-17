@@ -65,6 +65,7 @@ public:
     static PlaceLauncher& getPlaceLauncher();
 
     RobloxView* getRbxView() { return rbxView; }
+    UserInput* getUserInput() { return m_userInput.get(); }
 
     bool startGame(const StartGameParams& sgp);
     void leaveGame(bool userRequestedLeave);

@@ -296,6 +296,7 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
     </PreBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="KeyboardController.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="App.xaml.h">
@@ -1890,6 +1891,7 @@ call "$(SolutionDir)..\buildshaders.bat"</Command>
       <DependentUpon>App.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="FunctionMarshaller.cpp" />
+    <ClCompile Include="KeyboardController.cpp" />
     <ClCompile Include="PlaceLauncher.cpp" />
     <ClCompile Include="Teleporter.cpp" />
     <ClCompile Include="pch.cpp">

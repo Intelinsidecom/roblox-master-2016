@@ -23,15 +23,16 @@ namespace Roblox
             Platform::String^ GetCookie(Platform::String^ name);
             void DeleteCookie(Platform::String^ name);
             void ClearAllCookies();
+            Windows::Foundation::Collections::IMap<Platform::String^, Platform::String^>^ GetAllCookies();
 
-        private:
+	private:
+		void ParseSingleCookie(const std::wstring& cookieStr);
             Windows::Web::Http::HttpClient^ httpClient;
             Windows::Foundation::Collections::IMap<Platform::String^, Platform::String^>^ cookieJar;
             Platform::String^ csrfToken;
             Platform::String^ sessionToken;
             bool isSignupInProgress;
 
-            Platform::String^ GetBaseUrl();
             void UpdateCookiesFromResponse(Windows::Web::Http::HttpResponseMessage^ response);
             void AddCookiesToRequest(Windows::Web::Http::HttpRequestMessage^ request);
         };

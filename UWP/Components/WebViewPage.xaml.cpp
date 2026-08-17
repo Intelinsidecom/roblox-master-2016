@@ -189,11 +189,28 @@ void WebViewPage::OnSearchQuerySubmitted(Windows::UI::Xaml::Controls::AutoSugges
 void WebViewPage::FetchBalance()
 {
     auto settings = RobloxSettings::GetInstance();
+    auto loginService = Roblox::Services::LoginService::GetInstance();
     auto httpClient = ref new HttpClient();
     auto localThis = this;
     auto balanceLocal = btnRobux_balance;
 
-    create_task(httpClient->GetAsync(ref new Uri(settings->BalanceApiURL())))
+    auto request = ref new HttpRequestMessage(HttpMethod::Get, ref new Uri(settings->BalanceApiURL()));
+    auto cookies = loginService->GetAllCookies();
+    if (cookies != nullptr && cookies->Size > 0)
+    {
+        String^ cookieString = L"";
+        for (auto pair : cookies)
+        {
+            if (cookieString->Length() > 0) cookieString += L"; ";
+            cookieString += pair->Key + L"=" + pair->Value;
+        }
+        if (cookieString->Length() > 0)
+        {
+            request->Headers->Append(L"Cookie", cookieString);
+        }
+    }
+
+    create_task(httpClient->SendRequestAsync(request))
         .then([balanceLocal, localThis](task<HttpResponseMessage^> previousTask)
     {
         try
@@ -223,7 +240,7 @@ void WebViewPage::FetchBalance()
                     {
                         auto text = robux.ToString();
                         balanceLocal->Text = text;
-                        balanceLocal->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
+                        balanceLocal->Visibility = Windows::UI::Xaml::Visibility::Visible;
 
                         Roblox::Services::LoginService::GetInstance()->SetRobuxBalance(robux);
                     }));

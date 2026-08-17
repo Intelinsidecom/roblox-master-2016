@@ -44,6 +44,9 @@ namespace Roblox
             Windows::Foundation::IAsyncOperation<bool>^ LogoutAsync();
             void LogoutLocal();
 
+            void MergeCookies(Windows::Foundation::Collections::IMap<Platform::String^, Platform::String^>^ source);
+            Windows::Foundation::Collections::IMap<Platform::String^, Platform::String^>^ GetAllCookies();
+
             event LogoutSucceededHandler^ LogoutSucceeded;
             event LogoutFailedHandler^ LogoutFailed;
 

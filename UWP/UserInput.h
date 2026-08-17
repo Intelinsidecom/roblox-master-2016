@@ -3,7 +3,6 @@
 #include <map>
 #include <set>
 #include <chrono>
-#include <functional>
 #include <atomic>
 
 #include "util/KeyCode.h"
@@ -30,7 +29,7 @@ namespace Windows
 class UserInput : public RBX::UserInputBase
 {
 public:
-    UserInput(RBX::DataModel* dataModel, std::function<void(const std::string&)> logCallback = nullptr);
+    UserInput(RBX::DataModel* dataModel);
     ~UserInput();
 
     void initialize();
@@ -39,7 +38,10 @@ public:
     void sendFocusEvent(bool hasFocus);
     void hideMouse();
     void showMouse();
-    void setLogCallback(std::function<void(const std::string&)> callback);
+
+    // While a text-input overlay is active (touch keyboard shown over the game),
+    // touch/mouse input is swallowed so taps don't reach the game behind it.
+    void setTextInputActive(bool active);
 
     RBX::DataModel* getDataModel() const { return m_dataModel; }
 
@@ -73,21 +75,26 @@ private:
     bool isLockActive() const;
     void applyCursorLock(bool active);
     void onLockTick();
-	void recenterCursor();
+	void recenterCursor(float targetX, float targetY);
     void doWrapMouse(const RBX::Vector2& delta, RBX::Vector2& wrapMouseDelta);
     RBX::Vector2 getGameCursorPositionInternal() const;
     RBX::Vector2 getWindowCenter() const;
+    RBX::Vector2 getLockAnchor() const;
     void seedWrapMousePosition();
     RBX::DataModel* m_dataModel;
     bool m_isMouseCaptured;
     RBX::InputObject::UserInputType m_activeMouseButton;
     std::atomic<int> m_lastMouseX;
     std::atomic<int> m_lastMouseY;
+    std::atomic<bool> m_rightButtonHeld;
+    int m_lockAnchorX;
+    int m_lockAnchorY;
+    long long m_rightReleaseTimeMs;
     int m_viewWidth;
     int m_viewHeight;
     bool m_hasFocus;
+    bool m_windowActive;
     std::map<int, bool> m_keyDownState;
-    std::function<void(const std::string&)> m_logCallback;
 
     std::atomic<long long> m_lastCenterRequestMs;
 	bool m_recentering;
@@ -99,7 +106,6 @@ private:
 
     bool m_pointerInsideWindow;
     bool m_lockHidCursor;
-	bool m_loggedRecenter;
     std::atomic<bool> m_isShuttingDown;
     bool m_initialized;
     Windows::UI::Xaml::DispatcherTimer^ m_lockTimer;
@@ -108,6 +114,7 @@ private:
     RBX::Vector2 m_wrapMousePosition;
     RBX::Vector2 m_wrapMouseDelta;
 
+    std::atomic<bool> m_textInputActive;
     std::set<unsigned int> m_activeTouchIds;
     int m_tapEventId;
     float m_tapBeginX;

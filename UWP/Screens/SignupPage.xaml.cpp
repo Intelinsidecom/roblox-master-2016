@@ -3,6 +3,8 @@
 #include "CaptchaModal.xaml.h"
 #include "AppShell.xaml.h"
 #include "..\\Roblox\\OnCaptchaSolved.h"
+#include "..\\Roblox\\AuthStorage.h"
+#include "..\\Services\\LoginService.h"
 #include "Components/DatePicker.xaml.h"
 
 using namespace Roblox::Views;
@@ -87,7 +89,27 @@ void SignupPage::OnSignupButtonClick(Platform::Object^ sender, Windows::UI::Xaml
     }
 
     m_isSignupInProgress = true;
-    ExecuteFullSignupFlow();
+
+    String^ birthday = GetBirthdayString();
+    String^ gender = GetGenderString();
+
+    create_task(ExecuteFullSignupFlow(username, password, birthday, gender))
+        .then([this](SignupFailureReason reason)
+    {
+        m_isSignupInProgress = false;
+
+        RunOnUiThread(ref new DispatchedHandler([this, reason]()
+        {
+            if (reason == SignupFailureReason::None)
+            {
+                ClearError();
+            }
+            else
+            {
+                ShowError(GetValidationErrorMessage(reason));
+            }
+        }));
+    });
 }
 
 void SignupPage::OnCancelButtonClick(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e)
@@ -100,16 +122,16 @@ void SignupPage::OnLoginButtonClick(Platform::Object^ sender, Windows::UI::Xaml:
     this->Hide();
 }
 
-IAsyncOperation<SignupFailureReason>^ SignupPage::ExecuteFullSignupFlow()
+IAsyncOperation<SignupFailureReason>^ SignupPage::ExecuteFullSignupFlow(
+    String^ username,
+    String^ password,
+    String^ birthday,
+    String^ gender)
 {
-    return create_async([this]() -> SignupFailureReason
+    return create_async([this, username, password, birthday, gender]() -> SignupFailureReason
     {
         try
         {
-            String^ username = username_textbox->Text;
-            String^ password = password_textbox->Password;
-            String^ birthday = GetBirthdayString();
-            String^ gender = GetGenderString();
             String^ usernameValidation = create_task(signupService->ValidateUsernameAsync(username)).get();
             if (usernameValidation == nullptr)
             {
@@ -207,21 +229,7 @@ IAsyncOperation<SignupFailureReason>^ SignupPage::ExecuteFullSignupFlow()
                                     ParseSignupFailureArray(retryResp);
                                 if (retryMapped == SignupFailureReason::None)
                                 {
-                                    bool authOk = create_task(
-                                        signupService->BeginAuthorizationAsync()).get();
-                                    bool slOk = create_task(
-                                        signupService->ServiceLoginAuthAsync(
-                                            username, password)).get();
-                                    Platform::String^ subToken = create_task(
-                                        signupService->IssueAuthSubTokenAsync()).get();
-                                    bool subOk = create_task(
-                                        signupService->AuthSubRequestAsync(subToken)).get();
-                                    if (authOk && slOk && subToken != nullptr && subOk)
-                                    {
-                                        NavigateToHomePage();
-                                        return SignupFailureReason::None;
-                                    }
-                                    return SignupFailureReason::UsernameInvalid;
+                                    return FinalizeSignupSuccess(retryResp, username);
                                 }
                                 return retryMapped;
                             }
@@ -235,39 +243,7 @@ IAsyncOperation<SignupFailureReason>^ SignupPage::ExecuteFullSignupFlow()
                 return mapped;
             }
 
-            bool authSuccess = create_task(signupService->BeginAuthorizationAsync()).get();
-            if (!authSuccess)
-            {
-                m_isSignupInProgress = false;
-                return SignupFailureReason::UsernameInvalid;
-            }
-
-            bool loginAuthSuccess = create_task(signupService->ServiceLoginAuthAsync(username, password)).get();
-            if (!loginAuthSuccess)
-            {
-                m_isSignupInProgress = false;
-                return SignupFailureReason::UsernameInvalid;
-            }
-
-            String^ authToken = create_task(signupService->IssueAuthSubTokenAsync()).get();
-            if (authToken == nullptr)
-            {
-                m_isSignupInProgress = false;
-                return SignupFailureReason::UsernameInvalid;
-            }
-
-            bool authSubSuccess = create_task(signupService->AuthSubRequestAsync(authToken)).get();
-            if (!authSubSuccess)
-            {
-                m_isSignupInProgress = false;
-                return SignupFailureReason::UsernameInvalid;
-            }
-
-            m_isSignupInProgress = false;
-
-            NavigateToHomePage();
-
-            return SignupFailureReason::None;
+            return FinalizeSignupSuccess(signupResponse, username);
         }
         catch (Platform::Exception^ ex)
         {
@@ -275,6 +251,75 @@ IAsyncOperation<SignupFailureReason>^ SignupPage::ExecuteFullSignupFlow()
             return SignupFailureReason::UsernameInvalid;
         }
     });
+}
+
+SignupFailureReason SignupPage::FinalizeSignupSuccess(String^ signupResponse, String^ username)
+{
+    String^ userId = nullptr;
+    String^ userName = username;
+
+    if (signupResponse != nullptr && !signupResponse->IsEmpty())
+    {
+        try
+        {
+            JsonObject^ json = JsonObject::Parse(signupResponse);
+            if (json->HasKey("userId"))
+            {
+                JsonValue^ userIdValue = json->GetNamedValue("userId");
+                if (userIdValue != nullptr)
+                {
+                    if (userIdValue->ValueType == JsonValueType::Number)
+                    {
+                        userId = userIdValue->ToString();
+                    }
+                    else if (userIdValue->ValueType == JsonValueType::String)
+                    {
+                        userId = userIdValue->GetString();
+                    }
+                }
+            }
+            if (json->HasKey("username"))
+            {
+                String^ parsedName = json->GetNamedString("username");
+                if (parsedName != nullptr && !parsedName->IsEmpty())
+                {
+                    userName = parsedName;
+                }
+            }
+        }
+        catch (Platform::Exception^)
+        {
+        }
+    }
+
+    try
+    {
+        create_task(signupService->BeginAuthorizationAsync()).get();
+    }
+    catch (Platform::Exception^)
+    {
+    }
+
+    auto loginService = Roblox::Services::LoginService::GetInstance();
+    loginService->MergeCookies(signupService->GetAllCookies());
+
+    String^ sessionCookie = loginService->SessionToken();
+    if (sessionCookie == nullptr || sessionCookie->IsEmpty())
+    {
+        sessionCookie = signupService->GetCookie(".ROBLOSECURITY");
+    }
+    if (sessionCookie == nullptr || sessionCookie->IsEmpty())
+    {
+        sessionCookie = Roblox::AuthStorage::SessionCookie();
+    }
+
+    RunOnUiThread(ref new DispatchedHandler([this, sessionCookie, userId, userName]()
+    {
+        Roblox::AuthStorage::Save(sessionCookie, userId, userName);
+        NavigateToHomePage();
+    }));
+
+    return SignupFailureReason::None;
 }
 
 UsernameValidationFailureReason SignupPage::ParseUsernameValidationReason(String^ jsonResponse)
@@ -957,11 +1002,23 @@ void SignupPage::OnUsernameLostFocus(Platform::Object^ sender, Windows::UI::Xaml
 
 concurrency::task<byte> SignupPage::PromptCaptchaAsync(Platform::String^ captchaToken)
 {
-    auto modal = ref new Roblox::Views::CaptchaModal(0, nullptr);
-    modal->OnCaptchaSolvedHandler = ref new Roblox::OnCaptchaSolved(
-        [](byte answered) { (void)answered; });
-    (void)captchaToken;
-    return create_task([]() -> byte { return 0; });
+    concurrency::task_completion_event<byte> promise;
+    Windows::UI::Core::CoreDispatcher^ dispatcher = this->Dispatcher;
+
+    dispatcher->RunAsync(
+        Windows::UI::Core::CoreDispatcherPriority::Normal,
+        ref new DispatchedHandler([captchaToken, promise]()
+    {
+        auto modal = ref new Roblox::Views::CaptchaModal(0, nullptr);
+        Windows::Foundation::IAsyncOperation<byte>^ asyncOp =
+            modal->ShowAsync(captchaToken, nullptr);
+        create_task(asyncOp).then([promise](byte answered)
+        {
+            promise.set(answered);
+        });
+    }));
+
+    return create_task(promise);
 }
 
 void SignupPage::SetFieldValidation(Windows::UI::Xaml::Controls::Control^ control, bool isValid)
@@ -989,6 +1046,10 @@ void SignupPage::RunOnUiThread(Windows::UI::Core::DispatchedHandler^ handler)
     CoreDispatcher^ dispatcher = nullptr;
 
     if (this != nullptr)
+    {
+        dispatcher = this->Dispatcher;
+    }
+    if (dispatcher == nullptr)
     {
         dispatcher = Windows::UI::Xaml::Window::Current != nullptr
             ? Windows::UI::Xaml::Window::Current->Dispatcher

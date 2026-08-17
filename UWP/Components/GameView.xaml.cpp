@@ -7,11 +7,17 @@
 
 #include "UWPPlatform.h"
 #include "PlaceLauncher.h"
+#include "KeyboardController.h"
+#include "UserInput.h"
 
 #include "util/standardout.h"
 
 using namespace Roblox::Controls;
 using namespace Windows::UI::Xaml;
+using namespace Windows::UI::Xaml::Controls;
+using namespace Windows::UI::Xaml::Input;
+using namespace Windows::UI::ViewManagement;
+using namespace Windows::System;
 
 namespace
 {
@@ -27,13 +33,173 @@ std::string ToUtf8(Platform::String^ str)
 
 GameView::GameView()
     : m_isGameRunning(false)
+    , m_keyboardActive(false)
+    , m_inputPane(nullptr)
+    , m_chatKeyDownToken{0}
+    , m_chatLostFocusToken{0}
+    , m_chatTextChangedToken{0}
+    , m_inputPaneShowingToken{0}
+    , m_inputPaneHidingToken{0}
 {
     InitializeComponent();
+
+    // Reuse ChatTextBox as the on-screen text input target: when a Roblox
+    // TextBox is focused, this native box captures the touch keyboard input and
+    // the engine receives the typed text through KeyboardController.
+    try
+    {
+        m_inputPane = Windows::UI::ViewManagement::InputPane::GetForCurrentView();
+        if (m_inputPane)
+        {
+            m_inputPaneShowingToken = m_inputPane->Showing +=
+                ref new Windows::Foundation::TypedEventHandler<Windows::UI::ViewManagement::InputPane^, Windows::UI::ViewManagement::InputPaneVisibilityEventArgs^>(
+                    this, &GameView::OnInputPaneShowing);
+            m_inputPaneHidingToken = m_inputPane->Hiding +=
+                ref new Windows::Foundation::TypedEventHandler<Windows::UI::ViewManagement::InputPane^, Windows::UI::ViewManagement::InputPaneVisibilityEventArgs^>(
+                    this, &GameView::OnInputPaneHiding);
+        }
+    }
+    catch (Platform::Exception^) { }
+    catch (...) { }
+
+    m_chatTextChangedToken = ChatTextBox->TextChanged +=
+        ref new Windows::UI::Xaml::Controls::TextChangedEventHandler(this, &GameView::OnChatTextBoxTextChanged);
+    m_chatLostFocusToken = ChatTextBox->LostFocus +=
+        ref new Windows::UI::Xaml::RoutedEventHandler(this, &GameView::OnChatTextBoxLostFocus);
+    m_chatKeyDownToken = ChatTextBox->KeyDown +=
+        ref new Windows::UI::Xaml::Input::KeyEventHandler(this, &GameView::OnChatTextBoxKeyDown);
 }
 
 GameView::~GameView()
 {
     LeaveGame();
+    DetachTextInputBridge();
+}
+
+void GameView::InstallTextInputBridge()
+{
+    KeyboardController::GetInstance().setShowTextInputHandler(
+        [this](bool show, std::wstring initialText) { ShowOrHideTextInput(show, initialText); });
+}
+
+void GameView::DetachTextInputBridge()
+{
+    if (m_chatTextChangedToken.Value != 0)
+    {
+        ChatTextBox->TextChanged -= m_chatTextChangedToken;
+        m_chatTextChangedToken.Value = 0;
+    }
+    if (m_chatLostFocusToken.Value != 0)
+    {
+        ChatTextBox->LostFocus -= m_chatLostFocusToken;
+        m_chatLostFocusToken.Value = 0;
+    }
+    if (m_chatKeyDownToken.Value != 0)
+    {
+        ChatTextBox->KeyDown -= m_chatKeyDownToken;
+        m_chatKeyDownToken.Value = 0;
+    }
+    if (m_inputPane)
+    {
+        if (m_inputPaneShowingToken.Value != 0)
+        {
+            m_inputPane->Showing -= m_inputPaneShowingToken;
+            m_inputPaneShowingToken.Value = 0;
+        }
+        if (m_inputPaneHidingToken.Value != 0)
+        {
+            m_inputPane->Hiding -= m_inputPaneHidingToken;
+            m_inputPaneHidingToken.Value = 0;
+        }
+    }
+
+    KeyboardController::GetInstance().setShowTextInputHandler(nullptr);
+}
+
+void GameView::ShowOrHideTextInput(bool show, std::wstring initialText)
+{
+    if (show)
+    {
+        if (m_keyboardActive)
+            return;
+
+        m_keyboardActive = true;
+        ChatTextBox->Text = ref new Platform::String(initialText.c_str());
+        ChatTextBox->Visibility = Windows::UI::Xaml::Visibility::Visible;
+        ChatTextBox->Focus(Windows::UI::Xaml::FocusState::Programmatic);
+
+        if (m_inputPane)
+            m_inputPane->TryShow();
+
+        if (UserInput* ui = PlaceLauncher::getPlaceLauncher().getUserInput())
+            ui->setTextInputActive(true);
+    }
+    else
+    {
+        if (!m_keyboardActive)
+            return;
+
+        m_keyboardActive = false;
+        ChatTextBox->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
+
+        if (m_inputPane)
+            m_inputPane->TryHide();
+
+        if (UserInput* ui = PlaceLauncher::getPlaceLauncher().getUserInput())
+            ui->setTextInputActive(false);
+    }
+}
+
+void GameView::OnChatTextBoxTextChanged(Platform::Object^ /*sender*/, Windows::UI::Xaml::Controls::TextChangedEventArgs^ /*args*/)
+{
+    if (!m_keyboardActive)
+        return;
+
+    KeyboardController::GetInstance().onTextChanged(ChatTextBox->Text);
+}
+
+void GameView::OnChatTextBoxKeyDown(Platform::Object^ /*sender*/, Windows::UI::Xaml::Input::KeyRoutedEventArgs^ args)
+{
+    if (!m_keyboardActive)
+        return;
+
+    if (args->Key == Windows::System::VirtualKey::Enter)
+    {
+        args->Handled = true;
+        KeyboardController::GetInstance().onTextCommitted(ChatTextBox->Text, true);
+        ShowOrHideTextInput(false, L"");
+    }
+}
+
+void GameView::OnChatTextBoxLostFocus(Platform::Object^ /*sender*/, Windows::UI::Xaml::RoutedEventArgs^ /*args*/)
+{
+    if (!m_keyboardActive)
+        return;
+
+    KeyboardController::GetInstance().onTextCommitted(ChatTextBox->Text, false);
+}
+
+void GameView::OnInputPaneShowing(Windows::UI::ViewManagement::InputPane^ /*sender*/, Windows::UI::ViewManagement::InputPaneVisibilityEventArgs^ args)
+{
+    if (!m_keyboardActive)
+        return;
+
+    // Keep the input bar above the keyboard.
+    args->EnsuredFocusedElementInView = true;
+    ChatTextBox->Margin = Windows::UI::Xaml::Thickness(0, 0, 0, args->OccludedRect.Height);
+}
+
+void GameView::OnInputPaneHiding(Windows::UI::ViewManagement::InputPane^ /*sender*/, Windows::UI::ViewManagement::InputPaneVisibilityEventArgs^ /*args*/)
+{
+    if (!m_keyboardActive)
+        return;
+
+    // The touch keyboard was dismissed while editing; commit what was typed so
+    // the engine releases focus (the double-commit guard swallows the
+    // subsequent focus-loss event).
+    ChatTextBox->Margin = Windows::UI::Xaml::Thickness(0, 0, 0, 0);
+    KeyboardController::GetInstance().onTextCommitted(ChatTextBox->Text, false);
+    ShowOrHideTextInput(false, L"");
 }
 
 void GameView::StartGame(GameParameters^ params)
@@ -44,6 +210,8 @@ void GameView::StartGame(GameParameters^ params)
     m_isGameRunning = true;
     rbxSwapChain->Visibility = Windows::UI::Xaml::Visibility::Visible;
     ChatTextBox->Visibility = Windows::UI::Xaml::Visibility::Collapsed;
+
+    InstallTextInputBridge();
 
     // Bind the engine marshaller to the UI thread, register the render surface
     // and install the leave-game callback (fired by the engine "Exit" verb).
@@ -118,6 +286,9 @@ void GameView::LeaveGame()
     catch (...)
     {
     }
+
+    ShowOrHideTextInput(false, L"");
+    KeyboardController::GetInstance().setShowTextInputHandler(nullptr);
 
     OnGameShutDown();
 }

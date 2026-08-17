@@ -60,7 +60,7 @@
                                                     FontWeight="Bold"
                                                     FontSize="17"
                                                     Foreground="#FFFFFFFF"
-                                                    Visibility="Visible" />
+                                                    Visibility="Collapsed" />
                                             </StackPanel.Children>
                                         </StackPanel>
                                     </Button.Content>

@@ -24,9 +24,10 @@ namespace Roblox
                 void set(Roblox::OnCaptchaSolved^ value);
             }
 
+            Windows::Foundation::IAsyncOperation<byte>^ ShowAsync(Platform::String^ captchaToken, Roblox::OnCaptchaSolved^ solvedHandler);
+
         private:
             void InitializeFor(Platform::String^ token, bool useWebViewFallback);
-            Windows::Foundation::IAsyncOperation<byte>^ ShowAsync(Platform::String^ captchaToken, Roblox::OnCaptchaSolved^ solvedHandler);
             void CancelCaptcha();
 
             void OnAcceptButtonClick(Platform::Object^ sender, Windows::UI::Xaml::RoutedEventArgs^ e);

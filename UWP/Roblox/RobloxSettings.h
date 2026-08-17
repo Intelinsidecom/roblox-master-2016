@@ -37,6 +37,7 @@ namespace Roblox
         Platform::String^ SearchGamesURL(Platform::String^ q);
         Platform::String^ LoginURL(Platform::String^ username, Platform::String^ password);
         Platform::String^ SignupURL();
+        Platform::String^ SignupV1URL();
         Platform::String^ UsernameValidationURL(Platform::String^ username);
         Platform::String^ PasswordValidationURL(Platform::String^ username, Platform::String^ password);
         Platform::String^ UsernameSuggestionURL(Platform::String^ username);

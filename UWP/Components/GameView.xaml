@@ -12,10 +12,10 @@
                 <TextBox x:Name="ChatTextBox"
                     FontSize="18.667"
                     InputScope="Text"
-                    VerticalAlignment="Top"
+                    VerticalAlignment="Bottom"
                     Visibility="Collapsed"
                     BorderBrush="#FFFFFFFF"
-                    Margin="0,32,0,0">
+                    Margin="0,0,0,0">
                     <TextBox.Background>
                         <SolidColorBrush Color="#FFFFFFFF" Opacity="0.8" />
                     </TextBox.Background>

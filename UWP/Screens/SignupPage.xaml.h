@@ -70,9 +70,15 @@ namespace Roblox
             SignupClientCheckResult ValidateGender();
             SignupClientCheckResult ValidateBirthday();
 
-            Windows::Foundation::IAsyncOperation<SignupFailureReason>^ ExecuteFullSignupFlow();
+            Windows::Foundation::IAsyncOperation<SignupFailureReason>^ ExecuteFullSignupFlow(
+                Platform::String^ username,
+                Platform::String^ password,
+                Platform::String^ birthday,
+                Platform::String^ gender);
 
             concurrency::task<byte> PromptCaptchaAsync(Platform::String^ captchaToken);
+
+            SignupFailureReason FinalizeSignupSuccess(Platform::String^ signupResponse, Platform::String^ username);
 
             UsernameValidationFailureReason ParseUsernameValidationReason(Platform::String^ jsonResponse);
             UsernameValidationFailureReason TryDecodeReasonsArray(Windows::Data::Json::JsonObject^ json);

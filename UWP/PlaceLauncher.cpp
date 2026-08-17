@@ -9,6 +9,7 @@
 #include "RobloxView.h"
 #include "UserInput.h"
 #include "GamepadController.h"
+#include "KeyboardController.h"
 #include "FunctionMarshaller.h"
 #include "UWPPlatform.h"
 #include "util/Http.h"
@@ -43,6 +44,11 @@ static const std::string kUWPClientSettingsAPIKey = "D6925E56-BFB9-4908-AAA2-A5B
 static const std::string kStartGameURL = "%sGame/PlaceLauncher.ashx?request=%s&%s&isPartyLeader=false&gender=&isTeleport=false";
 static const std::string kStartGameStatusURL = "%sGame/PlaceLauncher.ashx?request=CheckGameJobStatus&jobId=%s";
 } // namespace
+
+// Defined by DYNAMIC_FASTFLAGVARIABLE in App/v8datamodel/TextBox.cpp. Enabled on
+// phones so text typed through the on-screen keyboard is rendered in the focused
+// in-game TextBox while typing.
+namespace DFFlag { extern bool DisplayTextBoxTextWhileTypingMobile; }
 
 PlaceLauncher::PlaceLauncher()
     : rbxView(NULL)
@@ -381,6 +387,7 @@ void PlaceLauncher::prepareGame(const StartGameParams& sgp)
     if (isUWPWindowsPhone())
     {
         RBX::TaskScheduler::singleton().setThreadCount(RBX::TaskScheduler::Threads3);
+        DFFlag::DisplayTextBoxTextWhileTypingMobile = true;
     }
     else
     {
@@ -486,8 +493,7 @@ shared_ptr<RBX::Game> PlaceLauncher::setupGame(const StartGameParams& sgp)
     {
         try
         {
-            m_userInput.reset(new UserInput(currentGame->getDataModel().get(),
-                [](const std::string& msg) {  }));
+            m_userInput.reset(new UserInput(currentGame->getDataModel().get()));
             m_userInput->setViewportSize(sgp.viewWidth, sgp.viewHeight);
 
             RBX::FunctionMarshaller* marshaller = RBX::FunctionMarshaller::GetWindow();
@@ -533,6 +539,8 @@ shared_ptr<RBX::Game> PlaceLauncher::setupGame(const StartGameParams& sgp)
         {
         }
     }
+
+    KeyboardController::GetInstance().initialize(currentGame->getDataModel().get());
 
     return currentGame;
 }
@@ -624,6 +632,14 @@ void PlaceLauncher::deleteRobloxView(bool resetCurrentGame)
         {
         }
         m_gamepadController.reset();
+    }
+
+    try
+    {
+        KeyboardController::GetInstance().shutdown();
+    }
+    catch (...)
+    {
     }
 
     if (resetCurrentGame)
