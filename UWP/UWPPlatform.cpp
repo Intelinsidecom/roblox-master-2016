@@ -62,6 +62,7 @@ static bool computeIsLowMemoryDevice()
 }
 
 std::atomic<bool> g_gameReadyFired{ false };
+std::atomic<bool> g_swapChainAttached{ false };
 
 const float kRenderScaleMin      = 0.5f;
 const float kRenderScaleMax      = 2.0f;
@@ -229,6 +230,7 @@ extern "C" void setSwapChainOnUIThread(IUnknown* swapChain)
         return;
 
     g_gameReadyFired.store(false, std::memory_order_release);
+    g_swapChainAttached.store(false, std::memory_order_release);
 
     swapChain->AddRef();
 
@@ -252,6 +254,8 @@ extern "C" void setSwapChainOnUIThread(IUnknown* swapChain)
             }
             swapChain->Release();
 
+            g_swapChainAttached.store(true, std::memory_order_release);
+
             auto gameReadyTimer = ref new Windows::UI::Xaml::DispatcherTimer();
             gameReadyTimer->Interval = Windows::Foundation::TimeSpan{ 15000000 }; // 1.5s in 100ns units
             gameReadyTimer->Tick +=
@@ -268,11 +272,19 @@ extern "C" void setSwapChainOnUIThread(IUnknown* swapChain)
 
 extern "C" void uwpNotifyFramePresented()
 {
+    if (!g_swapChainAttached.load(std::memory_order_acquire))
+        return;
+
     bool expected = false;
     if (!g_gameReadyFired.compare_exchange_strong(expected, true, std::memory_order_acq_rel))
         return;
 
     UWPPlatform::GetInstance().fireGameReady();
+}
+
+extern "C" bool isSwapChainAttached()
+{
+    return g_swapChainAttached.load(std::memory_order_acquire);
 }
 
 UWPPlatform::UWPPlatform()

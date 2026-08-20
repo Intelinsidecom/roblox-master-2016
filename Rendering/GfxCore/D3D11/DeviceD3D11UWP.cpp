@@ -29,6 +29,7 @@ extern "C" IUnknown* getUWPSwapChainPanel();
     extern "C" void getUWPCompositionScale(float* scaleX, float* scaleY);
     extern "C" void setSwapChainOnUIThread(IUnknown* swapChain);
     extern "C" void uwpNotifyFramePresented();
+    extern "C" bool isSwapChainAttached();
 
     static bool isXbox()
     {
@@ -348,6 +349,9 @@ else
 
     void DeviceD3D11::present()
     {
+        if (!isSwapChainAttached())
+            return;
+
         DXGI_PRESENT_PARAMETERS parameters = {0};
         parameters.DirtyRectsCount = 0;
         parameters.pDirtyRects = NULL;

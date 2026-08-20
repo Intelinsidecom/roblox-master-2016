@@ -250,7 +250,9 @@ static void joinGamePlaceId(StartGameParams sgp, shared_ptr<RBX::Game> game)
             bool retryUsed = true;
             response = "";
             const time_t pollStart = ::time(NULL);
-            RBX::Http(url).get(response);
+            RBX::Http http(url);
+            http.doNotUseCachedResponse = true;
+            http.get(response);
             const int pollTime = static_cast<int>(::time(NULL) - pollStart);
 
             shared_ptr<const Reflection::ValueTable> result = parseJSONResponse(response);
@@ -680,6 +682,7 @@ static void joinGameTeleport(std::string url, std::string ticket, std::string sc
         {
             RBX::Http http(compound.c_str());
             http.setAuthDomain(GetBaseURL().c_str());
+            http.doNotUseCachedResponse = true;
             http.get(result);
         }
         catch (const RBX::base_exception& e)

@@ -137,6 +137,11 @@ namespace RBX
 				request = ref new HttpRequestMessage(HttpMethod::Get, uri);
 			}
 
+			if (doNotUseCachedResponse)
+			{
+				request->Headers->TryAppendWithoutValidation("Cache-Control", "no-cache, no-store");
+			}
+
 
 			auto requestTask = create_task(httpClient->SendRequestAsync(request));
 			auto requestGuard = requestTask.then([](task<HttpResponseMessage^> responseTask) {
