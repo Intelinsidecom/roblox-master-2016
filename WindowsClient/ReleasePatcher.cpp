@@ -46,7 +46,7 @@ enum VmpRangeIdx
 
 typedef std::vector<IMAGE_SECTION_HEADER*> SectionPtrVector;
 
-__declspec(code_seg(".zero")) bool getSectionInfo(const SectionPtrVector& sections, const char* name, uintptr_t& baseAddr, size_t& size)
+ROBLOX_CODE_SEG_ZERO bool getSectionInfo(const SectionPtrVector& sections, const char* name, uintptr_t& baseAddr, size_t& size)
 {
     const size_t kPeSectionNameLimit = 9;
     for (size_t i = 0; i < sections.size(); ++i)
@@ -61,7 +61,7 @@ __declspec(code_seg(".zero")) bool getSectionInfo(const SectionPtrVector& sectio
     return false;
 }
 
-__declspec(code_seg(".zero")) int getSections(void* pImageBase, SectionPtrVector& sections)
+ROBLOX_CODE_SEG_ZERO int getSections(void* pImageBase, SectionPtrVector& sections)
 {
     IMAGE_DOS_HEADER *pDosHdr = nullptr;
     IMAGE_SECTION_HEADER *pSection = nullptr;
@@ -91,7 +91,7 @@ __declspec(code_seg(".zero")) int getSections(void* pImageBase, SectionPtrVector
 }
 
 // This is a heuristic -- checks for 32 0's at end of the last page.
-__declspec(code_seg(".zero")) bool isStartOfSection(uintptr_t addr)
+ROBLOX_CODE_SEG_ZERO bool isStartOfSection(uintptr_t addr)
 {
     static const unsigned char kZeros[32] = {};
     for (int i = 1; i <= 2; ++i)
@@ -104,7 +104,7 @@ __declspec(code_seg(".zero")) bool isStartOfSection(uintptr_t addr)
     return false;
 }
 
-__declspec(code_seg(".zero")) bool getVmpSections(const SectionPtrVector& sections, std::vector<MemRange>& ranges, uintptr_t& vmpBase, size_t& vmpSize)
+ROBLOX_CODE_SEG_ZERO bool getVmpSections(const SectionPtrVector& sections, std::vector<MemRange>& ranges, uintptr_t& vmpBase, size_t& vmpSize)
 {
     // get the .vmp0 section
     if (!getSectionInfo(sections, ".vmp0", vmpBase, vmpSize))
@@ -187,7 +187,7 @@ __declspec(code_seg(".zero")) bool getVmpSections(const SectionPtrVector& sectio
 }
 
 // File IO
-__declspec(code_seg(".zero")) int readFile(const char* fileName, std::vector<char>& buffer)
+ROBLOX_CODE_SEG_ZERO int readFile(const char* fileName, std::vector<char>& buffer)
 {
     std::ifstream file(fileName, std::ifstream::binary);
     if (file.is_open())
@@ -208,7 +208,7 @@ __declspec(code_seg(".zero")) int readFile(const char* fileName, std::vector<cha
     }
 }
 
-__declspec(code_seg(".zero")) int writeFile(const char* fileName, const std::vector<char>& buffer)
+ROBLOX_CODE_SEG_ZERO int writeFile(const char* fileName, const std::vector<char>& buffer)
 {
     std::ofstream file(fileName, std::ofstream::binary);
     if (file.is_open())
@@ -222,7 +222,7 @@ __declspec(code_seg(".zero")) int writeFile(const char* fileName, const std::vec
     return buffer.size();
 }
 
-__declspec(code_seg(".zero")) uintptr_t getFileOffsetOfVa(const SectionPtrVector& sections, uintptr_t addr)
+ROBLOX_CODE_SEG_ZERO uintptr_t getFileOffsetOfVa(const SectionPtrVector& sections, uintptr_t addr)
 {
     for (size_t i = 0; i < sections.size(); ++i)
     {
@@ -236,7 +236,7 @@ __declspec(code_seg(".zero")) uintptr_t getFileOffsetOfVa(const SectionPtrVector
     return 0;
 }
 
-__declspec(code_seg(".zero")) bool getImportThunkSection(const SectionPtrVector& sections, uintptr_t& iatBase, size_t& iatSize)
+ROBLOX_CODE_SEG_ZERO bool getImportThunkSection(const SectionPtrVector& sections, uintptr_t& iatBase, size_t& iatSize)
 {
     iatBase = 0;
     iatSize = 0;
@@ -336,8 +336,8 @@ class SectionMapping
     size_t loadedRva;
     size_t fileOffset;
 public:
-    __declspec(code_seg(".zero")) SectionMapping(size_t loadedRva, size_t fileOffset) : loadedRva(loadedRva), fileOffset(fileOffset) {};
-    template<typename T> __declspec(code_seg(".zero")) void set(const volatile T* virtualAddr, T& value)
+    ROBLOX_CODE_SEG_ZERO SectionMapping(size_t loadedRva, size_t fileOffset) : loadedRva(loadedRva), fileOffset(fileOffset) {};
+    template<typename T> ROBLOX_CODE_SEG_ZERO void set(const volatile T* virtualAddr, T& value)
     {
         // Set in the PE file in RAM
         uintptr_t modAddr = (reinterpret_cast<uintptr_t>(virtualAddr) - loadedRva) // location relative to .rdata after loaded
@@ -352,7 +352,7 @@ public:
 };
 
 
-__declspec(code_seg(".zero")) bool updateNetPmcPartial(uintptr_t origBase, size_t origSize, RBX::Security::NetPmcChallenge* resultArray)
+ROBLOX_CODE_SEG_ZERO bool updateNetPmcPartial(uintptr_t origBase, size_t origSize, RBX::Security::NetPmcChallenge* resultArray)
 {
     uintptr_t base = origBase;
     size_t term = origBase+origSize;
@@ -370,7 +370,7 @@ __declspec(code_seg(".zero")) bool updateNetPmcPartial(uintptr_t origBase, size_
     return true;
 }
 
-__declspec(code_seg(".zero")) bool updateNetPmcResult(uint32_t key, RBX::Security::NetPmcChallenge* result)
+ROBLOX_CODE_SEG_ZERO bool updateNetPmcResult(uint32_t key, RBX::Security::NetPmcChallenge* result)
 {
     uint64_t msb = static_cast<uint64_t>(key) << 32;
     result->result = RBX::Security::teaEncrypt(msb | result->result);
@@ -378,7 +378,7 @@ __declspec(code_seg(".zero")) bool updateNetPmcResult(uint32_t key, RBX::Securit
 }
 
 // this function modifies the code caves in the .text section to add references to a specific peice of code.
-__declspec(code_seg(".zero")) bool addRefsToWcPage(uintptr_t textBase, size_t textSize, uintptr_t textFileBase)
+ROBLOX_CODE_SEG_ZERO bool addRefsToWcPage(uintptr_t textBase, size_t textSize, uintptr_t textFileBase)
 {
     static const unsigned char kMov = 0xA3;
     static const unsigned char kInt3 = 0xCC;
@@ -418,7 +418,7 @@ __declspec(code_seg(".zero")) bool addRefsToWcPage(uintptr_t textBase, size_t te
 }
 
 
-__declspec(code_seg(".zero")) bool createUpdatedExe(HANDLE hChild)
+ROBLOX_CODE_SEG_ZERO bool createUpdatedExe(HANDLE hChild)
 {
     // get section info
     SectionPtrVector procSections;
@@ -668,7 +668,7 @@ __declspec(code_seg(".zero")) bool createUpdatedExe(HANDLE hChild)
 namespace RBX { namespace Security {
 
 // look into if the VMP section can be got from the create_suspended child.
-__declspec(code_seg(".zero")) bool patchMain()
+ROBLOX_CODE_SEG_ZERO bool patchMain()
 {
     TCHAR name[MAX_PATH];
     GetModuleFileName(GetModuleHandle(NULL), name, sizeof(name)/sizeof(TCHAR));

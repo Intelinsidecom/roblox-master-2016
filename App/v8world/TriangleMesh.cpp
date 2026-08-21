@@ -32,8 +32,29 @@ KDTreeMeshWrapper::KDTreeMeshWrapper(const std::string& str)
 	btVector3 scale;
 	int currentVersion;
 
+	#if defined(_MSC_VER) && _MSC_VER < 1700
+	CSGConvexArray meshConvexes = TriangleMesh::getDecompConvexes(str, currentVersion, scale);
+	#else
 	std::vector<CSGConvex> meshConvexes = TriangleMesh::getDecompConvexes(str, currentVersion, scale);
+	#endif
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	for (int _ci = 0; _ci < meshConvexes.size(); ++_ci)
+	{
+		CSGConvex& convex = meshConvexes[_ci];
+		unsigned int indexOffset = vertices.size();
+
+		for (int _vi = 0; _vi < convex.vertices.size(); ++_vi)
+		{
+			const btVector3& v = convex.vertices[_vi];
+            btVector3 tv = convex.transform * v;
+			vertices.push_back(Vector3(tv.x(), tv.y(), tv.z()));
+		}
+
+		for (size_t _ii = 0; _ii < convex.indices.size(); ++_ii)
+			indices.push_back(indexOffset + convex.indices[_ii]);
+	}
+#else
 	for (auto& convex: meshConvexes)
 	{
 		unsigned int indexOffset = vertices.size();
@@ -47,6 +68,7 @@ KDTreeMeshWrapper::KDTreeMeshWrapper(const std::string& str)
 		for (auto& i: convex.indices)
 			indices.push_back(indexOffset + i);
 	}
+#endif
 
     if (!vertices.empty() && !indices.empty())
         tree.build(&vertices[0], NULL, vertices.size(), &indices[0], indices.size() / 3);
@@ -150,8 +172,11 @@ bool TriangleMesh::validateIsBlockData(const std::string& data)
 		GA_CATEGORY_STUDIO,  "CSGPhys", "CSGPhys_PlaceholderData", 0, false));
 	return false;
 }
-
+#if defined(_MSC_VER) && _MSC_VER < 1700
+std::string TriangleMesh::generateDecompositionGeometry(const BtVector3Array &vertices, const std::vector<unsigned int> &indices)
+#else
 std::string TriangleMesh::generateDecompositionGeometry(const std::vector<btVector3> &vertices, const std::vector<unsigned int> &indices)
+#endif
 {
 	if (vertices.size() > 0 && indices.size() > 0)
 	{
@@ -426,10 +451,19 @@ BulletDecompWrapper::ShapeType* TriangleMesh::retrieveDecomposition(const std::s
 	btVector3 scale;
 	int currentVersion;
 
+	#if defined(_MSC_VER) && _MSC_VER < 1700
+	CSGConvexArray meshConvexes = getDecompConvexes(str, currentVersion, scale, true);
+	for (int i = 0; i < meshConvexes.size(); i++)
+	#else
 	std::vector<CSGConvex> meshConvexes = getDecompConvexes(str, currentVersion, scale, true);
 	for (unsigned int i = 0; i < meshConvexes.size(); i++)
+	#endif
 	{
+		#if defined(_MSC_VER) && _MSC_VER < 1700
+		BtVector3Array vertices;
+		#else
 		btAlignedObjectArray<btVector3> vertices;
+		#endif
 		btTransform trans;
 
 		btCollisionShape* convexShape = new btConvexHullShape(
@@ -452,7 +486,11 @@ BulletDecompWrapper::ShapeType* TriangleMesh::retrieveDecomposition(const std::s
 	return decomp;
 }
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+std::string TriangleMesh::generateStaticMeshData(const std::vector<unsigned int>& indices, BtVector3Array& vertices)
+#else
 std::string TriangleMesh::generateStaticMeshData(const std::vector<unsigned int>& indices, std::vector<btVector3>& vertices)
+#endif
 {
 
 	std::stringstream stream;    
@@ -542,9 +580,17 @@ void TriangleMesh::serializeConvexHullData(const btTransform& transform, const u
 	outstream.write(reinterpret_cast<const char*>(indicesBase), sizeof(unsigned int) * numIndices);
 }
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+CSGConvexArray TriangleMesh::getDecompConvexes(const std::string& data, int& currentVersion, btVector3 &scale, bool dataHasScale)
+#else
 std::vector<CSGConvex> TriangleMesh::getDecompConvexes(const std::string& data, int& currentVersion, btVector3 &scale, bool dataHasScale)
+#endif
 {
+	#if defined(_MSC_VER) && _MSC_VER < 1700
+	CSGConvexArray outputConvexes;
+	#else
 	std::vector<CSGConvex> outputConvexes;
+	#endif
 	std::stringstream stream(data);
 
 	if (dataHasScale)

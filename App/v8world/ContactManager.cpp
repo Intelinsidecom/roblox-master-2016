@@ -822,8 +822,13 @@ void ContactManager::onAssemblyMovedFromStep(Assembly& a)
 	a.visitPrimitives(pred);
 
 	// Notify
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	for (size_t _i = 0; _i < tempPrimitives.size(); ++_i)
+		spatialHash->onPrimitiveExtentsChanged(tempPrimitives[_i]);
+#else
 	for (Primitive* p: tempPrimitives)
 		spatialHash->onPrimitiveExtentsChanged(p);
+#endif
 }
 
 Primitive* ContactManager::getHitLegacy(const RbxRay& originDirection, 
@@ -1285,6 +1290,21 @@ void ContactManager::applyDeferredSmoothClusterChanges()
 	DenseHashSet<Primitive*> primitives(NULL);
 
 	// Gather primitives from all chunks
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	for (UpdatedTerrainChunksSet::iterator _it = updatedTerrainChunks.begin(); _it != updatedTerrainChunks.end(); ++_it)
+	{
+		const Vector3int32& id = *_it;
+		Voxel2::Region region = Voxel2::Region::fromChunk(id, TerrainPartitionSmooth::kChunkSizeLog2).expand(1);
+
+		Extents extents(region.begin().toVector3() * Voxel::kCELL_SIZE, region.end().toVector3() * Voxel::kCELL_SIZE);
+
+		getPrimitivesOverlapping(extents, primitives);
+	}
+
+	// Update chunks
+	for (UpdatedTerrainChunksSet::iterator _it = updatedTerrainChunks.begin(); _it != updatedTerrainChunks.end(); ++_it)
+		static_cast<SmoothClusterGeometry*>(myMegaClusterPrim->getGeometry())->updateChunk(*_it);
+#else
 	for (auto& id: updatedTerrainChunks)
 	{
 		Voxel2::Region region = Voxel2::Region::fromChunk(id, TerrainPartitionSmooth::kChunkSizeLog2).expand(1);
@@ -1297,10 +1317,17 @@ void ContactManager::applyDeferredSmoothClusterChanges()
 	// Update chunks
 	for (auto& id: updatedTerrainChunks)
 		static_cast<SmoothClusterGeometry*>(myMegaClusterPrim->getGeometry())->updateChunk(id);
+#endif
 
 	// Update primitives
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	for (DenseHashSet<Primitive*>::const_iterator _it = primitives.begin(); _it != primitives.end(); ++_it)
+	{
+		Primitive* prim = *_it;
+#else
 	for (Primitive* prim: primitives)
 	{
+#endif
 		releasePair(myMegaClusterPrim, prim);
 
 		checkSmoothClusterContact(prim, true);

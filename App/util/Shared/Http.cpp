@@ -735,9 +735,6 @@ void Http::httpGetPost(bool isPost, std::istream& dataStream,
 		}
 		return;
 	}
-<<<<<<< Updated upstream
-#elif defined(_WIN32) && !WINAPI_FAMILY == WINAPI_FAMILY_APP
-=======
 #elif defined(RBX_PLATFORM_UWP)
 	if (!useCurlHttpImpl || forceNativeHttp)
 	{
@@ -768,7 +765,6 @@ void Http::httpGetPost(bool isPost, std::istream& dataStream,
 		return;
 	}
 #elif defined(_WIN32)
->>>>>>> Stashed changes
 	if (!useCurlHttpImpl || forceNativeHttp)
     {
         try

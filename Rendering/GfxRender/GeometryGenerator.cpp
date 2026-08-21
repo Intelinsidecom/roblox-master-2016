@@ -2854,7 +2854,11 @@ namespace Graphics
 			return;
 
 		btVector3 btScale; 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+		CSGConvexArray meshConvexes = TriangleMesh::getDecompConvexes(operation->getNonKeyPhysicsData(), currentVersion, btScale, false);
+#else
 		std::vector<CSGConvex> meshConvexes = TriangleMesh::getDecompConvexes(operation->getNonKeyPhysicsData(), currentVersion, btScale, false);
+#endif
 
 		if (currentVersion == 0)
 			return;

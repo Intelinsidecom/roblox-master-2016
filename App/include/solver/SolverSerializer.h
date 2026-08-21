@@ -83,10 +83,18 @@ public:
         {
             debugSerializer.tag("Connectors");
             debugSerializer & (boost::uint32_t)connectors.size();
+#if defined(_MSC_VER) && _MSC_VER < 1700
+            for( size_t _i = 0; _i < connectors.size(); ++_i )
+            {
+                const Constraint* c = connectors[_i];
+                debugSerializer  & (boost::uint8_t)c->getType() & c;
+            }
+#else
             for( const auto* c : connectors )
             {
                 debugSerializer  & (boost::uint8_t)c->getType() & c;
             }
+#endif
         }
     }
 
@@ -118,17 +126,33 @@ public:
         {
             ArrayDynamic< float > impulses;
             impulses.reserve(velocityStage.size());
+#if defined(_MSC_VER) && _MSC_VER < 1700
+            for( size_t _i = 0; _i < velocityStage.size(); ++_i )
+            {
+                const ConstraintVariables& v = velocityStage[_i];
+                impulses.push_back(v.impulse);
+            }
+#else
             for( const auto& v : velocityStage )
             {
                 impulses.push_back(v.impulse);
             }
+#endif
             debugSerializer & impulses;
             impulses.clear();
             impulses.reserve(velocityStage.size());
+#if defined(_MSC_VER) && _MSC_VER < 1700
+            for( size_t _i = 0; _i < positionStage.size(); ++_i )
+            {
+                const ConstraintVariables& v = positionStage[_i];
+                impulses.push_back(v.impulse);
+            }
+#else
             for( const auto& v : positionStage )
             {
                 impulses.push_back(v.impulse);
             }
+#endif
             debugSerializer & impulses;
         }
     }
@@ -139,11 +163,19 @@ public:
         if( enabled )
         {
             debugSerializer & boost::uint32_t( bodyCache.size() );
+#if defined(_MSC_VER) && _MSC_VER < 1700
+            for( typename Cache::const_iterator _it = bodyCache.begin(); _it != bodyCache.end(); ++_it )
+            {
+                debugSerializer & (boost::uint32_t)_it->second.simBodyDebug->getBody()->getGuidIndex();
+                debugSerializer & _it->second;
+            }
+#else
             for( const auto& it : bodyCache )
             {
                 debugSerializer & (boost::uint32_t)it.second.simBodyDebug->getBody()->getGuidIndex();
                 debugSerializer & it.second;
             }
+#endif
         }
     }
 

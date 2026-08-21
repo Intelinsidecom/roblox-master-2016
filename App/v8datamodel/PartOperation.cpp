@@ -396,7 +396,11 @@ bool PartOperation::createPhysicsData(const CSGMesh* mData)
 			BinaryString decompBinString;
 			if (getCollisionFidelity() == CollisionFidelity_Default)
 			{
+				#if defined(_MSC_VER) && _MSC_VER < 1700
+				const BtVector3Array vertices	= getCSGVertexPositions(mData->getVertices());
+				#else
 				const std::vector<btVector3> vertices	= getCSGVertexPositions(mData->getVertices());
+				#endif
 				const std::vector<unsigned int> indices = mData->getIndices();
 				if (vertices.size() > 0 && indices.size() > 0)
 				{
@@ -410,7 +414,11 @@ bool PartOperation::createPhysicsData(const CSGMesh* mData)
 			}
 			else if (getCollisionFidelity() == CollisionFidelity_Hull)
 			{
+				#if defined(_MSC_VER) && _MSC_VER < 1700
+				const BtVector3Array vertices	= getCSGVertexPositions(mData->getVertices());
+				#else
 				const std::vector<btVector3> vertices	= getCSGVertexPositions(mData->getVertices());
+				#endif
 				const std::vector<unsigned int> indices = mData->getIndices();
 				if (vertices.size() > 0 && indices.size() > 0)
 				{
@@ -699,10 +707,17 @@ void PartOperation::setAssetId(ContentId id)
 		raisePropertyChanged(desc_AssetId);
 	}
 }
-
+#if defined(_MSC_VER) && _MSC_VER < 1700
+BtVector3Array getCSGVertexPositions(const std::vector<CSGVertex> &vertices)
+#else
 std::vector<btVector3> getCSGVertexPositions(const std::vector<CSGVertex> &vertices)
+#endif
 {
+	#if defined(_MSC_VER) && _MSC_VER < 1700
+	BtVector3Array outputVec;
+	#else
 	std::vector<btVector3> outputVec;
+	#endif
 	for (unsigned int i = 0; i < vertices.size(); i++) 
 	{
 		outputVec.push_back(btVector3(vertices[i].pos.x, vertices[i].pos.y, vertices[i].pos.z));

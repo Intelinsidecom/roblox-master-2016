@@ -527,9 +527,15 @@ bool MoveResizeJoinTool::advResizeImpl(shared_ptr<PartInstance> part, NormalId l
 					This logic is there for the cases where fmod(originalSizeXml,gridSize) is very close to 0 - as in, the originalSizeXml is an integer multiple of the gridSize. 
 					In this case we want the minimum size not to be 0, but the gridSize.
 				*/
+#if defined(_MSC_VER) && _MSC_VER < 1700
+				newSizeUi.x = newSizeUi.x < gridSize ? (fmod(originalSizeXml.x,static_cast<float>(gridSize)) >= part->getMinimumXOrZDimension() ? fmod(originalSizeXml.x,static_cast<float>(gridSize)) : gridSize) : newSizeUi.x;
+				newSizeUi.y = newSizeUi.y < gridSize ? (fmod(originalSizeXml.y,static_cast<float>(gridSize)) >= part->getMinimumYDimension() ? fmod(originalSizeXml.y,static_cast<float>(gridSize)) : gridSize) : newSizeUi.y;
+				newSizeUi.z = newSizeUi.z < gridSize ? (fmod(originalSizeXml.z,static_cast<float>(gridSize)) >= part->getMinimumXOrZDimension() ? fmod(originalSizeXml.z,static_cast<float>(gridSize)) : gridSize) : newSizeUi.z;
+#else
 				newSizeUi.x = newSizeUi.x < gridSize ? (fmod(originalSizeXml.x,gridSize) >= part->getMinimumXOrZDimension() ? fmod(originalSizeXml.x,gridSize) : gridSize) : newSizeUi.x;
 				newSizeUi.y = newSizeUi.y < gridSize ? (fmod(originalSizeXml.y,gridSize) >= part->getMinimumYDimension() ? fmod(originalSizeXml.y,gridSize) : gridSize) : newSizeUi.y;
 				newSizeUi.z = newSizeUi.z < gridSize ? (fmod(originalSizeXml.z,gridSize) >= part->getMinimumXOrZDimension() ? fmod(originalSizeXml.z,gridSize) : gridSize) : newSizeUi.z;
+#endif
 			}
 			newSizeUi.x = newSizeUi.x < part->getMinimumXOrZDimension() ? part->getMinimumXOrZDimension() : newSizeUi.x;
 			newSizeUi.y = newSizeUi.y < part->getMinimumYDimension() ? part->getMinimumYDimension() : newSizeUi.y;

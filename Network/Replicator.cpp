@@ -2673,11 +2673,20 @@ void Replicator::processDeserializedPacket(const DeserializedPacket& deserialize
         RBXPROFILER_LABELF("Network", "ID %d (%d bytes)", deserializedPacket.rawPacket->data[0], deserializedPacket.rawPacket->length);
         RBXPROFILER_LABELF("Network", "%d items", int(deserializedPacket.deserializedItems.size()));
         
+#if defined(_MSC_VER) && _MSC_VER < 1700
+		for (size_t _i = 0; _i < deserializedPacket.deserializedItems.size(); ++_i)
+		{
+			shared_ptr<DeserializedItem> item = deserializedPacket.deserializedItems[_i];
+			RBXASSERT(item);
+			item->process(*this);
+		}
+#else
 		for (auto item: deserializedPacket.deserializedItems)
 		{
 			RBXASSERT(item);
 			item->process(*this);
 		}
+#endif
 	}
 	else
     {

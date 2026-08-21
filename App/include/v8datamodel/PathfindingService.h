@@ -105,6 +105,19 @@ namespace RBX {
 			{
 			}
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+			std::multimap<float, 
+					boost::unordered_map<
+					Vector3int16
+					,Node
+					,boost::hash<Vector3int16>
+					,std::equal_to<Vector3int16>
+					,boost::fast_pool_allocator<Vector3int16, boost::default_user_allocator_new_delete, boost::details::pool::null_mutex> 
+					>::iterator
+					,std::less<float>
+					,boost::fast_pool_allocator<float, boost::default_user_allocator_new_delete, boost::details::pool::null_mutex>
+					>::iterator itWeight;
+#else
 			std::multimap<float, 
 					boost::unordered_map<
 					Vector3int16
@@ -113,6 +126,7 @@ namespace RBX {
 					,std::equal_to<Vector3int16>
 					,boost::fast_pool_allocator<Vector3int16, boost::default_user_allocator_new_delete, boost::details::pool::null_mutex> 
 					>::iterator>::iterator itWeight;
+#endif
 
 			Vector3int16 pos, parent;
 			float totalPath;

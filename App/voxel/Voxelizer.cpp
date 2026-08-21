@@ -309,8 +309,14 @@ namespace RBX { namespace Voxel {
 		// If there's more than one primitive, expand the bounds to make the box blurriness overlap.
 		float expansionFactor = (compound->getExtentArray().size() > 1) ? 1.3f : 1.f;
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+		for (size_t _i = 0; _i < compound->getExtentArray().size(); ++_i)
+		{
+			const BulletDecompWrapper::ConvexExtents& e = compound->getExtentArray()[_i];
+#else
 		for (auto& e: compound->getExtentArray())
 		{
+#endif
 			CoordinateFrame ccf(cframe.rotation, cframe.translation + cframe.rotation * e.center);
 			
             partCache.push_back(DataModelPartCache(&Voxelizer::occupancyFillMesh, chunk, e.size * expansionFactor, ccf, transparency, extents.magnitude()));
@@ -938,8 +944,14 @@ namespace RBX { namespace Voxel {
         OccupancyChunk* lastChunk = 0;
         Extents chunkExtents;
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for (size_t _i = 0; _i < partCache.size(); ++_i)
+        {
+            const DataModelPartCache& part = partCache[_i];
+#else
         for (auto& part: partCache)
         {
+#endif
             if (lastChunk != part.chunk)
                 chunkExtents = part.chunk->getChunkExtents();
 

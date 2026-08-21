@@ -746,6 +746,21 @@ namespace Graphics
         VertexShaderD3D11* vs = static_cast<VertexShaderD3D11*>(vertexShader.get());
         FragmentShaderD3D11* fs = static_cast<FragmentShaderD3D11*>(fragmentShader.get());
 
+
+		#if defined(_MSC_VER) && _MSC_VER < 1700
+		for (size_t _i = 0; _i < vs->getCBuffers().size(); ++_i)
+		{
+			const shared_ptr<CBufferD3D11>& cb = vs->getCBuffers()[_i];
+			ID3D11Buffer* buffer = cb->getObject();
+			context11->VSSetConstantBuffers(cb->getRegisterId(), 1, &buffer);
+		}
+		for (size_t _i = 0; _i < fs->getCBuffers().size(); ++_i)
+		{
+			const shared_ptr<CBufferD3D11>& cb = fs->getCBuffers()[_i];
+			ID3D11Buffer* buffer = cb->getObject();
+			context11->PSSetConstantBuffers(cb->getRegisterId(), 1, &buffer);
+		}
+		#else
 		for (auto& cb: vs->getCBuffers())
 		{
 			ID3D11Buffer* buffer = cb->getObject();
@@ -757,6 +772,7 @@ namespace Graphics
 			ID3D11Buffer* buffer = cb->getObject();
 			context11->PSSetConstantBuffers(cb->getRegisterId(), 1, &buffer);
 		}
+		#endif
 
         context11->VSSetShader(vs->getObject(), NULL, 0);
         context11->PSSetShader(fs->getObject(), NULL, 0);

@@ -1551,8 +1551,14 @@ void LightGrid::lightingGetLights(std::vector<LightObject*>& lights, const Exten
     std::vector<CullableSceneNode*> nodes;
     spatialHashedScene->queryExtents(nodes, chunkExtents, CullableSceneNode::Flags_LightObject);
     
+#if defined(_MSC_VER) && _MSC_VER < 1700
+    for (size_t _i = 0; _i < nodes.size(); ++_i)
+    {
+        CullableSceneNode* node = nodes[_i];
+#else
     for (CullableSceneNode* node: nodes)
     {
+#endif
         LightObject* lobj = static_cast<LightObject*>(node);
 
         // Cull lights based on brightness

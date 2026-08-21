@@ -453,8 +453,6 @@ namespace RBX {
 #elif defined(RBX_PLATFORM_DURANGO)
 		return PLATFORM_XBOXONE;
 #elif defined(RBX_PLATFORM_UWP)
-		if (isUWPWindowsPhone())
-			return PLATFORM_ANDROID;
 		return PLATFORM_UWP;
 #elif defined(RBX_PLATFORM_DURANGO)
 		return PLATFORM_XBOXONE;

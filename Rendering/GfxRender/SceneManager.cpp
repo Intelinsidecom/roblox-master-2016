@@ -605,8 +605,16 @@ void SceneManager::computeMinimumSqDistance(const RenderCamera& camera)
 	spatialHashedScene->queryFrustumOrdered(nodes, camera, pointOfInterest, visualEngine->getFrameRateManager());
     
     // Required to call SceneManager::processSqPartDistance
+#if defined(_MSC_VER) && _MSC_VER < 1700
+    for (size_t _i = 0; _i < nodes.size(); ++_i)
+    {
+        CullableSceneNode* node = nodes[_i];
+#else
     for (CullableSceneNode* node: nodes)
+    {
+#endif
         node->updateIsCulledByFRM();
+    }
 }
 
 void SceneManager::renderScene(DeviceContext* context, Framebuffer* mainFramebuffer, const RenderCamera& camera, unsigned int viewWidth, unsigned int viewHeight)
@@ -669,8 +677,16 @@ void SceneManager::renderBegin(DeviceContext* context, const RenderCamera& camer
     {
         RBXPROFILER_SCOPE("Render", "updateRenderQueue");
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for (size_t _i = 0; _i < renderNodes.size(); ++_i)
+        {
+            CullableSceneNode* node = renderNodes[_i];
+#else
         for (CullableSceneNode* node: renderNodes)
+        {
+#endif
             node->updateRenderQueue(*renderQueue, camera, RenderQueue::Pass_Default);
+        }
     }
 
 	// Flush particle vertex buffer; it's being filled in particle emitter updateRenderQueue
@@ -1094,8 +1110,16 @@ void SceneManager::renderShadowMap(DeviceContext* context, ShadowMap* shadowMap)
 
         shadowRenderQueue->clear();
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for (size_t _i = 0; _i < renderNodes.size(); ++_i)
+        {
+            CullableSceneNode* node = renderNodes[_i];
+#else
         for (CullableSceneNode* node: renderNodes)
+        {
+#endif
             node->updateRenderQueue(*shadowRenderQueue, shadowCamera, RenderQueue::Pass_Shadows);
+        }
     }
 
     globalShaderData.setCamera(shadowCamera);

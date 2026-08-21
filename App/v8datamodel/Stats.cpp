@@ -17,7 +17,7 @@
 
 #include <boost/algorithm/string.hpp>
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
+#ifdef _WIN32
 #include "Util/FileSystem.h"
 #include "VersionInfo.h"
 #elif __ANDROID__

@@ -657,7 +657,11 @@ MaterialGenerator::TexturedMaterialCache::TexturedMaterialCache()
 
 MaterialGenerator::MaterialGenerator(VisualEngine* visualEngine)
     : visualEngine(visualEngine)
+#if defined(_MSC_VER) && _MSC_VER < 1700
+    , compositCache(static_cast<Humanoid*>(NULL), TextureCompositor::JobHandle())
+#else
     , compositCache(NULL, TextureCompositor::JobHandle())
+#endif
 {
     wangTilesTex = visualEngine->getTextureManager()->load(ContentId("rbxasset://textures/wangIndex.dds"), TextureManager::Fallback_Black);
 }

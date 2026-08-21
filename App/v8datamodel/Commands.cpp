@@ -729,11 +729,20 @@ void DeleteBase::doIt(IDataState* dataState)
 			// Check for locked scripts that would be deleted, and skip the delete if they are present
 			if (isCloudEdit)
 			{
+#if defined(_MSC_VER) && _MSC_VER < 1700
+				for (Instances::const_iterator _it = selectionRead->begin(); _it != selectionRead->end(); ++_it)
+				{
+					const shared_ptr<Instance>& instance = *_it;
+					checkForLockedScript(instance);
+					instance->visitDescendants(boost::bind(&checkForLockedScript, _1));
+				}
+#else
 				for (const auto& instance : *selectionRead)
 				{
 					checkForLockedScript(instance);
 					instance->visitDescendants(boost::bind(&checkForLockedScript, _1));
 				}
+#endif
 			}
 			sel->setSelection(shared_ptr<const Instances>());
 

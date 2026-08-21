@@ -57,10 +57,13 @@ void DeserializedTouchItem::process(Replicator& replicator)
 {
 	if (replicator.physicsReceiver)
 	{
+#if defined(_MSC_VER) && _MSC_VER < 1700
+		for (std::vector<TouchPair>::iterator it = touchPairs.begin(); it != touchPairs.end(); ++it)
+			replicator.physicsReceiver->processTouchPair(*it);
+#else
 		for (auto& tp: touchPairs)
-		{
 			replicator.physicsReceiver->processTouchPair(tp);
-		}
+#endif
 	}
 }
 

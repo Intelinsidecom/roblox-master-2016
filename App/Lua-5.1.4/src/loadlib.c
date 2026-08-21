@@ -99,7 +99,9 @@ static lua_CFunction ll_sym (lua_State *L, void *lib, const char *sym) {
 */
 
 #include <windows.h>
+#if (_WIN32_WINNT >= 0x0602) || defined(WINAPI_FAMILY)
 #include <libloaderapi.h>
+#endif
 
 
 #undef setprogdir

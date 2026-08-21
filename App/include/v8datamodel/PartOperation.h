@@ -6,6 +6,7 @@
 #include "V8DataModel/CSGMesh.h"
 #include "V8DataModel/PartInstance.h"
 #include "Util/ContentID.h"
+#include "V8World/TriangleMesh.h"
 #include <boost/shared_ptr.hpp>
 
 namespace RBX {
@@ -118,7 +119,11 @@ public:
 
 };
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+static BtVector3Array getCSGVertexPositions(const std::vector<CSGVertex> &vertices);
+#else
 static std::vector<btVector3> getCSGVertexPositions(const std::vector<CSGVertex> &vertices); 
+#endif
 
 extern const char* const sUnionOperation;
 class UnionOperation

@@ -264,10 +264,19 @@ namespace RBX
             throw std::runtime_error("Error reading mesh data: unexpected data at end of file");
 
         // validate indices to avoid buffer overruns later
+		#if defined(_MSC_VER) && _MSC_VER < 1700
+        for( size_t _i = 0; _i < mesh->faces.size(); ++_i )
+        {
+			FileMeshFace& face = mesh->faces[_i];
+			if (face.a >= header.num_vertices || face.b >= header.num_vertices || face.c >= header.num_vertices)
+                throw std::runtime_error("Error reading mesh data: index value out of range");
+        }
+		#else
         for (auto& face: mesh->faces)
             if (face.a >= header.num_vertices || face.b >= header.num_vertices || face.c >= header.num_vertices)
                 throw std::runtime_error("Error reading mesh data: index value out of range");
-        
+		#endif
+
         return mesh;
     }
 

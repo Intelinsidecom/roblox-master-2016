@@ -467,6 +467,17 @@ public:
 		ChunkCells& cells = recordClusterDataGetChunk(chunkIndex);
 		boost::uint32_t cellIndex = ((cellPos.x) | (cellPos.z << 5) | (cellPos.y << 10));
 		unsigned int cellData = RBX_SET_CELL_DATA(cellIndex, Voxel::Cell::asUnsignedCharForDeprecatedUses(cellDetail), material);
+#if defined(_MSC_VER) && _MSC_VER < 1700
+		for (size_t _i = 0; _i < cells.size(); ++_i)
+		{
+			unsigned int& cell = cells[_i];
+			if (RBX_GET_CELL_INDEX(cell) == cellIndex)
+			{
+				cell = cellData;
+				break;
+			}
+		}
+#else
 		for (auto& cell: cells)
 		{
 			if (RBX_GET_CELL_INDEX(cell) == cellIndex)
@@ -475,6 +486,7 @@ public:
 				break;
 			}
 		}
+#endif
 	}
 
 	void updateSmoothClusterData(const Vector3int32& chunkId, const Voxel2::Grid* grid)
@@ -1312,8 +1324,14 @@ void ChangeHistoryService::onTerrainRegionChanged(const Voxel2::Region& region)
 	if (isReplicatedChange())
 	{
 		std::vector<Vector3int32> chunkIds = region.getChunkIds(Item::kChunkSizeLog2);
+#if defined(_MSC_VER) && _MSC_VER < 1700
+		for (size_t _i = 0; _i < chunkIds.size(); ++_i)
+		{
+			const Vector3int32& chunkId = chunkIds[_i];
+#else
 		for (const auto& chunkId: chunkIds)
-		{			
+		{
+#endif			
 			Waypoints::iterator iter = waypoints.end();
 			while (iter != waypoints.begin())
 			{

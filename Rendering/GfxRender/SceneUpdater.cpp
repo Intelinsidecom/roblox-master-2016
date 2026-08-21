@@ -340,7 +340,11 @@ struct WaitingPart
 
     bool isNewContentAvailable(ContentProvider* contentProvider) const
     {
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        std::multimap<GfxPart*, ContentId>::iterator it = assets;
+#else
         auto it = assets;
+#endif
         
         for (unsigned int i = 0; i < assetCount; ++i)
         {
@@ -390,8 +394,14 @@ void SceneUpdater::updateWaitingParts(bool bulkExecution)
 	// Process all clusters with a timeout - closest clusters get processed first
 	Timer<Time::Precise> timer;
 	
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	for (size_t _i = 0; _i < waitingParts.size(); ++_i)
+	{
+		WaitingPart& part = waitingParts[_i];
+#else
 	for (auto& part: waitingParts)
 	{
+#endif
 		// part.assets iterator must still point to a valid element since map iterators are only invalidated by erases of their keys
 		RBXASSERT(part.assets->first == part.part);
 
@@ -951,8 +961,16 @@ void SceneUpdater::computeLightingPrepare()
             }
 
 			// restore chunk dirty flags so that we get correct state in perform
+#if defined(_MSC_VER) && _MSC_VER < 1700
+			for (size_t _i = 0; _i < mLgridchunksToUpdate.size(); ++_i)
+			{
+				std::pair<LightGridChunk*, unsigned>& chunk = mLgridchunksToUpdate[_i];
+				chunk.first->dirty = chunk.second;
+			}
+#else
 			for (auto& chunk: mLgridchunksToUpdate)
 				chunk.first->dirty = chunk.second;
+#endif
         }
 
     }

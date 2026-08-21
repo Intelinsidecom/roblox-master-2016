@@ -493,7 +493,11 @@ std::pair<RenderEntity*, RenderEntity*> SmoothClusterChunked::createChunkGeometr
 	if (box.isEmpty())
 	{
         *outQuads = 0;
+#if defined(_MSC_VER) && _MSC_VER < 1700
+		return std::pair<RenderEntity*, RenderEntity*>(static_cast<RenderEntity*>(NULL), static_cast<RenderEntity*>(NULL));
+#else
 		return std::pair<RenderEntity*, RenderEntity*>(NULL, NULL);
+#endif
 	}
 
 	using namespace Voxel2::Mesher;
@@ -502,16 +506,30 @@ std::pair<RenderEntity*, RenderEntity*> SmoothClusterChunked::createChunkGeometr
 	BasicMesh geometry = generateGeometry(box, region.begin(), 0, options);
     
     if (geometry.indices.empty())
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        return std::pair<RenderEntity*, RenderEntity*>(static_cast<RenderEntity*>(NULL), static_cast<RenderEntity*>(NULL));
+#else
         return std::pair<RenderEntity*, RenderEntity*>(NULL, NULL);
+#endif
     
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	std::pair<Vector4, Vector4> packInfo = getPackInfo(region);
+
+	GraphicsMeshPacked graphicsGeometry = generateGraphicsGeometryPacked(geometry, packInfo.first, options);
+#else
 	auto packInfo = getPackInfo(region);
 
 	auto graphicsGeometry = generateGraphicsGeometryPacked(geometry, packInfo.first, options);
+#endif
 
 	*outQuads = (graphicsGeometry.solidIndices.size() + graphicsGeometry.waterIndices.size()) / 6;
 	
 	if (*outQuads == 0)
+#if defined(_MSC_VER) && _MSC_VER < 1700
+		return std::pair<RenderEntity*, RenderEntity*>(static_cast<RenderEntity*>(NULL), static_cast<RenderEntity*>(NULL));
+#else
 		return std::pair<RenderEntity*, RenderEntity*>(NULL, NULL);
+#endif
 
 	return uploadGeometry(updateChunkNode(pos), packInfo.second,
 		sizeof(GraphicsVertexPacked), &graphicsGeometry.vertices[0], graphicsGeometry.vertices.size(),
@@ -559,11 +577,19 @@ void SmoothClusterLOD::updateEntity(bool assetsUpdated)
 	if (FFlag::DebugSmoothTerrainRenderFixedLOD)
 		poi = Vector3();
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	for (boost::unordered_map<ChunkId, Chunk>::iterator it = chunks.begin(); it != chunks.end(); ++it)
+	{
+		Chunk& chunk = it->second;
+
+		std::pair<Vector3, float> bounds = getChunkBounds(chunk.id);
+#else
 	for (auto& p: chunks)
 	{
 		Chunk& chunk = p.second;
 
 		auto bounds = getChunkBounds(chunk.id);
+#endif
 
 		float d = (poi - bounds.first).length();
 		float r = bounds.second;
@@ -653,8 +679,13 @@ void SmoothClusterLOD::onTerrainRegionChanged(const Voxel2::Region& region)
 {
 	std::vector<Vector3int32> chunks = region.expand(kChunkBorder).getChunkIds(kChunkSizeLog2);
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	for (size_t _i = 0; _i < chunks.size(); ++_i)
+		markDirty(ChunkId(chunks[_i], 0));
+#else
 	for (auto& cid: chunks)
 		markDirty(ChunkId(cid, 0));
+#endif
 }
 
 void SmoothClusterLOD::markDirty(const ChunkId& id)
@@ -706,7 +737,11 @@ std::pair<Vector3, float> SmoothClusterLOD::getChunkBounds(const ChunkId& id)
 
 SmoothClusterLOD::Chunk& SmoothClusterLOD::getChunk(const ChunkId& id)
 {
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	boost::unordered_map<ChunkId, Chunk>::iterator it = chunks.find(id);
+#else
 	auto it = chunks.find(id);
+#endif
 
 	if (it != chunks.end())
 		return it->second;
@@ -719,7 +754,11 @@ SmoothClusterLOD::Chunk& SmoothClusterLOD::getChunk(const ChunkId& id)
 
 SmoothClusterLOD::Chunk* SmoothClusterLOD::findChunk(const ChunkId& id)
 {
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	boost::unordered_map<ChunkId, Chunk>::iterator it = chunks.find(id);
+#else
 	auto it = chunks.find(id);
+#endif
 
 	if (it != chunks.end())
 		return &it->second;
@@ -734,9 +773,15 @@ void SmoothClusterLOD::removeChunk(const ChunkId& id)
 
 SmoothClusterLOD::Chunk* SmoothClusterLOD::findDirtyChunk()
 {
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	for (boost::unordered_map<ChunkId, Chunk>::iterator it = chunks.begin(); it != chunks.end(); ++it)
+		if (it->second.flags)
+			return &it->second;
+#else
 	for (auto& p: chunks)
 		if (p.second.flags)
 			return &p.second;
+#endif
 
 	return NULL;
 }
@@ -808,7 +853,11 @@ std::pair<RenderEntity*, RenderEntity*> SmoothClusterLOD::createChunkGeometry(Ch
 	if (box.isEmpty())
 	{
         *outQuads = 0;
+#if defined(_MSC_VER) && _MSC_VER < 1700
+		return std::pair<RenderEntity*, RenderEntity*>(static_cast<RenderEntity*>(NULL), static_cast<RenderEntity*>(NULL));
+#else
 		return std::pair<RenderEntity*, RenderEntity*>(NULL, NULL);
+#endif
 	}
 
 	using namespace Voxel2::Mesher;
@@ -817,16 +866,30 @@ std::pair<RenderEntity*, RenderEntity*> SmoothClusterLOD::createChunkGeometry(Ch
 	BasicMesh geometry = generateGeometry(box, region.begin(), lod, options);
 
     if (geometry.indices.empty())
+#if defined(_MSC_VER) && _MSC_VER < 1700
+		return std::pair<RenderEntity*, RenderEntity*>(static_cast<RenderEntity*>(NULL), static_cast<RenderEntity*>(NULL));
+#else
 		return std::pair<RenderEntity*, RenderEntity*>(NULL, NULL);
+#endif
     
+#if defined(_MSC_VER) && _MSC_VER < 1700
+    std::pair<Vector4, Vector4> packInfo = getPackInfo(region);
+
+	GraphicsMeshPacked graphicsGeometry = generateGraphicsGeometryPacked(geometry, packInfo.first, options);
+#else
     auto packInfo = getPackInfo(region);
 
 	auto graphicsGeometry = generateGraphicsGeometryPacked(geometry, packInfo.first, options);
+#endif
 
 	*outQuads = (graphicsGeometry.solidIndices.size() + graphicsGeometry.waterIndices.size()) / 6;
 	
 	if (*outQuads == 0)
+#if defined(_MSC_VER) && _MSC_VER < 1700
+		return std::pair<RenderEntity*, RenderEntity*>(static_cast<RenderEntity*>(NULL), static_cast<RenderEntity*>(NULL));
+#else
 		return std::pair<RenderEntity*, RenderEntity*>(NULL, NULL);
+#endif
 
 	return uploadGeometry(updateChunkNode(chunk), packInfo.second,
 		sizeof(GraphicsVertexPacked), &graphicsGeometry.vertices[0], graphicsGeometry.vertices.size(),

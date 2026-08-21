@@ -529,6 +529,22 @@ namespace RBX { namespace Voxel2 {
 			
 			std::vector<Vector3int32> chunkIds = region.getChunkIds(kChunkSizeLog2);
 			
+#if defined(_MSC_VER) && _MSC_VER < 1700
+			for (size_t _ci = 0; _ci < chunkIds.size(); ++_ci)
+			{
+				Vector3int32 cid = chunkIds[_ci];
+				boost::unordered_map<Vector3int32, Chunk>::const_iterator cit = chunks.find(cid);
+				
+				if (cit != chunks.end())
+				{
+					const Chunk& chunk = cit->second;
+
+					Region chunkRegionLod = Region::fromChunk(cid, kChunkSizeLog2 - lod);
+					
+					copyCells(result, regionLod, chunk.data[lod], chunkRegionLod);
+				}
+			}
+#else
 			for (auto cid: chunkIds)
 			{
 				auto cit = chunks.find(cid);
@@ -542,6 +558,7 @@ namespace RBX { namespace Voxel2 {
 					copyCells(result, regionLod, chunk.data[lod], chunkRegionLod);
 				}
 			}
+#endif
 			
 			return result;
 		}
@@ -571,9 +588,16 @@ namespace RBX { namespace Voxel2 {
         std::vector<Vector3int32> chunkIds = region.getChunkIds(kChunkSizeLog2);
         std::vector<Region> dirtyRegions;
         
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for (size_t _i = 0; _i < chunkIds.size(); ++_i)
+        {
+			Vector3int32 cid = chunkIds[_i];
+			boost::unordered_map<Vector3int32, Chunk>::iterator cit = chunks.find(cid);
+#else
         for (auto cid: chunkIds)
         {
 			auto cit = chunks.find(cid);
+#endif
 
 			// don't create new chunks during clears
 			if (box.isEmpty() && cit == chunks.end())
@@ -636,9 +660,15 @@ namespace RBX { namespace Voxel2 {
         }
 
         // Update all listeners
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for (size_t _li = 0; _li < listeners.size(); ++_li)
+            for (size_t _ri = 0; _ri < dirtyRegions.size(); ++_ri)
+    			listeners[_li]->onTerrainRegionChanged(dirtyRegions[_ri]);
+#else
         for (auto& l: listeners)
             for (auto& r: dirtyRegions)
     			l->onTerrainRegionChanged(r);
+#endif
     }
 
 	Cell Grid::getCell(int x, int y, int z) const
@@ -646,7 +676,11 @@ namespace RBX { namespace Voxel2 {
 		Vector3int32 chunkId = Vector3int32(x, y, z) >> int(kChunkSizeLog2);
 		Vector3int32 chunkOffset = chunkId << int(kChunkSizeLog2);
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        boost::unordered_map<Vector3int32, Chunk>::const_iterator it = chunks.find(chunkId);
+#else
         auto it = chunks.find(chunkId);
+#endif
         if (it == chunks.end())
             return Cell();
 
@@ -658,12 +692,21 @@ namespace RBX { namespace Voxel2 {
         std::vector<Region> result;
 		result.reserve(chunks.size());
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for (boost::unordered_map<Vector3int32, Chunk>::const_iterator c = chunks.begin(); c != chunks.end(); ++c)
+        {
+            Region chunkRegion = Region::fromChunk(c->first, kChunkSizeLog2);
+
+			result.push_back(chunkRegion);
+		}
+#else
         for (auto& c: chunks)
         {
             Region chunkRegion = Region::fromChunk(c.first, kChunkSizeLog2);
 
 			result.push_back(chunkRegion);
 		}
+#endif
 
         return result;
 	}
@@ -678,6 +721,19 @@ namespace RBX { namespace Voxel2 {
 			// We're querying a relatively small area, let's just iterate through all regions
 			std::vector<Vector3int32> chunkIds = region.getChunkIds(kChunkSizeLog2);
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+			for (size_t _ci = 0; _ci < chunkIds.size(); ++_ci)
+			{
+				Vector3int32 cid = chunkIds[_ci];
+				if (chunks.find(cid) == chunks.end())
+					continue;
+
+				Region chunkRegion = Region::fromChunk(cid, kChunkSizeLog2);
+				Region r = region.intersect(chunkRegion);
+
+				result.push_back(r);
+			}
+#else
 			for (auto cid: chunkIds)
 			{
 				if (chunks.find(cid) == chunks.end())
@@ -688,10 +744,21 @@ namespace RBX { namespace Voxel2 {
 
 				result.push_back(r);
 			}
+#endif
 		}
 		else
 		{
 			// We're querying a relatively large area, let's scan through filled regions inside the grid
+#if defined(_MSC_VER) && _MSC_VER < 1700
+			for (boost::unordered_map<Vector3int32, Chunk>::const_iterator chunk = chunks.begin(); chunk != chunks.end(); ++chunk)
+			{
+				Region chunkRegion = Region::fromChunk(chunk->first, kChunkSizeLog2);
+				Region r = region.intersect(chunkRegion);
+
+				if (!r.empty() && !chunk->second.isEmpty())
+					result.push_back(r);
+			}
+#else
 			for (auto& chunk: chunks)
 			{
 				Region chunkRegion = Region::fromChunk(chunk.first, kChunkSizeLog2);
@@ -700,6 +767,7 @@ namespace RBX { namespace Voxel2 {
 				if (!r.empty() && !chunk.second.isEmpty())
 					result.push_back(r);
 			}
+#endif
 		}
 
 		return result;
@@ -720,9 +788,15 @@ namespace RBX { namespace Voxel2 {
         // get chunk ids sorted for stability and LZ efficiency
         std::vector<Vector3int32> ids;
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for (boost::unordered_map<Vector3int32, Chunk>::const_iterator c = chunks.begin(); c != chunks.end(); ++c)
+            if (!c->second.isEmpty())
+                ids.push_back(c->first);
+#else
         for (auto& c: chunks)
             if (!c.second.isEmpty())
                 ids.push_back(c.first);
+#endif
 
         std::sort(ids.begin(), ids.end());
 
@@ -744,7 +818,11 @@ namespace RBX { namespace Voxel2 {
             }
 
             // encode chunk data
+#if defined(_MSC_VER) && _MSC_VER < 1700
+            boost::unordered_map<Vector3int32, Chunk>::const_iterator cit = chunks.find(id);
+#else
             auto cit = chunks.find(id);
+#endif
             RBXASSERT(cit != chunks.end());
 
             encodeChunk(result, cit->second.data[0], cells);

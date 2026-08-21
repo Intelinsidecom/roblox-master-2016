@@ -468,14 +468,26 @@ void TextureGL::commitChanges()
 
     glBindBuffer(GL_PIXEL_UNPACK_BUFFER, scratchId);
     
+#if defined(_MSC_VER) && _MSC_VER < 1700
+    for (size_t _i = 0; _i < pendingChanges.size(); ++_i)
+    {
+        Change& change = pendingChanges[_i];
+        RBXASSERT(change.scratchOffset < scratchOffset);
+
+        bool entireRegion = false;
+
+        uploadTexture(id, type, format, change.index, change.mip, change.region, entireRegion, reinterpret_cast<void*>(change.scratchOffset), caps);
+    }
+#else
     for (auto& change: pendingChanges)
     {
         RBXASSERT(change.scratchOffset < scratchOffset);
 
-        bool entireRegion = false; // this is only important for compressed formats that we don't support
+        bool entireRegion = false;
 
         uploadTexture(id, type, format, change.index, change.mip, change.region, entireRegion, reinterpret_cast<void*>(change.scratchOffset), caps);
     }
+#endif
     
     glBindBuffer(GL_PIXEL_UNPACK_BUFFER, 0);
     

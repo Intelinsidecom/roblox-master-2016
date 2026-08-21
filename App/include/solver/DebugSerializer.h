@@ -128,10 +128,17 @@ public:
     DebugSerializer& operator&( const ArrayBase<T>& v )
     {
         *this & boost::uint32_t( v.size() );
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for( size_t _i = 0; _i < v.size(); ++_i )
+        {
+            *this & v[_i];
+        }
+#else
         for( const auto& e : v )
         {
             *this & e;
         }
+#endif
         return *this;
     }
 
@@ -139,10 +146,17 @@ public:
     DebugSerializer& operator&( const std::vector<T>& v )
     {
         *this & boost::uint32_t( v.size() );
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for( size_t _i = 0; _i < v.size(); ++_i )
+        {
+            *this & v[_i];
+        }
+#else
         for( const auto& e : v )
         {
             *this & e;
         }
+#endif
         return *this;
     }
 

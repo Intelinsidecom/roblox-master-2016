@@ -190,8 +190,14 @@ static void integrateVelocitiesAndInitSimulatedObjects( ArrayDynamic< SolverBody
 
     if( DFFlag::PGSSolverIntegrateOnlyPositionsEnabled && _config.integrateOnlyPositions )
     {
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for( size_t _i = 0; _i < _bodyVariableData.size(); ++_i )
+        {
+            SolverBodyDynamicProperties b = _bodyVariableData[_i];
+#else
         for( auto b : _bodyVariableData )
         {
+#endif
             b.linearVelocity = Vector3(0.0f);
             b.angularVelocity = Vector3(0.0f);
             b.integratedLinearVelocity = Vector3(0.0f);
@@ -735,8 +741,14 @@ static void breakIntoIslands( ArrayDynamic< SimBody* >& _islandSimBodies,
     DenseHashMap< SimBody*, boost::int32_t > bodyIndexation( NULL, G3D::ceilPow2( 2 * _simBodies.size() ) );
     ArrayDynamic< SimBody* > simBodyList( _simBodies.size(), ArrayNoInit() );
     boost::int32_t index = 0;
+#if defined(_MSC_VER) && _MSC_VER < 1700
+    for( boost::unordered_set<SimBody*>::const_iterator _it = _simBodies.begin(); _it != _simBodies.end(); ++_it )
+    {
+        SimBody* b = *_it;
+#else
     for( auto b : _simBodies )
     {
+#endif
         bodyIndexation[ b ] = index;
         simBodyList[ index ] = b;
         index++;
@@ -800,16 +812,32 @@ static void breakIntoIslands( ArrayDynamic< SimBody* >& _islandSimBodies,
 
             // Sort and add constraints
             std::sort( indexedIslandConstraints.begin(), indexedIslandConstraints.end() );
+#if defined(_MSC_VER) && _MSC_VER < 1700
+            for( size_t _i = 0; _i < indexedIslandConstraints.size(); ++_i )
+            {
+                boost::uint32_t p = indexedIslandConstraints[_i];
+                _islandConstraints.push_back( _constraints[ p ] );
+            }
+#else
             for( auto p : indexedIslandConstraints )
             {
                 _islandConstraints.push_back( _constraints[ p ] );
             }
+#endif
 
             // Add the bodies
+#if defined(_MSC_VER) && _MSC_VER < 1700
+            for( size_t _i = 0; _i < indexedIslandBodies.size(); ++_i )
+            {
+                boost::uint32_t p = indexedIslandBodies[_i];
+                _islandSimBodies.push_back( simBodyList[ p ] );
+            }
+#else
             for( auto p : indexedIslandBodies )
             {
                 _islandSimBodies.push_back( simBodyList[ p ] );
             }
+#endif
 
             // Cleanup
             indexedIslandBodies.clear();
@@ -886,8 +914,14 @@ void PGSSolver::solveInternal( const std::vector< ContactConnector* >& _contactC
         if( _throttled )
         {
             // If we are throttling, ignore any constraints that aren't involved with high priority bodies
+#if defined(_MSC_VER) && _MSC_VER < 1700
+            for( std::map< boost::uint64_t, Constraint* >::const_iterator _it = pureConstraintSet.begin(); _it != pureConstraintSet.end(); ++_it )
+            {
+                const std::pair< const boost::uint64_t, Constraint* >& it = *_it;
+#else
             for( const auto& it : pureConstraintSet )
             {
+#endif
                 if( highPrioritySimBodies.find( it.second->getBodyA()->getRootSimBody() ) == highPrioritySimBodies.end() 
                     && ( ( it.second->getBodyB() == NULL ) || highPrioritySimBodies.find( it.second->getBodyB()->getRootSimBody() ) == highPrioritySimBodies.end() ) )
                 {
@@ -901,8 +935,14 @@ void PGSSolver::solveInternal( const std::vector< ContactConnector* >& _contactC
         }
         else
         {
+#if defined(_MSC_VER) && _MSC_VER < 1700
+            for( std::map< boost::uint64_t, Constraint* >::const_iterator _it = pureConstraintSet.begin(); _it != pureConstraintSet.end(); ++_it )
+            {
+                const std::pair< const boost::uint64_t, Constraint* >& it = *_it;
+#else
             for( const auto& it : pureConstraintSet )
             {
+#endif
                 if( !it.second->isBroken() )
                 {
                     constraints.push_back( it.second );
@@ -910,8 +950,14 @@ void PGSSolver::solveInternal( const std::vector< ContactConnector* >& _contactC
             }
         }
     
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for( size_t _i = 0; _i < activeManifolds.size(); ++_i )
+        {
+            ContactManifold* const manifold = activeManifolds[_i];
+#else
         for( const auto manifold : activeManifolds )
         {
+#endif
             constraints.insert( constraints.end(), manifold->collisions.cbegin(), manifold->collisions.cend() );
         }
     }
@@ -952,8 +998,14 @@ void PGSSolver::solveInternal( const std::vector< ContactConnector* >& _contactC
     {
         ArrayDynamic< SimBody* > simBodyArray;
         simBodyArray.reserve( selectedSimBodies.size() );
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for( boost::unordered_set<SimBody*>::const_iterator _it = selectedSimBodies.begin(); _it != selectedSimBodies.end(); ++_it )
+        {
+            SimBody* b = *_it;
+#else
         for( auto b : selectedSimBodies )
         {
+#endif
             simBodyArray.push_back( b );
         }
         solveIsland( constraints, simBodyArray, _dt, solverConfig );
@@ -991,8 +1043,14 @@ void PGSSolver::solveIsland( const ArrayDynamic< Constraint* >& _constraints,
         RBXPROFILER_SCOPE("Physics", "generateBodyIndices");
 
         simBodyList.reserve( _simBodies.size() );
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for( size_t _i = 0; _i < _simBodies.size(); ++_i )
+        {
+            SimBody* body = _simBodies[_i];
+#else
         for( auto body : _simBodies )
         {
+#endif
             bodyIndexation[ body ] = (int)simBodyList.size();
             simBodyList.push_back( body );
         }
@@ -1009,7 +1067,11 @@ void PGSSolver::solveIsland( const ArrayDynamic< Constraint* >& _constraints,
     ArrayDynamic< SimBody* > anchoredBodyList;
     boost::uint32_t totalBlockSize;
     boost::uint32_t collisionCount = 0;
+#if defined(_MSC_VER) && _MSC_VER < 1700
+    boost::uint32_t totalDimension = gatherConstraintPairData(simBodyPairs, dimensions, offsets, anchoredBodyList, bodyIndexation, totalBlockSize, collisionCount, _constraints );
+#else
     auto totalDimension = gatherConstraintPairData(simBodyPairs, dimensions, offsets, anchoredBodyList, bodyIndexation, totalBlockSize, collisionCount, _constraints );
+#endif
 
     //
     // Init sim bodies, integrate velocities
@@ -1210,8 +1272,14 @@ void PGSSolver::solveLegacy( const std::vector< ContactConnector* >& _contactCon
         RBXPROFILER_SCOPE("Physics", "generateBodyIndices");
 
         simBodyList.reserve( simBodies.size() );
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for( boost::unordered_set< SimBody* >::const_iterator _it = selectedSimBodies.begin(); _it != selectedSimBodies.end(); ++_it )
+        {
+            SimBody* body = *_it;
+#else
         for( auto body : selectedSimBodies )
         {
+#endif
             bodyIndexation[ body ] = (int)simBodyList.size();
             simBodyList.push_back( body );
         }
@@ -1235,8 +1303,14 @@ void PGSSolver::solveLegacy( const std::vector< ContactConnector* >& _contactCon
         if( _throttled )
         {
             // If we are throttling, ignore any constraints that aren't involved with high priority bodies
+#if defined(_MSC_VER) && _MSC_VER < 1700
+            for( std::map< boost::uint64_t, Constraint* >::const_iterator _it = pureConstraintSet.begin(); _it != pureConstraintSet.end(); ++_it )
+            {
+                const std::pair< const boost::uint64_t, Constraint* >& it = *_it;
+#else
             for( const auto& it : pureConstraintSet )
             {
+#endif
                 if( highPrioritySimBodies.find( it.second->getBodyA()->getRootSimBody() ) == highPrioritySimBodies.end() 
                     && ( ( it.second->getBodyB() == NULL ) || highPrioritySimBodies.find( it.second->getBodyB()->getRootSimBody() ) == highPrioritySimBodies.end() ) )
                 {
@@ -1250,8 +1324,14 @@ void PGSSolver::solveLegacy( const std::vector< ContactConnector* >& _contactCon
         }
         else
         {
+#if defined(_MSC_VER) && _MSC_VER < 1700
+            for( std::map< boost::uint64_t, Constraint* >::const_iterator _it = pureConstraintSet.begin(); _it != pureConstraintSet.end(); ++_it )
+            {
+                const std::pair< const boost::uint64_t, Constraint* >& it = *_it;
+#else
             for( const auto& it : pureConstraintSet )
             {
+#endif
                 if( !it.second->isBroken() )
                 {
                     constraints.push_back( it.second );
@@ -1259,8 +1339,14 @@ void PGSSolver::solveLegacy( const std::vector< ContactConnector* >& _contactCon
             }
         }
     
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for( size_t _i = 0; _i < activeManifolds.size(); ++_i )
+        {
+            ContactManifold* const manifold = activeManifolds[_i];
+#else
         for( const auto manifold : activeManifolds )
         {
+#endif
             constraints.insert( constraints.end(), manifold->collisions.cbegin(), manifold->collisions.cend() );
         }
     }
@@ -1277,7 +1363,11 @@ void PGSSolver::solveLegacy( const std::vector< ContactConnector* >& _contactCon
     // Listing anchored bodies interacting with sim bodies
     ArrayDynamic< SimBody* > anchoredBodyList;
     boost::uint32_t totalBlockSize;
+#if defined(_MSC_VER) && _MSC_VER < 1700
+    boost::uint32_t totalDimension = gatherConstraintPairData(simBodyPairs, dimensions, offsets, anchoredBodyList, bodyIndexation, totalBlockSize, collisionCount, constraints );
+#else
     auto totalDimension = gatherConstraintPairData(simBodyPairs, dimensions, offsets, anchoredBodyList, bodyIndexation, totalBlockSize, collisionCount, constraints );
+#endif
     gatherCollisionsProfiler.end();
 
     //
@@ -1493,7 +1583,11 @@ void PGSSolver::addConstraint( Constraint* _constraint )
 
 void PGSSolver::removeConstraint( Constraint* _constraint )
 {
+#if defined(_MSC_VER) && _MSC_VER < 1700
+    std::map< boost::uint64_t, Constraint* >::iterator it = pureConstraintSet.find( _constraint->getUID() );
+#else
     auto it = pureConstraintSet.find( _constraint->getUID() );
+#endif
     if( it != pureConstraintSet.end() )
     {
         pureConstraintSet.erase( it );
@@ -1590,8 +1684,14 @@ ContactManifold* PGSSolver::updateContactManifold( const BodyUIDPair& _pairId, c
     // Filter out the bad connectors 
     ArrayDynamic< OrderedConnector > cleanManifold;
     cleanManifold.reserve( _inputManifold.size() );
+#if defined(_MSC_VER) && _MSC_VER < 1700
+    for( size_t _i = 0; _i < _inputManifold.size(); ++_i )
+    {
+        OrderedConnector c = _inputManifold[_i];
+#else
     for( auto c : _inputManifold )
     {
+#endif
         if( c.connector->getContactPoint().normal.squaredLength() > 0.8f )
         {
             cleanManifold.push_back( c );

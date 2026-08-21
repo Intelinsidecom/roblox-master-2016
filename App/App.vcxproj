@@ -898,6 +898,68 @@ cmd /c "exit /b 0"</Command>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src\HTTrace.c">
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">Level1</WarningLevel>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">false</TreatWarningAsError>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Durango'">Level1</WarningLevel>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Durango'">false</TreatWarningAsError>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOpt|Durango'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Durango'">Level1</WarningLevel>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOpt|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Durango'">false</TreatWarningAsError>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Durango'">Level1</WarningLevel>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Durango'">false</TreatWarningAsError>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Durango'">Level1</WarningLevel>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Durango'">false</TreatWarningAsError>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Durango'">Level1</WarningLevel>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Durango'">false</TreatWarningAsError>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Win32'">Level1</WarningLevel>
+      <WarningLevel Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Durango'">Level1</WarningLevel>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Win32'">false</TreatWarningAsError>
+      <TreatWarningAsError Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Durango'">false</TreatWarningAsError>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOpt|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptRcc|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugRcc|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='ReleaseRcc|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='NoOptStudio|Durango'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='DebugStudio|Durango'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src\HTList.c">
       <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Win32'">Level1</WarningLevel>
       <WarningLevel Condition="'$(Configuration)|$(Platform)'=='ReleaseStudio|Durango'">Level1</WarningLevel>

@@ -131,8 +131,14 @@ static void copyVoxels(Voxel2::Grid& target, const Voxel2::Grid& source, const R
 
 		std::vector<Voxel2::Region> targetRegions = target.getNonEmptyRegionsInside(sourceRegion.offset(offset));
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+		for (size_t _i = 0; _i < targetRegions.size(); ++_i)
+		{
+			Voxel2::Region& tr = targetRegions[_i];
+#else
 		for (auto& tr: targetRegions)
 		{
+#endif
 			Voxel2::Region sr = tr.offset(-offset);
 
 			if (sourceRegionsSet.find(sr) == sourceRegionsSet.end())
@@ -144,8 +150,14 @@ static void copyVoxels(Voxel2::Grid& target, const Voxel2::Grid& source, const R
 		}
 	}
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	for (size_t _i = 0; _i < sourceRegions.size(); ++_i)
+	{
+		Voxel2::Region& sr = sourceRegions[_i];
+#else
 	for (auto& sr: sourceRegions)
 	{
+#endif
 		Voxel2::Region tr = sr.offset(offset);
 
 		Voxel2::Box sb = source.read(sr);

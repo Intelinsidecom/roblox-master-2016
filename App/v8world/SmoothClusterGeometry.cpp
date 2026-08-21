@@ -631,11 +631,20 @@ void SmoothClusterGeometry::updateAllChunks()
 	{
 		std::vector<Vector3int32> chunks = regions[i].expand(1).getChunkIds(TerrainPartitionSmooth::kChunkSizeLog2);
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for (size_t _j = 0; _j < chunks.size(); ++_j)
+		{
+			const Vector3int32& cid = chunks[_j];
+			if (bulletChunks.find(cid) == bulletChunks.end())
+                updateChunk(cid);
+		}
+#else
         for (auto cid: chunks)
 		{
 			if (bulletChunks.find(cid) == bulletChunks.end())
                 updateChunk(cid);
 		}
+#endif
 	}
 }
 

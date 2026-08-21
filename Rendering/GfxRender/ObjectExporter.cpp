@@ -216,8 +216,15 @@ namespace Graphics
 
         Voxel2::Grid* grid = megaCluster->getSmoothGrid();
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        std::vector<Voxel2::Region> nonEmptyRegions = grid->getNonEmptyRegions();
+        for (size_t _i = 0; _i < nonEmptyRegions.size(); ++_i)
+        {
+            Voxel2::Region& gr = nonEmptyRegions[_i];
+#else
         for (auto& gr: grid->getNonEmptyRegions())
         {
+#endif
             Voxel2::Region region = gr.expand(2);
             Voxel2::Box box = grid->read(region);
 

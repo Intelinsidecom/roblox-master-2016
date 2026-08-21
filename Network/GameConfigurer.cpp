@@ -164,8 +164,13 @@ PlayerConfigurer::~PlayerConfigurer()
 	// make sure analytics are reported
 	analyticsPoints.report("ClientJoin", DFInt::JoinInfluxHundredthsPercentage);
     
+#if defined(_MSC_VER) && _MSC_VER < 1700
+    for (std::vector<rbx::signals::connection>::iterator it = connections.begin(); it != connections.end(); ++it)
+        it->disconnect();
+#else
     for (auto& c: connections)
         c.disconnect();
+#endif
 }
 
 void PlayerConfigurer::ifSeleniumThenSetCookie(const std::string& key, const std::string& value)

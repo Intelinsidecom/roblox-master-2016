@@ -10,11 +10,23 @@
 
 #define PHYSICS_SERIAL_VERSION 3
 
-namespace RBX 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+#include "LinearMath/btAlignedObjectArray.h"
+#endif
+
+namespace RBX
 {
 	class CSGConvex;
 	class ConvexPoly;
 	class Block;
+
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	typedef btAlignedObjectArray<btVector3> BtVector3Array;
+	typedef btAlignedObjectArray<CSGConvex> CSGConvexArray;
+#else
+	typedef std::vector<btVector3> BtVector3Array;
+	typedef std::vector<CSGConvex> CSGConvexArray;
+#endif
     
     class KDTreeMeshWrapper: public Allocator<KDTreeMeshWrapper>
 	{
@@ -81,17 +93,29 @@ namespace RBX
 		static std::string generateDecompositionData(int numTriangles, const unsigned int* triangleIndexBase, int numVertices, btScalar* vertexBase);
 		static std::string generateConvexHullData(int numTriangles, const unsigned int* triangleIndexBase, int numVertices, const btVector3* vertexBase);
 		static BulletDecompWrapper::ShapeType* retrieveDecomposition(const std::string& str);
+		#if defined(_MSC_VER) && _MSC_VER < 1700
+		static std::string generateStaticMeshData(const std::vector<unsigned int>& indices, BtVector3Array& vertices);
+		#else
 		static std::string generateStaticMeshData(const std::vector<unsigned int>& indices, std::vector<btVector3>& vertices);
+		#endif
 		static void readConvexHullData(std::vector<float> &vertices, unsigned int &numVertices, std::vector<unsigned int> &indices, unsigned int &numIndices, btTransform &trans, std::stringstream &stream);
 		static void readPrefixData(btVector3 &scale, int &currentVersion, std::stringstream &stream);
 		
 		// HOUSEKEEPING
+		#if defined(_MSC_VER) && _MSC_VER < 1700
+		static CSGConvexArray getDecompConvexes(const std::string& data, int& currentVersion, btVector3 &scale, bool dataHasScale = false);
+		#else
 		static std::vector<CSGConvex> getDecompConvexes(const std::string& data, int& currentVersion, btVector3 &scale, bool dataHasScale = false);
+		#endif
 		static void serializeConvexHullData(const btTransform& transform, const unsigned int numVertices, const float* verticesBase, 
 											const unsigned int numIndices, const unsigned int* indicesBase, std::stringstream &outstream);
 
 		// Creates decomposition data
+		#if defined(_MSC_VER) && _MSC_VER < 1700
+		std::string generateDecompositionGeometry(const BtVector3Array &vertices, const std::vector<unsigned int> &indices);
+		#else
 		std::string generateDecompositionGeometry(const std::vector<btVector3> &vertices, const std::vector<unsigned int> &indices);
+		#endif
 
 		// UTIL
 		static const std::string getPlaceholderData();
@@ -143,7 +167,11 @@ namespace RBX
 	class CSGConvex
 	{
 	public:
+	#if defined(_MSC_VER) && _MSC_VER < 1700
+		BtVector3Array vertices;
+	#else
 		std::vector<btVector3> vertices;
+	#endif
 		std::vector<unsigned int> indices;
 		btTransform transform;
 	};
@@ -158,6 +186,6 @@ namespace RBX
 
 		virtual void ConvexDecompResult(ConvexDecomposition::ConvexResult &result);
 		void addStreamChildren(std::stringstream &streamString);
+};
 
-	};
 } // namespace

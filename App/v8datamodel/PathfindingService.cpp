@@ -43,7 +43,11 @@ namespace RBX {
 
 	const float PATHFINDING_FALL_COST = 1.0f;
 	const float PATHFINDING_WALK_COST = 1.0f;
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	const float PATHFINDING_WALK_DIAGLONAL_COST = static_cast<float>(sqrt(2.0));
+#else
 	const float PATHFINDING_WALK_DIAGLONAL_COST = sqrt(2);
+#endif
 
 	float kMaxWorldCoordinate = (float)((std::numeric_limits<G3D::int16>::max()-2*kVoxelChunkSizeXZ)*Voxel::kCELL_SIZE);
 
@@ -164,7 +168,11 @@ namespace RBX {
 	inline float diffDistance(const Vector3int16& start, const Vector3int16& finish)
 	{
 		Vector3int16 delta = finish - start;
+#if defined(_MSC_VER) && _MSC_VER < 1700
+		return sqrtf(static_cast<float>(delta.x * delta.x + delta.y * delta.y + delta.z * delta.z));
+#else
 		return sqrt(delta.x * delta.x + delta.y * delta.y + delta.z * delta.z);
+#endif
 	}
 	
 	void PathfindingService::PathfindingState::addOpenNode(const Node& node)
@@ -556,7 +564,11 @@ namespace RBX {
 		PathfindingState state;
 		state.start = startCell;
 		state.finish = finishCell;
+#if defined(_MSC_VER) && _MSC_VER < 1700
+		state.maxDistance = ((int)ceil(static_cast<double>(maxDistance)/static_cast<double>(Voxel::kCELL_SIZE))) * PATHFINDING_WALK_COST;
+#else
 		state.maxDistance = ((int)ceil(maxDistance/Voxel::kCELL_SIZE)) * PATHFINDING_WALK_COST;
+#endif
 
 		state.closestCell = startCell;
 		state.closestDistance = INT_MAX;

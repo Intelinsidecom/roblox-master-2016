@@ -160,11 +160,137 @@ typedef uint16_t MicroProfileGroupId;
 
 #include <stdint.h>
 #include <string.h>
+#include <time.h>
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+#ifndef MICROPROFILE_NOCXX11
+#define MICROPROFILE_NOCXX11
+#endif
+#include <windows.h>
+#include <intrin.h>
+#include <process.h>
+namespace std {
+	enum memory_order { memory_order_relaxed, memory_order_consume, memory_order_acquire, memory_order_release, memory_order_acq_rel, memory_order_seq_cst };
+	class recursive_mutex {
+		CRITICAL_SECTION cs;
+		recursive_mutex(const recursive_mutex&);
+		recursive_mutex& operator=(const recursive_mutex&);
+	public:
+		recursive_mutex() { InitializeCriticalSection(&cs); }
+		~recursive_mutex() { DeleteCriticalSection(&cs); }
+		void lock() { EnterCriticalSection(&cs); }
+		void unlock() { LeaveCriticalSection(&cs); }
+	};
+	template<class Mutex> class lock_guard {
+		Mutex& m;
+		lock_guard(const lock_guard&);
+		lock_guard& operator=(const lock_guard&);
+	public:
+		explicit lock_guard(Mutex& m) : m(m) { m.lock(); }
+		~lock_guard() { m.unlock(); }
+	};
+	template<class T> class atomic {
+		volatile LONG val;
+		atomic(const atomic&);
+		atomic& operator=(const atomic&);
+	public:
+		atomic() : val(0) {}
+		explicit atomic(T v) : val((LONG)v) {}
+		T load(memory_order = memory_order_seq_cst) const { return (T)val; }
+		void store(T v, memory_order = memory_order_seq_cst) { InterlockedExchange(&val, (LONG)v); }
+		T fetch_add(T v, memory_order = memory_order_seq_cst) { return (T)InterlockedExchangeAdd(&val, (LONG)v); }
+		T fetch_sub(T v, memory_order = memory_order_seq_cst) { return (T)InterlockedExchangeAdd(&val, -(LONG)v); }
+	};
+	template<> class atomic<int64_t> {
+		volatile __int64 val;
+		atomic(const atomic&);
+		atomic& operator=(const atomic&);
+	public:
+		atomic() : val(0) {}
+		explicit atomic(int64_t v) : val(v) {}
+		int64_t load(memory_order = memory_order_seq_cst) const { return val; }
+		void store(int64_t v, memory_order = memory_order_seq_cst) {
+			for(;;) {
+				__int64 old = val;
+				if(_InterlockedCompareExchange64(&val, v, old) == old) return;
+			}
+		}
+		int64_t fetch_add(int64_t v, memory_order = memory_order_seq_cst) {
+			__int64 old = val;
+			for(;;) {
+				__int64 result = _InterlockedCompareExchange64(&val, old + v, old);
+				if(result == old) return old;
+				old = result;
+			}
+		}
+	};
+	template<> class atomic<uint64_t> {
+		volatile __int64 val;
+		atomic(const atomic&);
+		atomic& operator=(const atomic&);
+	public:
+		atomic() : val(0) {}
+		explicit atomic(uint64_t v) : val((__int64)v) {}
+		uint64_t load(memory_order = memory_order_seq_cst) const { return (uint64_t)val; }
+		void store(uint64_t v, memory_order = memory_order_seq_cst) {
+			for(;;) {
+				__int64 old = val;
+				if(_InterlockedCompareExchange64(&val, (__int64)v, old) == old) return;
+			}
+		}
+		uint64_t fetch_add(uint64_t v, memory_order = memory_order_seq_cst) {
+			__int64 old = val;
+			for(;;) {
+				__int64 result = _InterlockedCompareExchange64(&val, old + (__int64)v, old);
+				if(result == old) return (uint64_t)old;
+				old = result;
+			}
+		}
+	};
+	template<> class atomic<char*> {
+		char* val;
+		atomic(const atomic&);
+		atomic& operator=(const atomic&);
+	public:
+		atomic() : val(0) {}
+		explicit atomic(char* v) : val(v) {}
+		char* load(memory_order = memory_order_seq_cst) const { return val; }
+		void store(char* v, memory_order = memory_order_seq_cst) {
+			InterlockedExchangePointer((void**)&val, (void*)v);
+		}
+	};
+	class thread {
+		HANDLE h;
+		unsigned tid;
+		thread(const thread&);
+		thread& operator=(const thread&);
+		struct thread_args { void* (*func)(void*); void* arg; };
+		static unsigned __stdcall startup(void* p) {
+			thread_args* ta = (thread_args*)p;
+			void* (*func)(void*) = ta->func;
+			void* arg = ta->arg;
+			delete ta;
+			func(arg);
+			return 0;
+		}
+	public:
+		thread(void* (*func)(void*), void* arg) : h(0), tid(0) {
+			thread_args* ta = new thread_args;
+			ta->func = func;
+			ta->arg = arg;
+			h = (HANDLE)_beginthreadex(0, 0, &startup, ta, 0, &tid);
+		}
+		void join() { if(h){ WaitForSingleObject(h, INFINITE); CloseHandle(h); h = 0; } }
+		~thread() { join(); }
+	};
+}
+#define nullptr 0
+#else
 #ifndef MICROPROFILE_NOCXX11
 #include <thread>
 #include <mutex>
 #include <atomic>
+#endif
 #endif
 
 #ifndef MICROPROFILE_API

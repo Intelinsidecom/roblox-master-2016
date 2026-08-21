@@ -152,8 +152,14 @@ void GlueJoint::removeFromKernel()
 {
     if( FFlag::PGSGlueJoint && getKernel()->getUsingPGSSolver() )
     {
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for (size_t _i = 0; _i < constraints.size(); ++_i)
+        {
+            Constraint* c = constraints[_i];
+#else
         for(Constraint* c : constraints)
         {
+#endif
             getKernel()->pgsSolver.removeConstraint(c);
             delete c;
         }
@@ -167,8 +173,14 @@ bool GlueJoint::isBroken() const
 {
     if( FFlag::PGSGlueJoint && inKernel() && getKernel()->getUsingPGSSolver() )
     {
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for (size_t _i = 0; _i < constraints.size(); ++_i)
+        {
+            Constraint* c = constraints[_i];
+#else
         for(Constraint* c : constraints)
         {
+#endif
             if( c->isBroken() )
             {
                 return true;

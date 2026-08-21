@@ -1920,8 +1920,13 @@ static void fireHumanoidChangedRec(Instance* parent)
     {
         const Instances& children = *parent->getChildren();
         
+#if defined(_MSC_VER) && _MSC_VER < 1700
+        for (size_t _i = 0; _i < children.size(); ++_i)
+            fireHumanoidChangedRec(children[_i].get());
+#else
         for (auto& child: children)
             fireHumanoidChangedRec(child.get());
+#endif
     }
 }
 

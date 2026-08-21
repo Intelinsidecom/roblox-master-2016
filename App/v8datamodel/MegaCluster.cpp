@@ -1368,9 +1368,18 @@ Vector3int16 MegaClusterInstance::worldToCellWithPreference(const Vector3& world
 
 		std::sort(candidates.begin(), candidates.end());
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+		for (size_t _i = 0; _i < candidates.size(); ++_i)
+		{
+			const WorldToCellCandidate& c = candidates[_i];
+			if (WorldToCellCandidate::isValid(smoothGrid->getCell(c.pos.x, c.pos.y, c.pos.z), preferSolid))
+				return c.pos;
+		}
+#else
 		for (auto& c: candidates)
 			if (WorldToCellCandidate::isValid(smoothGrid->getCell(c.pos.x, c.pos.y, c.pos.z), preferSolid))
 				return c.pos;
+#endif
 
 		return center;
 	}

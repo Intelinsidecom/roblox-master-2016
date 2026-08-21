@@ -170,8 +170,14 @@ void SpatialHashedScene::querySphere(std::vector<CullableSceneNode*>& nodes, con
 {
 	RBXPROFILER_SCOPE("Render", "querySphere");
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	for (UnhashedNodes::iterator it = unhashedNodes.begin(); it != unhashedNodes.end(); ++it)
+	{
+		CullableSceneNode* node = *it;
+#else
 	for (CullableSceneNode* node: unhashedNodes)
 	{
+#endif
 		if ((node->getFlags() & flags) == flags && sphereIntersects(center, radius, node->getWorldBounds()))
 			nodes.push_back(node);
 	}
@@ -179,8 +185,14 @@ void SpatialHashedScene::querySphere(std::vector<CullableSceneNode*>& nodes, con
 	DenseHashSet<CullableSceneNode*> result(NULL);
 	spatialHash->getPrimitivesOverlappingRec(Extents::fromCenterRadius(center, radius), result);
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	for (DenseHashSet<CullableSceneNode*>::const_iterator it = result.begin(); it != result.end(); ++it)
+	{
+		CullableSceneNode* node = *it;
+#else
 	for (CullableSceneNode* node: result)
 	{
+#endif
 		if ((node->getFlags() & flags) == flags && sphereIntersects(center, radius, node->getWorldBounds()))
 			nodes.push_back(node);
 	}
@@ -190,8 +202,14 @@ void SpatialHashedScene::queryExtents(std::vector<CullableSceneNode*>& nodes, co
 {
 	RBXPROFILER_SCOPE("Render", "queryExtents");
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+    for (UnhashedNodes::iterator it = unhashedNodes.begin(); it != unhashedNodes.end(); ++it)
+    {
+        CullableSceneNode* node = *it;
+#else
     for (CullableSceneNode* node: unhashedNodes)
     {
+#endif
         if ((node->getFlags() & flags) == flags && extents.overlapsOrTouches(node->getWorldBounds()))
             nodes.push_back(node);
     }
@@ -199,8 +217,14 @@ void SpatialHashedScene::queryExtents(std::vector<CullableSceneNode*>& nodes, co
     DenseHashSet<CullableSceneNode*> result(NULL);
     spatialHash->getPrimitivesOverlappingRec(extents, result);
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+    for (DenseHashSet<CullableSceneNode*>::const_iterator it = result.begin(); it != result.end(); ++it)
+    {
+        CullableSceneNode* node = *it;
+#else
     for (CullableSceneNode* node: result)
     {
+#endif
         if ((node->getFlags() & flags) == flags)
             nodes.push_back(node);
     }

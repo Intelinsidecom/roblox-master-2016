@@ -332,11 +332,19 @@ DeviceGL::DeviceGL(void* windowHandle)
 
     std::string extensionString;
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+    for (std::set<std::string>::iterator e = extensions.begin(); e != extensions.end(); ++e)
+    {
+        extensionString += " ";
+        extensionString += *e;
+    }
+#else
     for (auto& e: extensions)
     {
         extensionString += " ";
         extensionString += e;
     }
+#endif
 
 	while (!extensionString.empty())
 	{

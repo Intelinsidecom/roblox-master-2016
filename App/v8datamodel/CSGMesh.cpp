@@ -216,7 +216,11 @@ std::string CSGMesh::toBinaryString() const
 
 std::string CSGMesh::toBinaryStringForPhysics() const
 {
-	std::vector<btVector3> vertexPositions;
+    #if defined(_MSC_VER) && _MSC_VER < 1700
+	BtVector3Array vertexPositions;
+    #else
+    std::vector<btVector3> vertexPositions;
+    #endif
 	for (unsigned int i = 0; i < vertices.size(); i++)
 		vertexPositions.push_back(btVector3(vertices[i].pos.x, vertices[i].pos.y, vertices[i].pos.z));
 

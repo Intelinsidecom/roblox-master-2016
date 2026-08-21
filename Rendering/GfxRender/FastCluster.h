@@ -29,7 +29,12 @@ class FastClusterEntity: public RenderEntity
 public:
     FastClusterEntity(FastCluster* cluster, const GeometryBatch& geometry, const shared_ptr<Material>& material, const shared_ptr<Material>& decalMaterialOpaque,
 		RenderQueue::Id renderQueueId, unsigned char lodMask, const std::vector<unsigned int>& bones, const Extents& localBounds, unsigned int extraFeatures);
-    ~FastClusterEntity() override;
+    ~FastClusterEntity() 
+		#if defined(_MSC_VER) && _MSC_VER < 1700
+		;
+		#else
+		override;
+		#endif
 
     // Renderable overrides
     unsigned int getWorldTransforms4x3(float* buffer, unsigned int maxTransforms, const void** cacheKey) const override;

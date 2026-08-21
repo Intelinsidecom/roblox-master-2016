@@ -1867,8 +1867,13 @@ void DataModel::renderPass3dAdorn(Adorn* adorn)
 
 	FASTLOG1(FLog::AdornRenderStats, "Rendering 3D Sorted Adorn Items, %u items", sortedAdorn.size());
 
+#if defined(_MSC_VER) && _MSC_VER < 1700
+	for (size_t _i = 0; _i < sortedAdorn.size(); ++_i)
+		sortedAdorn[_i].adornable->render3dSortedAdorn(adorn);
+#else
 	for (auto& ad: sortedAdorn)
 		ad.adornable->render3dSortedAdorn(adorn);
+#endif
 
 	if (!forceArrowCursor) {
 		workspace->getCurrentMouseCommand()->render3dAdorn(adorn);
