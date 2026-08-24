@@ -33,7 +33,7 @@ LOGVARIABLE(Voxelizer, 0);
 
 FASTINTVARIABLE(CSGVoxelizerFadeRadius, 300);
 
-#if ((defined(_WIN32) && !defined(_M_ARM) && !defined(_M_ARM64)) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS)))
+#if ((defined(_WIN32) && !defined(_M_ARM) && !defined(_M_ARM64) && !defined(RBX_PLATFORM_XBOX360)) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS)))
 #define SIMD_SSE2
 #endif
 

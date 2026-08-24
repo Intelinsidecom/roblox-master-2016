@@ -32,7 +32,7 @@
 
 
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 #include <atlutil.h>
 #endif
 
@@ -71,7 +71,7 @@ int rbx_isMoneySite(const char* url);
 
 namespace
 {
-#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_UWP)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_UWP) || defined(RBX_PLATFORM_XBOX360)
 static bool useCurlHttpImpl = false;
 #else
 static bool useCurlHttpImpl = true;
@@ -380,6 +380,8 @@ std::string Http::requester = "Client";
 std::string Http::rbxUserAgent = "Roblox/Darwin";
 #elif defined(RBX_PLATFORM_DURANGO)
 std::string Http::rbxUserAgent = "Roblox/XboxOne";
+#elif defined(RBX_PLATFORM_XBOX360)
+std::string Http::rbxUserAgent = "Roblox/360";
 #elif defined (_WIN32)
 std::string Http::rbxUserAgent = "Roblox/WinInet";
 #else
@@ -390,8 +392,10 @@ int Http::playerCount = 0;
 bool Http::useDefaultTimeouts = true;
 Http::CookieSharingPolicy Http::cookieSharingPolicy;
 
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)
 Http::API Http::defaultApi = Http::WinHttp;
+#elif defined(RBX_PLATFORM_XBOX360)
+Http::API Http::defaultApi = Http::XboxHttp;
 #else
 Http::API Http::defaultApi = Http::Uninitialized;
 #endif
@@ -554,7 +558,7 @@ void Http::SetUseCurl(bool value)
 void Http::setCookiesForDomain(const std::string& domain, const std::string& cookies)
 {
     HttpPlatformImpl::setCookiesForDomain(domain, cookies);
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 	if (!useCurlHttpImpl && Http::defaultApi == WinInet)
 	{
 		setCookiesForDomainWinInet(domain, cookies);
@@ -575,7 +579,7 @@ void Http::ThrowIfFailure(bool success, const char* url, const char* message)
 {
     if (!success)
     {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
         ThrowLastError(GetLastError(), url, message);
 #else
         throw RBX::runtime_error("%s: %s", url, message);
@@ -583,7 +587,7 @@ void Http::ThrowIfFailure(bool success, const char* url, const char* message)
     }
 }
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 void Http::ThrowLastError(int err, const char* url, const char* message)
 {
     TCHAR buffer[256];
@@ -764,6 +768,35 @@ void Http::httpGetPost(bool isPost, std::istream& dataStream,
 		}
 		return;
 	}
+#elif defined(RBX_PLATFORM_XBOX360)
+	if (!useCurlHttpImpl || forceNativeHttp)
+	{
+		try
+		{
+			httpGetPostXbox(isPost, dataStream, contentType, compressData, headers, externalRequest, cachePolicy, response);
+			if (recordStatistics)
+			{
+				HTTPStatistics::success(httpTimer.delta().msec(), url.c_str(), response.size());
+			}
+		}
+		catch (const RBX::http_status_error& e)
+		{
+			if (recordStatistics)
+			{
+				HTTPStatistics::failure(httpTimer.delta().msec(), url.c_str(), response.size(), e.what(), e.statusCode);
+			}
+			throw;
+		}
+		catch (const std::exception& e)
+		{
+			if (recordStatistics)
+			{
+				HTTPStatistics::failure(httpTimer.delta().msec(), url.c_str(), response.size(), e.what());
+			}
+			throw;
+		}
+		return;
+	}
 #elif defined(_WIN32)
 	if (!useCurlHttpImpl || forceNativeHttp)
     {
@@ -870,7 +903,7 @@ void Http::get(
     threadPool->schedule(boost::bind(&doGet, *this, externalRequest, handler));
 }
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 void Http::onWinHttpRedirect(unsigned long dwInternetStatus, std::string redirectUrl)
 {
     // This function determines if we are redirecting to a CDN.
@@ -1000,7 +1033,7 @@ void Http::get(std::string& response, bool externalRequest)
 
 bool Http::isScript(const char* url)
 {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
     if (!useCurlHttpImpl)
     {
         CUrl crack;
@@ -1042,7 +1075,7 @@ bool Http::isMoneySite(const char* url)
     }
 #endif // ifdef __APPLE__
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
     if (!useCurlHttpImpl)
     {
         CUrl crack;
@@ -1131,7 +1164,7 @@ bool Http::isRobloxSite(const char* url)
     }
 #endif // ifdef __APPLE__
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
     if (!useCurlHttpImpl)
     {
         CUrl crack;
@@ -1254,7 +1287,7 @@ bool Http::trustCheckBrowser(const char* url)
 
 bool Http::isExternalRequest(const char* url)
 {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
     if (!useCurlHttpImpl)
     {
         std::string urlLower = url;
@@ -1331,7 +1364,7 @@ bool Http::trustCheck(const char* url, bool externalRequest)
         return true;
     }
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
     if (!useCurlHttpImpl)
     {
         CUrl crack;

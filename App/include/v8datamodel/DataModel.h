@@ -292,7 +292,11 @@ public:
 	friend class scoped_read_request;
 	volatile long write_requested;
 	volatile long read_requested;
+	#if defined(RBX_PLATFORM_XBOX360) || defined(_XBOX)
+	volatile unsigned long writeRequestingThread;
+#else
 	volatile DWORD writeRequestingThread;
+#endif
     
 	bool currentThreadHasWriteLock() const;
 	static bool currentThreadHasWriteLock(Instance* context);

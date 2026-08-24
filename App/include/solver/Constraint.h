@@ -13,6 +13,12 @@ namespace RBX
 
 class PGSSolver;
 class DebugSerializer;
+class ConstraintVariables;
+
+#if defined(RBX_PLATFORM_XBOX360)
+RBX_SIMD_INLINE const simd::v4f_pod& constraintVariables_v( const ConstraintVariables& vars );
+RBX_SIMD_INLINE simd::v4f_pod& constraintVariables_v( ConstraintVariables& vars );
+#endif
 
 //
 // ConstraintVariables: inputs to the solver, initialized by the constraint interface
@@ -76,25 +82,44 @@ public:
 
     static RBX_SIMD_INLINE void gatherComponents( simd::v4f& _impulses, simd::v4f& _reactions, simd::v4f& _min, simd::v4f& _max, const ConstraintVariables& _vars0 )
     {
+#if defined(RBX_PLATFORM_XBOX360)
+        _min = simd::splat< 0 >( simd::v4f( constraintVariables_v(_vars0) ) );
+        _max = simd::splat< 1 >( simd::v4f( constraintVariables_v(_vars0) ) );
+        _reactions = simd::splat< 2 >( simd::v4f( constraintVariables_v(_vars0) ) );
+        _impulses = simd::splat< 3 >( simd::v4f( constraintVariables_v(_vars0) ) );
+#else
         _min = simd::splat< 0 >( simd::v4f( _vars0.v ) );
         _max = simd::splat< 1 >( simd::v4f( _vars0.v ) );
         _reactions = simd::splat< 2 >( simd::v4f( _vars0.v ) );
         _impulses = simd::splat< 3 >( simd::v4f( _vars0.v ) );
+#endif
     }
 
     static RBX_SIMD_INLINE void gatherComponents( simd::v4f& _impulses, simd::v4f& _reactions, simd::v4f& _min, simd::v4f& _max, const ConstraintVariables& _vars0, const ConstraintVariables& _vars1 )
     {
+#if defined(RBX_PLATFORM_XBOX360)
+        transpose2x4( _min, _max, _reactions, _impulses, simd::v4f(constraintVariables_v(_vars0)), simd::v4f(constraintVariables_v(_vars1)) );
+#else
         transpose2x4( _min, _max, _reactions, _impulses, simd::v4f(_vars0.v), simd::v4f(_vars1.v) );
+#endif
     }
 
     static RBX_SIMD_INLINE void gatherComponents( simd::v4f& _impulses, simd::v4f& _reactions, simd::v4f& _min, simd::v4f& _max, const ConstraintVariables& _vars0, const ConstraintVariables& _vars1, const ConstraintVariables& _vars2 )
     {
+#if defined(RBX_PLATFORM_XBOX360)
+        transpose3x4( _min, _max, _reactions, _impulses, (simd::v4f)constraintVariables_v(_vars0), (simd::v4f)constraintVariables_v(_vars1), (simd::v4f)constraintVariables_v(_vars2) );
+#else
         transpose3x4( _min, _max, _reactions, _impulses, (simd::v4f)_vars0.v, (simd::v4f)_vars1.v, (simd::v4f)_vars2.v );
+#endif
     }
 
     static RBX_SIMD_INLINE void gatherComponents( simd::v4f& _impulses, simd::v4f& _reactions, simd::v4f& _min, simd::v4f& _max, const ConstraintVariables& _vars0, const ConstraintVariables& _vars1, const ConstraintVariables& _vars2, const ConstraintVariables& _vars3 )
     {
+#if defined(RBX_PLATFORM_XBOX360)
+        transpose( _min, _max, _reactions, _impulses, (simd::v4f)constraintVariables_v(_vars0), (simd::v4f)constraintVariables_v(_vars1), (simd::v4f)constraintVariables_v(_vars2), (simd::v4f)constraintVariables_v(_vars3) );
+#else
         transpose( _min, _max, _reactions, _impulses, (simd::v4f)_vars0.v, (simd::v4f)_vars1.v, (simd::v4f)_vars2.v, (simd::v4f)_vars3.v );
+#endif
     }
 
     // Values that must be set by the Constraint::buildEquation
@@ -117,6 +142,10 @@ public:
     };
 };
 
+#if defined(RBX_PLATFORM_XBOX360)
+RBX_SIMD_INLINE const simd::v4f_pod& constraintVariables_v( const ConstraintVariables& vars ) { return vars.v; }
+RBX_SIMD_INLINE simd::v4f_pod& constraintVariables_v( ConstraintVariables& vars ) { return vars.v; }
+#endif
 //
 // MovingRegression: Fit best 2nd degree curve to the last few data points
 //

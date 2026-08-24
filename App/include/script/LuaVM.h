@@ -1,6 +1,6 @@
 #pragma once
 
-#if ((defined(_WIN32) && !defined(_M_ARM) && !defined(_M_ARM64)) || \
+#if ((defined(_WIN32) && !defined(_M_ARM) && !defined(_M_ARM64) && !defined(RBX_PLATFORM_XBOX360)) || \
      (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS))) && \
      !defined(RBX_STUDIO_BUILD)
 #define RBX_SECURE_DOUBLE
@@ -14,7 +14,7 @@
 
 #include <boost/unordered_map.hpp>
 #include <string>
-#if defined(RBX_SECURE_DOUBLE) && !defined(_M_ARM) && !defined(_M_ARM64)
+#if defined(RBX_SECURE_DOUBLE) && !defined(_M_ARM) && !defined(_M_ARM64) && !defined(RBX_PLATFORM_XBOX360) // power pc should be defined instead i think
 #include <emmintrin.h>
 #endif
 

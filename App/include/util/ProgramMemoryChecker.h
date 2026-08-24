@@ -124,7 +124,7 @@ struct PmcHashContainer
 
 extern PmcHashContainer pmcHash;
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 class NtApiCaller
 {
 private:

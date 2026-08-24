@@ -19,7 +19,9 @@
 
 #ifdef _WIN32
 #include "Util/FileSystem.h"
+#if !defined(RBX_PLATFORM_XBOX360)
 #include "VersionInfo.h"
+#endif
 #elif __ANDROID__
 namespace RBX
 {

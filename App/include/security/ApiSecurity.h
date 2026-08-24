@@ -3,10 +3,10 @@
 #include "Security/FuzzyTokens.h"
 #include "Security/RandomConstant.h"
 
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)
 #define FORCEINLINE __forceinline
 #define NOINLINE __declspec(noinline)
-#elif defined(_WIN32)
+#elif defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)
 #include <windows.h>
 #include <winternl.h>
 #undef min
@@ -58,7 +58,7 @@ namespace RBX
 {
 FORCEINLINE static bool isRbxTextAddr(const void* const ptr)
 {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
     return (reinterpret_cast<uintptr_t>(ptr) - RBX::Security::rbxTextBase < RBX::Security::rbxTextSize);
 #else
     return true;
@@ -115,7 +115,7 @@ static const int kCallCheckRegCall = 4;
 template<int level, void(*action)(unsigned int)> 
 FORCEINLINE static unsigned int checkRbxCaller(const void* const funcAddress)
 {
-#if defined(_WIN32) && !defined(_NOOPT) && !defined(LOVE_ALL_ACCESS) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(_NOOPT) && !defined(LOVE_ALL_ACCESS) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
     unsigned int flags = 0;
 
     void* returnAddress = _ReturnAddress();
@@ -170,7 +170,7 @@ namespace Security{
 }
 
 // Only supporting ntdll for now.
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 
 inline const WCHAR* getUnicodeDllName(const UNICODE_STRING& str)
 {
@@ -250,7 +250,7 @@ struct CallChainInfo
     CallChainInfo(uint32_t handler, uint32_t ret) : handler(handler), ret(ret) {}
 };
 
-#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_RCC_SECURITY) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_RCC_SECURITY) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 // Call Stack, function with:
 // 
 // == C++ Exceptions == | == SEH3 Exceptions ==

@@ -12,7 +12,7 @@
 #include "winhttp.h"
 
 #pragma comment (lib , "Winhttp.lib")
-#if !defined(RBX_PLATFORM_UWP)
+#if !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 #include "atlutil.h"
 #endif
 #include "g3d/format.h"

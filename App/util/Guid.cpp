@@ -3,7 +3,7 @@
 #include "Util/Guid.h"
 #include "rbx/atomic.h"
 
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)
 #include "objbase.h"
 #elif defined(__APPLE__)
 #include <CoreFoundation/CoreFoundation.h>
@@ -75,7 +75,7 @@ RBX::Guid::Guid()
 void RBX::Guid::generateStandardGUID(std::string& result)
 {
 	// Creates a string like this: {c200e360-38c5-11ce-ae62-08002b2b79ef}
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)
 	::GUID guid;
 	CoCreateGuid(&guid);
 

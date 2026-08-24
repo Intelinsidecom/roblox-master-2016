@@ -16,6 +16,7 @@
 #define RBX_SIMD_ARM
 #endif
 
+// __PPC__/_M_PPC/_PPC_/X360__ are set by the Xbox 360 compiler configuration
 #if defined( __PPC__ ) || defined( _M_PPC ) || defined( _PPC_ ) || defined( X360__ )
 #define RBX_SIMD_PPC
 #endif
@@ -69,6 +70,7 @@ namespace details
     typedef int32x4_t vec4i_t;
     typedef uint32x4_t vec4u_t;
 #elif defined( RBX_SIMD_USE_VMX )
+    // Xbox 360 VMX/VMX128: one 128-bit type for all three lanes types
     typedef __vector4 vec4f_t;
     typedef __vector4 vec4i_t;
     typedef __vector4 vec4u_t;

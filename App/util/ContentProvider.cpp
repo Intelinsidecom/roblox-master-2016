@@ -17,7 +17,7 @@
 #include "StringConv.h"
 #include "RobloxServicesTools.h"
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 #include "ATLPath.h"
 #include "FastLog.h"
 #endif
@@ -1074,6 +1074,8 @@ namespace RBX
 
 #if defined(RBX_PLATFORM_DURANGO)
             fs::path platformAssetFolderModifier = "../PlatformContent/durango/";
+#elif defined(RBX_PLATFORM_XBOX360)
+			fs::path platformAssetFolderModifier = "../PlatformContent/Xbox360/"; //powerpc might need different asset types
 #elif defined(RBX_PLATFORM_UWP)
             fs::path platformAssetFolderModifier = "../PlatformContent/pc/";
 #elif defined(RBX_PLATFORM_IOS)

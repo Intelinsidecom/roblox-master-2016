@@ -15,8 +15,10 @@
 #include "fmod.hpp"
 #include "fmod_errors.h"
 
+#if !defined(RBX_PLATFORM_XBOX360)
 #if FMOD_VERSION != 0x00010702 && FMOD_VERSION != 0x00010800
 #	error Wrong version of fmod.
+#endif
 #endif
 
 // This is equivalent to 500 kB by default

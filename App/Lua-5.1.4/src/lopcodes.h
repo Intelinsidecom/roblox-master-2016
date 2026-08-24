@@ -7,7 +7,7 @@
 #ifndef lopcodes_h
 #define lopcodes_h
 
-#if !defined(INLINE_OP) && defined(WIN32)
+#if !defined(INLINE_OP) && (defined(WIN32) || defined(RBX_PLATFORM_XBOX360) || defined(__PPC__) || defined(_M_PPC) || defined(_PPC_) || defined(_MSC_VER))
 #define INLINE_OP __forceinline
 #elif !defined(INLINE_OP)
 #define INLINE_OP inline __attribute__((always_inline))

@@ -180,7 +180,11 @@ void SoundService::openFmod()
                 checkResultNoThrow(system->getDriver(&driver), "getDriver", this, system.get());
                 if (driver>=0)
                 {
-                    checkResultNoThrow(system->getDriverInfo(driver, RBX::RbxDbgInfo::s_instance.AudioDeviceName, DBG_STRING_MAX, NULL, NULL, NULL, NULL), "getDriverInfo", this, system.get());					
+#if defined(RBX_PLATFORM_XBOX360)
+                    checkResultNoThrow(system->getDriverInfo(driver, RBX::RbxDbgInfo::s_instance.AudioDeviceName, DBG_STRING_MAX, NULL), "getDriverInfo", this, system.get());
+#else
+                    checkResultNoThrow(system->getDriverInfo(driver, RBX::RbxDbgInfo::s_instance.AudioDeviceName, DBG_STRING_MAX, NULL, NULL, NULL, NULL), "getDriverInfo", this, system.get());
+#endif					
                 }
             }
             else
@@ -194,14 +198,22 @@ void SoundService::openFmod()
 
             FMOD_INITFLAGS flags = FMOD_INIT_NORMAL;
             if (DebugSettings::singleton().fmodProfiling)
+#if defined(RBX_PLATFORM_XBOX360)
+                flags |= FMOD_INIT_ENABLE_PROFILE ;
+#else
                 flags |= FMOD_INIT_PROFILE_ENABLE ;
+#endif
 
             // lets force FMOD to work in stereo, so video recording won't be confused about more than 2 audio channels
             // we do capture only left and right channels of audio into video file if you have 5.1 sound some of the sound could be played
             // only on center channel, so video will miss them
 
 			// In this special case we want to use stereo output and not worry about varying matrix sizes depending on user speaker mode.
-            checkResult(system->setSoftwareFormat(48000, FMOD_SPEAKERMODE_DEFAULT, 0), "setSoftwareFormat", this, system.get()); 
+#if defined(RBX_PLATFORM_XBOX360)
+            checkResult(system->setSpeakerMode(FMOD_SPEAKERMODE_STEREO), "setSpeakerMode", this, system.get());
+#else
+            checkResult(system->setSoftwareFormat(48000, FMOD_SPEAKERMODE_DEFAULT, 0), "setSoftwareFormat", this, system.get());
+#endif 
             // WARNING 100 - is number of simultaneous channels played by fmod and has nothing todo with output channels of sound card
             checkResult(system->init(FInt::FMODSoundChannels, flags, 0), "init", this, system.get());
 
@@ -244,7 +256,12 @@ FMOD::DSP* SoundService::createDSP(FMOD_DSP_DESCRIPTION &dspdesc)
 		checkResult(system->getMasterChannelGroup(&masterChannel), "getMasterChannelGroup", this, system.get());
 		checkResult(system->createDSP(&dspdesc, &dsp), "createDSP", this, system.get());
 		checkResult(dsp->setBypass(false), "setBypass", this, dsp);
+#if defined(RBX_PLATFORM_XBOX360)
+		FMOD::DSPConnection* masterDspConnection = NULL;
+		checkResult(masterChannel->addDSP(dsp, &masterDspConnection), "addDSP", this, system.get());
+#else
 		checkResult(masterChannel->addDSP(0, dsp), "addDSP", this, system.get());
+#endif
 	}
 	catch (const RBX::base_exception& ex)
 	{
@@ -269,7 +286,16 @@ int SoundService::getSampleRate()
 		FMOD_SPEAKERMODE speakermode;
 		int numrawspeakers;
 
+#if defined(RBX_PLATFORM_XBOX360)
+		FMOD_SOUND_FORMAT softwareFormat = FMOD_SOUND_FORMAT_NONE;
+		int maxinputchannels = 0;
+		FMOD_DSP_RESAMPLER resamplemethod = FMOD_DSP_RESAMPLER_LINEAR;
+		int softwareFormatBits = 0;
+		checkResult(system->getSoftwareFormat(&samplerate, &softwareFormat, &numrawspeakers, &maxinputchannels, &resamplemethod, &softwareFormatBits), "getSoftwareFormat", this, system.get());
+		speakermode = FMOD_SPEAKERMODE_STEREO;
+#else
 		checkResult(system->getSoftwareFormat(&samplerate, &speakermode, &numrawspeakers), "getSoftwareFormat", this, system.get());
+#endif
 
 		StandardOut::singleton()->printf(MESSAGE_INFO, "SoundService::getSampleRate: result = %d", samplerate);
 		return samplerate;
@@ -362,7 +388,11 @@ void SoundService::updateAmbientReverb()
 	static boost::once_flag flag = BOOST_ONCE_INIT;
 	boost::call_once(&initReverbs, flag);
 
+#if defined(RBX_PLATFORM_XBOX360)
+	checkResultNoThrow(system->setReverbProperties(&reverbs[ambientReverb]), "setReverbProperties", this, system.get());
+#else
 	checkResultNoThrow(system->setReverbProperties(0, &reverbs[ambientReverb]), "setReverbProperties", this, system.get());
+#endif
 }
 
 void SoundService::update3DSettings()
@@ -665,7 +695,11 @@ void SoundService::getCpuStats(CpuStats& stats) const
 	}
 
 	CpuStats stats100;
+#if defined(RBX_PLATFORM_XBOX360)
+	system->getCPUUsage(&stats100.dsp, &stats100.stream, &stats100.update, &stats100.total);
+#else
 	system->getCPUUsage(&stats100.dsp, &stats100.stream, &stats100.geometry, &stats100.update, &stats100.total);
+#endif
 	stats.dsp = 0.01 * stats100.dsp;
 	stats.geometry = 0.01 * stats100.geometry;
 	stats.stream = 0.01 * stats100.stream;

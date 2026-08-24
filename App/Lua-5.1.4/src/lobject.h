@@ -59,7 +59,7 @@ typedef struct GCheader {
 typedef union {
   GCObject *gc;
   void *p;
-#if ((defined(_WIN32) && !defined(_M_ARM) && !defined(_M_ARM64)) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS)))&& !defined(RBX_STUDIO_BUILD)
+#if ((defined(_WIN32) && !defined(_M_ARM) && !defined(_M_ARM64)) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS)))&& !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_XBOX360)
   LuaSecureDouble n;
 #else
   lua_Number n;

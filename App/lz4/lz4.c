@@ -58,6 +58,9 @@ Note : this source file requires "lz4_encoder.h" and "lz4_decoder.h"
 //#define BIG_ENDIAN_NATIVE_BUT_INCOMPATIBLE 1
 
 
+#if defined(RBX_PLATFORM_XBOX360)
+#include <windows.h> // its a shim with more includes
+#endif
 
 //**************************************
 // CPU Feature Detection
@@ -137,7 +140,6 @@ Note : this source file requires "lz4_encoder.h" and "lz4_decoder.h"
 
 #define likely(expr)     expect((expr) != 0, 1)
 #define unlikely(expr)   expect((expr) != 0, 0)
-
 
 //**************************************
 // Includes

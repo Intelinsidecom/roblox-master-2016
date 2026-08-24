@@ -184,7 +184,11 @@ void PlatformService::beginAuthorization(InputObject::UserInputType gamepadId, b
 			InterlockedExchange( &baFlag, 0 );
 			return;
 		}
+#if defined(RBX_PLATFORM_XBOX360)
+		endTask( this, [=](...) { cl->error("Auth is already in progress"); delete cl; }  );
+#else
 		endTask( this, [cl](...) { cl->error("Auth is already in progress"); delete cl; }  );
+#endif
 	} );
 
 	worker.detach();
@@ -199,11 +203,19 @@ void PlatformService::beginAuthUnlinkCheck(InputObject::UserInputType gamepadId,
             if( InterlockedCompareExchange( &baFlag, 1, 0 ) == 0 )
             {
                 int r = platform->performAuthorization(gamepadId, true);
+#if defined(RBX_PLATFORM_XBOX360)
+				endTask( this, [=](...) { cl->resume(r); delete cl; } );
+#else
 				endTask( this, [cl,r](...) { cl->resume(r); delete cl; } );
+#endif
                 InterlockedExchange( &baFlag, 0 );
                 return;
             }
+#if defined(RBX_PLATFORM_XBOX360)
+            endTask( this, [=](...) { cl->error("Auth is already in progress"); delete cl; }  );
+#else
             endTask( this, [cl](...) { cl->error("Auth is already in progress"); delete cl; }  );
+#endif
         } );
 
     worker.detach();
@@ -224,7 +236,11 @@ void PlatformService::beginAccountLink(std::string accountName, std::string pass
 			InterlockedExchange( &alFlag, 0 );
 			return;
 		}
+#if defined(RBX_PLATFORM_XBOX360)
+		endTask( this, [=](...) { cl->error("AccountLink is already in progress"); delete cl; }  );
+#else
 		endTask( this, [cl](...) { cl->error("AccountLink is already in progress"); delete cl; }  );
+#endif
 	} );
 
 	worker.detach();
@@ -244,7 +260,11 @@ void PlatformService::beginUnlinkAccount(boost::function<void(int)> resumeFuncti
 			InterlockedExchange( &alFlag, 0 );
 			return;
 		}
+#if defined(RBX_PLATFORM_XBOX360)
+		endTask( this, [=](...) { cl->error("AccountLink is already in progress"); delete cl; }  );
+#else
 		endTask( this, [cl](...) { cl->error("AccountLink is already in progress"); delete cl; }  );
+#endif
 	} );
 
 	worker.detach();
@@ -265,7 +285,11 @@ void PlatformService::beginSetRobloxCredentials(std::string accountName, std::st
 			InterlockedExchange( &alFlag, 0 );
 			return;
 		}
+#if defined(RBX_PLATFORM_XBOX360)
+		endTask( this, [=](...) { cl->error("AccountLink is already in progress"); delete cl; }  );
+#else
 		endTask( this, [cl](...) { cl->error("AccountLink is already in progress"); delete cl; }  );
+#endif
 	} );
 
 	worker.detach();
@@ -316,11 +340,19 @@ void PlatformService::beginStartGame3(int mode, int id, boost::function<void(int
             if( InterlockedCompareExchange( &bsgFlag, 1, 0) == 0 )
             {
                 int r = (int)platform->startGame3(joinType, id);
+#if defined(RBX_PLATFORM_XBOX360)
+                endTask( this, [=](...) { cl->resume(r); delete cl; } );
+#else
                 endTask( this, [cl,r](...) { cl->resume(r); delete cl; } );
+#endif
                 InterlockedExchange( &bsgFlag, 0 );
                 return;
             }
+#if defined(RBX_PLATFORM_XBOX360)
+            endTask( this, [=](...) { cl->error("Game start is already in progress"); delete cl; } );
+#else
             endTask( this, [cl](...) { cl->error("Game start is already in progress"); delete cl; } );
+#endif
         }
     );
     worker.detach();

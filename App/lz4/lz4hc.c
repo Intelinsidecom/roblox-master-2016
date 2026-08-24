@@ -35,6 +35,9 @@
 Note : this source file requires "lz4hc_encoder.h"
 */
 
+#if defined(RBX_PLATFORM_XBOX360)
+#include <windows.h> // its a shim with more includes
+#endif
 
 //**************************************
 // CPU Feature Detection

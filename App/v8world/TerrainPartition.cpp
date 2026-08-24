@@ -9,6 +9,11 @@
 
 #include "voxel2/Grid.h"
 
+#if defined(RBX_PLATFORM_XBOX360)
+#include <windows.h> // its a shim with more includes
+#include <ppcintrinsics.h>
+#endif
+
 LOGGROUP(TerrainCellListener)
 
 namespace RBX {
@@ -63,7 +68,9 @@ void TerrainPartitionMega::findCellsTouchingExtents(const Extents& extents, std:
 
 inline unsigned int lsb(unsigned int value)
 {
-#ifdef _WIN32
+#if defined(RBX_PLATFORM_XBOX360)
+	return 31 - _CountLeadingZeros(value & (~value + 1));
+#elif defined(_WIN32)
 	unsigned long bitPosition;
 	_BitScanForward(&bitPosition, value);
 	return bitPosition;

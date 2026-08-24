@@ -728,8 +728,13 @@ namespace RBX {
 			signal = rbx::make_shared<rbx::signal<void(Reflection::Variant)> >();
 
 		shared_ptr<EventSlot> slot = rbx::make_shared<EventSlot>(callback);
+#if defined(RBX_PLATFORM_XBOX360)
+		rbx::signals::connection conn = signal->connect(
+			boost::bind(&EventSlot::fire, slot, _1));
+#else
 		rbx::signals::connection conn = signal->connect(
 			boost::bind(&DataStore::EventSlot::fire, slot, _1));
+#endif
 
 		if (cachedKeys.find(key) == cachedKeys.end())
 		{

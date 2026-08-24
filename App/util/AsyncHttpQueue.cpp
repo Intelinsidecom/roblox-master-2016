@@ -6,7 +6,7 @@
 #include "v8datamodel/ContentProvider.h"
 #include "Network/Api.h"
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_XBOX360)
 #include "winhttp.h" //Used for StatusCode Defines
 #endif
 

@@ -1,7 +1,7 @@
 /* Copyright 2003-2007 ROBLOX Corporation, All Rights Reserved */
 #include "stdafx.h"
 
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)
 
 #include "Util/WinHeap.h"
 #include "Util/StandardOut.h"

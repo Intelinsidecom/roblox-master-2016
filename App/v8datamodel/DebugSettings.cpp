@@ -514,7 +514,7 @@ bool DebugSettings::osIs64Bit() const
 
 std::string DebugSettings::systemProductName() const
 {
-#if defined( _WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined( _WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
  	std::string name;
 	bool b = RBX::RegistryUtil::readString("HKEY_LOCAL_MACHINE\\HARDWARE\\DESCRIPTION\\System\\BIOS\\SystemProductName", name);
 	if (b)
@@ -562,13 +562,13 @@ std::string DebugSettings::resolution() const
 
 double DebugSettings::processCores() const
 {
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)
 //TODO
 	return -1;
 #elif defined(RBX_PLATFORM_UWP)
 	// Maybe TODO: UWP Possible TODO
 	return -1;
-#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
+#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
     shared_ptr<CProcessPerfCounter> ppc = CProcessPerfCounter::getInstanceOptional();
 	return ppc ? ppc->GetProcessCores() : 0.0;
 #elif __APPLE__
@@ -589,13 +589,13 @@ double DebugSettings::processCores() const
 
 double DebugSettings::getElapsedTime() const
 {
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)
 	// TODO: CPU performance tools available with May XDK update
 	return -1;
 #elif defined(RBX_PLATFORM_UWP)
 	// Maybe TODO: UWP Possible TODO
 	return -1;
-#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
+#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
     shared_ptr<CProcessPerfCounter> ppc = CProcessPerfCounter::getInstanceOptional();
     return ppc ? ppc->GetElapsedTime() : 0.0;
 #else
@@ -606,13 +606,13 @@ double DebugSettings::getElapsedTime() const
 
 int DebugSettings::totalProcessorTime() const
 {
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)
 	// TODO: CPU performance tools available with May XDK update
 	return -1;
 #elif defined(RBX_PLATFORM_UWP)
 	// Maybe TODO: UWP Possible TODO
 	return -1;
-#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
+#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 
     shared_ptr<CProcessPerfCounter> ppc = CProcessPerfCounter::getInstanceOptional();
     return ppc ? ppc->GetTotalProcessorTime() : 0;
@@ -626,13 +626,13 @@ int DebugSettings::totalProcessorTime() const
 
 int DebugSettings::processorTime() const
 {
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)
 	// TODO: CPU performance tools available with May XDK update
 	return -1;
 #elif defined(RBX_PLATFORM_UWP)
 	// Maybe TODO: UWP Possible TODO
 	return -1;
-#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
+#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 
     shared_ptr<CProcessPerfCounter> ppc = CProcessPerfCounter::getInstanceOptional();
     return ppc ? ppc->GetProcessorTime() : 0;
@@ -644,13 +644,13 @@ int DebugSettings::processorTime() const
 
 int DebugSettings::privateBytes() const
 {
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)
 	// TODO: CPU performance tools available with May XDK update
 	return -1;
 #elif defined(RBX_PLATFORM_UWP)
 	// Maybe TODO: UWP Possible TODO
 	return -1;
-#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
+#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 
     shared_ptr<CProcessPerfCounter> ppc = CProcessPerfCounter::getInstanceOptional();
     return ppc ? ppc->GetPrivateBytes() : 0;
@@ -664,13 +664,13 @@ int DebugSettings::privateBytes() const
 
 int DebugSettings::privateWorkingSetBytes() const
 {
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)
 	// TODO: CPU performance tools available with May XDK update
 	return -1;
 #elif defined(RBX_PLATFORM_UWP)
 	// Maybe TODO: UWP Possible TODO
 	return -1;
-#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
+#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 
     shared_ptr<CProcessPerfCounter> ppc = CProcessPerfCounter::getInstanceOptional();
     return ppc ? ppc->GetPrivateWorkingSetBytes() : 0;
@@ -684,13 +684,13 @@ int DebugSettings::privateWorkingSetBytes() const
 
 int DebugSettings::GetVirtualBytes() const
 {
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)
 	// TODO: CPU performance tools available with May XDK update
 	return -1;
 #elif defined(RBX_PLATFORM_UWP)
 	// Maybe TODO: UWP Possible TODO
 	return -1;
-#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
+#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 
     shared_ptr<CProcessPerfCounter> ppc = CProcessPerfCounter::getInstanceOptional();
     return ppc ? ppc->GetVirtualBytes() : 0;
@@ -704,13 +704,13 @@ int DebugSettings::GetVirtualBytes() const
 
 int DebugSettings::GetPageFileBytes() const
 {
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)
 	// TODO: CPU performance tools available with May XDK update
 	return -1;
 #elif defined(RBX_PLATFORM_UWP)
 	// Maybe TODO: UWP Possible TODO
 	return -1;
-#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
+#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 
     shared_ptr<CProcessPerfCounter> ppc = CProcessPerfCounter::getInstanceOptional();
     return ppc ? ppc->GetPageFileBytes() : 0;
@@ -722,13 +722,13 @@ int DebugSettings::GetPageFileBytes() const
 
 int DebugSettings::GetPageFaultsPerSecond() const
 {
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)
 	// TODO: CPU performance tools available with May XDK update
 	return -1;
 #elif defined(RBX_PLATFORM_UWP)
 	// Maybe TODO: UWP Possible TODO
 	return -1;
-#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
+#elif defined(_WIN32) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 
     shared_ptr<CProcessPerfCounter> ppc = CProcessPerfCounter::getInstanceOptional();
     return ppc ? ppc->GetPageFaultsPerSecond() : 0;

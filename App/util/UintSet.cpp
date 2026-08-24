@@ -122,9 +122,13 @@ void UintSet::pop_smallest(unsigned int* out) {
 	(*out) = poppedGroup << kShiftForGroup;
 
 #ifdef _WIN32
+#if defined(RBX_PLATFORM_XBOX360)
+	(*out) += 31 - _CountLeadingZeros(flag & (~flag + 1));
+#else
 	unsigned long bitPosition;
 	_BitScanForward(&bitPosition, flag);
 	(*out) += bitPosition;
+#endif
 #else
 	(*out) += ffs(flag) - 1;
 #endif

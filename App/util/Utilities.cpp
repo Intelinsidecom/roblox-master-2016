@@ -32,7 +32,7 @@ const std::string RBX::Http::kContentTypeTextXml = "text/xml";
 std::string RBX::Http::lastCsrfToken = "";
 boost::mutex RBX::Http::lastCsrfTokenMutex;
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 #include "objbase.h"
 #include <windows.h>
 #include <wincrypt.h>

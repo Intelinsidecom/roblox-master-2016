@@ -1749,7 +1749,7 @@ namespace RBX {
     {
         std::string clipBoardText = "";
         
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
         if(::OpenClipboard(NULL))
 		{
 			HANDLE hData = ::GetClipboardData(CF_TEXT);

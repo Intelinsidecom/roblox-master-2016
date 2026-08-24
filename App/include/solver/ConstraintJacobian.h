@@ -263,12 +263,40 @@ template< >
 RBX_SIMD_INLINE simd::v4f ConstraintJacobianPair::get< ConstraintJacobianPair::AngB >() const { return b.angV4; }
 
 template< >
-RBX_SIMD_INLINE void ConstraintJacobianPair::set< ConstraintJacobianPair::LinA >( const simd::v4f& v ) { a.linV4 = v; }
+RBX_SIMD_INLINE void ConstraintJacobianPair::set< ConstraintJacobianPair::LinA >( const simd::v4f& v )
+{
+#if defined(RBX_PLATFORM_XBOX360) || defined(__PPC__) || defined(_M_PPC) || defined(_PPC_)
+    setLinA(v);
+#else
+    a.linV4 = v;
+#endif
+}
 template< >
-RBX_SIMD_INLINE void ConstraintJacobianPair::set< ConstraintJacobianPair::LinB >( const simd::v4f& v ) { b.linV4 = v; }
+RBX_SIMD_INLINE void ConstraintJacobianPair::set< ConstraintJacobianPair::LinB >( const simd::v4f& v )
+{
+#if defined(RBX_PLATFORM_XBOX360) || defined(__PPC__) || defined(_M_PPC) || defined(_PPC_)
+    setLinB(v);
+#else
+    b.linV4 = v;
+#endif
+}
 template< >
-RBX_SIMD_INLINE void ConstraintJacobianPair::set< ConstraintJacobianPair::AngA >( const simd::v4f& v ) { a.angV4 = v; }
+RBX_SIMD_INLINE void ConstraintJacobianPair::set< ConstraintJacobianPair::AngA >( const simd::v4f& v )
+{
+#if defined(RBX_PLATFORM_XBOX360) || defined(__PPC__) || defined(_M_PPC) || defined(_PPC_)
+    setAngA(v);
+#else
+    a.angV4 = v;
+#endif
+}
 template< >
-RBX_SIMD_INLINE void ConstraintJacobianPair::set< ConstraintJacobianPair::AngB >( const simd::v4f& v ) { b.angV4 = v; }
+RBX_SIMD_INLINE void ConstraintJacobianPair::set< ConstraintJacobianPair::AngB >( const simd::v4f& v )
+{
+#if defined(RBX_PLATFORM_XBOX360) || defined(__PPC__) || defined(_M_PPC) || defined(_PPC_)
+    setAngB(v);
+#else
+    b.angV4 = v;
+#endif
+}
 
 }

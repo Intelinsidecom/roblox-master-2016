@@ -109,6 +109,10 @@ namespace RBX
 #define LUA_CPATH       "LUA_CPATH"
 #define LUA_INIT	"LUA_INIT"
 
+#if defined(RBX_PLATFORM_XBOX360)
+#include <windows.h> // its a shim with more includes
+#include <rtcapi.h> // _ReturnAddress identifier not found
+#endif
 
 /*
 @@ LUA_PATH_DEFAULT is the default path that Lua uses to look for
@@ -751,7 +755,7 @@ catch (RBX::base_exception const& e)	\
 #define LUA_DL_DLOPEN
 #endif
 
-#if defined(LUA_WIN)
+#if defined(LUA_WIN) && !defined(RBX_PLATFORM_XBOX360)
 #define LUA_DL_DLL
 #endif
 

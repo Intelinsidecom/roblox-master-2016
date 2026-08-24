@@ -830,7 +830,11 @@ void SoundChannel::update3D(FMOD::Channel* channel)
 		{
 			if (rollOff == Inverse)
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				channel->setMode(FMOD_3D_LOGROLLOFF);
+#else
 				channel->setMode(FMOD_3D_INVERSEROLLOFF);
+#endif
 			} 
 			else if (rollOff == Linear) 
 			{
@@ -884,6 +888,26 @@ void SoundChannel::onChannelEnd(const FMOD_CHANNEL *channel)
 		}
 	}
 
+#if defined(RBX_PLATFORM_XBOX360)
+FMOD_RESULT F_CALLBACK callbackChannelEnd(FMOD_CHANNEL *channel, FMOD_CHANNEL_CALLBACKTYPE type, int command, unsigned int commanddata1, unsigned int commanddata2)
+{
+	FMOD_RESULT fmodResult = FMOD_OK;
+
+	if(type == FMOD_CHANNEL_CALLBACKTYPE_END)
+	{
+		// TODO: For some reason not all channels call this function... I have no idea why.  The result is that we have some sound "leaks" reported by getSoundStats()
+		RBX::Soundscape::SoundChannel* sound;
+		fmodResult = FMOD_Channel_GetUserData(channel, reinterpret_cast<void**>(&sound));
+		SoundService::checkResultNoThrow(fmodResult, "FMOD_Channel_GetUserData", NULL, channel);
+		if (FMOD_OK == fmodResult && sound)
+		{
+			sound->onChannelEnd(channel);
+		}
+	}
+
+	return fmodResult;
+}
+#else
 FMOD_RESULT F_CALLBACK callbackChannelEnd(FMOD_CHANNELCONTROL *channelControl, FMOD_CHANNELCONTROL_TYPE type, FMOD_CHANNELCONTROL_CALLBACK_TYPE callbacktype, void *commanddata1, void *commanddata2)
 {
 	FMOD_RESULT fmodResult = FMOD_OK;
@@ -915,6 +939,7 @@ FMOD_RESULT F_CALLBACK callbackChannelEnd(FMOD_CHANNELCONTROL *channelControl, F
 	
 	return fmodResult;
 }
+#endif
 
 void SoundChannel::playSound(bool isResuming)
 {
@@ -1058,7 +1083,11 @@ void SoundChannel::playSound(const Instance* context, bool isResuming)
 							FASTLOGS(FLog::Sound, "SoundChannel %s", ss.str().c_str());
 						}
 
+#if defined(RBX_PLATFORM_XBOX360)
+						FMOD_RESULT fmodResult = soundService->system->playSound(FMOD_CHANNEL_FREE, fmod_sound, true, &fmod_channel);
+#else
 						FMOD_RESULT fmodResult = soundService->system->playSound(fmod_sound, NULL, true, &fmod_channel);
+#endif
 						if (FMOD_OK != fmodResult)
 						{
 							FASTLOGS(FLog::Sound, "Failed to play soundId = %s", getSoundId().c_str());
@@ -1071,7 +1100,11 @@ void SoundChannel::playSound(const Instance* context, bool isResuming)
 
 						updateLooped();
 
+#if defined(RBX_PLATFORM_XBOX360)
+						SoundService::checkResult(fmod_sound->getDefaults(&defaultFrequency, NULL, NULL, NULL), "getDefaults play", this, fmod_sound);
+#else
 						SoundService::checkResult(fmod_sound->getDefaults(&defaultFrequency, NULL), "getDefaults play", this, fmod_sound);
+#endif
 						if (pitch != 1)
 						{
 							SoundService::checkResult(fmod_channel->setFrequency(pitch * defaultFrequency), "setFrequency play", this, fmod_channel);
@@ -1079,7 +1112,11 @@ void SoundChannel::playSound(const Instance* context, bool isResuming)
 
 						// Wire up callbacks
 						SoundService::checkResult(fmod_channel->setUserData(reinterpret_cast<void*>(this)), "setUserData play", this, fmod_channel);
+#if defined(RBX_PLATFORM_XBOX360)
+						SoundService::checkResult(fmod_channel->setCallback(FMOD_CHANNEL_CALLBACKTYPE_END, &callbackChannelEnd, 0), "setCallback play", this, fmod_channel);
+#else
 						SoundService::checkResult(fmod_channel->setCallback(&callbackChannelEnd), "setCallback play", this, fmod_channel);
+#endif
 
 						// add to master group (for master volume control)
 						fmod_channel->setChannelGroup(soundService->getMasterChannel());

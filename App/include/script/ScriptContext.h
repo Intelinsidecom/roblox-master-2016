@@ -128,7 +128,7 @@ namespace RBX
             size_t value[2];
             FORCEINLINE void update(const void* ptr)
             {
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)
                 size_t localValue[2] = {reinterpret_cast<size_t>(ptr), ~reinterpret_cast<size_t>(ptr)};
                 localValue[0] ^= localValue[1]*RBX_BUILDSEED | 20151112;
                 localValue[1] ^= localValue[0]*20151112 | RBX_BUILDSEED;
@@ -136,10 +136,13 @@ namespace RBX
                 value[1] = localValue[1];
 #endif
             }
-
+#if defined(RBX_PLATFORM_XBOX360)
+				inline bool checkAnchor(const void* ptr) const
+#else
             FORCEINLINE bool checkAnchor(const void* ptr) const
+#endif
             {
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)
                 size_t localValue[2] = {value[0], value[1]};
                 localValue[1] ^= localValue[0]*20151112 | RBX_BUILDSEED;
                 localValue[0] ^= localValue[1]*RBX_BUILDSEED | 20151112;
