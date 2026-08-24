@@ -93,6 +93,15 @@ DeviceContextD3D9::DeviceContextD3D9(Device* device)
 
     DWORD (WINAPI *pfn_D3DPERF_GetStatus)();
 
+#if defined(RBX_PLATFORM_XBOX360)
+    if (PIX_ENABLED)
+    {
+        pfn_D3DPERF_BeginEvent = &D3DPERF_BeginEvent;
+        pfn_D3DPERF_EndEvent = &D3DPERF_EndEvent;
+        pfn_D3DPERF_SetMarker = &D3DPERF_SetMarker;
+        pfn_D3DPERF_GetStatus = &D3DPERF_GetStatus;
+    }
+#else
     if(PIX_ENABLED)
     {
         d3d9 = LoadLibraryA("d3d9.dll");
@@ -104,6 +113,7 @@ DeviceContextD3D9::DeviceContextD3D9(Device* device)
             (void*&)pfn_D3DPERF_GetStatus  = GetProcAddress(d3d9, "D3DPERF_GetStatus");
         }
     }
+#endif
 
     if( !pfn_D3DPERF_GetStatus || !pfn_D3DPERF_GetStatus() )
     {

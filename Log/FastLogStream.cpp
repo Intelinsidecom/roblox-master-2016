@@ -5,7 +5,16 @@
 #include <unistd.h>
 #endif
 
-#ifdef _WIN32
+#if defined(RBX_PLATFORM_XBOX360)
+#include <windows.h>
+#include <winsockx.h>
+typedef SOCKET socket_t;
+
+#define SOCKET_VALID(s) (s != INVALID_SOCKET)
+#define SOCKET_CLOSE(s) closesocket(s)
+#pragma comment(lib, "ws2_32.lib")
+#endif
+#if defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)
 #include <WinSock2.h>
 #pragma comment(lib, "ws2_32.lib")
 
@@ -13,7 +22,7 @@ typedef SOCKET socket_t;
 
 #define SOCKET_VALID(s) (s != INVALID_SOCKET)
 #define SOCKET_CLOSE(s) closesocket(s)
-#else
+#elif !defined(RBX_PLATFORM_XBOX360)
 #include <sys/socket.h>
 #include <arpa/inet.h>
 

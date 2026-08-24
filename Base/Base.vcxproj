@@ -171,7 +171,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>include;$(CONTRIB_PATH)\boost_1_56_0\include;..\TBB_4_1\include;..\Log\include;$(CONTRIB_PATH)\Telemetry\Telemetry2SDKWin32_20M\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>RBX_PLATFORM_DURANGO;WIN32;_DEBUG;_LIB;_WIN32_WINNT=0x0501;NTDDI_VERSION=0x05010100;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);RBX_TEST_BUILD</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RBX_PLATFORM_DURANGO;WIN32;_DEBUG;_LIB;_WIN32_WINNT=0x0601;NTDDI_VERSION=0x06010000;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);RBX_TEST_BUILD</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -198,7 +198,7 @@
       <OmitFramePointers>false</OmitFramePointers>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2\Include;include;$(CONTRIB_PATH)\boost_1_56_0\include;..\TBB_4_1\include;..\Log\include;$(CONTRIB_PATH)\Telemetry\Telemetry2SDKWin32_20M\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_WIN32_WINNT=0x0501;NTDDI_VERSION=0x05010100;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_WIN32_WINNT=0x0601;NTDDI_VERSION=0x06010000;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
@@ -222,7 +222,7 @@
       <OmitFramePointers>false</OmitFramePointers>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <AdditionalIncludeDirectories>include;$(CONTRIB_PATH)\boost_1_56_0\include;..\Log\include;$(CONTRIB_PATH)\Telemetry\Telemetry2SDKWin32_20M\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>RBX_PLATFORM_DURANGO;WIN32;NDEBUG;_LIB;_WIN32_WINNT=0x0501;NTDDI_VERSION=0x05010100;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RBX_PLATFORM_DURANGO;WIN32;NDEBUG;_LIB;_WIN32_WINNT=0x0601;NTDDI_VERSION=0x06010000;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
@@ -247,7 +247,7 @@
       <OmitFramePointers>false</OmitFramePointers>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2\Include;include;$(CONTRIB_PATH)\boost_1_56_0\include;..\TBB_4_1\include;..\Log\include;$(CONTRIB_PATH)\Telemetry\Telemetry2SDKWin32_20M\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_WIN32_WINNT=0x0501;NTDDI_VERSION=0x05010100;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);RBX_TEST_BUILD</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_WIN32_WINNT=0x0601;NTDDI_VERSION=0x06010000;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);RBX_TEST_BUILD</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
@@ -272,7 +272,7 @@
       <OmitFramePointers>false</OmitFramePointers>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <AdditionalIncludeDirectories>include;$(CONTRIB_PATH)\boost_1_56_0\include;..\TBB_4_1\include;..\Log\include;$(CONTRIB_PATH)\Telemetry\Telemetry2SDKWin32_20M\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>RBX_PLATFORM_DURANGO;WIN32;NDEBUG;_LIB;_WIN32_WINNT=0x0501;NTDDI_VERSION=0x05010100;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);RBX_TEST_BUILD</PreprocessorDefinitions>
+      <PreprocessorDefinitions>RBX_PLATFORM_DURANGO;WIN32;NDEBUG;_LIB;_WIN32_WINNT=0x0601;NTDDI_VERSION=0x06010000;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions);RBX_TEST_BUILD</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>

@@ -32,6 +32,10 @@
     #define HKEY_PERFORMANCE_NLSTEXT    (( HKEY ) ((LONG)0x80000060) )
 #endif
 
+#if defined(RBX_PLATFORM_XBOX360)
+#include <windows.h> // its a shim with more includes
+#endif
+
 namespace RBX {
 
 // static helpers

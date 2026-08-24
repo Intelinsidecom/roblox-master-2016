@@ -20,7 +20,12 @@
 
 
 #if   defined(_WIN32)
+#if defined(RBX_PLATFORM_XBOX360)
+#include <windows.h>
+#include <winsockx.h>
+#else
 #include <winsock2.h> // htonl
+#endif
 #include <memory.h>
 #include <cmath>
 #include <float.h>

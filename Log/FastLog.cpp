@@ -1,7 +1,17 @@
 #include "FastLog.h"
 
-#ifdef _WIN32
+
+#if defined(_WIN32)
 #include <windows.h>
+#if defined(RBX_PLATFORM_XBOX360)
+
+#if defined(GetCurrentThread)
+#undef GetCurrentThread
+#endif
+#if defined(GetCurrentProcess)
+#undef GetCurrentProcess
+#endif
+#endif
 #elif __ANDROID__
 #include <sys/atomics.h>
 #else

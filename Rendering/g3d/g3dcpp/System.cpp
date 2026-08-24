@@ -79,7 +79,7 @@
 #endif
 
 // SIMM include
-#if !defined(G3D_IOS) && !defined(G3D_ANDROID) && !defined(_M_ARM) && !defined(_M_ARM64)// ROBLOX
+#if !defined(G3D_IOS) && !defined(G3D_ANDROID) && !defined(_M_ARM) && !defined(_M_ARM64) && !defined(_XBOX)// ROBLOX
 #include <xmmintrin.h>
 #endif
 
@@ -194,7 +194,7 @@ void System::init() {
 
 
     // Get the operating system name (also happens to read some other information)
-#    ifdef RBX_PLATFORM_DURANGO
+#    if defined(RBX_PLATFORM_DURANGO)
 
     m_hasSSE = true;
     m_hasSSE2 = true;
@@ -203,6 +203,15 @@ void System::init() {
     m_operatingSystem = "Durango";
     m_cpuSpeed = 999;
      
+#   elif defined(_XBOX)
+	m_hasSSE = false;
+	m_hasSSE2 = false;
+	m_hasSSE3 = false;
+	m_numCores = 3;
+	m_operatingSystem = "Xenon";
+	m_cpuSpeed = 999;
+	m_machineEndian = G3D_BIG_ENDIAN;
+
 #    elif defined(G3D_WIN32)
 		bool success = false;
         // Note that this overrides some of the values computed above
@@ -631,7 +640,7 @@ std::string System::currentDateString() {
     return format("%d-%02d-%02d", t->tm_year + 1900, t->tm_mon + 1, t->tm_mday); 
 }
 
-#if defined(_MSC_VER) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_MSC_VER) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(_XBOX)
 
 
 // VC on Intel
@@ -655,7 +664,7 @@ void System::cpuid(CPUIDFunction func, uint32& areg, uint32& breg, uint32& creg,
     dreg = d;
 }
 
-#elif (defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_UWP) || defined(G3D_OSX) || defined(G3D_IOS) || defined(G3D_ANDROID)) && ! defined(G3D_OSX_INTEL)
+#elif (defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_UWP) || defined(_XBOX) || defined(G3D_OSX) || defined(G3D_IOS) || defined(G3D_ANDROID)) && ! defined(G3D_OSX_INTEL)
 
 // no CPUID
 void System::cpuid(CPUIDFunction func, uint32& eax, uint32& ebx, uint32& ecx, uint32& edx) {
@@ -665,7 +674,7 @@ void System::cpuid(CPUIDFunction func, uint32& eax, uint32& ebx, uint32& ecx, ui
     edx = 0;
 }
 
-#elif !defined(RBX_PLATFORM_DURANGO)
+#elif !defined(RBX_PLATFORM_DURANGO) && !defined(_XBOX)
 
 // See http://sam.zoy.org/blog/2007-04-13-shlib-with-non-pic-code-have-inline-assembly-and-pic-mix-well
 // for a discussion of why the second version saves ebx; it allows 32-bit code to compile with the -fPIC option.

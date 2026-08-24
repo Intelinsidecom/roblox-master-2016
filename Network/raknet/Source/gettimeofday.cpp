@@ -2,7 +2,7 @@
 
 
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(__GNUC__)  &&!defined(__GCCXML__)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_XBOX360) && !defined(__GNUC__)  &&!defined(__GCCXML__)
 
 #include "gettimeofday.h"
 

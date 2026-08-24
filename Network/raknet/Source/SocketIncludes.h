@@ -13,7 +13,12 @@
 typedef int socklen_t;
 // IP_DONTFRAGMENT is different between winsock 1 and winsock 2.  Therefore, Winsock2.h must be linked againt Ws2_32.lib
 // winsock.h must be linked against WSock32.lib.  If these two are mixed up the flag won't work correctly
+#if defined(_XBOX)
+#include <windows.h>
+#include <winsockx.h>
+#else
 #include <winsock2.h>
+#endif
 #else
 #define closesocket close
 #include <unistd.h>

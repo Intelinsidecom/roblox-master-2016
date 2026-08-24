@@ -23,6 +23,10 @@
 #   include <CoreServices/CoreServices.h>
 #endif
 
+#if defined(RBX_PLATFORM_XBOX360) || defined(_XBOX)
+#include <ppcintrinsics.h>
+#endif
+
 #ifdef G3D_IOS // ROBLOX
     #include <mach/mach.h>
     #include <mach/mach_time.h>
@@ -396,11 +400,16 @@ public:
             QueryPerformanceCounter(&counter);
             return (uint64)(counter.QuadPart * 1000000 / freq.QuadPart);
         }
+	#elif defined(RBX_PLATFORM_XBOX360) || defined(_XBOX)
+    inline uint64 System::getCycleCount() {
+        return __mftb();
+    }
+	
     #else
         inline uint64 System::getCycleCount() {
             return  __rdtsc();
         }
-    #endif
+	#endif
 
 #elif defined(G3D_LINUX) || defined(G3D_ANDROID) // ROBLOX
 

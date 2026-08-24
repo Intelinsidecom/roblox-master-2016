@@ -16,10 +16,16 @@
 #define RBX_SIMD_ARM
 #endif
 
+#if defined( __PPC__ ) || defined( _M_PPC ) || defined( _PPC_ ) || defined( X360__ )
+#define RBX_SIMD_PPC
+#endif
+
 #if defined( RBX_SIMD_X86 ) || defined( RBX_SIMD_X64 )
 #define RBX_SIMD_USE_SSE
 #elif defined( RBX_SIMD_ARM )
 #define RBX_SIMD_USE_NEON
+#elif defined( RBX_SIMD_PPC )
+#define RBX_SIMD_USE_VMX
 #endif
 
 #if defined(RBX_SIMD_USE_SSE) && !defined(_M_ARM) && !defined(_M_ARM64)
@@ -30,6 +36,10 @@
 
 #ifdef RBX_SIMD_USE_NEON
 #include <arm_neon.h>
+#endif
+
+#ifdef RBX_SIMD_USE_VMX
+#include <ppcintrinsics.h>
 #endif
 
 #define RBX_SIMD_ALIGN_ASSERT( p, a ) RBXASSERT_VERY_FAST( ( ( uint64_t )( p ) & ( a - 1 ) ) == 0 )
@@ -58,6 +68,10 @@ namespace details
     typedef float32x4_t vec4f_t;
     typedef int32x4_t vec4i_t;
     typedef uint32x4_t vec4u_t;
+#elif defined( RBX_SIMD_USE_VMX )
+    typedef __vector4 vec4f_t;
+    typedef __vector4 vec4i_t;
+    typedef __vector4 vec4u_t;
 #endif
 
 template< class ScalarType >

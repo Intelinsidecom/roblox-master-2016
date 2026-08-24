@@ -60,7 +60,7 @@
 
 #include "rbx/Profiler.h"
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 #include "util/CheatEngine.h"
 #include "security/ApiSecurity.h"
 #endif
@@ -129,7 +129,7 @@ namespace RBX { namespace Network {
 		}
 	};
 
-#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
     // Periodically check that the program memory hashing job is still running
     class ClientReplicator::BadAppCheckerJob : public DataModelJob {
         shared_ptr<ClientReplicator> clientReplicator;
@@ -245,7 +245,7 @@ namespace RBX { namespace Network {
 
 
 
-#if !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 	// Periodically hash program memory, and raise an alert if the hash changes
 	class ClientReplicator::MemoryCheckerJob : public DataModelJob {
 
@@ -392,7 +392,7 @@ namespace RBX { namespace Network {
 	};
 #endif
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 	// Periodically check that the program memory hashing job is still running
 	class ClientReplicator::MemoryCheckerCheckerJob : public DataModelJob {
 
@@ -473,7 +473,7 @@ namespace RBX { namespace Network {
             bool isVehUnhook = false;
             bool isFreeConsoleHooked = false;
             ++runCount;
-#if (!defined(NOOPT) && !defined(DEBUG)) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if (!defined(NOOPT) && !defined(DEBUG)) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
             // a switch statement might result in a jump table, which is not compatible with VMProtect.
             if (runCount % 8 == 0)
             {
@@ -1705,7 +1705,7 @@ FilterResult ClientReplicator::filterReceivedParent(Instance* instance, Instance
 
 void ClientReplicator::onServiceProvider(ServiceProvider* oldProvider, ServiceProvider* newProvider)
 {
-#if !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if !defined(RBX_STUDIO_BUILD) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 #ifdef _WIN32
     TaskScheduler::singleton().remove(memoryCheckerCheckerJob);
     memoryCheckerCheckerJob.reset();
@@ -1740,17 +1740,17 @@ void ClientReplicator::onServiceProvider(ServiceProvider* oldProvider, ServicePr
 #if defined(I_AM_GOY_THAT_LOVES_VMPROTECT)
         VMProtectBeginMutation("30");
 #endif
-#if !defined(LOVE_ALL_ACCESS) && defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if !defined(LOVE_ALL_ACCESS) && defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
         badAppCheckerJob.reset(new BadAppCheckerJob(shared_from(this)));
         TaskScheduler::singleton().add(badAppCheckerJob);
 #endif
 
-#if !defined(LOVE_ALL_ACCESS) && (defined(_WIN32) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS))) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if !defined(LOVE_ALL_ACCESS) && (defined(_WIN32) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS))) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
         memoryCheckerJob.reset(new MemoryCheckerJob(shared_from(this)));
         TaskScheduler::singleton().add(memoryCheckerJob);
 #endif
 
-#if !defined(LOVE_ALL_ACCESS) && defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if !defined(LOVE_ALL_ACCESS) && defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
         memoryCheckerCheckerJob.reset(new MemoryCheckerCheckerJob(shared_from(this)));
         TaskScheduler::singleton().add(memoryCheckerCheckerJob);
         hashReadyConnection = memoryCheckerJob->hashReadySignal.connect(boost::bind(&ClientReplicator::onHashReady, this));

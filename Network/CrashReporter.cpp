@@ -12,7 +12,7 @@
 #include "CrashReporter.h"
 
 #include <stdio.h>
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)
 #include <DbgHelp.h>
 #endif
 #include <stdlib.h>
@@ -32,7 +32,7 @@
 
 #include "boost/bind.hpp"
 
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)
 #include "StrSafe.h"
 #endif
 

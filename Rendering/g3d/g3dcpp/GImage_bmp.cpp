@@ -10,7 +10,7 @@
 
 namespace G3D {
 
-#ifndef G3D_WIN32
+#if !defined(G3D_WIN32) || defined(_XBOX)
 /**
  This is used by the Windows bitmap I/O.
  */

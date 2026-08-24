@@ -3640,7 +3640,7 @@ void MicroProfileStopContextSwitchTrace()
 }
 
 
-#if defined(_WIN32)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)
 #define INITGUID
 #include <wmistr.h>
 #include <evntrace.h>

@@ -1,5 +1,7 @@
-#ifdef WIN32
+#ifdef _WIN32
+#if !defined(RBX_PLATFORM_XBOX360)
 #include <Objbase.h>
+#endif
 #include <windows.h>
 #endif
 #include "format_string.h"
@@ -102,7 +104,7 @@ std::string format_string(const char* fmt,...) {
     return result;
 }
 
-#ifdef WIN32
+#ifdef _WIN32
 
 std::wstring vformat(const wchar_t *fmt, va_list argPtr) {
     // We draw the line at a 1MB string.

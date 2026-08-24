@@ -776,7 +776,12 @@ void Replicator::addTopReplicationContainers(ServiceProvider* newProvider)
 
 	JoinDataItem *joinDataItem = new JoinDataItem(this);
 	joinDataItem->setBytesPerStep(DFLog::MaxJoinDataSizeKB * 1000 /* convert to bytes */);
-	boost::function<void (shared_ptr<Instance>)> replicationMethodFunc = boost::bind(&Replicator::JoinDataItem::addInstance, joinDataItem, _1);
+#ifndef RBX_PLATFORM_XBOX360
+	boost::function<void(shared_ptr<Instance>)> replicationMethodFunc = boost::bind(&Replicator::JoinDataItem::addInstance, joinDataItem, _1);
+#else
+	void (JoinDataItem::*addInstanceMemFunc)(shared_ptr<const Instance>) = &JoinDataItem::addInstance;
+	boost::function<void(shared_ptr<Instance>)> replicationMethodFunc = boost::bind(addInstanceMemFunc, joinDataItem, _1);
+#endif
 	pendingItems.push_back(joinDataItem);
 
 	// this should always be added first, as this is the first container we receive over the wire

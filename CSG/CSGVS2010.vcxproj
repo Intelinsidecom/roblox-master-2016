@@ -93,6 +93,15 @@
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='NoOpt|Xbox 360'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -160,6 +169,18 @@
     <LibraryWPath>$(Console_SdkLibPath);$(Console_SdkWindowsMetadataPath)</LibraryWPath>
     <OutDir>bin\$(Configuration)$(Platform)\</OutDir>
     <IntDir>obj\$(Configuration)$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">
+    <OutDir>bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Xbox 360'">
+    <OutDir>bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
+    <OutDir>bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -307,6 +328,30 @@
     <ProjectReference>
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
     </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\ClientBase\Xbox360;..\ClientBase;..\Win;..\Base\include;..\Network;..\Network\include;include;$(CONTRIB_PATH)\boost_1_56_0\include;..\Log\include;..\Rendering\g3d\include;.\sgCore;..\App\include;..\Rendering\RbxG3D\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_BIG_ENDIAN=1;BOOST_BIG_ENDIAN;RBX_PLATFORM_XBOX360;_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ShowIncludes>false</ShowIncludes>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Xbox 360'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\ClientBase\Xbox360;..\ClientBase;..\Win;..\Base\include;..\Network;..\Network\include;include;$(CONTRIB_PATH)\boost_1_56_0\include;..\Log\include;..\Rendering\g3d\include;.\sgCore;..\App\include;..\Rendering\RbxG3D\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_BIG_ENDIAN=1;BOOST_BIG_ENDIAN;RBX_PLATFORM_XBOX360;_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ShowIncludes>false</ShowIncludes>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\ClientBase\Xbox360;..\ClientBase;..\Win;..\Base\include;..\Network;..\Network\include;include;$(CONTRIB_PATH)\boost_1_56_0\include;..\Log\include;..\Rendering\g3d\include;.\sgCore;..\App\include;..\Rendering\RbxG3D\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>BOOST_BIG_ENDIAN=1;BOOST_BIG_ENDIAN;RBX_PLATFORM_XBOX360;_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ShowIncludes>false</ShowIncludes>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CSGKernel.cpp" />

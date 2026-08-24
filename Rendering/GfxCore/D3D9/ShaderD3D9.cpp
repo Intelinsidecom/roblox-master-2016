@@ -534,6 +534,9 @@ template <typename T> static std::vector<T> consumeData(HRESULT hr, ID3DXBuffer*
 
 std::string ShaderProgramD3D9::createShaderSource(const std::string& path, const std::string& defines, boost::function<std::string (const std::string&)> fileCallback)
 {
+#if defined(RBX_PLATFORM_XBOX360)
+	return path;
+#else
 	TypeD3DXPreprocessShader preprocessor = loadShaderPreprocessor();
 
     if (!preprocessor)
@@ -597,10 +600,14 @@ std::string ShaderProgramD3D9::createShaderSource(const std::string& path, const
     }
 
     return result;
+#endif
 }
 
 std::vector<char> ShaderProgramD3D9::createShaderBytecode(const std::string& source, const std::string& target, const std::string& entrypoint)
 {
+#if defined(RBX_PLATFORM_XBOX360)
+	return std::vector<char>(source.begin(), source.end());
+#else
 	TypeD3DXCompileShader compiler = loadShaderCompiler();
 
     if (!compiler)
@@ -613,6 +620,7 @@ std::vector<char> ShaderProgramD3D9::createShaderBytecode(const std::string& sou
 	HRESULT hr = compiler(source.c_str(), source.length(), NULL, NULL, entrypoint.c_str(), target.c_str(), flags, &bytecode, &messages, NULL);
 
     return consumeData<char>(hr, bytecode, messages);
+#endif
 }
 
 ShaderProgramFFPD3D9::ShaderProgramFFPD3D9(Device* device)

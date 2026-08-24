@@ -3,6 +3,9 @@
 #include "rbx/Debug.h"
 #include "rbx/atomic.h"
 
+#if defined(RBX_PLATFORM_XBOX360)
+#include <windows.h> // its a shim with more includes
+#endif
 
 
 RBX::concurrency_catcher::scoped_lock::scoped_lock(concurrency_catcher& m):m(m)

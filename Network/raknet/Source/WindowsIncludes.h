@@ -1,4 +1,6 @@
 #if defined(X360__) 
+#include <windows.h>
+#include <winsockx.h>
 #elif defined (_WIN32)
 #if defined(RBX_PLATFORM_UWP)
 #ifndef _WIN32_WINNT

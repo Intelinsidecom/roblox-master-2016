@@ -1,6 +1,6 @@
 #pragma once
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 #include "pdh.h"
 
 #include <string>

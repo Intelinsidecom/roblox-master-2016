@@ -39,7 +39,7 @@
 
 namespace G3D {
 
-#if defined(G3D_WIN32) || defined(G3D_LINUX)
+#if defined(G3D_WIN32) || defined(G3D_LINUX) || !defined(_XBOX)
     // Allow writing of integers to non-word aligned locations.
     // This is legal on x86, but not on other platforms.
     #define G3D_ALLOW_UNALIGNED_WRITES

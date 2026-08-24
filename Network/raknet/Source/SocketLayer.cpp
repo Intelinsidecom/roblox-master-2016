@@ -56,13 +56,14 @@ SocketLayerOverride *SocketLayer::slo=0;
 
 
 
-
+#if !defined(RBX_PLATFORM_XBOX360)
 #if   defined(_WIN32)
 #include "WSAStartupSingleton.h"
 #include <ws2tcpip.h> // 'IP_DONTFRAGMENT' 'IP_TTL'
 #elif defined SN_TARGET_PSP2
 #else
 #include <unistd.h>
+#endif
 #endif
 
 #include "RakSleep.h"
@@ -638,7 +639,7 @@ SOCKET SocketLayer::CreateBoundSocket_Old( unsigned short port, bool blockingSoc
 		}
 		dwIOError = GetLastError();
 		LPVOID messageBuffer;
-#if defined(RBX_PLATFORM_DURANGO) // Roblox Change
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)// Roblox Change
 		// something has gone wrong here...
 		RAKNET_DEBUG_PRINTF( "gethostname failed:Error code - %d\n", dwIOError );
         (void)messageBuffer;
@@ -842,6 +843,9 @@ const char* SocketLayer::DomainNameToIP_Old( const char *domainName )
 
 
 	// Use inet_addr instead? What is the difference?
+#if defined(RBX_PLATFORM_XBOX360) || defined(X360__) || defined(_XBOX)
+	(void)domainName; return 0;
+#else
 	struct hostent * phe = gethostbyname( domainName );
 
 	if ( phe == 0 || phe->h_addr_list[ 0 ] == 0 )
@@ -855,6 +859,7 @@ const char* SocketLayer::DomainNameToIP_Old( const char *domainName )
 
 	memcpy( &addr, phe->h_addr_list[ 0 ], sizeof( struct in_addr ) );
 	return inet_ntoa( addr );
+#endif
 
 
 	return "";
@@ -1361,6 +1366,7 @@ int SocketLayer::SendToTTL( SOCKET s, const char *data, int length, SystemAddres
 		return slo->RakNetSendTo(s,data,length,systemAddress);
 
 
+#if !defined(RBX_PLATFORM_XBOX360)
 	int oldTTL;
 	socklen_t opLen=sizeof(oldTTL);
 	// Get the current TTL
@@ -1404,8 +1410,10 @@ int SocketLayer::SendToTTL( SOCKET s, const char *data, int length, SystemAddres
 	setsockopt__(s, systemAddress.GetIPPROTO(), IP_TTL, ( char * ) & oldTTL, opLen );
 
 	return res;
-
-
+#else
+	(void)ttl;
+	return SendTo(s,data,length,systemAddress,0,0, __FILE__, __LINE__ );
+#endif
 
 }
 
@@ -1419,7 +1427,7 @@ RakNet::RakString SocketLayer::GetSubNetForSocketAndIp(SOCKET inSock, RakNet::Ra
 
 
 
-#if   defined(_WIN32)
+#if   defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)
 	INTERFACE_INFO InterfaceList[20];
 	unsigned long nBytesReturned;
 	if (WSAIoctl(inSock, SIO_GET_INTERFACE_LIST, 0, 0, &InterfaceList,
@@ -1442,6 +1450,12 @@ RakNet::RakString SocketLayer::GetSubNetForSocketAndIp(SOCKET inSock, RakNet::Ra
 			return netMaskString;
 		}
 	}
+	return "";
+#elif defined(RBX_PLATFORM_XBOX360)
+	(void)netMaskString;
+	(void)ipString;
+	(void)inSock;
+	(void)inIpString;
 	return "";
 #else
 
@@ -1576,6 +1590,37 @@ RakNet::RakString SocketLayer::GetSubNetForSocketAndIp(SOCKET inSock, RakNet::Ra
 
 void GetMyIP_Win32( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_IDS] )
 {
+#if defined(RBX_PLATFORM_XBOX360)
+	unsigned i;
+	for (i=0; i<MAXIMUM_NUMBER_OF_INTERNAL_IDS; ++i)
+		addresses[i]=UNASSIGNED_SYSTEM_ADDRESS;
+
+	{
+		SOCKET probe = socket__( AF_INET, SOCK_DGRAM, 0 );
+		if (probe != (SOCKET)-1 && probe != INVALID_SOCKET)
+		{
+			sockaddr_in remote;
+			memset(&remote, 0, sizeof(remote));
+			remote.sin_family = AF_INET;
+			remote.sin_port = htons(53);
+			remote.sin_addr.s_addr = inet_addr("8.8.8.8");
+
+			if (connect(probe, (sockaddr*)&remote, sizeof(remote)) == 0)
+			{
+				sockaddr_in local;
+				socklen_t len = sizeof(local);
+				if (getsockname(probe, (sockaddr*)&local, &len) == 0)
+				{
+					memcpy(&addresses[0].address.addr4, &local, sizeof(sockaddr_in));
+					addresses[0].address.addr4.sin_port = 0;
+					addresses[0].debugPort = 0;
+				}
+			}
+			closesocket(probe);
+		}
+	}
+	return;
+#else
 	char ac[ 80 ];
 	if ( gethostname( ac, sizeof( ac ) ) == -1 )
 	{
@@ -1583,7 +1628,7 @@ void GetMyIP_Win32( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_IDS] )
 		DWORD dwIOError = GetLastError();
 		LPVOID messageBuffer;
 
-#if defined(RBX_PLATFORM_DURANGO) // Roblox Change
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360) // Roblox Change
 		// WinRT
 		(void)messageBuffer;
 		// something has gone wrong here...
@@ -1636,7 +1681,7 @@ void GetMyIP_Win32( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_IDS] )
 	#ifdef _WIN32
 		DWORD dwIOError = GetLastError();
 		LPVOID messageBuffer;
-#if defined(RBX_PLATFORM_DURANGO) // Roblox Change
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)// Roblox Change
 		// WinRT
 		(void)messageBuffer;
 		// something has gone wrong here...
@@ -1673,6 +1718,7 @@ void GetMyIP_Win32( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_IDS] )
 		addresses[idx]=UNASSIGNED_SYSTEM_ADDRESS;
 		idx++;
 	}
+#endif
 }
 
 #ifdef RBX_PLATFORM_IOS
@@ -1859,8 +1905,10 @@ bool SocketLayer::GetFirstBindableIP(char firstBindable[128], int ipProto)
 			break;
 		if (ipList[l].GetIPVersion()==4 && ipProto==AF_INET)
 			break;
+#if RAKNET_SUPPORT_IPV6==1
 		if (ipList[l].GetIPVersion()==6 && ipProto==AF_INET6)
 			break;
+#endif
 	}
 
 	if (ipList[l]==UNASSIGNED_SYSTEM_ADDRESS || l==MAXIMUM_NUMBER_OF_INTERNAL_IDS)

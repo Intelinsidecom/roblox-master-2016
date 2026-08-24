@@ -101,8 +101,12 @@ local int updatewindow OF((z_streamp strm, const unsigned char FAR *end,
 local unsigned syncsearch OF((unsigned FAR *have, const unsigned char FAR *buf,
                               unsigned len));
 
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT inflateResetKeep(z_streamp strm)
+#else
 int ZEXPORT inflateResetKeep(strm)
 z_streamp strm;
+#endif
 {
     struct inflate_state FAR *state;
 
@@ -126,8 +130,12 @@ z_streamp strm;
     return Z_OK;
 }
 
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT inflateReset(z_streamp strm)
+#else
 int ZEXPORT inflateReset(strm)
 z_streamp strm;
+#endif
 {
     struct inflate_state FAR *state;
 
@@ -139,9 +147,13 @@ z_streamp strm;
     return inflateResetKeep(strm);
 }
 
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT inflateReset2(z_streamp strm, int windowBits)
+#else
 int ZEXPORT inflateReset2(strm, windowBits)
 z_streamp strm;
 int windowBits;
+#endif
 {
     int wrap;
     struct inflate_state FAR *state;
@@ -177,11 +189,16 @@ int windowBits;
     return inflateReset(strm);
 }
 
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT inflateInit2_(z_streamp strm, int windowBits, const char *version,
+                          int stream_size)
+#else
 int ZEXPORT inflateInit2_(strm, windowBits, version, stream_size)
 z_streamp strm;
 int windowBits;
 const char *version;
 int stream_size;
+#endif
 {
     int ret;
     struct inflate_state FAR *state;
@@ -219,18 +236,26 @@ int stream_size;
     return ret;
 }
 
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT inflateInit_(z_streamp strm, const char *version, int stream_size)
+#else
 int ZEXPORT inflateInit_(strm, version, stream_size)
 z_streamp strm;
 const char *version;
 int stream_size;
+#endif
 {
     return inflateInit2_(strm, DEF_WBITS, version, stream_size);
 }
 
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT inflatePrime(z_streamp strm, int bits, int value)
+#else
 int ZEXPORT inflatePrime(strm, bits, value)
 z_streamp strm;
 int bits;
 int value;
+#endif
 {
     struct inflate_state FAR *state;
 
@@ -258,8 +283,12 @@ int value;
    used for threaded applications, since the rewriting of the tables and virgin
    may not be thread-safe.
  */
+#ifdef RBX_PLATFORM_XBOX360
+local void fixedtables(struct inflate_state FAR *state)
+#else
 local void fixedtables(state)
 struct inflate_state FAR *state;
+#endif
 {
 #ifdef BUILDFIXED
     static int virgin = 1;
@@ -376,10 +405,14 @@ void makefixed()
    output will fall in the output data, making match copies simpler and faster.
    The advantage may be dependent on the size of the processor's data caches.
  */
+#ifdef RBX_PLATFORM_XBOX360
+local int updatewindow(z_streamp strm, const Bytef *end, unsigned copy)
+#else
 local int updatewindow(strm, end, copy)
 z_streamp strm;
 const Bytef *end;
 unsigned copy;
+#endif
 {
     struct inflate_state FAR *state;
     unsigned dist;
@@ -602,9 +635,13 @@ unsigned copy;
    will return Z_BUF_ERROR if it has not reached the end of the stream.
  */
 
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT inflate(z_streamp strm, int flush)
+#else
 int ZEXPORT inflate(strm, flush)
 z_streamp strm;
 int flush;
+#endif
 {
     struct inflate_state FAR *state;
     z_const unsigned char FAR *next;    /* next input */
@@ -1251,8 +1288,12 @@ int flush;
     return ret;
 }
 
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT inflateEnd(z_streamp strm)
+#else
 int ZEXPORT inflateEnd(strm)
 z_streamp strm;
+#endif
 {
     struct inflate_state FAR *state;
     if (strm == Z_NULL || strm->state == Z_NULL || strm->zfree == (free_func)0)
@@ -1265,10 +1306,15 @@ z_streamp strm;
     return Z_OK;
 }
 
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT inflateGetDictionary(z_streamp strm, Bytef *dictionary,
+                                 uInt *dictLength)
+#else
 int ZEXPORT inflateGetDictionary(strm, dictionary, dictLength)
 z_streamp strm;
 Bytef *dictionary;
 uInt *dictLength;
+#endif
 {
     struct inflate_state FAR *state;
 
@@ -1288,10 +1334,15 @@ uInt *dictLength;
     return Z_OK;
 }
 
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT inflateSetDictionary(z_streamp strm, const Bytef *dictionary,
+                                 uInt dictLength)
+#else
 int ZEXPORT inflateSetDictionary(strm, dictionary, dictLength)
 z_streamp strm;
 const Bytef *dictionary;
 uInt dictLength;
+#endif
 {
     struct inflate_state FAR *state;
     unsigned long dictid;
@@ -1323,9 +1374,13 @@ uInt dictLength;
     return Z_OK;
 }
 
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT inflateGetHeader(z_streamp strm, gz_headerp head)
+#else
 int ZEXPORT inflateGetHeader(strm, head)
 z_streamp strm;
 gz_headerp head;
+#endif
 {
     struct inflate_state FAR *state;
 
@@ -1351,10 +1406,15 @@ gz_headerp head;
    called again with more data and the *have state.  *have is initialized to
    zero for the first call.
  */
+#ifdef RBX_PLATFORM_XBOX360
+local unsigned syncsearch(unsigned FAR *have, const unsigned char FAR *buf,
+                          unsigned len)
+#else
 local unsigned syncsearch(have, buf, len)
 unsigned FAR *have;
 const unsigned char FAR *buf;
 unsigned len;
+#endif
 {
     unsigned got;
     unsigned next;
@@ -1374,8 +1434,12 @@ unsigned len;
     return next;
 }
 
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT inflateSync(z_streamp strm)
+#else
 int ZEXPORT inflateSync(strm)
 z_streamp strm;
+#endif
 {
     unsigned len;               /* number of bytes to look at or looked at */
     unsigned long in, out;      /* temporary to save total_in and total_out */
@@ -1425,8 +1489,12 @@ z_streamp strm;
    block. When decompressing, PPP checks that at the end of input packet,
    inflate is waiting for these length bytes.
  */
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT inflateSyncPoint(z_streamp strm)
+#else
 int ZEXPORT inflateSyncPoint(strm)
 z_streamp strm;
+#endif
 {
     struct inflate_state FAR *state;
 
@@ -1435,9 +1503,13 @@ z_streamp strm;
     return state->mode == STORED && state->bits == 0;
 }
 
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT inflateCopy(z_streamp dest, z_streamp source)
+#else
 int ZEXPORT inflateCopy(dest, source)
 z_streamp dest;
 z_streamp source;
+#endif
 {
     struct inflate_state FAR *state;
     struct inflate_state FAR *copy;
@@ -1482,9 +1554,13 @@ z_streamp source;
     return Z_OK;
 }
 
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT inflateUndermine(z_streamp strm, int subvert)
+#else
 int ZEXPORT inflateUndermine(strm, subvert)
 z_streamp strm;
 int subvert;
+#endif
 {
     struct inflate_state FAR *state;
 
@@ -1499,8 +1575,12 @@ int subvert;
 #endif
 }
 
+#ifdef RBX_PLATFORM_XBOX360
+long ZEXPORT inflateMark(z_streamp strm)
+#else
 long ZEXPORT inflateMark(strm)
 z_streamp strm;
+#endif
 {
     struct inflate_state FAR *state;
 

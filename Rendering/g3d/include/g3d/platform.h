@@ -126,7 +126,7 @@
 #endif
 
 
-#ifdef _MSC_VER
+#if defined(_MSC_VER)
 // Microsoft Visual C++ 8.0 ("Express")       = 1400
 // Microsoft Visual C++ 7.1	("2003") _MSC_VER = 1310
 // Microsoft Visual C++ 7.0	("2002") _MSC_VER = 1300
@@ -251,9 +251,13 @@
 #endif
 #endif
 
-#   include <windows.h>
+
+#   include <windows.h> // i have a shim for that
+#ifndef RBX_PLATFORM_XBOX360
+
 #   undef WIN32_LEAN_AND_MEAN
 #   undef NOMINMAX
+#endif
 
 #   ifdef _G3D_INTERNAL_HIDE_WINSOCK_
 #      undef _G3D_INTERNAL_HIDE_WINSOCK_

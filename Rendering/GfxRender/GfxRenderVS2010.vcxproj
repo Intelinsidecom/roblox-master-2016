@@ -608,6 +608,18 @@
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='NoOpt|Xbox 360'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Xbox 360'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -690,6 +702,22 @@
     <LibraryWPath>$(Console_SdkLibPath);$(Console_SdkWindowsMetadataPath)</LibraryWPath>
     <OutDir>bin\$(Configuration)$(Platform)\</OutDir>
     <IntDir>obj\$(Configuration)$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">
+    <OutDir>bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Xbox 360'">
+    <OutDir>bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Xbox 360'">
+    <OutDir>bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
+    <OutDir>bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -851,6 +879,34 @@
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions</EnableEnhancedInstructionSet>
       <DisableSpecificWarnings>4267</DisableSpecificWarnings>
       <OmitFramePointers>false</OmitFramePointers>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\ClientBase\Xbox360;$(CONTRIB_PATH)\SDL2.0.4\include;.\include;.\freetype\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Base\include;..\..\TBB_4_1\include;..\..\App\Include;..\..\ClientShared;..\GfxBase\include;..\GfxCore\include;..\g3d\include;..\g3d\zlib;..\AppDraw\include;..\RbxG3D\include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>FT2_BUILD_LIBRARY;_M_PPC;_PPC_;BOOST_BIG_ENDIAN=1;BOOST_BIG_ENDIAN;RBX_PLATFORM_XBOX360;_XBOX;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Xbox 360'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\ClientBase\Xbox360;$(CONTRIB_PATH)\SDL2.0.4\include;.\include;.\freetype\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Base\include;..\..\TBB_4_1\include;..\..\App\Include;..\..\ClientShared;..\GfxBase\include;..\GfxCore\include;..\g3d\include;..\g3d\zlib;..\AppDraw\include;..\RbxG3D\include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>FT2_BUILD_LIBRARY;_M_PPC;_PPC_;BOOST_BIG_ENDIAN=1;BOOST_BIG_ENDIAN;RBX_PLATFORM_XBOX360;_XBOX;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Xbox 360'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\ClientBase\Xbox360;$(CONTRIB_PATH)\SDL2.0.4\include;.\include;.\freetype\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Base\include;..\..\TBB_4_1\include;..\..\App\Include;..\..\ClientShared;..\GfxBase\include;..\GfxCore\include;..\g3d\include;..\g3d\zlib;..\AppDraw\include;..\RbxG3D\include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>FT2_BUILD_LIBRARY;_M_PPC;_PPC_;BOOST_BIG_ENDIAN=1;BOOST_BIG_ENDIAN;RBX_PLATFORM_XBOX360;_XBOX;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\..\ClientBase\Xbox360;$(CONTRIB_PATH)\SDL2.0.4\include;.\include;.\freetype\include;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\Base\include;..\..\TBB_4_1\include;..\..\App\Include;..\..\ClientShared;..\GfxBase\include;..\GfxCore\include;..\g3d\include;..\g3d\zlib;..\AppDraw\include;..\RbxG3D\include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>FT2_BUILD_LIBRARY;_M_PPC;_PPC_;BOOST_BIG_ENDIAN=1;BOOST_BIG_ENDIAN;RBX_PLATFORM_XBOX360;_XBOX;_MBCS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
     </ClCompile>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

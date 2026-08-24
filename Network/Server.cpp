@@ -38,6 +38,10 @@
 #include <arpa/inet.h>
 #endif
 
+#if defined(RBX_PLATFORM_XBOX360)
+#include <winsockx.h>
+#endif
+
 #include "FastLog.h"
 
 #include "script/LuaVM.h"
@@ -193,7 +197,7 @@ std::vector<std::string> Server::getAllIPv4Addresses()
 {
     std::vector<std::string> ipAddresses;
     
-#if defined(_WIN32)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)
 	WORD wVersionRequested;
 	WSADATA wsaData;
 	char name[255];
@@ -224,6 +228,33 @@ std::vector<std::string> Server::getAllIPv4Addresses()
 	// server can't connect to same machine clients otherwise
 	ipAddresses.push_back("127.0.0.1");
 
+#elif defined(RBX_PLATFORM_XBOX360)
+    {
+        SOCKET probe = socket(AF_INET, SOCK_DGRAM, 0);
+        if (probe != INVALID_SOCKET)
+        {
+            sockaddr_in remote;
+            memset(&remote, 0, sizeof(remote));
+            remote.sin_family = AF_INET;
+            remote.sin_port = htons(53);
+            remote.sin_addr.s_addr = inet_addr("8.8.8.8");
+            if (connect(probe, (sockaddr*)&remote, sizeof(remote)) == 0)
+            {
+                sockaddr_in local;
+                int len = sizeof(local);
+                if (getsockname(probe, (sockaddr*)&local, &len) == 0)
+                {
+                    unsigned char* b = (unsigned char*)&local.sin_addr.s_addr;
+                    char buf[16];
+                    sprintf(buf, "%u.%u.%u.%u", b[0], b[1], b[2], b[3]);
+                    ipAddresses.push_back(buf);
+                }
+            }
+            closesocket(probe);
+        }
+    }
+    // Also add loopback so same-machine clients can connect.
+    ipAddresses.push_back("127.0.0.1");
 #else
     struct ifaddrs * ifAddrStruct = NULL;
     struct ifaddrs * ifa = NULL;

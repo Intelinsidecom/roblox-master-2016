@@ -18,7 +18,12 @@
 // extern __int64 _strtoui64(const char*, char**, int); // needed for Code::Blocks. Does not compile on Visual Studio 2010
 // IP_DONTFRAGMENT is different between winsock 1 and winsock 2.  Therefore, Winsock2.h must be linked againt Ws2_32.lib
 // winsock.h must be linked against WSock32.lib.  If these two are mixed up the flag won't work correctly
+#if !defined(RBX_PLATFORM_XBOX360)
 #include <winsock2.h>
+#else
+#include <windows.h>
+#include <winsockx.h>
+#endif
 
 #else
 #include <sys/socket.h>
@@ -276,8 +281,13 @@ void SystemAddress::ToString_Old(bool writePort, char *dest, char portDelineator
 
 	in_addr in;
 	in.s_addr = address.addr4.sin_addr.s_addr;
+#if !defined(RBX_PLATFORM_XBOX360)
 	const char *ntoaStr = inet_ntoa( in );
 	strcpy(dest, ntoaStr);
+#else
+	unsigned char *b = (unsigned char*) &in.s_addr;
+	sprintf(dest, "%u.%u.%u.%u", b[0], b[1], b[2], b[3]);
+#endif
 	if (writePort)
 	{
 		strcat(dest, portStr);
@@ -724,7 +734,7 @@ bool RakNetGUID::FromString(const char *source)
 
 
 
-#if   defined(WIN32)
+#if   defined(_WIN32)
 	g=_strtoui64(source, NULL, 10);
 
 

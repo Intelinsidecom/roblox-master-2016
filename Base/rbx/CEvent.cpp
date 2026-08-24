@@ -8,6 +8,10 @@
 	const int RBX::CEvent::cINFINITE;
 #endif
 
+#if defined(RBX_PLATFORM_XBOX360)
+#include <windows.h> // its a shim with more includes
+#endif
+
 
 void RBX::CEvent::Wait()
 {

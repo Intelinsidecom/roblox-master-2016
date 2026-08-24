@@ -105,6 +105,18 @@
     <PlatformToolset>v100</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='NoOpt|Xbox 360'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Xbox 360'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -199,6 +211,22 @@
     <LibraryWPath>$(Console_SdkLibPath);$(Console_SdkWindowsMetadataPath)</LibraryWPath>
     <OutDir>bin\$(Configuration)$(Platform)\</OutDir>
     <IntDir>obj\$(Configuration)$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">
+    <OutDir>bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Xbox 360'">
+    <OutDir>bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Xbox 360'">
+    <OutDir>bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
+    <OutDir>bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>obj\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -373,6 +401,34 @@
     <Lib>
       <OutputFile>$(OutDir)RenderLibBase.lib</OutputFile>
     </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">
+    <ClCompile>
+      <PreprocessorDefinitions>RBX_PLATFORM_XBOX360;_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\ClientBase\Xbox360;$(CONTRIB_PATH)\SDL2.0.4\include;..\..\TBB_4_1\include;..\SDL-1.2.6\include;..\G3D\png;..\g3d\include;.\include;..\..\Base\include;..\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\app\include;..\App\include;..\GfxBase\include;..\AppDraw\include;..\RbxG3D\include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='NoOpt|Xbox 360'">
+    <ClCompile>
+      <PreprocessorDefinitions>RBX_PLATFORM_XBOX360;_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\ClientBase\Xbox360;$(CONTRIB_PATH)\SDL2.0.4\include;..\..\TBB_4_1\include;..\SDL-1.2.6\include;..\G3D\png;..\g3d\include;.\include;..\..\Base\include;..\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\app\include;..\App\include;..\GfxBase\include;..\AppDraw\include;..\RbxG3D\include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='ReleaseTest|Xbox 360'">
+    <ClCompile>
+      <PreprocessorDefinitions>RBX_PLATFORM_XBOX360;_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\ClientBase\Xbox360;$(CONTRIB_PATH)\SDL2.0.4\include;..\..\TBB_4_1\include;..\SDL-1.2.6\include;..\G3D\png;..\g3d\include;.\include;..\..\Base\include;..\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\app\include;..\App\include;..\GfxBase\include;..\AppDraw\include;..\RbxG3D\include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Xbox 360'">
+    <ClCompile>
+      <PreprocessorDefinitions>RBX_PLATFORM_XBOX360;_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\ClientBase\Xbox360;$(CONTRIB_PATH)\SDL2.0.4\include;..\..\TBB_4_1\include;..\SDL-1.2.6\include;..\G3D\png;..\g3d\include;.\include;..\..\Base\include;..\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\app\include;..\App\include;..\GfxBase\include;..\AppDraw\include;..\RbxG3D\include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Adorn.cpp" />

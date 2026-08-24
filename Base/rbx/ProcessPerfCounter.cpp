@@ -10,7 +10,7 @@
 #pragma comment(lib, "windowsapp.lib")
 #endif
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP)  
+#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 #include "PdhMsg.h"
 #pragma comment (lib,"pdh.lib")
 

@@ -697,14 +697,8 @@ SOCKET TCPInterface::SocketConnect(const char* host, unsigned short remotePort, 
 	sockaddr_in serverAddress;
 
 
-	struct hostent * server;
-	server = gethostbyname(host);
-	if (server == NULL)
-		return (SOCKET) -1;
-
-
 	SOCKET sockfd = socket__(AF_INET, SOCK_STREAM, 0);
-	if (sockfd < 0) 
+	if (sockfd < 0)
 		return (SOCKET) -1;
 
 	memset(&serverAddress, 0, sizeof(serverAddress));
@@ -714,8 +708,18 @@ SOCKET TCPInterface::SocketConnect(const char* host, unsigned short remotePort, 
 	int sock_opt=1024*256;
 	setsockopt__(sockfd, SOL_SOCKET, SO_RCVBUF, ( char * ) & sock_opt, sizeof ( sock_opt ) );
 
+#if defined(RBX_PLATFORM_XBOX360)
+	serverAddress.sin_addr.s_addr = inet_addr(host);
+	if (serverAddress.sin_addr.s_addr == (unsigned long)-1)
+		return (SOCKET)-1;
+#else
+	struct hostent * server;
+	server = gethostbyname(host);
+	if (server == NULL)
+		return (SOCKET)-1;
 
 	memcpy((char *)&serverAddress.sin_addr.s_addr, (char *)server->h_addr, server->h_length);
+#endif
 
 
 

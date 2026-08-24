@@ -6,7 +6,7 @@
 #include <windows.h>
 #endif
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 #include <windows.h>
 #include <wincrypt.h>
 #endif
@@ -17,7 +17,7 @@ namespace RBX
 {
 	class Crypt
 	{
-#if defined (_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if defined (_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
 	HCRYPTPROV context;
 	HCRYPTKEY key;
 #endif

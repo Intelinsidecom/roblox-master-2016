@@ -62,7 +62,7 @@ SimpleMutex::~SimpleMutex()
 {
 // 	if (isInitialized==false)
 // 		return;
-#ifdef _WIN32
+#if defined(_WIN32)
 	//	CloseHandle(hMutex);
 	DeleteCriticalSection(&criticalSection);
 
@@ -94,7 +94,7 @@ void SimpleMutex::Lock(void)
 // 	if (isInitialized==false)
 // 		Init();
 
-#ifdef _WIN32
+#if defined(_WIN32)
 	/*
 	DWORD d = WaitForSingleObject(hMutex, INFINITE);
 	#ifdef _DEBUG
@@ -142,7 +142,7 @@ void SimpleMutex::Unlock(void)
 {
 // 	if (isInitialized==false)
 // 		return;
-#ifdef _WIN32
+#if defined(_WIN32)
 	//	ReleaseMutex(hMutex);
 	LeaveCriticalSection(&criticalSection);
 
@@ -160,7 +160,7 @@ void SimpleMutex::Unlock(void)
 
 void SimpleMutex::Init(void)
 {
-#ifdef _WIN32
+#if defined(_WIN32)
 	//	hMutex = CreateMutex(NULL, FALSE, 0);
 	//	RakAssert(hMutex);
 	InitializeCriticalSection(&criticalSection);

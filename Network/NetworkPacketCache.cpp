@@ -258,7 +258,12 @@ void InstancePacketCache::insert(const Instance* key)
 	if (result.second)
 	{
 		Instance* instance = const_cast<Instance*>(key);
+#ifndef RBX_PLATFORM_XBOX360
 		result.first->second->propChangedConnection = instance->propertyChangedSignal.connect(boost::bind(&InstancePacketCache::CachedBitStream::onPropertyChanged, result.first->second, _1));
+#else
+		InstancePacketCache::CachedBitStream* cached = result.first->second.get();
+		cached->propChangedConnection = instance->propertyChangedSignal.connect(boost::bind(&CachedBitStream::onPropertyChanged, cached, _1));
+#endif
 		result.first->second->ancestorChangedConnection = instance->ancestryChangedSignal.connect(boost::bind(&InstancePacketCache::onAncestorChanged, this, _1, _2));
 	}
 	else

@@ -5,6 +5,10 @@
 #define NTDDI_VERSION 0x0A000000
 #endif
 
+#if defined(RBX_PLATFORM_XBOX360)
+#include <windows.h> // its a shim with more includes
+#endif
+
 #include "rbx/Debug.h"
 
 FASTFLAGVARIABLE(OnScreenProfiler, false)
@@ -105,7 +109,7 @@ static void MicroProfileDebugPrintf(const char* format, ...)
 #define getenv(name) NULL
 #endif
 
-#if defined(_WIN32)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)
 #define MICROPROFILE_GPU_TIMERS_D3D11 1
 #elif defined(__APPLE__) && !defined(RBX_PLATFORM_IOS)
 #include <OpenGL/gl3.h>

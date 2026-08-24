@@ -537,6 +537,8 @@ RBX_SIMD_INLINE void transpose4x2( T& x, T& y, const T& a, const T& b, const T& 
 #include "simd/simd_sse.inl"
 #elif defined( RBX_SIMD_USE_NEON )
 #include "simd/simd_neon.inl"
+#elif defined( RBX_SIMD_USE_VMX )
+#include "simd/simd_vmx.inl"
 #endif
 
 #include "simd/simd_common.inl"

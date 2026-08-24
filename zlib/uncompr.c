@@ -21,11 +21,16 @@
    enough memory, Z_BUF_ERROR if there was not enough room in the output
    buffer, or Z_DATA_ERROR if the input data was corrupted.
 */
+#ifdef RBX_PLATFORM_XBOX360
+int ZEXPORT uncompress(Bytef *dest, uLongf *destLen, const Bytef *source,
+                       uLong sourceLen)
+#else
 int ZEXPORT uncompress (dest, destLen, source, sourceLen)
     Bytef *dest;
     uLongf *destLen;
     const Bytef *source;
     uLong sourceLen;
+#endif
 {
     z_stream stream;
     int err;

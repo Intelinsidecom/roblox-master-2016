@@ -12,6 +12,10 @@
 #include <crtdbg.h>
 #endif
 
+#if defined(RBX_PLATFORM_XBOX360)
+#include <windows.h> // its a shim with more includes
+#endif
+
 #ifdef __ANDROID__
 #include <typeinfo>
 #include <cstdlib>
