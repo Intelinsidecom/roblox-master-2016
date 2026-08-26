@@ -3,7 +3,7 @@
 #if defined(_WIN32) // should only be used with Microsoft platforms
 #include <Windows.h>
 
-#if !defined(RBX_PLATFORM_DURANGO)
+#if !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_XBOX360)
 #include <psapi.h>
 #endif
 
@@ -19,7 +19,7 @@ using namespace RBX::MemoryStats;
 
 namespace RBX {
 	namespace MemoryStats {
-#if !defined(RBX_PLATFORM_DURANGO)
+#if !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_XBOX360)
 		MEMORYSTATUSEX globalMemoryStatusEx() {
 			MEMORYSTATUSEX statex;
 			statex.dwLength = sizeof(statex);
@@ -31,7 +31,7 @@ namespace RBX {
 		DWORDLONG usedMemoryBytes() {
 #if defined(RBX_USE_APP_MEMORY_LIMIT)
 			return Windows::System::MemoryManager::AppMemoryUsage;
-#elif !defined(RBX_PLATFORM_DURANGO)
+#elif !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_XBOX360)
 			PROCESS_MEMORY_COUNTERS pmc;
 			GetProcessMemoryInfo(GetCurrentProcess(), &pmc, sizeof(pmc));
 			return pmc.WorkingSetSize;
@@ -47,7 +47,7 @@ namespace RBX {
 			MEMORYSTATUSEX statex = globalMemoryStatusEx();
 			DWORDLONG physicalFree = statex.ullAvailPhys;
 			return (physicalFree < quotaFree) ? physicalFree : quotaFree;
-#elif !defined(RBX_PLATFORM_DURANGO)
+#elif !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_XBOX360)
 			MEMORYSTATUSEX statex = globalMemoryStatusEx();
 			return statex.ullAvailPhys;
 #else
@@ -60,11 +60,16 @@ namespace RBX {
 		DWORDLONG totalMemoryBytes() {
 #if defined(RBX_USE_APP_MEMORY_LIMIT)
 			return Windows::System::MemoryManager::AppMemoryUsageLimit;
-#elif defined (RBX_PLATFORM_DURANGO)
+#elif defined(RBX_PLATFORM_DURANGO)
             _TITLEMEMORYSTATUS status;
             status.dwLength = sizeof(TITLEMEMORYSTATUS);
             TitleMemoryStatus(&status);
             return status.ullTotalMem;
+#elif defined(RBX_PLATFORM_XBOX360)
+            MEMORYSTATUS status;
+            status.dwLength = sizeof(MEMORYSTATUS);
+            GlobalMemoryStatus(&status);
+            return status.dwTotalPhys;
 #else
             MEMORYSTATUSEX statex = globalMemoryStatusEx();
             return statex.ullTotalPhys;

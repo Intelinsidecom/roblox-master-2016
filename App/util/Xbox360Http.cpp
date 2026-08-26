@@ -1,10 +1,15 @@
 /* Copyright 2006-2007 ROBLOX Corporation, All Rights Reserved */
 
+// Xbox 360 native HTTP transport. Implements Http::httpGetPostXbox using
+// blocking BSD sockets via the XDK winsock layer (winsockx.h). HTTP only;
+// HTTPS is not supported by this transport and will throw.
+
 #include "stdafx.h"
 
 #if defined(RBX_PLATFORM_XBOX360)
 
 #include "util/Http.h"
+#include "util/HttpPlatformImpl.h"
 #include "util/standardout.h"
 
 #include <winsockx.h>
@@ -36,7 +41,7 @@ namespace
 
 		const std::string scheme = url.substr(0, schemeEnd);
 		if (_stricmp(scheme.c_str(), "http") != 0)
-			return false; 
+			return false; // https unsupported by this transport
 
 		std::string::size_type pathStart = url.find('/', schemeEnd + schemeSeparator.size());
 		const std::string authority = (pathStart == std::string::npos)
@@ -204,5 +209,14 @@ void Http::httpGetPostXbox(bool isPost, std::istream& dataStream, const std::str
 }
 
 } // namespace RBX
+
+namespace RBX{ namespace HttpPlatformImpl {
+void init(Http::CookieSharingPolicy cookieSharingPolicy) { RBXASSERT(0); }
+void setCookiesForDomain(const std::string& domain, const std::string& cookies) { RBXASSERT(0); }
+void getCookiesForDomain(const std::string& domain, std::string& cookies) { RBXASSERT(0); }
+boost::filesystem::path getRobloxCookieJarPath() { RBXASSERT(0); return ""; }
+void setProxy(const std::string& host, long port) { RBXASSERT(0); }
+void perform(HttpOptions& options, std::string& response) { RBXASSERT(0); }
+}}
 
 #endif // RBX_PLATFORM_XBOX360

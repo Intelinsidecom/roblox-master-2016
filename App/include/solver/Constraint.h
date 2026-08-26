@@ -16,6 +16,8 @@ class DebugSerializer;
 class ConstraintVariables;
 
 #if defined(RBX_PLATFORM_XBOX360)
+// Accessor for the v4f_pod union member. Must be declared before the
+// ConstraintVariables static member bodies below reference it.
 RBX_SIMD_INLINE const simd::v4f_pod& constraintVariables_v( const ConstraintVariables& vars );
 RBX_SIMD_INLINE simd::v4f_pod& constraintVariables_v( ConstraintVariables& vars );
 #endif
