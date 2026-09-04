@@ -1086,7 +1086,7 @@ bool Http::isMoneySite(const char* url)
         case ATL_URL_SCHEME_HTTPS:
         case ATL_URL_SCHEME_FTP:
         {
-            // only trust urls from freblx.xyz
+            // only trust urls from freblx.com
             CString hostName = crack.GetHostName();
             hostName.MakeLower();
             if (hostName.Right(10)=="paypal.com")
@@ -1123,7 +1123,7 @@ bool Http::isMoneySite(const char* url)
 
     std::transform(host.begin(), host.end(), host.begin(), ::tolower);
 
-    // Only trust urls from freblx.xyz.
+    // Only trust urls from freblx.com.
     if ("paypal.com" == host || hasEnding(host, ".paypal.com"))
     {
         return true;
@@ -1143,11 +1143,11 @@ bool Http::isStrictlyRobloxSite(const char* url)
     {
         RBX::Url parsed = RBX::Url::fromString(url);
     
-        return parsed.isSubdomainOf("freblx.xyz") || parsed.isSubdomainOf("robloxlabs.com");
+        return parsed.isSubdomainOf("freblx.com") || parsed.isSubdomainOf("robloxlabs.com");
     }
 
     std::string host(HTParse(url, NULL, PARSE_HOST));
-    if ("freblx.xyz" != host && !hasEnding(host, ".freblx.xyz") 
+    if ("freblx.com" != host && !hasEnding(host, ".freblx.com") 
         && "robloxlabs.com" != host && !hasEnding(host, ".robloxlabs.com"))
     {
         return false;
@@ -1180,8 +1180,8 @@ bool Http::isRobloxSite(const char* url)
             CString urlPath = crack.GetUrlPath();
             urlPath.MakeLower();
 
-            // trust urls from freblx.xyz
-			if (hostName.Right(10)=="freblx.xyz" || hostName.Right(14)=="robloxlabs.com")
+            // trust urls from freblx.com
+			if (hostName.Right(10)=="freblx.com" || hostName.Right(14)=="robloxlabs.com")
 				return true;
 
             // trust facebook login
@@ -1220,7 +1220,7 @@ bool Http::isRobloxSite(const char* url)
         }
     
         const bool isRoblox =
-            parsed.isSubdomainOf("freblx.xyz") ||
+            parsed.isSubdomainOf("freblx.com") ||
             parsed.isSubdomainOf("robloxlabs.com");
 
         const bool isFacebook =
@@ -1267,7 +1267,7 @@ bool Http::isRobloxSite(const char* url)
     std::transform(path.begin(), path.end(), path.begin(), ::tolower);
 
     return
-        "freblx.xyz" == host || hasEnding(host, ".freblx.xyz") ||
+        "freblx.com" == host || hasEnding(host, ".freblx.com") ||
         "robloxlabs.com" == host || hasEnding(host, ".robloxlabs.com") ||
         // trust facebook login
         ("login.facebook.com" == host && "/login.php") ||
@@ -1302,7 +1302,7 @@ bool Http::isExternalRequest(const char* url)
 
         std::string hostname = urlParsed.GetHostName();
 
-        if(hostname.find("freblx.xyz") != std::string::npos || hostname.find("robloxlabs.com") != std::string::npos)
+        if(hostname.find("freblx.com") != std::string::npos || hostname.find("robloxlabs.com") != std::string::npos)
             return false;
 
         return true;
@@ -1317,7 +1317,7 @@ bool Http::isExternalRequest(const char* url)
             return false;
         }
 
-        return !parsed.isSubdomainOf("freblx.xyz")
+        return !parsed.isSubdomainOf("freblx.com")
             && !parsed.isSubdomainOf("robloxlabs.com");
     }
 
@@ -1335,7 +1335,7 @@ bool Http::isExternalRequest(const char* url)
     std::transform(host.begin(), host.end(), host.begin(), ::tolower);
 
     return
-        "freblx.xyz" != host && !hasEnding(host, ".freblx.xyz") &&
+        "freblx.com" != host && !hasEnding(host, ".freblx.com") &&
         "robloxlabs.com" != host && !hasEnding(host, ".robloxlabs.com");
 }
 

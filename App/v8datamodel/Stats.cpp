@@ -478,8 +478,8 @@ static const bool jobsAsArray = true;
 			std::string baseUrl = baseUrlInput;
 
 			RBXASSERT(baseUrl.substr(0, 7) == "http://");
-			if (baseUrl.find("www.freblx.xyz") != std::string::npos)
-				baseUrl = "http://logging.service.freblx.xyz/";
+			if (baseUrl.find("www.freblx.com") != std::string::npos)
+				baseUrl = "http://logging.service.freblx.com/";
 			else
 				baseUrl.insert(7, "logging.service.");	// Inserted after http://
 			return baseUrl + "Gatherer/LogEntry?Shard=" + shard;
@@ -778,7 +778,7 @@ static const bool jobsAsArray = true;
 			/*
 			SettingsConsole.exe gametest get ClientSharedSettings
 			SettingsConsole.exe gametest set ClientSharedSettings.StatsGatheringScriptUrl=
-			SettingsConsole.exe gametest set ClientSharedSettings.StatsGatheringScriptUrl=http://logging.gametest.freblx.xyz/GameScript
+			SettingsConsole.exe gametest set ClientSharedSettings.StatsGatheringScriptUrl=http://logging.gametest.freblx.com/GameScript
 			*/
 			// TODO: This is a hack until we have a common way of getting the correct url
 			std::string baseUrl;

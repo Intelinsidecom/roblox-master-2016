@@ -26,8 +26,8 @@
 
 static const TCHAR* BootstrapperFileName    = _T("RobloxPlayerLauncher.exe");
 static const TCHAR* RobloxAppFileName		= _T(PLAYEREXENAME);
-static const TCHAR* BootstrapperMutexName   = _T("www.freblx.xyz/bootstrapper");
-static const TCHAR* StartRobloxAppMutex     = _T("www.freblx.xyz/startRobloxApp");
+static const TCHAR* BootstrapperMutexName   = _T("www.freblx.com/bootstrapper");
+static const TCHAR* StartRobloxAppMutex     = _T("www.freblx.com/startRobloxApp");
 static const TCHAR* LauncherFileName        = _T("RobloxProxy.dll");
 static const TCHAR* LauncherFileName64      = _T("RobloxProxy64.dll");
 static const TCHAR* FriendlyName            = _T("Freebloxia");
@@ -1005,7 +1005,7 @@ void BootstrapperClient::deployRobloxProxy(bool commitData)
 
 		// For IE8:
 		CRegKey allowedDomainsKey = CreateKey(key, _T("AllowedDomains"));
-		CreateKey(allowedDomainsKey, _T("freblx.xyz"));
+		CreateKey(allowedDomainsKey, _T("freblx.com"));
 		CreateKey(allowedDomainsKey, _T("robloxlabs.com"));
 	}
 

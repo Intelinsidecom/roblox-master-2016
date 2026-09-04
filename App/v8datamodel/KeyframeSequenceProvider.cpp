@@ -220,8 +220,8 @@ shared_ptr<KeyframeSequence> KeyframeSequenceProvider::privateGetKeyframeSequenc
 		{
 			pos = assetString.find_last_of("=");  // if it's not an AssetId, find the id in the string
 		}
-		if (DFFlag::AnimationAllowProdUrls && boost::starts_with(assetId.toString(), "http://www.freblx.xyz"))	{
-			url.append("http://www.freblx.xyz"); 
+		if (DFFlag::AnimationAllowProdUrls && boost::starts_with(assetId.toString(), "http://www.freblx.com"))	{
+			url.append("http://www.freblx.com"); 
 		}
 		else {
 			url.append(ServiceProvider::create<ContentProvider>(this)->getBaseUrl()); 

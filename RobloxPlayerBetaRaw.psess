@@ -50,7 +50,7 @@
       <LaunchMethod>Executable</LaunchMethod>
       <ExecutablePath>WindowsClient\Win32\Release\RobloxPlayerBetaRaw.exe</ExecutablePath>
       <StartupDirectory>WindowsClient\</StartupDirectory>
-      <Arguments>--authenticationUrl &amp;quot;http://www.freblx.xyz/Login/Negotiate.ashx&amp;quot; --authenticationTicket &amp;quot;a2lkOdKUXqgu0VVIMMGeYowTx8pq-aCE-Jcb37Vaytk&amp;quot; --joinScriptUrl &amp;quot;http://www.freblx.xyz/game/join.ashx?serverPort=53640&amp;amp;gameid=72&amp;amp;jobid=c4141146-272a-4e86-abcd-d9d54b398836&amp;quot;</Arguments>
+      <Arguments>--authenticationUrl &amp;quot;http://www.freblx.com/Login/Negotiate.ashx&amp;quot; --authenticationTicket &amp;quot;a2lkOdKUXqgu0VVIMMGeYowTx8pq-aCE-Jcb37Vaytk&amp;quot; --joinScriptUrl &amp;quot;http://www.freblx.com/game/join.ashx?serverPort=53640&amp;amp;gameid=72&amp;amp;jobid=c4141146-272a-4e86-abcd-d9d54b398836&amp;quot;</Arguments>
       <NetAppHost>IIS</NetAppHost>
       <NetBrowser>InternetExplorer</NetBrowser>
       <ExcludeSmallFuncs>true</ExcludeSmallFuncs>

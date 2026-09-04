@@ -182,8 +182,8 @@ IDB_CLIENT_TEXT         BITMAP                  "assets\\txt_success-player@1x.b
 
 STRINGTABLE 
 BEGIN
-    IDS_INSTALLHOST         "setup.freblx.xyz"
-    IDS_BASEHOST            "www.freblx.xyz"
+    IDS_INSTALLHOST         "setup.freblx.com"
+    IDS_BASEHOST            "www.freblx.com"
     IDS_SUCCESS1            "ROBLOX IS SUCCESSFULLY INSTALLED!"
     IDS_SUCCESS2            "Just click the ""Play"" button on any game to join the action!"
     IDS_STUDIO_SUCCESS1     "ROBLOX STUDIO IS SUCCESSFULLY INSTALLED!"

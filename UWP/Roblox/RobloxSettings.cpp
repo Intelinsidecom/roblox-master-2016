@@ -7,11 +7,11 @@ using namespace Platform;
 RobloxSettings^ RobloxSettings::s_instance = nullptr;
 
 RobloxSettings::RobloxSettings()
-    : m_baseDomain(L"www.freblx.xyz")
-    , m_baseURL(L"http://www.freblx.xyz")
-    , m_baseURLWWW(L"http://www.freblx.xyz")
-    , m_baseSecureURL(L"https://www.freblx.xyz")
-    , m_baseApiURL(L"https://api.freblx.xyz")
+    : m_baseDomain(L"www.freblx.com")
+    , m_baseURL(L"http://www.freblx.com")
+    , m_baseURLWWW(L"http://www.freblx.com")
+    , m_baseSecureURL(L"https://www.freblx.com")
+    , m_baseApiURL(L"https://api.freblx.com")
     , m_deviceAppVersion(L"1.1.57.0")
     , m_apiUserAgent(L"RobloxUWP/1.1.57.0 (Windows 10)")
     , m_deviceIsTablet(true)
@@ -111,7 +111,7 @@ String^ RobloxSettings::ForumUrl()
 
 String^ RobloxSettings::HelpURL()
 {
-    return L"https://en.help.freblx.xyz/hc/en-us";
+    return L"https://en.help.freblx.com/hc/en-us";
 }
 
 String^ RobloxSettings::SettingsURL()
@@ -276,7 +276,7 @@ String^ RobloxSettings::StoreReportPurchaseURL(String^ transactionID)
 
 String^ RobloxSettings::AnalyticsEphemeralURL(String^ apiKey, String^ counterName, String^ amount)
 {
-    return L"https://ephemeralcountersoapi.freblx.xyz/v1.1/Counters/Increment/?apiKey=" + apiKey + L"&counterName=" + counterName + L"&amount=" + amount;
+    return L"https://ephemeralcountersoapi.freblx.com/v1.1/Counters/Increment/?apiKey=" + apiKey + L"&counterName=" + counterName + L"&amount=" + amount;
 }
 
 String^ RobloxSettings::AnalyticsInfluxV2URL(String^ serverURL, String^ database, String^ user, String^ password, String^ timePrecisionID)

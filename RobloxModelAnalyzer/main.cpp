@@ -114,7 +114,7 @@ void globalInit()
 	
 	RBX::StandardOut::singleton()->messageOut.connect(&onMessageOut);
 
-	SetBaseURL("www.freblx.xyz");
+	SetBaseURL("www.freblx.com");
 
 	RBX::GameBasicSettings::singleton();
 	RBX::NetworkSettings::singleton();

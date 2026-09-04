@@ -33,7 +33,7 @@
 
 FASTSTRINGVARIABLE(ClientExternalBrowserUserAgent, "Roblox/WinInet")
 
-#define ROBLOX_URL_IDENTIFIER "freblx.xyz/"
+#define ROBLOX_URL_IDENTIFIER "freblx.com/"
 #define ROBLOXLABS_URL_IDENTIFIER ".robloxlabs.com/"
 
 #pragma comment (lib, "Ws2_32.lib")

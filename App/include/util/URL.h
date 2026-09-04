@@ -15,7 +15,7 @@ namespace RBX
 /* A class for parsing and assembling URLs with focus mostly on HTTP-specific subset of RFC3986.
  *
  * Works with strings having the following form:
- * https://www.freblx.xyz/very/long/path?query&arg=value#fragment
+ * https://www.freblx.com/very/long/path?query&arg=value#fragment
  * \___/   \____________/\_____________/ \_____________/ \______/
  *   |           |             |                |           |
  * scheme       host          path            query      fragment
@@ -87,9 +87,9 @@ public:
     }
 
     // Check whether the current host() is a subdomain of provided domain name.
-    // - "www.freblx.xyz" is a subdomain of "freblx.xyz"
-    // - "freblx.xyz" is a subdomain of "freblx.xyz"
-    // - "notfreblx.xyz" is not a subdomain of "freblx.xyz"
+    // - "www.freblx.com" is a subdomain of "freblx.com"
+    // - "freblx.com" is a subdomain of "freblx.com"
+    // - "notfreblx.com" is not a subdomain of "freblx.com"
     // Domain names are case insensitive
     bool isSubdomainOf(const char* domain) const;
     

@@ -38,8 +38,8 @@
         <uap:Rule Match="https://*.robloxlabs.com" Type="include" WindowsRuntimeAccess="all" />
         <uap:Rule Match="http://*.*.robloxlabs.com" Type="include" WindowsRuntimeAccess="all" />
         <uap:Rule Match="https://*.*.robloxlabs.com" Type="include" WindowsRuntimeAccess="all" />
-        <uap:Rule Match="http://*.freblx.xyz" Type="include" WindowsRuntimeAccess="all" />
-        <uap:Rule Match="https://*.freblx.xyz" Type="include" WindowsRuntimeAccess="none" />
+        <uap:Rule Match="http://*.freblx.com" Type="include" WindowsRuntimeAccess="all" />
+        <uap:Rule Match="https://*.freblx.com" Type="include" WindowsRuntimeAccess="none" />
       </uap:ApplicationContentUriRules>
     </Application>
   </Applications>

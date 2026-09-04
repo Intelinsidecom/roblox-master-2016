@@ -761,7 +761,7 @@ namespace RBX
 		std::string url = path;
 		normalizeUrl(url);
 		
-		mMap[url] = format("http://www.freblx.xyz/Asset?id=%s", contentId.c_str());
+		mMap[url] = format("http://www.freblx.com/Asset?id=%s", contentId.c_str());
 	}
 	
 	const std::string& LegacyContentTable::FindEntry(const std::string& path)
