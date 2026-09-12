@@ -9,7 +9,7 @@ public:
 	DECLARE_DATA_INT(CountersLoad);
 	DECLARE_DATA_BOOL(PerModeLoggingEnabled);
 	DECLARE_DATA_BOOL(CountersFireImmediately);
-	DECLARE_DATA_INT(HttpboostPostTimeout);
+	DECLARE_DATA_INT(HttpBoostPostTimeout);
 	DECLARE_DATA_BOOL(ShowInstallSuccessPrompt);
 	DECLARE_DATA_BOOL(LogChromeProtocolFix);
 	DECLARE_DATA_STRING(InfluxUrl);

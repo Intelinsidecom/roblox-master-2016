@@ -79,9 +79,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="..\Bootstrapper\Bootstrapper.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
     <Image Include="Bootstrapper.ico">
       <Filter>Resource Files</Filter>
     </Image>
@@ -112,6 +109,9 @@
     <Image Include="..\Bootstrapper\assets\logo_meatball%401x.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\Bootstrapper\assets\logo_robloxstudio%401x.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
     <Image Include="..\Bootstrapper\assets\txt_backto-ON%401x .bmp">
       <Filter>Resource Files</Filter>
     </Image>
@@ -136,12 +136,9 @@
     <Image Include="..\Bootstrapper\assets\txt_success%401x.bmp">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="..\Bootstrapper\assets\logo_freebloxiastudio%401x.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\Bootstrapper\Bootstrapper.rc">
+    <ResourceCompile Include="Bootstrapper.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
   </ItemGroup>

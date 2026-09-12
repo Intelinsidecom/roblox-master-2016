@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "Bootstrapper.h"
 #include "CountersClient.h"
 #include "WindowsStudioInstallerSettings.h"
@@ -74,5 +74,3 @@ public:
 
 	virtual void StartRobloxApp(bool fromInstall);
 };
-
-

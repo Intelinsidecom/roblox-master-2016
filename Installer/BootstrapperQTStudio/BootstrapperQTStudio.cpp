@@ -1,4 +1,4 @@
-﻿// BootstrapperQTStudio.cpp : Defines the entry point for the application.
+// BootstrapperQTStudio.cpp : Defines the entry point for the application.
 //
 
 #include "stdafx.h"
@@ -113,7 +113,7 @@ void BootstrapperQTStudio::LoadSettings()
 		SettingsLoader loader(BaseHost());
 		settings.ReadFromStream(loader.GetSettingsString("WindowsStudioBootstrapperSettings").c_str());
 
-		HttpTools::httpboostPostTimeout = settings.GetValueHttpboostPostTimeout();
+		HttpTools::httpboostPostTimeout = settings.GetValueHttpBoostPostTimeout();
 	}
 	catch (std::exception e)
 	{
@@ -447,7 +447,7 @@ bool BootstrapperQTStudio::ProcessProtocolHandlerArgs(const std::map<std::wstrin
 		LOG_ENTRY1("BootstrapperQTStudio::ProcessProtocolHandlerArgs: scriptUrl, value = %s", editArgs.script.c_str());
 	}
 	
-	editArgs.authUrl = "http://" + BaseHost() + "/Login/Negotiate.ashx";
+	editArgs.authUrl = "https://" + BaseHost() + "/Login/Negotiate.ashx";
 	LOG_ENTRY1("BootstrapperQTStudio::ProcessProtocolHandlerArgs: AuthUrl, value = %s", editArgs.authUrl.c_str());
 
 	std::wstring authTicket = getValue(argMap, _T("gameinfo"));
@@ -476,7 +476,3 @@ bool BootstrapperQTStudio::ProcessProtocolHandlerArgs(const std::map<std::wstrin
 
 	return true;
 }
-
-
-
-
