@@ -219,6 +219,7 @@
       <PreprocessorDefinitions>BOOST_BIG_ENDIAN=1;BOOST_BIG_ENDIAN;RBX_PLATFORM_XBOX360;_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\ClientBase\Xbox360;.\include;..\..\Base\include;..\RbxG3D\include;..\GfxBase;..\GfxBase\include;..\RenderLibNew\include;..\G3D\png;..\g3d\include;..\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\TBB_4_1\include;..\..\app\include;..\..\Rendering\AppDraw;..\..\Rendering\AppDraw\include;..\..\log\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">
@@ -226,6 +227,7 @@
       <PreprocessorDefinitions>BOOST_BIG_ENDIAN=1;BOOST_BIG_ENDIAN;RBX_PLATFORM_XBOX360;_XBOX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\..\ClientBase\Xbox360;.\include;..\..\Base\include;..\RbxG3D\include;..\GfxBase;..\GfxBase\include;..\RenderLibNew\include;..\G3D\png;..\g3d\include;..\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\TBB_4_1\include;..\..\app\include;..\..\Rendering\AppDraw;..\..\Rendering\AppDraw\include;..\..\log\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>

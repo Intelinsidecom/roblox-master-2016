@@ -19,7 +19,7 @@
 
 #ifdef _WIN32
 #include "Util/FileSystem.h"
-#if !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_UWP)
+#if !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_WIN_PHONE)
 #include "VersionInfo.h"
 #endif
 #elif __ANDROID__
