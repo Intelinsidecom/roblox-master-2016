@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -21,12 +21,9 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{63953579-396E-44FD-A8CB-EE147F9DBACF}</ProjectGuid>
     <RootNamespace>BootstrapperStudio</RootNamespace>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>Perforce Project</SccProjectName>
+    <SccLocalPath>..</SccLocalPath>
+    <SccProvider>MSSCCI:Perforce SCM</SccProvider>
     <Keyword>Win32Proj</Keyword>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -71,7 +68,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <_ProjectFileVersion>14.0.25431.1</_ProjectFileVersion>
+    <_ProjectFileVersion>11.0.60610.1</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>bin\$(Configuration)\</OutDir>
@@ -106,7 +103,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(CONTRIB_PATH)\SDK\Lib\Iphlpapi.lib;$(CONTRIB_PATH)\SDK\Lib\taskschd.lib;$(CONTRIB_PATH)\SDK\Lib\mstask.lib;libboost_system-vc110-mt-s-1_56.lib;libboost_thread-vc110-mt-s-1_56.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libboost_thread-vc110-mt-s-1_56.lib;$(CONTRIB_PATH)\SDK\Lib\Iphlpapi.lib;$(CONTRIB_PATH)\SDK\Lib\taskschd.lib;$(CONTRIB_PATH)\SDK\Lib\mstask.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)RobloxStudioLauncherBeta.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -130,12 +127,11 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(CONTRIB_PATH)\SDK\Lib\Iphlpapi.lib;$(CONTRIB_PATH)\SDK\Lib\taskschd.lib;$(CONTRIB_PATH)\SDK\Lib\mstask.lib;libboost_system-vc110-mt-s-1_56.lib;libboost_thread-vc110-mt-s-1_56.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libboost_thread-vc110-mt-s-1_56.lib;$(CONTRIB_PATH)\SDK\Lib\Iphlpapi.lib;$(CONTRIB_PATH)\SDK\Lib\taskschd.lib;$(CONTRIB_PATH)\SDK\Lib\mstask.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)RobloxStudioLauncherBeta.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <TargetMachine>MachineX64</TargetMachine>
-      <AdditionalLibraryDirectories>$(CONTRIB_PATH)\boost_1_56_0\stage\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -151,7 +147,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(CONTRIB_PATH)\SDK\Lib\Iphlpapi.lib;$(CONTRIB_PATH)\SDK\Lib\taskschd.lib;$(CONTRIB_PATH)\SDK\Lib\mstask.lib;libboost_system-vc110-mt-s-1_56.lib;libboost_thread-vc110-mt-s-1_56.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libboost_thread-vc110-mt-s-1_56.lib;$(CONTRIB_PATH)\SDK\Lib\Iphlpapi.lib;$(CONTRIB_PATH)\SDK\Lib\taskschd.lib;$(CONTRIB_PATH)\SDK\Lib\mstask.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)RobloxStudioLauncherBeta.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -180,20 +176,20 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>$(CONTRIB_PATH)\SDK\Lib\Iphlpapi.lib;$(CONTRIB_PATH)\SDK\Lib\taskschd.lib;$(CONTRIB_PATH)\SDK\Lib\mstask.lib;libboost_system-vc110-mt-s-1_56.lib;libboost_thread-vc110-mt-s-1_56.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libboost_thread-vc110-mt-s-1_56.lib;$(CONTRIB_PATH)\SDK\Lib\Iphlpapi.lib;$(CONTRIB_PATH)\SDK\Lib\taskschd.lib;$(CONTRIB_PATH)\SDK\Lib\mstask.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>$(OutDir)RobloxStudioLauncherBeta.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX64</TargetMachine>
-      <AdditionalLibraryDirectories>$(CONTRIB_PATH)\boost_1_56_0\stage\lib;</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
       <Command />
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BootstrapperQTStudio.cpp" />
     <ClCompile Include="..\..\ClientShared\CountersClient.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>
@@ -204,6 +200,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="..\Bootstrapper\SettingsLoader.cpp" />
+    <ClCompile Include="..\..\Win\SharedLauncher.cpp" />
     <ClCompile Include="..\..\ClientShared\SimpleJSON.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>
@@ -213,6 +211,12 @@
       </PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\..\ClientShared\StringConv.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -224,55 +228,45 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="..\..\Win\SharedLauncher.cpp" />
-    <ClCompile Include="..\Bootstrapper\SettingsLoader.cpp" />
-    <ClCompile Include="BootstrapperQTStudio.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
     <ClCompile Include="StudioProgressDialog.cpp" />
     <ClCompile Include="WindowsStudioInstallerSettings.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BootstrapperQTStudio.h" />
     <ClInclude Include="..\..\ClientShared\CountersClient.h" />
-    <ClInclude Include="..\..\ClientShared\SimpleJSON.h" />
-    <ClInclude Include="..\..\ClientShared\StringConv.h" />
-    <ClInclude Include="..\..\Win\SharedLauncher.h" />
     <ClInclude Include="..\Bootstrapper\resource.h" />
     <ClInclude Include="..\Bootstrapper\SettingsLoader.h" />
-    <ClInclude Include="BootstrapperQTStudio.h" />
+    <ClInclude Include="..\..\Win\SharedLauncher.h" />
+    <ClInclude Include="..\..\ClientShared\SimpleJSON.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="..\..\ClientShared\StringConv.h" />
     <ClInclude Include="StudioProgressDialog.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="WindowsStudioInstallerSettings.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Bootstrapper.ico" />
     <Image Include="..\Bootstrapper\assets\btn_cancel-ON.bmp" />
     <Image Include="..\Bootstrapper\assets\btn_cancel.bmp" />
+    <Image Include="assets\btn_launchstudio-ON.bmp" />
     <Image Include="..\Bootstrapper\assets\btn_launchstudio-ON.bmp" />
+    <Image Include="assets\btn_launchstudio.bmp" />
     <Image Include="..\Bootstrapper\assets\btn_launchstudio.bmp" />
     <Image Include="..\Bootstrapper\assets\btn_ok-ON.bmp" />
     <Image Include="..\Bootstrapper\assets\btn_ok.bmp" />
     <Image Include="..\Bootstrapper\assets\logo_meatball%401x.bmp" />
-    <Image Include="..\Bootstrapper\assets\logo_freebloxiastudio%401x.bmp" />
-    <Image Include="..\Bootstrapper\assets\txt_backto%401x.bmp" />
+    <Image Include="..\Bootstrapper\assets\logo_robloxstudio%401x.bmp" />
     <Image Include="..\Bootstrapper\assets\txt_backto-ON%401x .bmp" />
-    <Image Include="..\Bootstrapper\assets\txt_success%401x.bmp" />
-    <Image Include="..\Bootstrapper\assets\txt_success-player%401x.bmp" />
-    <Image Include="..\Bootstrapper\Bootstrapper.ico" />
-    <Image Include="assets\btn_launchstudio-ON.bmp" />
-    <Image Include="assets\btn_launchstudio.bmp" />
-    <Image Include="assets\txt_backto%401x.bmp" />
     <Image Include="assets\txt_backto-ON%401x .bmp" />
-    <Image Include="assets\txt_success%401x.bmp" />
+    <Image Include="assets\txt_backto%401x.bmp" />
+    <Image Include="..\Bootstrapper\assets\txt_backto%401x.bmp" />
+    <Image Include="..\Bootstrapper\assets\txt_success-player%401x.bmp" />
     <Image Include="assets\txt_success-player%401x.bmp" />
-    <Image Include="Bootstrapper.ico" />
+    <Image Include="assets\txt_success%401x.bmp" />
+    <Image Include="..\Bootstrapper\assets\txt_success%401x.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\Bootstrapper\Bootstrapper.rc" />
+    <ResourceCompile Include="Bootstrapper.rc" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -280,7 +274,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Bootstrapper\Bootstrapper.vcxproj">
       <Project>{c94de431-40b7-4bbb-9759-e58a58beae17}</Project>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

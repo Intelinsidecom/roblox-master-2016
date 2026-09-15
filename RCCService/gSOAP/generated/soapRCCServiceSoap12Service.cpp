@@ -34,9 +34,9 @@ void RCCServiceSoap12Service::RCCServiceSoap12Service_init(soap_mode imode, soap
 	{"SOAP-ENC", "http://schemas.xmlsoap.org/soap/encoding/", "http://www.w3.org/*/soap-encoding", NULL},
 	{"xsi", "http://www.w3.org/2001/XMLSchema-instance", "http://www.w3.org/*/XMLSchema-instance", NULL},
 	{"xsd", "http://www.w3.org/2001/XMLSchema", "http://www.w3.org/*/XMLSchema", NULL},
-	{"ns2", "http://freblx.xyz/RCCServiceSoap", NULL, NULL},
-	{"ns1", "http://freblx.xyz/", NULL, NULL},
-	{"ns3", "http://freblx.xyz/RCCServiceSoap12", NULL, NULL},
+	{"ns2", "http://freblx.com/RCCServiceSoap", NULL, NULL},
+	{"ns1", "http://freblx.com/", NULL, NULL},
+	{"ns3", "http://freblx.com/RCCServiceSoap12", NULL, NULL},
 	{NULL, NULL, NULL, NULL}
 };
 	soap_imode(this, imode);

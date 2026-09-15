@@ -1,4 +1,4 @@
-﻿#include "StdAfx.h"
+#include "StdAfx.h"
 #include "StudioProgressDialog.h"
 #include "BootstrapperQTStudio.h"
 #include "shellapi.h"
@@ -215,5 +215,3 @@ void CStudioProgressDialog::OpenDevelopPage()
 	LLOG_ENTRY1(bs->logger, "Opening developer page: url=%S", url.c_str());
 	ShellExecute(0, _T("open"), url.c_str(), 0, 0, 1);
 }
-
-

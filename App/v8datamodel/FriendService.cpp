@@ -34,9 +34,9 @@ FriendService::FriendService()
 	:enable(false)
 {
 	setName(sFriendService);
-	//setMakeFriendUrl("http://siteapp3.freblx.xyz/Friend/CreateFriend?firstUserId=%d&secondUserId=%d");
-	//setGetFriendsUrl("http://siteapp3.freblx.xyz/Friend/AreFriends?userId=%d");
-	//setBreakFriendUrl("http://siteapp3.freblx.xyz/Friend/BreakFriend?firstUserId=%d&secondUserId=%d");
+	//setMakeFriendUrl("http://siteapp3.freblx.com/Friend/CreateFriend?firstUserId=%d&secondUserId=%d");
+	//setGetFriendsUrl("http://siteapp3.freblx.com/Friend/AreFriends?userId=%d");
+	//setBreakFriendUrl("http://siteapp3.freblx.com/Friend/BreakFriend?firstUserId=%d&secondUserId=%d");
 }
 
 void FriendService::setEnable(bool value)

@@ -5,7 +5,7 @@ DATA_MAP_IMPL_START(WindowsStudioInstallerSettings)
 IMPL_DATA(CountersLoad, 0);
 IMPL_DATA(PerModeLoggingEnabled, false);
 IMPL_DATA(CountersFireImmediately, false);
-IMPL_DATA(HttpboostPostTimeout, 0);
+IMPL_DATA(HttpBoostPostTimeout, 0);
 IMPL_DATA(ShowInstallSuccessPrompt, false);
 IMPL_DATA(LogChromeProtocolFix, false);
 IMPL_DATA(InfluxUrl, "https://marty-onepointtwentyone-1.c.influxdb.com:8087");

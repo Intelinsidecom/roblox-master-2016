@@ -17,10 +17,10 @@
 <string name="AccountCreationFloodcheck"><![CDATA[You have made too many accounts. Please wait before making more.]]></string>
 <string name="UnexpectedError"><![CDATA[Sorry! An unexpected error occured: %s.]]></string>
 <string name="PasswordWrongAndroid"><![CDATA[Password must contain 6-20 characters with at least 2 numbers.]]></string>
-<string name="TermsLicensingPrivacy"><![CDATA[<a href=\'http://www.freblx.xyz/info/terms-of-service\'>Terms of Service</a> - <a href=\'http://www.freblx.xyz/info/EULA.htm\'>Licensing Agreement</a> - <a href=\'http://www.freblx.xyz/Info/Privacy.aspx?layout=null\'>Privacy Policy</a>]]></string>
+<string name="TermsLicensingPrivacy"><![CDATA[<a href=\'http://www.freblx.com/info/terms-of-service\'>Terms of Service</a> - <a href=\'http://www.freblx.com/info/EULA.htm\'>Licensing Agreement</a> - <a href=\'http://www.freblx.com/Info/Privacy.aspx?layout=null\'>Privacy Policy</a>]]></string>
 <string name="SearchWord">Search</string>
 <string name="SearchUsersWord">Search users...</string>
-<string name="SignupFinePrintAndroid"><![CDATA[By tapping \'Sign up\' above, you are agreeing to our <a href=\'http://www.freblx.xyz/info/terms-of-service\'>Terms of Service</a>, <a href=\'http://www.freblx.xyz/info/EULA.htm\'>Licensing Agreement</a>, and <a href=\'http://www.freblx.xyz/Info/Privacy.aspx?layout=null\'>Privacy Policy</a>.]]></string>
+<string name="SignupFinePrintAndroid"><![CDATA[By tapping \'Sign up\' above, you are agreeing to our <a href=\'http://www.freblx.com/info/terms-of-service\'>Terms of Service</a>, <a href=\'http://www.freblx.com/info/EULA.htm\'>Licensing Agreement</a>, and <a href=\'http://www.freblx.com/Info/Privacy.aspx?layout=null\'>Privacy Policy</a>.]]></string>
 <string name="LoggedOut">You have been logged out.</string>
 <string name="GroupsWord">Groups</string>
 <string name="LeaderboardsWord">Leaderboards</string>
@@ -47,7 +47,7 @@
 
 <!-- ======================= Android-only environment spinner strings ======================= -->
 <string-array name="EnvironmentArray">
-    <item>www.freblx.xyz/</item>
+    <item>www.freblx.com/</item>
     <item>www.gametest1.robloxlabs.com/</item>
     <item>www.gametest2.robloxlabs.com/</item>
     <item>www.gametest3.robloxlabs.com/</item>
@@ -79,7 +79,7 @@
 </string-array>
 
 <string-array name="EnvironmentArrayMobile">
-    <item>m.freblx.xyz/</item>
+    <item>m.freblx.com/</item>
     <item>m.gametest1.robloxlabs.com/</item>
     <item>m.gametest2.robloxlabs.com/</item>
     <item>m.gametest3.robloxlabs.com/</item>
@@ -141,7 +141,7 @@
 <string name="EntryIncorrectBody"><![CDATA[One or more of the fields are incorrect or empty.]]></string>
 <string name="VerifyWord"><![CDATA[Verify]]></string>
 <string name="VerifyRequirements"><![CDATA[Retype Password]]></string>
-<string name="SignupFinePrint"><![CDATA[By tapping \'Sign up\' above, you are agreeing to our &lt;a href=\'http://www.freblx.xyz/info/terms-of-service\'&gt;Terms of Service&lt;/a&gt;, &lt;a href=\'http://www.freblx.xyz/info/EULA.htm\'&gt;Licensing Agreement&lt;/a&gt;, and &lt;a href=\'http://www.freblx.xyz/Info/Privacy.aspx?layout=null\'&gt;Privacy Policy&lt;/a&gt;.  We will not share your information with third parties.]]></string>
+<string name="SignupFinePrint"><![CDATA[By tapping \'Sign up\' above, you are agreeing to our &lt;a href=\'http://www.freblx.com/info/terms-of-service\'&gt;Terms of Service&lt;/a&gt;, &lt;a href=\'http://www.freblx.com/info/EULA.htm\'&gt;Licensing Agreement&lt;/a&gt;, and &lt;a href=\'http://www.freblx.com/Info/Privacy.aspx?layout=null\'&gt;Privacy Policy&lt;/a&gt;.  We will not share your information with third parties.]]></string>
 <string name="DoneWord"><![CDATA[Done]]></string>
 <string name="NextWord"><![CDATA[Next]]></string>
 <string name="SelectBirthday"><![CDATA[Select Birthday]]></string>
@@ -204,7 +204,7 @@
 
 <!-- AboutController string  -->
 <string name="AboutWord"><![CDATA[About]]></string>
-<string name="LegalText"><![CDATA[ROBLOX, \'Online Building Toy\', characters, logos, names, and all related indicia are trademarks of ROBLOX Corporation Â©2015. US Patents 7,874,921. Patents pending. Contact us at info@freblx.xyz]]></string>
+<string name="LegalText"><![CDATA[ROBLOX, \'Online Building Toy\', characters, logos, names, and all related indicia are trademarks of ROBLOX Corporation Â©2015. US Patents 7,874,921. Patents pending. Contact us at info@freblx.com]]></string>
 <string name="TermsOfService"><![CDATA[Terms of Service]]></string>
 <string name="LicensingAgreement"><![CDATA[Licensing Agreement]]></string>
 <string name="PrivacyPolicy"><![CDATA[Privacy Policy]]></string>
@@ -241,12 +241,12 @@
 	<string name="WarnTooManyParts" formatted="false"><![CDATA[This place has %d parts (%d is recommended)]]></string>
 
 <!-- Purchasing strings  -->
-<string name="CannotMakePurchase"><![CDATA[We are sorry, you cannot make purchases at this time. If this problem persists contact info@freblx.xyz]]></string>
-<string name="HavePendingTransactionError"><![CDATA[You already have pending transactions, please try again after some time. You may need to restart your device. If this problem persists contact info@freblx.xyz]]></string>
+<string name="CannotMakePurchase"><![CDATA[We are sorry, you cannot make purchases at this time. If this problem persists contact info@freblx.com]]></string>
+<string name="HavePendingTransactionError"><![CDATA[You already have pending transactions, please try again after some time. You may need to restart your device. If this problem persists contact info@freblx.com]]></string>
 <string name="TransactionFailedTitle"><![CDATA[Purchase failed]]></string>
-<string name="TransactionFailedBody"><![CDATA[Purchase failed, please contact info@freblx.xyz with your Apple receipt]]></string>
-<string name="UserNeedsToSignIn"><![CDATA[Roblox User %s needs to login to complete the pending transaction before you can buy. You may need to restart your device. If this problem persists contact info@freblx.xyz]]></string>
-<string name="AnyUserNeedsToSignIn"><![CDATA[Please login to complete the pending transaction. If this problem persists contact info@freblx.xyz]]></string>
+<string name="TransactionFailedBody"><![CDATA[Purchase failed, please contact info@freblx.com with your Apple receipt]]></string>
+<string name="UserNeedsToSignIn"><![CDATA[Roblox User %s needs to login to complete the pending transaction before you can buy. You may need to restart your device. If this problem persists contact info@freblx.com]]></string>
+<string name="AnyUserNeedsToSignIn"><![CDATA[Please login to complete the pending transaction. If this problem persists contact info@freblx.com]]></string>
 <string name="AppPurchasingDisabledTitle"><![CDATA[In-App Purchasing disabled]]></string>
 <string name="CannotPurchaseBecauseParentalControl"><![CDATA[You are not able to make purchases.  Check your parental control settings and try again later.]]></string>
 <string name="SessionExpired"><![CDATA[Session Expired, Please logout and log back in to do the purchase]]></string>
@@ -260,7 +260,7 @@
 <string name="WaitForAnotherCatalogPurchase"><![CDATA[Please wait for some time before making Catalog purchase]]></string>
 
 <!-- App Rating Strings  -->
-<string name="RatingString"><![CDATA[If you enjoy using ROBLOX, would you please rate it? It wont take more than a minute. If you are having issues or problems, please email support at support@freblx.xyz.]]></string>
+<string name="RatingString"><![CDATA[If you enjoy using ROBLOX, would you please rate it? It wont take more than a minute. If you are having issues or problems, please email support at support@freblx.com.]]></string>
 <string name="RatingTitle"><![CDATA[Rate ROBLOX]]></string>
 <string name="RatingYesButton"><![CDATA[Rate ROBLOX]]></string>
 <string name="RatingNoThanksButton"><![CDATA[No, Thanks]]></string>
@@ -302,10 +302,10 @@
 <string name="BannedFirstLine">Our content monitors have determined that your behavior at ROBLOX has been in violation of our Terms of Service. We will terminate your account if you do not abide by the rules.</string>
 <string name="BannedReviewed">Reviewed: %s</string>
 <string name="BannedModeratorNote">Moderator Note: %s</string>
-<string name="BannedGuidelines"><![CDATA[Please abide by the <a href=\"https://en.help.freblx.xyz/hc/en-us/articles/203313410-ROBLOX-Rules-of-Conduct\">ROBLOX Community Guidelines</a> so that ROBLOX can be fun for users of all ages.]]></string>
+<string name="BannedGuidelines"><![CDATA[Please abide by the <a href=\"https://en.help.freblx.com/hc/en-us/articles/203313410-ROBLOX-Rules-of-Conduct\">ROBLOX Community Guidelines</a> so that ROBLOX can be fun for users of all ages.]]></string>
 <string name="BannedLengthAndEndDate">Your account has been banned for %1$d days. You may reactive it after %2$s.</string>
-<string name="BannedAppeals"><![CDATA[If you wish to appeal, please send an email to <a href=\"mailto:appeals@freblx.xyz?Subject=Ban%20Appeal\">appeals@freblx.xyz</a>.]]></string>
-<string name="BannedWarningInstructions"><![CDATA[You must login at <a href=\"http://www.freblx.xyz\">www.freblx.xyz</a> to re-activate your account.]]></string>
+<string name="BannedAppeals"><![CDATA[If you wish to appeal, please send an email to <a href=\"mailto:appeals@freblx.com?Subject=Ban%20Appeal\">appeals@freblx.com</a>.]]></string>
+<string name="BannedWarningInstructions"><![CDATA[You must login at <a href=\"http://www.freblx.com\">www.freblx.com</a> to re-activate your account.]]></string>
 <string name="Banned1Day">Banned for 1 Day</string>
 <string name="Banned3Day">Banned for 3 Days</string>
 <string name="Banned7Day">Banned for 7 Days</string>

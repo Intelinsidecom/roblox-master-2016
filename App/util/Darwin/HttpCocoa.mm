@@ -348,7 +348,7 @@ int rbx_isRobloxSite(const char* url)
     }
     
 	NSRange textRange;
-	textRange =[host rangeOfString:@".freblx.xyz"];
+	textRange =[host rangeOfString:@".freblx.com"];
     bool isRobloxUrl = textRange.location != NSNotFound;
     
     if (!isRobloxUrl)

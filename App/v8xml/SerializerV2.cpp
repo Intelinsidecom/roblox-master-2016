@@ -12,7 +12,7 @@
 
 #include <map>
 
-#if !defined(RBX_PLATFORM_UWP)
+#if !defined(RBX_PLATFORM_UWP) && _MSC_VER < 1900
 #ifdef _WIN32
    using std::mem_fun1;
 #else
@@ -50,7 +50,7 @@ public:
 			RBXASSERT(foundString);
 //			RBXASSERT(idMap.find(s)==idMap.end());		// This is in BugHost for Erik - implies we are writing references multiple times
 														// See this file to make the assert pop:
-														// game.Workspace:insertContent("http://freblx.xyz/asset/?id=2286288")
+														// game.Workspace:insertContent("http://freblx.com/asset/?id=2286288")
 
 			idMap[s].linkTo(shared_from(source));
 			if (source)
@@ -100,11 +100,11 @@ public:
 		count += count_if(
 			idrefBindings.begin(), 
 			idrefBindings.end(),
-			#if !defined(RBX_PLATFORM_UWP)
+#if !defined(RBX_PLATFORM_UWP) && _MSC_VER < 1900
 			std::bind1st(mem_fun1(&ArchiveBinder::resolveIDREF),this)
-			#else
+#else
 			[this](const IDREFBinding& binding) { return resolveIDREF(binding); }
-			#endif
+#endif
 		);
 
 		return Super::resolveRefs() && (count == idrefBindings.size());
@@ -256,7 +256,7 @@ XmlElement* SerializerV2::newRootElement(const std::string& type)
 	XmlElement* root = new XmlElement(tag_roblox);
 	root->addAttribute(tag_xmlnsxmime, "http://www.w3.org/2005/05/xmlmime");
 	root->addAttribute(tag_xmlnsxsi, "http://www.w3.org/2001/XMLSchema-instance");
-	root->addAttribute(tag_xsinoNamespaceSchemaLocation, "http://www.freblx.xyz/roblox.xsd");
+	root->addAttribute(tag_xsinoNamespaceSchemaLocation, "http://www.freblx.com/roblox.xsd");
 	root->addAttribute(tag_version, SerializerV2::CURRENT_SCHEMA_VERSION);
 	if(!type.empty()){
 		root->addAttribute(tag_assettype, type);

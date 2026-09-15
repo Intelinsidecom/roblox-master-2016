@@ -161,7 +161,7 @@ namespace RBX
 	{
 		boost::scoped_array<char> url(new char[id.length()+1]);
 
-		// remove any spaces since HTParse stops parsing at the first space and we need to handle "http://www.freblx.xyz/asset/?id= 1818"
+		// remove any spaces since HTParse stops parsing at the first space and we need to handle "http://www.freblx.com/asset/?id= 1818"
 		char* urlIter = url.get();
 		for (size_t i = 0; i < id.length(); ++i)
 		{
@@ -213,7 +213,7 @@ namespace RBX
                         if (baseUrlParsed.isSubdomainOf(testsite_domain)
                             && !parsed.isSubdomainOf(testsite_domain))
                         {
-                            host = "assetgame.freblx.xyz";
+                            host = "assetgame.freblx.com";
                         }
                         else
                         {
@@ -242,7 +242,7 @@ namespace RBX
                         else
                         {
                             scheme = "http";
-                            host = "www.freblx.xyz";
+                            host = "www.freblx.com";
                         }
                     }
 
@@ -288,7 +288,7 @@ namespace RBX
                 {
                     // Allow assets from prod to be used on test sites
                     if (baseUrl.find(domain) != std::string::npos && host.find(domain) == std::string::npos)
-                        id = "http://www.freblx.xyz/" + path;
+                        id = "http://www.freblx.com/" + path;
                     else
                         id = baseUrl + (baseUrl[baseUrl.size()-1] != '/' ? "/" : "") + path;
 
@@ -314,7 +314,7 @@ namespace RBX
                     if (robloxLabsPos != std::string::npos)
                         id = baseUrl + "/" + path;
                     else
-                        id = "http://www.freblx.xyz/" + path;
+                        id = "http://www.freblx.com/" + path;
                 }
 
                 return true;

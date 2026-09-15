@@ -21,7 +21,7 @@ std::string trim_trailing_slashes(const std::string &path)
 static std::string BuildGenericApiUrl(const std::string &baseUrl, const std::string &serviceNameIn, const std::string &path, const std::string &key, const char* scheme = "http") // it was https before
 {
     std::string serviceName(serviceNameIn);
-    std::string rbxUrl = ".freblx.xyz";
+    std::string rbxUrl = ".freblx.com";
 	size_t pos = baseUrl.find(rbxUrl);
 	if (pos == std::string::npos)
 	{
@@ -49,7 +49,7 @@ static std::string BuildGenericApiUrl(const std::string &baseUrl, const std::str
 	if (subUrl.empty())
 	{
 		// production
-		url = format_string("%s://%sapi.freblx.xyz/%s/?apiKey=%s", scheme, serviceName.c_str(), path.c_str(), key.c_str());
+		url = format_string("%s://%sapi.freblx.com/%s/?apiKey=%s", scheme, serviceName.c_str(), path.c_str(), key.c_str());
 	}
 	else
 	{

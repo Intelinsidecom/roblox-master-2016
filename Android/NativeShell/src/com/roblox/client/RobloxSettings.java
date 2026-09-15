@@ -168,9 +168,9 @@ public class RobloxSettings {
     static String  catalogUrl()					{ return baseUrl() + ( isTablet() ? "catalog/" : "catalog/" ); }
     static String  characterUrl()				{ return baseUrl() + "My/Character.aspx"; }
     static String  tradeUrl()                   { return baseUrl() + "My/Money.aspx"; }
-    static String  forumUrl()                   { return "http://www.freblx.xyz/Forum/default.aspx"; }
-    static String  blogUrl()                    { return "http://blog.freblx.xyz/"; }
-    static String  helpUrl()                    { return "https://en.help.freblx.xyz/hc/en-us"; }
+    static String  forumUrl()                   { return "http://www.freblx.com/Forum/default.aspx"; }
+    static String  blogUrl()                    { return "http://blog.freblx.com/"; }
+    static String  helpUrl()                    { return "https://en.help.freblx.com/hc/en-us"; }
     static String  settingsUrl()                { return baseUrlSecureWWW() + "my/account"; }
     static String  buildersClubUrl()			{ return baseUrl() + "mobile-app-upgrades/"; }
     static String  robuxOnlyUrl()               { return baseUrlSecureWWW() + "mobile-app-upgrades/native-ios/robux"; }
@@ -290,7 +290,7 @@ public class RobloxSettings {
     public static void finishedFirstLaunch()      { mFirstLaunch = false; }
     public static String mDeviceId = "";
     public static String mBrowserTrackerId = "";
-    private static String   rbxAnalyticsUrl()                                       { return "http://ecsv2.freblx.xyz/pe.png?t=mobile&lt=" +
+    private static String   rbxAnalyticsUrl()                                       { return "http://ecsv2.freblx.com/pe.png?t=mobile&lt=" +
             String.format("%tFT%<tT.%<tLZ", Calendar.getInstance(TimeZone.getTimeZone("Z"))) +
             "&mdid=" + mDeviceId; }
     private static String   rbxAnalyticsTestUrl()                                   { return "http://ecsv2.sitetest3.robloxlabs.com/pe.png?t=mobile&lt=" +

@@ -360,7 +360,11 @@ namespace RBX
 
 		static const RBX::Name& className() 
 		{ 
+#if  _MSC_VER < 1900
 			return RBX::Name::declare<sClassName>();
+#else
+			return RBX::Name::declare(sClassName);
+#endif
 		};
 		
 		static bool isNullClassName() { 

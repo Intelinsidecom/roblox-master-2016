@@ -23,8 +23,8 @@ namespace RBX
 #if defined(RBX_STUDIO_BUILD)
 			StudioPlugin,				// Any Studio plug-in script
 #endif
-			COM,						// Scripts executed via the COM API (usually comes from freblx.xyz)
-			WebService,					// Scripts executed via the Web Service API (usually comes from freblx.xyz)
+			COM,						// Scripts executed via the COM API (usually comes from freblx.com)
+			WebService,					// Scripts executed via the Web Service API (usually comes from freblx.com)
 			Replicator_,				// Receiving data via replication
 			COUNT_Identities            // Not a true identity. Used for enumeration
 		} Identities;

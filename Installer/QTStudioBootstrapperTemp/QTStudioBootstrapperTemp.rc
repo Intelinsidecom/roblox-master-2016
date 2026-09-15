@@ -166,8 +166,8 @@ END
 
 STRINGTABLE 
 BEGIN
-    IDS_INSTALLHOST         "setup.freblx.xyz"
-    IDS_BASEHOST            "www.freblx.xyz"
+    IDS_INSTALLHOST         "setup.freblx.com"
+    IDS_BASEHOST            "www.freblx.com"
 END
 
 #endif    // English (U.S.) resources
