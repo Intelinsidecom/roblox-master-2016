@@ -3,6 +3,10 @@
 #include <float.h>
 #include <cmath>
 
+#if defined(RBX_PLATFORM_WIN_PHONE) && defined(WINAPI_FAMILY) && WINAPI_FAMILY==WINAPI_FAMILY_PHONE_APP
+#include <windows.h>
+#endif
+
 namespace RBX{
 
 int GetMappedDOF(int dof)

@@ -104,6 +104,7 @@ namespace RBX
 
 		static RBX::mutex *robloxResponceLock;
 		static RBX::mutex *cdnResponceLock;
+		// There was & but idk for what, TODO
 		static std::string lastCsrfToken;
 		static boost::mutex lastCsrfTokenMutex;
 
@@ -197,6 +198,8 @@ namespace RBX
 		void httpGetPostXbox(bool isPost, std::istream& dataStream, const std::string& contentType, bool compressData, const HttpAux::AdditionalHeaders& additionalHeaders, bool allowExternal, HttpCache::Policy cachePolicy, std::string& response);
 #elif defined(RBX_PLATFORM_UWP)
 		void httpGetPostUWP(bool isPost, std::istream& dataStream, const std::string& contentType, bool compressData, const HttpAux::AdditionalHeaders& additionalHeaders, bool allowExternal, HttpCache::Policy cachePolicy, std::string& response);
+#elif defined(RBX_PLATFORM_WIN_PHONE) && !defined(RBX_PLATFORM_UWP)
+		void httpGetPostWinRT(bool isPost, std::istream& dataStream, const std::string& contentType, bool compressData, const HttpAux::AdditionalHeaders& additionalHeaders, bool allowExternal, HttpCache::Policy cachePolicy, std::string& response);
 #elif defined(_WIN32)
         void httpGetPostWinInet(bool isPost, std::istream& dataStream, const std::string& contentType, bool compressData, const HttpAux::AdditionalHeaders& additionalHeaders, bool allowExternal, std::string& response);
         void httpGetPostWinHttp(bool isPost, std::istream& dataStream, const std::string& contentType, bool compressData, const HttpAux::AdditionalHeaders& additionalHeaders, bool allowExternal, std::string& response);

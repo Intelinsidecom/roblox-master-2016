@@ -183,6 +183,7 @@
     //  http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vccore98/HTML/_core_Compiler_Reference.asp
     //
 
+#if !defined(RBX_PLATFORM_XBOX360)
     // DLL runtime
     #ifndef _DLL
 	    #define _DLL
@@ -221,6 +222,7 @@
         // the debug version.
 #        pragma comment(linker, "/NODEFAULTLIB:MSVCRT.LIB")
 #	 endif
+#endif
 
 
 #    ifndef WIN32_LEAN_AND_MEAN
@@ -236,7 +238,7 @@
 #       define _WIN32_WINNT 0x0500
 #   endif
 
-#ifdef RBX_PLATFORM_UWPS
+#if defined(RBX_PLATFORM_UWPS) || defined(RBX_PLATFORM_WIN_PHONE)
 #ifndef FlsAlloc
     #define FlsAlloc TlsAlloc
 #endif

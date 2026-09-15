@@ -18,6 +18,12 @@
 
 #endif
 
+#ifdef WINAPI_FAMILY==WINAPI_FAMILY_PHONE_APP
+#include <windows.h>
+#include <winapifamily.h>
+#include <libloaderapi.h>
+#endif
+
 #include <stdlib.h>
 #include <string.h>
 
@@ -107,6 +113,7 @@ static lua_CFunction ll_sym (lua_State *L, void *lib, const char *sym) {
 #undef setprogdir
 
 static void setprogdir (lua_State *L) {
+#if !(WINAPI_FAMILY==WINAPI_FAMILY_PHONE_APP)
   char buff[MAX_PATH + 1];
   char *lb;
   DWORD nsize = sizeof(buff)/sizeof(char);
@@ -118,6 +125,7 @@ static void setprogdir (lua_State *L) {
     luaL_gsub(L, lua_tostring(L, -1), LUA_EXECDIR, buff);
     lua_remove(L, -2);  /* remove original string */
   }
+#endif
 }
 
 
@@ -137,7 +145,7 @@ static void ll_unloadlib (void *lib) {
 
 
 static void *ll_load (lua_State *L, const char *path) {
-#if defined(RBX_PLATFORM_UWP)
+#if defined(RBX_PLATFORM_UWP) || defined(RBX_PLATFORM_XBOX360) || defined(RBX_PLATFORM_WIN_PHONE)
   int len = MultiByteToWideChar(CP_ACP, 0, path, -1, NULL, 0);
   wchar_t* wpath = (wchar_t*)malloc(len * sizeof(wchar_t));
   MultiByteToWideChar(CP_ACP, 0, path, -1, wpath, len);
@@ -611,7 +619,7 @@ static int ll_seeall (lua_State *L) {
 
 static void setpath (lua_State *L, const char *fieldname, const char *envname,
                                    const char *def) {
-#if !defined(RBX_PLATFORM_UWP)
+#if !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_WIN_PHONE)
   const char *path = getenv(envname);
 #else
   const char *path = NULL;

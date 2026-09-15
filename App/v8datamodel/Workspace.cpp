@@ -431,8 +431,12 @@ void Workspace::setNetworkFilteringEnabled(bool value)
 {
 	if (value && Workspace::serverIsPresent(this))
 	{
+#if defined(RBX_PLATFORM_XBOX360)
+		sendNetworkFilteringStats();
+#else
 		static boost::once_flag flag = BOOST_ONCE_INIT;
 		boost::call_once(&sendNetworkFilteringStats, flag);
+#endif
 	}
 	bool changed = networkFilteringEnabled != value;
 	networkFilteringEnabled = value;
@@ -1213,39 +1217,69 @@ double Workspace::getRealPhysicsFPS(void)
 
 			if (realPhysicsFPS > 100.0)
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_100", 
+					boost::lexical_cast<std::string>(placeID).c_str(), 0, false);
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_100", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false));
+#endif
 			}
 			else if (realPhysicsFPS > 90.0)
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_90", 
+					boost::lexical_cast<std::string>(placeID).c_str(), 0, false);
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_90", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false));
+#endif
 			}
 			else if (realPhysicsFPS > 80.0)
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_80", 
+					boost::lexical_cast<std::string>(placeID).c_str(), 0, false);
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_80", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false));
+#endif
 			}
 			else if (realPhysicsFPS > 70.0)
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_70", 
+					boost::lexical_cast<std::string>(placeID).c_str(), 0, false);
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_70", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false));
+#endif
 			}
 			else if (realPhysicsFPS > 65.0)
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_65", 
+					boost::lexical_cast<std::string>(placeID).c_str(), 0, false);
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_65", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false));
+#endif
 			}
 			else
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_SetMinimum", 
+					boost::lexical_cast<std::string>(placeID).c_str(), 0, false);
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "ElevatedPhysicsFPSDetected_SetMinimum", 
 					boost::lexical_cast<std::string>(placeID).c_str(), 0, false));
+#endif
 			}
 		}
 	}
@@ -1726,9 +1760,14 @@ void Workspace::setExpSolverEnabled_Replicate(bool value)
 		if (dm)
 		{
 			int placeID = dm->getPlaceID();
+#if defined(RBX_PLATFORM_XBOX360)
+			RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PGSSolverActivated", 
+				boost::lexical_cast<std::string>(placeID).c_str(), 0, false);
+#else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
 			boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "PGSSolverActivated", 
 				boost::lexical_cast<std::string>(placeID).c_str(), 0, false));
+#endif
 		}
 	}
 }
@@ -1762,8 +1801,12 @@ bool Workspace::getUsingNewPhysicalProperties() const
 	{
 		if (const DataModel* dm = DataModel::get(this))
 		{
+#if defined(RBX_PLATFORM_XBOX360)
+			callGAForPhysicalProperties(dm, getWorld()->getPhysicalPropertiesMode());
+#else
 			static boost::once_flag flag = BOOST_ONCE_INIT;				
 			boost::call_once(flag, boost::bind(&callGAForPhysicalProperties, dm, getWorld()->getPhysicalPropertiesMode()));
+#endif
 		}
 	}
 

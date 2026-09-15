@@ -6,20 +6,26 @@
 #include "rbx/Debug.h"
 #include "v8datamodel/DebugSettings.h"
 
-#ifndef _WIN32
+#if !defined(_WIN32)
 #include <pthread.h>
 static pthread_key_t tsd_key;
+#elif defined(RBX_PLATFORM_WIN_PHONE) && !defined(RBX_PLATFORM_UWP)
+#if defined(__cplusplus_winrt)
+#include <windows.h>
+#include <fibersapi.h>
+static DWORD markFlsIndex = FLS_OUT_OF_INDEXES;
+#else
+static __declspec(thread) void* tls_enclosingMark = NULL;
 #endif
-
+#else
 static long markTlsIndex = 0;
+#endif
 static bool profilingEnabled = false;
 
 void RBX::Profiling::init(bool enabled)
 {
 	profilingEnabled = enabled;
-#ifdef _WIN32
-	markTlsIndex = TlsAlloc();
-#else
+#if !defined(_WIN32)
 	
 	/* with full error check EL
 	if( pthread_key_create(&tsd_key, NULL) ) err_abort(status, Error creating key); 
@@ -29,13 +35,22 @@ void RBX::Profiling::init(bool enabled)
 	pthread_key_create(&tsd_key, NULL);
 	
 	markTlsIndex = reinterpret_cast<uintptr_t>(pthread_getspecific( tsd_key ));
+#elif defined(RBX_PLATFORM_WIN_PHONE) && !defined(RBX_PLATFORM_UWP)
+#if defined(__cplusplus_winrt)
+	if (markFlsIndex == FLS_OUT_OF_INDEXES)
+		markFlsIndex = FlsAlloc(NULL);
+#else
+	// __declspec(thread) storage needs no allocation.
+#endif
+#else
+	markTlsIndex = TlsAlloc();
 #endif
 }
 
 void RBX::Profiling::setEnabled(bool enabled)
 {
 	profilingEnabled = enabled;
-#ifdef _WIN32
+#if defined(_WIN32) && !(defined(RBX_PLATFORM_WIN_PHONE) && !defined(RBX_PLATFORM_UWP))
 	// This is only valid in windows. For mac, the markTlsIndex
 	// is always 0 unless profiling is init()ed inside the context
 	// of a Mark.
@@ -185,12 +200,20 @@ Mark::Mark(CodeProfiler& section, bool frameTick, bool logInclusive):section(sec
 	{
 		startTime = Time::now<Time::Benchmark>();
 
-#ifdef _WIN32
-		enclosingMark = (Mark*) TlsGetValue(markTlsIndex);
-		TlsSetValue(markTlsIndex, this);
-#else
+#if !defined(_WIN32)
 		enclosingMark = (Mark *) pthread_getspecific( tsd_key );
 		pthread_setspecific( tsd_key, (void *)(this));
+#elif defined(RBX_PLATFORM_WIN_PHONE) && !defined(RBX_PLATFORM_UWP)
+#if defined(__cplusplus_winrt)
+		enclosingMark = (Mark*) FlsGetValue(markFlsIndex);
+		FlsSetValue(markFlsIndex, this);
+#else
+		enclosingMark = (Mark*) tls_enclosingMark;
+		tls_enclosingMark = this;
+#endif
+#else
+		enclosingMark = (Mark*) TlsGetValue(markTlsIndex);
+		TlsSetValue(markTlsIndex, this);
 #endif
 	}
 #endif
@@ -201,10 +224,16 @@ Mark::~Mark()
 #if 1
 	if (enabled)
 	{
-#ifdef _WIN32
-		TlsSetValue(markTlsIndex, enclosingMark);
-#else
+#if !defined(_WIN32)
 		pthread_setspecific( tsd_key, (void *)(enclosingMark));
+#elif defined(RBX_PLATFORM_WIN_PHONE) && !defined(RBX_PLATFORM_UWP)
+#if defined(__cplusplus_winrt)
+		FlsSetValue(markFlsIndex, enclosingMark);
+#else
+		tls_enclosingMark = enclosingMark;
+#endif
+#else
+		TlsSetValue(markTlsIndex, enclosingMark);
 #endif
 		Time now = Time::now<Time::Benchmark>();
 		Time::Interval wallTimeInclusive = now - startTime;

@@ -133,8 +133,12 @@ static void sendFilterChatStats(int placeId)
 void ChatService::filterStringForPlayer(std::string stringToFilter, shared_ptr<Instance> playerToFilterFor, boost::function<void(std::string)> resumeFunction, boost::function<void(std::string)> errorFunction)
 {
 	{
+#if defined(RBX_PLATFORM_XBOX360)
+		sendFilterChatStats(DataModel::get(this)->getPlaceID());
+#else
 		static boost::once_flag flag = BOOST_ONCE_INIT;
 		boost::call_once(flag, boost::bind(sendFilterChatStats, DataModel::get(this)->getPlaceID()));
+#endif
 	}
 
 	if (!Network::Players::serverIsPresent(this))

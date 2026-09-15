@@ -732,10 +732,15 @@ namespace RBX {
 	void PathfindingService::computePathAsync(Vector3 start, Vector3 finish, float maxDistance, bool isSmooth, boost::function<void(shared_ptr<Instance>) > resumeFunction, boost::function<void(std::string)> errorFunction)
 	{
 		{
+#if defined(RBX_PLATFORM_XBOX360)
+			RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PathfindingService",
+				RBX::StringConverter<int>::convertToString(DataModel::get(this)->getPlaceID()).c_str(), 0,false);
+#else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
 			DataModel* dm = DataModel::get(this);
 			boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent,GA_CATEGORY_GAME, "PathfindingService", 
 				RBX::StringConverter<int>::convertToString(dm->getPlaceID()).c_str(), 0,false));
+#endif
 		}
 
 		

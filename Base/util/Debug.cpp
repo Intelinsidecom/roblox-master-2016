@@ -24,7 +24,7 @@ namespace RBX
 	{
 		if(doCrashEnabled)
 		{
-			#if defined(RBX_PLATFORM_UWP)
+			#if defined(RBX_PLATFORM_UWP) || defined(RBX_PLATFORM_WIN_PHONE)
 			__debugbreak();
 			#else
 			DebugBreak();
@@ -36,7 +36,7 @@ namespace RBX
 
 	void Debugable::doCrash(const char* message)
 	{
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_WIN_PHONE)
         OutputDebugStringA("ASSERTION FAILED: ");
         OutputDebugStringA(message);
         OutputDebugStringA("\n");
@@ -45,7 +45,7 @@ namespace RBX
 #endif
 		if (doCrashEnabled) 
 		{
-			#if defined(RBX_PLATFORM_UWP)
+			#if defined(RBX_PLATFORM_UWP) || defined(RBX_PLATFORM_WIN_PHONE)
 			__debugbreak();
 			#else
 			DebugBreak();

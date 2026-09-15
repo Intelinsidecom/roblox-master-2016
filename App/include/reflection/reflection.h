@@ -4,6 +4,9 @@
 #include "reflection/enumconverter.h"
 #include "reflection/Type.h"
 #include "rbx/make_shared.h"
+#if defined(RBX_PLATFORM_XBOX360)
+#include "util/XboxDiag.h"
+#endif
 #include <boost/static_assert.hpp>
 #include <boost/utility/enable_if.hpp>
 #include <boost/type_traits.hpp>
@@ -30,6 +33,11 @@ namespace RBX
 {
 	namespace Reflection
 	{
+#if defined(RBX_PLATFORM_XBOX360)
+		ClassDescriptor* findClassDescriptor360(const char* name);
+		void addClassDescriptor360(const char* name, ClassDescriptor* desc);
+#endif
+
 		// This class is designed to prevent clients of the library
 		// from forgetting to initialize their class descriptors
 		template<class Class>
@@ -75,8 +83,18 @@ namespace RBX
 
 			static ClassDescriptor& classDescriptor()
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				ClassDescriptor* desc = findClassDescriptor360(sClassName);
+				if (!desc)
+				{
+					desc = new ClassDescriptor(BaseClass::classDescriptor(), sClassName, functionality, security);
+					addClassDescriptor360(sClassName, desc);
+				}
+				return *desc;
+#else
 				static ClassDescriptor describedClassDescriptor(BaseClass::classDescriptor(), sClassName, functionality, security);
 				return describedClassDescriptor;
+#endif
 			}
 			inline Described() {
 				this->descriptor = &classDescriptor();

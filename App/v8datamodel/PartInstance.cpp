@@ -634,8 +634,12 @@ void PartInstance::convertToNewPhysicalPropRecursive(RBX::Instance* instance)
 		{
 			if (DataModel* dm = DataModel::get(part))
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				convertPartsToNewGANotify(dm);
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(flag, boost::bind(&convertPartsToNewGANotify, dm));
+#endif
 			}
 
 			PhysicalProperties defaultProperty = MaterialProperties::getPrimitivePhysicalProperties(part->getPartPrimitive());
@@ -2534,6 +2538,16 @@ void PartInstance::setNetworkOwnerScript(shared_ptr<Instance> playerInstance)
 		}
 		if (DataModel* dm = DataModel::get(this))
 		{
+#if defined(RBX_PLATFORM_XBOX360)
+			RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PartInstance_SetNetworkOwnerScript", 
+				boost::lexical_cast<std::string>(dm->getPlaceID()).c_str(), 0, false);
+
+			if (!player)
+			{
+				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PartInstance_SetNetworkOwnerScript_TOSERVER", 
+					boost::lexical_cast<std::string>(dm->getPlaceID()).c_str(), 0, false);
+			}
+#else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
 			boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "PartInstance_SetNetworkOwnerScript", 
 				boost::lexical_cast<std::string>(dm->getPlaceID()).c_str(), 0, false));
@@ -2543,6 +2557,7 @@ void PartInstance::setNetworkOwnerScript(shared_ptr<Instance> playerInstance)
 				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "PartInstance_SetNetworkOwnerScript_TOSERVER", 
 					boost::lexical_cast<std::string>(dm->getPlaceID()).c_str(), 0, false));
 			}
+#endif
 		}
 
 		RBX::SystemAddress ownerAddress;
@@ -2578,9 +2593,14 @@ shared_ptr<Instance> PartInstance::getNetworkOwnerScript()
 		{
 			if (DataModel* dm = DataModel::get(this))
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "PartInstance_GetNetworkOwnerScript", 
+					boost::lexical_cast<std::string>(dm->getPlaceID()).c_str(), 0, false);
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(flag, boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "PartInstance_GetNetworkOwnerScript", 
 					boost::lexical_cast<std::string>(dm->getPlaceID()).c_str(), 0, false));
+#endif
 			}
 
 			RBX::SystemAddress networkOwner = rootPrim->getNetworkOwner();

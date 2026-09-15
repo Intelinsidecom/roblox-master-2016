@@ -1,0 +1,363 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E8E1B1C3-9D98-4D1F-8C43-7F2B0D6C8A21}</ProjectGuid>
+    <RootNamespace>G3D</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <ApplicationType>Windows Phone</ApplicationType>
+    <ApplicationTypeRevision>8.1</ApplicationTypeRevision>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <WindowsAppContainer>true</WindowsAppContainer>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <WindowsAppContainer>true</WindowsAppContainer>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WindowsAppContainer>true</WindowsAppContainer>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WindowsAppContainer>true</WindowsAppContainer>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>G:\roblox-2016-source-code\zlib;G:\roblox-2016-source-code\Rendering\g3d\include\png;G:\roblox-2016-source-code\Rendering\g3d\ijg;$(IncludePath)</IncludePath>
+    <OutDir>$(Platform)\$(Configuration)\$(ProjectName)\Output\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\Intermediate\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\Intermediate\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\$(ProjectName)\Output\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(Platform)\$(Configuration)\$(ProjectName)\Output\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\Intermediate\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <OutDir>$(Platform)\$(Configuration)\$(ProjectName)\Output\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\Intermediate\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_WIN_PHONE;WIN32;ZLIB_WINAPI;_DEBUG;_LIB;G3D_BUILDING_LIBRARY_DLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level2</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)%(Filename).obj</ObjectFileName>
+      <SDLCheck>false</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_WIN_PHONE;WIN32;ZLIB_WINAPI;_DEBUG;_LIB;G3D_BUILDING_LIBRARY_DLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level2</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>$(IntDir)%(RelativeDir)%(Filename).obj</ObjectFileName>
+      <SDLCheck>false</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_WIN_PHONE;WIN32;ZLIB_WINAPI;NDEBUG;_LIB;G3D_BUILDING_LIBRARY_DLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level2</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <OmitFramePointers>true</OmitFramePointers>
+      <ObjectFileName>$(IntDir)%(RelativeDir)%(Filename).obj</ObjectFileName>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <StringPooling>true</StringPooling>
+      <MinimalRebuild>true</MinimalRebuild>
+      <SDLCheck>false</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_WIN_PHONE;WIN32;ZLIB_WINAPI;NDEBUG;_LIB;G3D_BUILDING_LIBRARY_DLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level2</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <OmitFramePointers>true</OmitFramePointers>
+      <ObjectFileName>$(IntDir)%(RelativeDir)%(Filename).obj</ObjectFileName>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <StringPooling>true</StringPooling>
+      <SDLCheck>false</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Rendering\g3d\png\pngwutil.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\AABox.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\BinaryInput.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\BinaryOutput.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Box.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Capsule.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\CollisionDetection.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Color3.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Color3uint8.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Color4.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Color4uint8.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\CoordinateFrame.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\Crypto.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\Cylinder.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\debugAssert.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\fileutils.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\format.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\g3dfnmatch.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\g3dmath.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\GCamera.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\GImage.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\GImage_bayer.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\GImage_bmp.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\GImage_jpeg.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\GImage_png.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\GImage_tga.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\GLight.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\LightingParameters.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Line.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\LineSegment.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Matrix3.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Matrix4.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\MemoryManager.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\PhysicsFrame.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jaricom.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jcapimin.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jcapistd.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jcarith.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jccoefct.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jccolor.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jcdctmgr.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jchuff.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jcinit.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jcmainct.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jcmarker.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jcmaster.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jcomapi.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jcparam.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jcprepct.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jcsample.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jctrans.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdapimin.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdapistd.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdarith.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdatadst.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdatasrc.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdcoefct.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdcolor.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jddctmgr.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdhuff.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdinput.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdmainct.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdmarker.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdmaster.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdmerge.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdpostct.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdsample.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jdtrans.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jerror.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jfdctflt.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jfdctfst.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jfdctint.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jidctflt.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jidctfst.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jidctint.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jmemmgr.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jmemnobs.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jquant1.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jquant2.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\jutils.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\ijg\\transupp.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Plane.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Quat.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\Random.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Ray.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Sphere.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\stringutils.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\System.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Triangle.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\uint128.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\g3dcpp\\UprightFrame.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Vector2.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Vector2int16.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Vector3.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Vector3int16.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\G3Dcpp\\Vector4.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\png.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\pngerror.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\pnggccrd.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\pngget.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\pngmem.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\pngpread.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\pngread.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\pngrio.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\pngrtran.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\pngrutil.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\pngset.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\pngtrans.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\pngvcrd.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\pngwio.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\pngwrite.c" />
+    <ClCompile Include="..\\..\\Rendering\\g3d\\png\\pngwtran.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\\..\\Rendering\\g3d\\ijg\\jconfig.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\ijg\\jdct.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\ijg\\jerror.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\ijg\\jinclude.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\ijg\\jmemsys.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\ijg\\jmorecfg.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\ijg\\jpegint.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\ijg\\jpeglib.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\ijg\\jversion.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\ijg\\transupp.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\AABox.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\AABSPTree.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Array.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\BoundsTrait.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Box.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\BumpMapPreprocess.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Capsule.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\CollisionDetection.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\Color1.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\Color1uint8.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Color3.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Color3uint8.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Color4.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Color4uint8.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Cone.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\PhysicsFrame.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\zip\\config.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\constants.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\ConvexPolyhedron.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\CoordinateFrame.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\Cylinder.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\debug.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\debugAssert.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\debugPrintf.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\enumclass.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\EqualsTrait.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\fileutils.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\format.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\g3derror.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\g3dfnmatch.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\G3DGameUnits.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\g3dmath.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\GCamera.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\GImage.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\GLight.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\HashTrait.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\Image1.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\LightingParameters.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Line.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\LineSegment.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\Map2D.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\Matrix2.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Matrix3.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Matrix4.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\MemoryManager.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\MeshAlg.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\MeshBuilder.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\ParseError.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Plane.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\platform.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\png\\png.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\png\\pngconf.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\PositionTrait.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Quat.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\Random.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Ray.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Rect2D.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Set.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\SmallArray.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Sphere.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\spline.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\stringutils.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\System.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Table.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Triangle.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\uint128.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\units.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\UprightFrame.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Vector2.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Vector2int16.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Vector3.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Vector3int16.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\Vector3int32.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\Vector4.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\Vector4int8.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\G3D\\vectorMath.h" />
+    <ClInclude Include="..\\..\\Rendering\\g3d\\include\\g3d\\WrapMode.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

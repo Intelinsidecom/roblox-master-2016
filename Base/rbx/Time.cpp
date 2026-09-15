@@ -19,13 +19,18 @@
 #include <unistd.h>
 #endif
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_XBOX360)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_XBOX360) && !defined (RBX_PLATFORM_WIN_PHONE)
 #include "Mmsystem.h"
 #pragma comment (lib, "Winmm.lib")
 #endif
 
-#if defined(RBX_PLATFORM_XBOX360)
+#if defined(RBX_PLATFORM_XBOX360) || defined(RBX_PLATFORM_WIN_PHONE)
 #include <windows.h> // its a shim with more includes
+#endif
+
+#if defined(WINAPI_FAMILY) && !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) && defined(RBX_PLATFORM_WIN_PHONE)
+#include <thread>
+#include <chrono>
 #endif
 
 FASTINTVARIABLE(SpeedTestPeriodMillis, 1000)
@@ -35,7 +40,7 @@ FASTINTVARIABLE(SpeedCountCap, 5)
 namespace RBX
 {
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
 static volatile double currentSeconds = 0;
 static volatile bool cheater = false;
 static volatile bool isDebuggedValue = false;
@@ -190,7 +195,7 @@ long long Time::getStart()
 	return start;
 }
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
 
 void CALLBACK directCallback(UINT, UINT, DWORD, DWORD, DWORD) 
 { 
@@ -303,7 +308,7 @@ Time Time::now<Time::Precise>()
 template<>
 Time Time::now<Time::Multimedia>()
 {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
 	return Time(timeGetTime() / 1000.0);
 #else
 	// TODO: Is this fast enough on Mac?
@@ -313,7 +318,7 @@ Time Time::now<Time::Multimedia>()
 
 bool Time::isSpeedCheater()
 {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
 	return cheater;
 #else
 	// No cheat engine for mac yet???
@@ -323,7 +328,7 @@ bool Time::isSpeedCheater()
 
 bool Time::isDebugged()
 {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
 	return isDebuggedValue;
 #else
 	return false;
@@ -333,7 +338,7 @@ bool Time::isDebugged()
 template<>
 Time Time::now<Time::Fast>()
 {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
 	if (preciseOverride <= Fast)
 		return now<Precise>();
 	
@@ -400,9 +405,12 @@ Time::Interval operator-( const Time& t1, const Time& t0 )
 
 void Time::Interval::sleep()
 {
-#ifdef _WIN32
+#if defined(WINAPI_FAMILY) && !WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_DESKTOP) && defined(RBX_PLATFORM_WIN_PHONE)
+	std::this_thread::sleep_for(std::chrono::milliseconds((int)(sec*1e3)));
+#elif defined(_WIN32)
 	// Translate to milliseconds
 	Sleep((int)(sec * 1e3));
+	
 #else
 	// Translate to microseconds
 	usleep((int)(sec * 1e6));

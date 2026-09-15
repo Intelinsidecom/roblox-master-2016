@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E7B6C5F2-2F3E-4F0E-B5E0-3B9E8F5D9B10}</ProjectGuid>
+    <RootNamespace>GfxBase</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <ApplicationType>Windows Phone</ApplicationType>
+    <ApplicationTypeRevision>8.1</ApplicationTypeRevision>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <WindowsAppContainer>true</WindowsAppContainer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\Intermediate\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\$(ProjectName)\Output\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <WindowsAppContainer>true</WindowsAppContainer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\Intermediate\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\$(ProjectName)\Output\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WindowsAppContainer>true</WindowsAppContainer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\Intermediate\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\$(ProjectName)\Output\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v110_wp80</PlatformToolset>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WindowsAppContainer>true</WindowsAppContainer>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <IntDir>$(Platform)\$(Configuration)\$(ProjectName)\Intermediate\</IntDir>
+    <OutDir>$(Platform)\$(Configuration)\$(ProjectName)\Output\</OutDir>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2\include;..\..\Rendering\G3D\png;..\..\Rendering\g3d\include;..\..\Rendering\GfxBase\include;..\..\Base\include;..\..\Rendering\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\app\include;..\App\include;..\..\Rendering\AppDraw\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_WIN_PHONE;WIN32;_DEBUG;_LIB;RBX_WINRT_PHONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ObjectFileName>$(IntDir)%(RelativeDir)%(Filename).obj</ObjectFileName>
+    </ClCompile>
+    <Lib>
+      <AdditionalOptions>/MACHINE:X86 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2\include;..\..\Rendering\G3D\png;..\..\Rendering\g3d\include;..\..\Rendering\GfxBase\include;..\..\Base\include;..\..\Rendering\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\app\include;..\App\include;..\..\Rendering\AppDraw\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_WIN_PHONE;WIN32;_DEBUG;_LIB;RBX_WINRT_PHONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ObjectFileName>$(IntDir)%(RelativeDir)%(Filename).obj</ObjectFileName>
+    </ClCompile>
+    <Lib>
+      <AdditionalOptions>/MACHINE:ARM
+ %(AdditionalOptions)</AdditionalOptions>
+      <TargetMachine />
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2\include;..\..\Rendering\G3D\png;..\..\Rendering\g3d\include;..\..\Rendering\GfxBase\include;..\..\Base\include;..\..\Rendering\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\app\include;..\App\include;..\..\Rendering\AppDraw\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_WIN_PHONE;WIN32;NDEBUG;_LIB;RBX_WINRT_PHONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>true</MinimalRebuild>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <ObjectFileName>$(IntDir)%(RelativeDir)%(Filename).obj</ObjectFileName>
+    </ClCompile>
+    <Lib>
+      <AdditionalOptions>/MACHINE:X86 %(AdditionalOptions)</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>$(CONTRIB_PATH)\SDL2\include;..\..\Rendering\G3D\png;..\..\Rendering\g3d\include;..\..\Rendering\GfxBase\include;..\..\Base\include;..\..\Rendering\g3d\include\zlib;$(CONTRIB_PATH)\boost_1_56_0\include;..\..\app\include;..\App\include;..\..\Rendering\AppDraw\include;..\..\Rendering\RbxG3D\include;..\..\Log\include;..\..\App.BulletPhysics;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>RBX_PLATFORM_WIN_PHONE;WIN32;NDEBUG;_LIB;RBX_WINRT_PHONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>true</MinimalRebuild>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <ObjectFileName>$(IntDir)%(RelativeDir)%(Filename).obj</ObjectFileName>
+    </ClCompile>
+    <Lib>
+      <AdditionalOptions>/MACHINE:ARM
+ %(AdditionalOptions)</AdditionalOptions>
+      <TargetMachine />
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\\..\\Rendering\\GfxBase\\Adorn.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\GfxBase\\AdornBillboarder.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\GfxBase\\AdornBillboarder2D.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\GfxBase\\AdornSurface.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\GfxBase\\FileMeshData.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\GfxBase\\FrameRateManager.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\GfxBase\\GfxPart.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\GfxBase\\IAdornableCollector.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\GfxBase\\PartIdentifier.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\GfxBase\\RenderCaps.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\GfxBase\\RenderSettings.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\GfxBase\\RenderStats.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\GfxBase\\ViewBase.cpp" />
+    <ClCompile Include="..\\..\\Rendering\\GfxBase\\ViewportBillboarder.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\Adorn.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\AdornBillboarder.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\AdornBillboarder2D.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\AdornSurface.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\FileMeshData.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\FrameRateManager.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\GfxPart.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\IAdornable.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\IAdornableCollector.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\Image.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\MeshFileStructs.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\MeshGen.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\Part.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\RenderCaps.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\RenderSettings.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\RenderStats.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\TextureProxyBase.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\Type.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\Typesetter.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\ViewBase.h" />
+    <ClInclude Include="..\\..\\Rendering\\GfxBase\\include\\GfxBase\\ViewportBillboarder.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

@@ -57,6 +57,9 @@ namespace RBX
 
 		private:
 			ClassDescriptor();
+#if defined(RBX_PLATFORM_XBOX360)
+			friend ClassDescriptor* createRootDescriptor360();
+#endif
 			static ClassDescriptors& allClasses();
 
 			ClassDescriptors derivedClasses;
@@ -86,8 +89,12 @@ namespace RBX
 			// The root ClassDescriptor of all other Descriptors
 			static ClassDescriptor& rootDescriptor()
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				return *createRootDescriptor360();
+#else
 				static ClassDescriptor root;
 				return root;
+#endif
 			}
 
 			/////////////////////////////////////////////////////////////////////////////////

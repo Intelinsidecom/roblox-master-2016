@@ -277,7 +277,7 @@ RenderView::RenderView(CRenderSettings::GraphicsMode graphicsMode, OSContext* co
 {
 	FASTLOG1(FLog::ViewRbxInit, "RenderView created - %p", this);
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
 	timeBeginPeriod(1);
 #endif
 
@@ -406,7 +406,7 @@ RenderView::~RenderView(void)
 
     sendFeatureLevelStats();
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
 	timeEndPeriod(1);
 #endif
 	FASTLOG(FLog::ViewRbxInit, "RenderView destroyed");

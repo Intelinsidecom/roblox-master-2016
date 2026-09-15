@@ -2491,8 +2491,12 @@ int ScriptContext::loadstring(lua_State *L)
 
             if (sss && sss->getLoadStringEnabled())
             {
+#if defined(RBX_PLATFORM_XBOX360)
+                sendLoadStringStats(dm->getPlaceID()); // Xenia: call_once rendezvous stalls
+#else
                 static boost::once_flag flag = BOOST_ONCE_INIT;
                 boost::call_once(flag, boost::bind(sendLoadStringStats, dm->getPlaceID()));
+#endif
             }
             else
             {

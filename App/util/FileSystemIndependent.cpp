@@ -3,7 +3,7 @@
 
 #ifdef _WIN32
 #include <windows.h>
-#if !defined(RBX_PLATFORM_UWP)
+#if !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_WIN_PHONE)
 #include <ATLPath.h>
 #endif
 

@@ -211,12 +211,12 @@ void Http::httpGetPostXbox(bool isPost, std::istream& dataStream, const std::str
 } // namespace RBX
 
 namespace RBX{ namespace HttpPlatformImpl {
-void init(Http::CookieSharingPolicy cookieSharingPolicy) { RBXASSERT(0); }
-void setCookiesForDomain(const std::string& domain, const std::string& cookies) { RBXASSERT(0); }
-void getCookiesForDomain(const std::string& domain, std::string& cookies) { RBXASSERT(0); }
-boost::filesystem::path getRobloxCookieJarPath() { RBXASSERT(0); return ""; }
-void setProxy(const std::string& host, long port) { RBXASSERT(0); }
-void perform(HttpOptions& options, std::string& response) { RBXASSERT(0); }
+void init(Http::CookieSharingPolicy cookieSharingPolicy) { }
+void setCookiesForDomain(const std::string& domain, const std::string& cookies) { }
+void getCookiesForDomain(const std::string& domain, std::string& cookies) { }
+boost::filesystem::path getRobloxCookieJarPath() { return boost::filesystem::path(); }
+void setProxy(const std::string& host, long port) { }
+void perform(HttpOptions& options, std::string& response) { }
 }}
 
 #endif // RBX_PLATFORM_XBOX360

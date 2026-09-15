@@ -104,7 +104,11 @@ void Sky::setSkyboxFt(const TextureId&  texId)
         skyFt = texId;    
         raisePropertyChanged(prop_SkyFt);
 
+#if defined(RBX_PLATFORM_XBOX360)
+        sendSkyBoxStats(texId);
+#else
         static boost::once_flag flag = BOOST_ONCE_INIT;
         boost::call_once(flag, &sendSkyBoxStats, texId);
+#endif
     }
 }

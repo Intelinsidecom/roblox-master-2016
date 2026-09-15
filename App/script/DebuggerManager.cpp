@@ -221,8 +221,12 @@ static void initDebuggerManagerSingleton()
 
 DebuggerManager& DebuggerManager::singleton()
 {
+#if defined(RBX_PLATFORM_XBOX360)
+	initDebuggerManagerSingleton(); // Xenia: call_once rendezvous stalls
+#else
 	static boost::once_flag flag = BOOST_ONCE_INIT;
 	boost::call_once(&initDebuggerManagerSingleton, flag);
+#endif
 	return *gDebuggerManager;
 }
 

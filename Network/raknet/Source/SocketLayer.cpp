@@ -247,7 +247,7 @@ void SocketLayer::SetDoNotFragment( SOCKET listenSocket, int opt, int IPPROTO )
 
 	if ( setsockopt__( listenSocket, IPPROTO, IP_DONTFRAGMENT, ( char * ) & opt, sizeof ( opt ) ) == -1 )
 	{
-#if defined(_WIN32) && defined(_DEBUG)
+#if defined(_WIN32) && defined(_DEBUG) && !defined(RBX_PLATFORM_WIN_PHONE)
 		DWORD dwIOError = GetLastError();
 		LPVOID messageBuffer;
 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
@@ -333,7 +333,7 @@ void SocketLayer::SetSocketOptions( SOCKET listenSocket)
 	sock_opt=1;
 	if ( setsockopt__( listenSocket, SOL_SOCKET, SO_BROADCAST, ( char * ) & sock_opt, sizeof( sock_opt ) ) == -1 )
 	{
-#if defined(_WIN32) && defined(_DEBUG)
+#if defined(_WIN32) && defined(_DEBUG) && !defined(RBX_PLATFORM_WIN_PHONE)
 
 	DWORD dwIOError = GetLastError();
 	// On Vista, can get WSAEACCESS (10013)
@@ -545,7 +545,7 @@ SOCKET SocketLayer::CreateBoundSocket_Old( unsigned short port, bool blockingSoc
 
 	if ( listenSocket == (SOCKET) -1 )
 	{
-#if defined(_WIN32) &&  defined(_DEBUG)
+#if defined(_WIN32) &&  defined(_DEBUG) && !defined(RBX_PLATFORM_WIN_PHONE)
 		DWORD dwIOError = GetLastError();
 		LPVOID messageBuffer;
 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
@@ -639,7 +639,7 @@ SOCKET SocketLayer::CreateBoundSocket_Old( unsigned short port, bool blockingSoc
 		}
 		dwIOError = GetLastError();
 		LPVOID messageBuffer;
-#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)// Roblox Change
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360) || defined(RBX_PLATFORM_WIN_PHONE)// Roblox Change
 		// something has gone wrong here...
 		RAKNET_DEBUG_PRINTF( "gethostname failed:Error code - %d\n", dwIOError );
         (void)messageBuffer;
@@ -1334,7 +1334,7 @@ int SocketLayer::SendTo( SOCKET s, const char *data, int length, SystemAddress &
 	}
 	else if ( dwIOError != WSAEWOULDBLOCK && dwIOError != WSAEADDRNOTAVAIL)
 	{
-#if defined(_WIN32) &&  defined(_DEBUG)
+#if defined(_WIN32) &&  defined(_DEBUG) && !defined(RBX_PLATFORM_WIN_PHONE)
 		LPVOID messageBuffer;
 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
 			NULL, dwIOError, MAKELANGID( LANG_NEUTRAL, SUBLANG_DEFAULT ),  // Default language
@@ -1372,7 +1372,7 @@ int SocketLayer::SendToTTL( SOCKET s, const char *data, int length, SystemAddres
 	// Get the current TTL
 	if (getsockopt__(s, systemAddress.GetIPPROTO(), IP_TTL, ( char * ) & oldTTL, &opLen ) == -1)
 	{
-#if defined(_WIN32) && defined(_DEBUG)
+#if defined(_WIN32) && defined(_DEBUG) && !defined(RBX_PLATFORM_WIN_PHONE)
 		DWORD dwIOError = GetLastError();
 		LPVOID messageBuffer;
 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
@@ -1390,7 +1390,7 @@ int SocketLayer::SendToTTL( SOCKET s, const char *data, int length, SystemAddres
 	if (setsockopt__(s, systemAddress.GetIPPROTO(), IP_TTL, ( char * ) & newTTL, sizeof ( newTTL ) ) == -1)
 	{
 
-#if defined(_WIN32) && defined(_DEBUG)
+#if defined(_WIN32) && defined(_DEBUG) && !defined(RBX_PLATFORM_WIN_PHONE)
 		DWORD dwIOError = GetLastError();
 		LPVOID messageBuffer;
 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
@@ -1628,7 +1628,7 @@ void GetMyIP_Win32( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_IDS] )
 		DWORD dwIOError = GetLastError();
 		LPVOID messageBuffer;
 
-#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360) // Roblox Change
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360) || defined(RBX_PLATFORM_WIN_PHONE) // Roblox Change
 		// WinRT
 		(void)messageBuffer;
 		// something has gone wrong here...
@@ -1681,7 +1681,7 @@ void GetMyIP_Win32( SystemAddress addresses[MAXIMUM_NUMBER_OF_INTERNAL_IDS] )
 	#ifdef _WIN32
 		DWORD dwIOError = GetLastError();
 		LPVOID messageBuffer;
-#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)// Roblox Change
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360) || defined(RBX_PLATFORM_WIN_PHONE)// Roblox Change
 		// WinRT
 		(void)messageBuffer;
 		// something has gone wrong here...
@@ -1808,7 +1808,7 @@ void SocketLayer::GetSystemAddress_Old ( SOCKET s, SystemAddress *systemAddressO
 	socklen_t len = sizeof(sa);
 	if (getsockname__(s, (sockaddr*)&sa, &len)!=0)
 	{
-#if defined(_WIN32) &&  defined(_DEBUG)
+#if defined(_WIN32) &&  defined(_DEBUG) && !defined(RBX_PLATFORM_WIN_PHONE)
 		DWORD dwIOError = GetLastError();
 		LPVOID messageBuffer;
 		FormatMessage( FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,

@@ -357,8 +357,12 @@ void initPluginManagerSingleton()
 
 shared_ptr<PluginManager> PluginManager::singleton()
 {
+#if defined(RBX_PLATFORM_XBOX360)
+	initPluginManagerSingleton();
+#else
 	static boost::once_flag flag = BOOST_ONCE_INIT;
 	boost::call_once(&initPluginManagerSingleton, flag);
+#endif
 	return doPluginManagerSingleton();
 }
 

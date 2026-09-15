@@ -13,12 +13,20 @@
 #include <sys/time.h>
 #endif
 
+#if defined(RBX_PLATFORM_WIN_PHONE)
+#include <thread>
+#endif
+
 #include "RakSleep.h"
 
 void RakSleep(unsigned int ms)
 {
-#ifdef _WIN32
+#if defined(_WIN32)
+#if defined(RBX_PLATFORM_WIN_PHONE)
+	std::this_thread::sleep_for(std::chrono::milliseconds(ms));
+#else
 	Sleep(ms);
+#endif
 
 
 

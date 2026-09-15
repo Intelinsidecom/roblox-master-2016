@@ -163,7 +163,11 @@ void SimpleMutex::Init(void)
 #if defined(_WIN32)
 	//	hMutex = CreateMutex(NULL, FALSE, 0);
 	//	RakAssert(hMutex);
-	InitializeCriticalSection(&criticalSection);
+#if defined(RBX_PLATFORM_WIN_PHONE) && defined(WINAPI_FAMILY) && (WINAPI_FAMILY==WINAPI_FAMILY_PHONE_APP)
+	::InitializeCriticalSectionEx(&criticalSection, 0, 0);
+#else
+	::InitializeCriticalSection(&criticalSection);
+#endif
 
 
 

@@ -112,9 +112,13 @@ namespace RBX {
 		public:
 			static T& singleton()
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				return doGetSingleton();
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(&initSingleton, flag);
 				return doGetSingleton();
+#endif
 			};
 		};
 

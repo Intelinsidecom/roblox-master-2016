@@ -176,11 +176,19 @@ namespace RBX
 		// Returns a new number each time it is called (starting at 0)
 		static size_t newIndex();
 
+#ifdef RBX_PLATFORM_XBOX360
+		static size_t serviceIndexForKey(const RBX::Name* key);
+#endif
+
 		template<class ServiceClass>
 		static size_t doGetClassIndex()
 		{
+#if defined(RBX_PLATFORM_XBOX360)
+			return serviceIndexForKey(&ServiceClass::className());
+#else
 			static size_t index = newIndex();
 			return index;
+#endif
 		}
 
 		template<class ServiceClass>
@@ -196,9 +204,13 @@ namespace RBX
 		template<class ServiceClass>
 		static size_t getClassIndex()
 		{
+#if defined(RBX_PLATFORM_XBOX360)
+			return doGetClassIndex<ServiceClass>();
+#else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
 			boost::call_once(&callDoGetClassIndex<ServiceClass>, flag);
 			return doGetClassIndex<ServiceClass>();
+#endif
 		}
 
 	};

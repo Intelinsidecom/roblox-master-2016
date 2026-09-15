@@ -17,7 +17,14 @@ namespace RBX
 
 	static void sleep(int duration)
 	{
-#ifdef _WIN32
+#if defined(RBX_PLATFORM_WIN_PHONE)
+		HANDLE evt = ::CreateEventExW(NULL, NULL, 0, EVENT_ALL_ACCESS);
+		if (evt)
+		{
+			::WaitForSingleObjectEx(evt, duration < 0 ? 0 : static_cast<DWORD>(duration), FALSE);
+			::CloseHandle(evt);
+	}
+#elif _WIN32
 		Sleep(duration);
 #else
 		::usleep(1000*duration);

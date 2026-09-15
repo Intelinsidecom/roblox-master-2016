@@ -26,8 +26,12 @@ namespace RBX {
 		template<const char* const& sName>
 		static const Name& doDeclare()
 		{
+#if defined(RBX_PLATFORM_XBOX360)
+			return declare(sName);
+#else
 			static const Name& n = declare(sName);
 			return n;
+#endif
 		}
 		template<const char* const& sName>
 		static void callDoDeclare()
@@ -60,9 +64,13 @@ namespace RBX {
 			if(sName == NULL)
 				return getNullName();
 
+#if defined(RBX_PLATFORM_XBOX360)
+			return doDeclare<sName>();
+#else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
 			boost::call_once(&callDoDeclare<sName>, flag);
 			return doDeclare<sName>();
+#endif
 		}
 		
         NOINLINE static const Name& lookup(const char* const& sName);

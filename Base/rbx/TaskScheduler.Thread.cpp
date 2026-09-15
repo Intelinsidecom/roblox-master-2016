@@ -308,9 +308,9 @@ void TaskScheduler::Thread::loop()
 				// The most efficient thing is to sleep for a super-short period of time.
 				// This is more efficient than waiting on a mutex, and the timespan is
 				// short enough to make the system responsive.
-#if defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
 				::Sleep(1);
-#elif defined(RBX_PLATFORM_XBOX360)
+#elif defined(RBX_PLATFORM_XBOX360) || defined(RBX_PLATFORM_WIN_PHONE)
 				boost::this_thread::sleep(boost::posix_time::milliseconds(1));
 #else
 				::usleep(1000);

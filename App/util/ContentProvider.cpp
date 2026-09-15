@@ -17,7 +17,7 @@
 #include "StringConv.h"
 #include "RobloxServicesTools.h"
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
 #include "ATLPath.h"
 #include "FastLog.h"
 #endif
@@ -87,7 +87,7 @@ namespace {
 #endif
 	}
 
-#if defined(RBX_PLATFORM_UWP)
+#if defined(RBX_PLATFORM_UWP) || defined(RBX_PLATFORM_WIN_PHONE)
     inline fs::path normalizePath(const fs::path& p)
     {
         std::vector<std::wstring> components;
@@ -951,7 +951,7 @@ namespace RBX
 
     bool ContentProvider::isInSandbox(const fs::path& path, const fs::path& sandbox)
     {
-#if defined(RBX_PLATFORM_UWP)
+#if defined(RBX_PLATFORM_UWP) || defined(RBX_PLATFORM_WIN_PHONE)
         std::string normalizedPath = pathToString(normalizePath(path));
         std::string normalizedBase = pathToString(normalizePath(sandbox));
         bool inSandbox;
@@ -1058,17 +1058,26 @@ namespace RBX
             if (RBX::Log::current())
                 RBX::Log::current()->writeEntry(Log::Information, RBX::format("setAssetFolder %s", sPath).c_str());
 
-			#if defined(RBX_PLATFORM_UWP)
+			#if defined(RBX_PLATFORM_UWP) || defined(RBX_PLATFORM_WIN_PHONE)
             fs::path inputPath = stringToPath(sPath);
             fs::path path = inputPath.is_absolute() ? inputPath : fs::system_complete(inputPath);
 			#else
 			fs::path path = fs::system_complete( stringToPath(sPath) );
 #endif
 
-            if (!fs::exists(path))
+#if defined(RBX_PLATFORM_XBOX360)
+            if (!fs::exists(path) || !is_directory(path))
+            {
+                if (RBX::Log::current())
+                    RBX::Log::current()->writeEntry(Log::Warning, RBX::format("setAssetFolder: '%s' not found — skipping", path.string().c_str()).c_str());
+                return;
+            }
+#else
+if (!fs::exists(path))
                 throw RBX::runtime_error("The path '%s' does not exist", path.string().c_str());
             if (!is_directory(path))
                 throw RBX::runtime_error("'%s' is not a directory", path.string().c_str());
+#endif
 
             appendSlashIfRequired(path);
 
@@ -1078,6 +1087,8 @@ namespace RBX
 			fs::path platformAssetFolderModifier = "../PlatformContent/Xbox360/"; //powerpc might need different asset types
 #elif defined(RBX_PLATFORM_UWP)
             fs::path platformAssetFolderModifier = "../PlatformContent/pc/";
+#elif defined(RBX_PLATFORM_WIN_PHONE)
+			fs::path platformAssetFolderModifier = "../PlatformContent/pc/"; // might need to be wp or durango as i will want 3d background without the lua menus
 #elif defined(RBX_PLATFORM_IOS)
             fs::path platformAssetFolderModifier = "../ios/";
 #elif defined(__APPLE__) || defined(_WIN32)
@@ -1094,9 +1105,24 @@ namespace RBX
             assetFolderString = pathToString(path);
             platformAssetFolderString = assetFolderString + platformAssetFolderModifier.string();
 
-#if defined(RBX_PLATFORM_UWP)
+#if defined(RBX_PLATFORM_UWP) || defined(RBX_PLATFORM_WIN_PHONE)
             assetFolderPath = normalizePath(path);
             platformAssetFolderPath = normalizePath(path / platformAssetFolderModifier);
+#elif defined(RBX_PLATFORM_XBOX360)
+            assetFolderPath = fs::canonical(path);
+            {
+                boost::system::error_code ec;
+                fs::path plat = fs::canonical(path / platformAssetFolderModifier, ec);
+                if (!ec && fs::exists(plat, ec))
+                    platformAssetFolderPath = plat;
+                else
+                {
+                    platformAssetFolderPath = fs::absolute(path / platformAssetFolderModifier);
+                    if (RBX::Log::current())
+                        RBX::Log::current()->writeEntry(Log::Information,
+                            RBX::format("PlatformContent not found at %s - rbxasset:// will fallback to content/", plat.string().c_str()).c_str());
+                }
+            }
 #else
 			assetFolderPath = fs::canonical(path);
 			platformAssetFolderPath = fs::canonical(path / platformAssetFolderModifier);

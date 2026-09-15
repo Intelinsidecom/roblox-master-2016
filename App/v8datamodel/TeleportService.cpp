@@ -491,18 +491,30 @@ void TeleportService::ServerTeleport(shared_ptr<Instance> characterOrPlayerInsta
         {
 			if (teleportInfo->at("teleportType").get<TeleportType>() == TeleportType_ToPlace)
             {
+#if defined(RBX_PLATFORM_XBOX360)
+                sendTeleportStats("ToPlace");
+#else
                 static boost::once_flag flag = BOOST_ONCE_INIT;
                 boost::call_once(flag, boost::bind(&sendTeleportStats, "ToPlace"));
+#endif
             }
             else if (teleportInfo->at("teleportType").get<TeleportType>() == TeleportType_ToInstance)
             {
+#if defined(RBX_PLATFORM_XBOX360)
+                sendTeleportStats("ToInstance");
+#else
                 static boost::once_flag flag = BOOST_ONCE_INIT;
                 boost::call_once(flag, boost::bind(&sendTeleportStats, "ToInstance"));
+#endif
             } 
 			else if (teleportInfo->at("teleportType").get<TeleportType>() == TeleportType_ToReservedServer)
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				sendTeleportStats("ToReservedServer");
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
                 boost::call_once(flag, boost::bind(&sendTeleportStats, "ToReservedServer"));
+#endif
 			}
         }
 

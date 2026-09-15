@@ -39,7 +39,7 @@ static btClock gProfileClock;
 #define NOMCX
 #define NOIME 
 
-#ifdef RBX_PLATFORM_UWP
+#if defined(RBX_PLATFORM_UWP) || defined(WINAPI_FAMILY) && (WINAPI_FAMILY==WINAPI_FAMILY_PHONE_APP || WINAPI_FAMILY==WINAPI_FAMILY_APP || WINAPI_FAMILY_PARTITION(WINAPI_PARTITION_APP))
 	#include <windows.h>
 	#define GetTickCount GetTickCount64
 #elif defined(_XBOX)

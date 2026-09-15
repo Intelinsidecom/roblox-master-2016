@@ -314,13 +314,21 @@ namespace RBX {
 
 		if (player)
 		{
+#if defined(RBX_PLATFORM_XBOX360)
+			sendCreatePlaceInPlayerInventoryStats();
+#else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
 			boost::call_once(&sendCreatePlaceInPlayerInventoryStats, flag);
+#endif
 		} 
 		else
 		{
+#if defined(RBX_PLATFORM_XBOX360)
+			sendCreatePlaceStats();
+#else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
 			boost::call_once(&sendCreatePlaceStats, flag);
+#endif
 		}
 		
 
@@ -386,8 +394,12 @@ namespace RBX {
 			}
 
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				sendSavePlaceStats();
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(&sendSavePlaceStats, flag);
+#endif
 			}
 
 			// construct the url

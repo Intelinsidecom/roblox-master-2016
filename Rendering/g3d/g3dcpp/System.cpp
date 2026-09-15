@@ -46,6 +46,14 @@
 #ifdef G3D_WIN32
 
 #   include <sys/timeb.h>
+#   if defined(WINAPI_FAMILY) && WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
+#       include <synchapi.h>
+#       ifndef CREATE_EVENT_MANUAL_RESET
+#           define CREATE_EVENT_MANUAL_RESET 0x00000001
+#       endif
+extern "C" __declspec(dllimport) HANDLE __stdcall CreateEventExW(
+    LPSECURITY_ATTRIBUTES, LPCWSTR, DWORD, DWORD);
+#   endif
 
 #elif defined(G3D_LINUX) || defined(G3D_ANDROID) // ROBLOX
 
@@ -212,7 +220,7 @@ void System::init() {
 	m_cpuSpeed = 999;
 	m_machineEndian = G3D_BIG_ENDIAN;
 
-#    elif defined(G3D_WIN32)
+#    elif defined(G3D_WIN32) && (!defined(WINAPI_FAMILY) || WINAPI_FAMILY == WINAPI_FAMILY_DESKTOP_APP)
 		bool success = false;
         // Note that this overrides some of the values computed above
         m_cpuSpeed = 999;
@@ -252,26 +260,36 @@ void System::init() {
             m_cpuArch = c;
         }
 
-#if defined(WINAPI_FAMILY) && (WINAPI_FAMILY != WINAPI_FAMILY_DESKTOP_APP)
-        m_operatingSystem = "Windows (UWP)";
-#else
-        OSVERSIONINFO osVersionInfo;
-        osVersionInfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-        success = GetVersionEx(&osVersionInfo) != 0;
+        {
+            OSVERSIONINFO osVersionInfo;
+            osVersionInfo.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+            success = GetVersionEx(&osVersionInfo) != 0;
 
-        if (success) {
-            char c[1000];
-            sprintf(c, "Windows %d.%d build %d Platform %d %s",
-                osVersionInfo.dwMajorVersion,
-                osVersionInfo.dwMinorVersion,
-                osVersionInfo.dwBuildNumber,
-                osVersionInfo.dwPlatformId,
-                osVersionInfo.szCSDVersion);
-            m_operatingSystem = c;
-        } else {
-            m_operatingSystem = "Windows";
+            if (success) {
+                char c[1000];
+                sprintf(c, "Windows %d.%d build %d Platform %d %s",
+                    osVersionInfo.dwMajorVersion,
+                    osVersionInfo.dwMinorVersion,
+                    osVersionInfo.dwBuildNumber,
+                    osVersionInfo.dwPlatformId,
+                    osVersionInfo.szCSDVersion);
+                m_operatingSystem = c;
+            } else {
+                m_operatingSystem = "Windows";
+            }
         }
-#endif
+
+#    elif defined(G3D_WIN32) && defined(WINAPI_FAMILY) && defined(M_ARM)
+        m_cpuSpeed = 999;
+        m_numCores = 4;
+        m_operatingSystem = "Windows Phone";
+        m_cpuArch = "ARM";
+
+#    elif defined(G3D_WIN32) && defined(WINAPI_FAMILY) && !defined(M_ARM)
+        m_cpuSpeed = 999;
+        m_numCores = 4;
+        m_operatingSystem = "WinRT";
+        m_cpuArch = "X86";
     
 #    elif defined(G3D_LINUX) || defined(G3D_FREEBSD)
 
@@ -459,10 +477,12 @@ std::string& System::appName() {
 std::string System::currentProgramFilename() {
     char filename[2048];
 
-#   ifdef G3D_WIN32
+#   if defined(G3D_WIN32) && !defined(WINAPI_FAMILY)
     {
         GetModuleFileNameA(NULL, filename, sizeof(filename));
     } 
+#   elif defined(G3D_WIN32) && defined(WINAPI_FAMILY)
+    filename[0] = '\0';
 #   elif defined(G3D_OSX) || defined(G3D_IOS) // ROBLOX
     {
         // Run the 'ps' program to extract the program name
@@ -533,7 +553,17 @@ void System::sleep(RealTime t) {
         if (sleepTime >= 0) {
             #ifdef G3D_WIN32
                 // Translate to milliseconds
+#if defined(WINAPI_FAMILY) && WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP
+			{
+				HANDLE hSleepEvent = CreateEventExW(NULL, NULL, CREATE_EVENT_MANUAL_RESET, SYNCHRONIZE);
+				if (hSleepEvent) {
+					WaitForSingleObjectEx(hSleepEvent, (DWORD)(sleepTime * 1e3), FALSE);
+					CloseHandle(hSleepEvent);
+		}
+	}
+#else
                 Sleep((int)(sleepTime * 1e3));
+#endif
             #else
                 // Translate to microseconds
                 usleep((int)(sleepTime * 1e6));
@@ -640,7 +670,7 @@ std::string System::currentDateString() {
     return format("%d-%02d-%02d", t->tm_year + 1900, t->tm_mon + 1, t->tm_mday); 
 }
 
-#if defined(_MSC_VER) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(_XBOX)
+#if defined(_MSC_VER) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_WIN_PHONE) && !defined(_XBOX)
 
 
 // VC on Intel
@@ -664,7 +694,7 @@ void System::cpuid(CPUIDFunction func, uint32& areg, uint32& breg, uint32& creg,
     dreg = d;
 }
 
-#elif (defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_UWP) || defined(_XBOX) || defined(G3D_OSX) || defined(G3D_IOS) || defined(G3D_ANDROID)) && ! defined(G3D_OSX_INTEL)
+#elif (defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_UWP) || defined(RBX_PLATFORM_WIN_PHONE) || defined(_XBOX) || defined(G3D_OSX) || defined(G3D_IOS) || defined(G3D_ANDROID)) && ! defined(G3D_OSX_INTEL)
 
 // no CPUID
 void System::cpuid(CPUIDFunction func, uint32& eax, uint32& ebx, uint32& ecx, uint32& edx) {

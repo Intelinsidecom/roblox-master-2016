@@ -94,7 +94,7 @@ struct DeviceCaps
     bool requiresRenderTargetFlipping;
     
     bool retina;
-#if defined(RBX_PLATFORM_UWP)
+#if defined(RBX_PLATFORM_UWP) || defined(RBX_PLATFORM_WIN_PHONE)
     float uiScale;
 #endif
 

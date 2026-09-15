@@ -74,11 +74,16 @@ namespace rbx
 	class RBXBaseClass quick_intrusive_ptr_target
 	{
 	private:
+#if defined(_MSC_VER) && (_MSC_VER == 1800)
+	public:
+#endif
 		rbx::atomic<Count> refs;
 	public:
 		inline quick_intrusive_ptr_target() { refs = 0; }
+#if !defined(_MSC_VER) || (_MSC_VER != 1800)
 		friend void boost::intrusive_ptr_add_ref<>(const quick_intrusive_ptr_target<T, Count, maxRefs>* p);
 		friend void boost::intrusive_ptr_release<>(const quick_intrusive_ptr_target<T, Count, maxRefs>* p);
+#endif
 	};
 #pragma pack(pop)	
 
@@ -87,6 +92,9 @@ namespace rbx
 	class RBXBaseClass intrusive_ptr_target
 	{
 	private:
+#if defined(_MSC_VER) && (_MSC_VER == 1800)
+	public:
+#endif
 		// The "counts" struct is placed in memory at the head of the object
 #pragma pack(push)
 #pragma pack(8)	// Packing is useful if Count is short or byte
@@ -127,12 +135,14 @@ namespace rbx
 			::free(c);
 		}
 
+		#if !defined(_MSC_VER) || (_MSC_VER != 1800)
 		friend void boost::intrusive_ptr_add_ref<>(const intrusive_ptr_target<T, Count, maxStrong, maxWeak>* p);
 		friend void boost::intrusive_ptr_release<>(const intrusive_ptr_target<T, Count, maxStrong, maxWeak>* p);
 		friend void boost::intrusive_ptr_add_weak_ref<>(const intrusive_ptr_target<T, Count, maxStrong, maxWeak>* p);
 		friend bool boost::intrusive_ptr_expired<>(const intrusive_ptr_target<T, Count, maxStrong, maxWeak>* p);
 		friend bool boost::intrusive_ptr_try_lock<>(const intrusive_ptr_target<T, Count, maxStrong, maxWeak>* p);
 		friend void boost::intrusive_ptr_weak_release<>(const intrusive_ptr_target<T, Count, maxStrong, maxWeak>* p);
+#endif
 	};	 
 }
 

@@ -5,7 +5,7 @@
 #define NTDDI_VERSION 0x0A000000
 #endif
 
-#if defined(RBX_PLATFORM_XBOX360)
+#if defined(RBX_PLATFORM_XBOX360) || defined(RBX_PLATFORM_WIN_PHONE)
 #include <windows.h> // its a shim with more includes
 #endif
 
@@ -94,7 +94,7 @@ static void MicroProfileDebugPrintf(const char* format, ...)
     vsprintf_s(message, format, args);
     va_end(args);
 
-    OutputDebugStringA(message);
+	OutputDebugStringA(message);
 }
 
 #define MICROPROFILE_PRINTF(...) MicroProfileDebugPrintf(__VA_ARGS__)
@@ -103,7 +103,7 @@ static void MicroProfileDebugPrintf(const char* format, ...)
 #define MP_ASSERT(e) RBXASSERT(e)
 #define MICROPROFILE_WEBSERVER 0
 
-#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_UWP)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_UWP) || defined(RBX_PLATFORM_WIN_PHONE)
 #define MICROPROFILE_WEBSERVER_PORT 4600
 #define MICROPROFILE_CONTEXT_SWITCH_TRACE 0
 #define getenv(name) NULL

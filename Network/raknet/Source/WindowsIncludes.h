@@ -11,9 +11,15 @@
 #define _WIN32_WINNT 0x0501
 #endif
 #endif
+#if defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP)
+#undef _WIN32_WINNT
+#define _WIN32_WINNT 0x0602
+#endif
 #include <WinSock2.h>
 #include <windows.h>
+#if !defined(RBX_PLATFORM_WIN_PHONE)
 #include <Ws2tcpip.h>
+#endif
 
 // Must always include Winsock2.h before windows.h
 // or else:

@@ -40,8 +40,12 @@ Light::Light(const char* name)
 	, color(Color3::white())
 	, brightness(1.f)
 {
+#if defined(RBX_PLATFORM_XBOX360)
+    sendLightingObjectsStats();
+#else
     static boost::once_flag flag = BOOST_ONCE_INIT;
     boost::call_once(&sendLightingObjectsStats, flag);
+#endif
 }
 
 Light::~Light()

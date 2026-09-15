@@ -14,7 +14,12 @@
 
 #ifndef NOMINMAX
 #   define NOMINMAX 1
-#endif	
+#endif
+
+#   if defined(RBX_PLATFORM_WIN_PHONE)
+#       include <winapifamily.h>
+#       define WINAPI_FAMILY WINAPI_FAMILY_PHONE_APP
+#   endif
 #   include <windows.h>
 #   undef WIN32_LEAN_AND_MEAN
 #   undef NOMINMAX

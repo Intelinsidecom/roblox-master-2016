@@ -72,8 +72,12 @@ void Body::initStaticData()
 
 Body* Body::getWorldBody()
 {
+#if defined(RBX_PLATFORM_XBOX360)
+	initStaticData();
+#else
 	static boost::once_flag flag = BOOST_ONCE_INIT;
 	boost::call_once(&initStaticData, flag);
+#endif
 	return worldBody;
 }
 

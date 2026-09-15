@@ -31,7 +31,11 @@ SignaledEvent::~SignaledEvent()
 void SignaledEvent::InitEvent(void)
 {
 #ifdef _WIN32
-		eventList=CreateEvent(0, false, false, 0);
+#if defined(RBX_PLATFORM_WIN_PHONE) && defined(WINAPI_FAMILY) && (WINAPI_FAMILY==WINAPI_FAMILY_PHONE_APP)
+	eventList = ::CreateEventExW(NULL, NULL, 0, EVENT_MODIFY_STATE | SYNCHRONIZE);
+#else
+	eventList = CreateEvent(0, false, false, 0);
+#endif
 
 
 
@@ -114,8 +118,12 @@ void SignaledEvent::WaitOnEvent(int timeoutMs)
 //		2,
 //		eventList,
 //		false,
-//		timeoutMs);
-	WaitForSingleObject(eventList,timeoutMs);
+//		timeoutMs
+#if defined(RBX_PLATFORM_WIN_PHONE) && defined(WINAPI_FAMILY) && (WINAPI_FAMILY==WINAPI_FAMILY_PHONE_APP)
+	::WaitForSingleObjectEx(eventList, timeoutMs, FALSE);
+#else
+	WaitForSingleObject(eventList, timeoutMs);
+#endif
 
 
 

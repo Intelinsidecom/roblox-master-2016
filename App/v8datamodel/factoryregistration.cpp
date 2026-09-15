@@ -570,7 +570,7 @@ RBX_REGISTER_CLASS(LuaSourceContainer);
 RBX_REGISTER_CLASS(HapticService);
 
 // Xbox
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)
 #include "v8datamodel/PlatformService.h"
 RBX_REGISTER_CLASS(PlatformService);
 #endif
@@ -581,22 +581,54 @@ static void onSlotException(std::exception& ex)
 	RBX::StandardOut::singleton()->printf(MESSAGE_ERROR, "exception while signalling: %s", ex.what());
 }
 
+#ifdef RBX_PLATFORM_XBOX360
+// Xbox 360 boot diagnostic: Xenia logs XexCheckExecutablePrivilege syscalls,
+// so FB_STAGE markers bisect which FactoryRegistrator phase stalls the guest.
+// No side effects; defined as a no-op on other platforms.
+extern "C" int XexCheckExecutablePrivilege(unsigned long PrivilegeType);
+#define FB_STAGE(t) XexCheckExecutablePrivilege(t)
+#else
+#define FB_STAGE(t) ((void)0)
+#endif
+
 FactoryRegistrator::FactoryRegistrator()
 {
+	FB_STAGE(0x70); // FactoryRegistrator ctor entry
 	G3D::System::time();// Initialize the Program Start Time.
-	registerSound();
-	RBX::registerScriptDescriptors();
-	registerBodyMovers();
+	FB_STAGE(0x71); // G3D::System::time done
 
+	FB_STAGE(0x72); // registerSound begin
+	registerSound();
+	FB_STAGE(0x73); // registerSound done
+
+	FB_STAGE(0x74); // registerScriptDescriptors begin
+	RBX::registerScriptDescriptors();
+	FB_STAGE(0x75); // registerScriptDescriptors done
+
+	FB_STAGE(0x76); // registerBodyMovers begin
+	registerBodyMovers();
+	FB_STAGE(0x77); // registerBodyMovers done
+
+	FB_STAGE(0x78); // registerValueClasses begin
 	registerValueClasses();
+	FB_STAGE(0x79); // registerValueClasses done
+
+	FB_STAGE(0x7A); // registerStatsClasses begin
 	RBX::registerStatsClasses();
+	FB_STAGE(0x7B); // registerStatsClasses done
+
+	FB_STAGE(0x7C); // registerSurfaceDescriptors begin
 	RBX::Surface::registerSurfaceDescriptors();
+	FB_STAGE(0x7D); // registerSurfaceDescriptors done
 
 	rbx::signals::slot_exception_handler = onSlotException;
 
+	FB_STAGE(0x7E); // srand begin
 	srand(RBX::randomSeed());
+	FB_STAGE(0x7F); // srand done
 
 	ModelInstance::hackPhysicalCharacter();
+	FB_STAGE(0x81); // ctor complete
 }
 
 // Enum types
@@ -723,7 +755,9 @@ RBX_REGISTER_ENUM(Pose::PoseEasingDirection);
 RBX_REGISTER_ENUM(HapticService::VibrationMotor);
 RBX_REGISTER_ENUM(UserInputService::UserCFrame);
 
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360)
 RBX_REGISTER_ENUM(XboxKeyBoardType)
 RBX_REGISTER_ENUM(VoiceChatState)
 #endif
+
+

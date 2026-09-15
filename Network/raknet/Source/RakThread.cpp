@@ -15,9 +15,9 @@ using namespace RakNet;
 	#if !defined(_WIN32_WCE)
 	#include <process.h>
 	#endif
-
-
-
+#if defined(RBX_PLATFORM_WIN_PHONE)
+#include <thread>
+#endif
 
 #else
 #include <pthread.h>
@@ -43,13 +43,26 @@ int RakThread::Create( void* start_address( void* ), void *arglist, int priority
 #if   defined (_WIN32_WCE)
 	threadHandle = CreateThread(NULL,MAX_ALLOCA_STACK_ALLOCATION*2,start_address,arglist,0,(DWORD*)&threadID);
 	SetThreadPriority(threadHandle, priority);
+#elif defined(WINAPI_FAMILY) && (WINAPI_FAMILY==WINAPI_FAMILY_PHONE_APP)
+	try {
+		std::thread t([start_address, arglist] {
+			start_address(arglist);
+		});
+		t.detach();
+		return 0;
+	}
+	catch (...) {
+		return 1;
+		}
 #elif defined(RBX_PLATFORM_DURANGO)
 	threadHandle = (HANDLE)CreateThread(NULL, MAX_ALLOCA_STACK_ALLOCATION * 2, LPTHREAD_START_ROUTINE(start_address),
 		arglist, 0, LPDWORD(&threadID)); // WinRT
 #else
 	threadHandle = (HANDLE) _beginthreadex( NULL, MAX_ALLOCA_STACK_ALLOCATION*2, start_address, arglist, 0, &threadID );
 #endif
+#if !defined(RBX_PLATFORM_WIN_PHONE)
 	SetThreadPriority(threadHandle, priority);
+#endif
 
 	if (threadHandle==0)
 	{

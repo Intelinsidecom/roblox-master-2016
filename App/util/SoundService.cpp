@@ -385,8 +385,12 @@ void SoundService::updateAmbientReverb()
 	if (!system)
 		return;
 
+#if defined(RBX_PLATFORM_XBOX360)
+	initReverbs();
+#else
 	static boost::once_flag flag = BOOST_ONCE_INIT;
 	boost::call_once(&initReverbs, flag);
+#endif
 
 #if defined(RBX_PLATFORM_XBOX360)
 	checkResultNoThrow(system->setReverbProperties(&reverbs[ambientReverb]), "setReverbProperties", this, system.get());

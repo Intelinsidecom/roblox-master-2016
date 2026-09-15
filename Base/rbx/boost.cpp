@@ -52,7 +52,7 @@ namespace RBX {
 		}
 	}
 
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_WIN_PHONE)
 #pragma warning(push)
 #pragma warning(disable:6312)
 #pragma warning(disable:6322)
@@ -94,7 +94,7 @@ namespace RBX {
 	void set_thread_name(const char* name)
 	{
 		RBX::boost_detail::threadName().reset(new std::string(name));
-#ifdef _WIN32
+#if defined(_WIN32) && !defined(RBX_PLATFORM_WIN_PHONE)
 		RBX::SetThreadName(GetCurrentThreadId(), name);
 #else
 #if MAC_OS_X_VERSION_MIN_REQUIRED > MAC_OS_X_VERSION_10_5

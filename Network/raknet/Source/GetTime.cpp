@@ -137,7 +137,7 @@ RakNet::TimeUS GetTimeUS_Windows( void )
 		HANDLE mProc = GetCurrentProcess();
 
 		// Get the current Affinity
-#if !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
+#if !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
 #if _MSC_VER >= 1400 && defined (_M_X64)
 		GetProcessAffinityMask(mProc, (PDWORD_PTR)&mProcMask, (PDWORD_PTR)&mSysMask);
 #else

@@ -4,6 +4,9 @@
 #include "util/Exception.h"
 #include <vector>
 #include "security/SecurityContext.h"
+#if defined(RBX_PLATFORM_XBOX360)
+#include "util/XboxDiag.h"
+#endif
 
 #include "rbx/DenseHash.h"
 
@@ -160,9 +163,13 @@ namespace RBX
 			}
 			static Collection& allDescriptors()
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				return staticData();
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(&initStaticData, flag);
 				return staticData();
+#endif
 			}
 
 		protected:
@@ -288,7 +295,6 @@ namespace RBX
 					allDescriptors().insert(iter, descriptor);
 SKIP:				;
 				}
-
 			}
 
 			/////////////////////////////////////////////////////////////////

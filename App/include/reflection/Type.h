@@ -90,6 +90,11 @@ namespace RBX
 			}
 		};
 
+#if defined(_M_ARM) && defined(RBX_PLATFORM_WIN_PHONE)
+		template<>
+		const Type& Type::getSingleton<void>();
+#endif
+
 		std::ostream& operator<<(std::ostream& os, const RBX::Reflection::Type& type);
 
 		// Handy macro for registering a type

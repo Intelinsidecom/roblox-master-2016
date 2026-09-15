@@ -29,7 +29,7 @@ namespace RBX {
             , apiToken(apiToken)
             , prevApiToken(prevApiToken)
         {
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
             this->hashes.hash.push_back(RBX::Security::getIndirectly<LINE_RAND4>((void*)(&RBX::Security::rbxTextSize)));
             this->hashes.hash.push_back(RBX::Security::getIndirectly<LINE_RAND4>((void*)(&RBX::Security::rbxTextBase)));
 #endif

@@ -254,6 +254,7 @@
       <AdditionalIncludeDirectories>..\..\ClientBase\Xbox360;include;.;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;ijg;include\png;include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <UndefinePreprocessorDefinitions>G3D_ALLOW_UNALIGNED_WRITES;</UndefinePreprocessorDefinitions>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Xbox 360'">
@@ -262,6 +263,7 @@
       <AdditionalIncludeDirectories>..\..\ClientBase\Xbox360;include;.;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;ijg;include\png;include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <UndefinePreprocessorDefinitions>G3D_ALLOW_UNALIGNED_WRITES;</UndefinePreprocessorDefinitions>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>

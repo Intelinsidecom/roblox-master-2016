@@ -61,8 +61,12 @@ static void initLocalScope()
 
 const RBX::Guid::Scope& RBX::Guid::getLocalScope()
 {
+#if defined(RBX_PLATFORM_XBOX360)
+	initLocalScope();
+#else
 	static boost::once_flag flag = BOOST_ONCE_INIT;
 	boost::call_once(&initLocalScope, flag);
+#endif
 	return *localScope;
 }
 

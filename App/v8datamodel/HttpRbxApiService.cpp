@@ -728,8 +728,12 @@ namespace RBX {
 
 			if (getRecordInGoogleAnalytics())
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				sendApiServiceDidQueue();
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(&sendApiServiceDidQueue, flag);
+#endif
 			}
 
 			if (throttledRequestQueue.size() < (unsigned)DFInt::HttpRbxApiMaxThrottledQueueSize)
@@ -740,8 +744,12 @@ namespace RBX {
 			{
 				if (getRecordInGoogleAnalytics())
 				{
+#if defined(RBX_PLATFORM_XBOX360)
+					sendApiServiceDidThrottle();
+#else
 					static boost::once_flag flag = BOOST_ONCE_INIT;
 					boost::call_once(&sendApiServiceDidThrottle, flag);
+#endif
 				}
 
 				std::string throttleError = RBX::format("number of API requests/minute exceeded limit for HTTP API throttle. Please don't issue more than %i API requests/minute with server scripts and no more than %i API requests/minute with local scripts.",

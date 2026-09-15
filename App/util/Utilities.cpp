@@ -29,10 +29,22 @@ const std::string RBX::Http::kContentTypeApplicationJson = "application/json";
 const std::string RBX::Http::kContentTypeApplicationXml = "application/xml";
 const std::string RBX::Http::kContentTypeTextPlain = "text/plain";
 const std::string RBX::Http::kContentTypeTextXml = "text/xml";
-std::string RBX::Http::lastCsrfToken = "";
-boost::mutex RBX::Http::lastCsrfTokenMutex;
 
-#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360)
+// Function-local static storage (magic static) for the CSRF token pair: on 360
+// file-scope member objects never get their ctor run (empty static-ctor table);
+// the once-guard works there (_Init_thread_header workaround in Stubs.cpp).
+std::string& RBX::Http::lastCsrfToken()
+{
+	static std::string token;
+	return token;
+}
+boost::mutex& RBX::Http::lastCsrfTokenMutex()
+{
+	static boost::mutex mutex;
+	return mutex;
+}
+
+#if defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
 #include "objbase.h"
 #include <windows.h>
 #include <wincrypt.h>
@@ -93,16 +105,16 @@ namespace RBX {
     {
         std::string result;
         {
-            boost::mutex::scoped_lock l(lastCsrfTokenMutex);
-            result = lastCsrfToken;
+            boost::mutex::scoped_lock l(lastCsrfTokenMutex());
+            result = lastCsrfToken();
         }
         return result;
     }
     
     void Http::setLastCsrfToken(const std::string& newToken)
     {
-        boost::mutex::scoped_lock l(lastCsrfTokenMutex);
-        lastCsrfToken = newToken;
+        boost::mutex::scoped_lock l(lastCsrfTokenMutex());
+        lastCsrfToken() = newToken;
     }
     
 	std::string rot13(std::string source)

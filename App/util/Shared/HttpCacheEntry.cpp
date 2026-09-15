@@ -16,7 +16,11 @@ using namespace RBX::HttpPlatformImpl::Cache;
 using namespace RBX::HttpCache;
 
 using boost::shared_ptr;
-static boost::mutex assetCacheMutex;
+static boost::mutex& assetCacheMutex()
+{
+	static boost::mutex mutex;
+	return mutex;
+}
 
 enum ListDirectoryAttribute
 {
@@ -121,7 +125,7 @@ boost::filesystem::path cacheFilePath(const char* url)
 void cleanCache(const CacheCleanOptions& options)
 {
     DirectoryEntries dirents;
-	boost::mutex::scoped_lock lock(assetCacheMutex);
+	boost::mutex::scoped_lock lock(assetCacheMutex());
     listDirectory(gCachePath(), ListAttributeModTime, dirents);
 
     boost::system::error_code ec;
@@ -217,7 +221,7 @@ CacheResult CacheResult::open(const char* assetUrl, const char* cdnUrl)
 {
     try
     {
-		boost::mutex::scoped_lock lock(assetCacheMutex);
+		boost::mutex::scoped_lock lock(assetCacheMutex());
         boost::filesystem::path filepath = cacheFilePath(assetUrl ? assetUrl : cdnUrl);
         size_t filesize = 0;
 
@@ -294,7 +298,7 @@ CacheResult CacheResult::update(const char* assetUrl, const char* cdnUrl, const 
 	if (responseCode != 200)
 		return CacheResult("CacheEntry::update: Non 200 Responses are not cached");
 
-	boost::mutex::scoped_lock lock(assetCacheMutex);
+	boost::mutex::scoped_lock lock(assetCacheMutex());
 
 
 	Header cacheHeader = {

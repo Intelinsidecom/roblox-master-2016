@@ -13,6 +13,9 @@ namespace RBX
 	{
 		void setNoFrag(HANDLE heapHandle)
 		{
+#if defined(RBX_PLATFORM_WIN_PHONE) && !defined(RBX_PLATFORM_UWP)
+			(void)heapHandle;
+#else
 			ULONG  HeapFragValue = 2;
 			BOOL ok = HeapSetInformation(
 							heapHandle,
@@ -49,6 +52,7 @@ namespace RBX
 							NULL);
 */
 
+#endif
 		}
 
 		void setWindowsNoFragHeap()
@@ -56,7 +60,7 @@ namespace RBX
 			HANDLE processHeap = GetProcessHeap();
 			setNoFrag(processHeap);
 
-#ifndef RBX_PLATFORM_UWP
+#if !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_WIN_PHONE)
 			HANDLE heaps[1025];
 			DWORD nheaps = GetProcessHeaps(1024, heaps);
 			for (DWORD i = 0; i < nheaps; i++) {

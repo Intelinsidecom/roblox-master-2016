@@ -25,7 +25,7 @@
 #include "TargetConditionals.h"
 #endif
 
-#if (defined(RBX_PLATFORM_IOS) && !TARGET_IPHONE_SIMULATOR) || defined(__ANDROID__)
+#if (defined(RBX_PLATFORM_IOS) && !TARGET_IPHONE_SIMULATOR) || defined(__ANDROID__) || defined(RBX_PLATFORM_WIN_PHONE)
 #include <arm_neon.h>
 #endif
 
@@ -33,11 +33,11 @@ LOGVARIABLE(Voxelizer, 0);
 
 FASTINTVARIABLE(CSGVoxelizerFadeRadius, 300);
 
-#if ((defined(_WIN32) && !defined(_M_ARM) && !defined(_M_ARM64) && !defined(RBX_PLATFORM_XBOX360)) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS)))
+#if ((defined(_WIN32) && !defined(_M_ARM) && !defined(_M_ARM64) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS)))
 #define SIMD_SSE2
 #endif
 
-#if (defined(_WIN32) && defined(_M_ARM)) || (defined(_WIN32) && defined(_M_ARM64)) || (defined(RBX_PLATFORM_IOS) && !TARGET_IPHONE_SIMULATOR) || defined(__ANDROID__)
+#if (defined(_WIN32) && defined(_M_ARM)) || (defined(_WIN32) && defined(_M_ARM64)) || (defined(RBX_PLATFORM_IOS) && !TARGET_IPHONE_SIMULATOR) || defined(__ANDROID__) || defined(RBX_PLATFORM_WIN_PHONE)
 #define SIMD_NEON
 #endif
 

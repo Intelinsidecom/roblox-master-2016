@@ -23,7 +23,11 @@ static void SafeChat_singleton()
 
 SafeChat& SafeChat::singleton()
 {
+#if defined(RBX_PLATFORM_XBOX360)
+	SafeChat_singleton();
+#else
 	boost::call_once(&SafeChat_singleton, once_SafeChat_singleton);
+#endif
 	return *sing;
 }
 

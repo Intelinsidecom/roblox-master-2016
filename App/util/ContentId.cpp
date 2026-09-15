@@ -139,7 +139,11 @@ namespace RBX
 	{	
 		if (isAsset())
 		{
+#if defined(RBX_PLATFORM_XBOX360)
+            initLegacyContentTable();
+#else
             boost::call_once(initLegacyContentTable, legacyContentTableFlag);
+#endif
 
 			const std::string& mappedAssetId = legacyContentTable->FindEntry(id);
 			

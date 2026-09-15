@@ -8,7 +8,7 @@
 	const int RBX::CEvent::cINFINITE;
 #endif
 
-#if defined(RBX_PLATFORM_XBOX360)
+#if defined(RBX_PLATFORM_XBOX360) || (RBX_PLATFORM_WIN_PHONE)
 #include <windows.h> // its a shim with more includes
 #endif
 
@@ -94,7 +94,12 @@ RBX::CEvent::~CEvent() throw()
 RBX::CEvent::CEvent(bool bManualReset )
 :m_h( NULL )
 {
-	m_h = ::CreateEvent( NULL, bManualReset ? TRUE : FALSE, FALSE, NULL );
+#if defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP) && defined(RBX_PLATFORM_WIN_PHONE) // not an issue on uwp
+	DWORD flags = bManualReset ? CREATE_EVENT_MANUAL_RESET : 0;
+	m_h = ::CreateEventExW(NULL, NULL, flags, EVENT_MODIFY_STATE | SYNCHRONIZE);
+#else
+	m_h = ::CreateEvent(NULL, bManualReset ? TRUE : FALSE, FALSE, NULL);
+#endif
 	if (!m_h)
 		RbxThrowLastWin32();
 }
@@ -109,7 +114,11 @@ void RBX::CEvent::Set() throw()
 
 int RBX::CEvent::WaitForSingleObject(CEvent& event, int milliseconds)
 {
+#if defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP) && defined(RBX_PLATFORM_WIN_PHONE) // not an issue on uwp
+	return ::WaitForSingleObjectEx(event.m_h, milliseconds, FALSE);
+#else
 	return ::WaitForSingleObject(event.m_h, milliseconds);
+#endif
 }
 
 #endif

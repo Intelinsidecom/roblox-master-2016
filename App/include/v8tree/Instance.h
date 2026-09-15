@@ -17,11 +17,17 @@
 #include "boost/shared_ptr.hpp"
 #include "boost/enable_shared_from_this.hpp"
 #include <boost/static_assert.hpp>
+#if !defined(RBX_PLATFORM_XBOX360)
 #include <boost/flyweight.hpp>
+#endif
 
 namespace RBX {
 
 	class Instance;
+
+#if defined(RBX_PLATFORM_XBOX360)
+	extern bool gXbox360BootSuppressPropertyChanged;
+#endif
 
 // Convenience class
 template <
@@ -162,7 +168,11 @@ private:
 	bool robloxLocked;
 	bool isSettingParent;
 	
+	#if defined(RBX_PLATFORM_XBOX360)
+	std::string name;
+	#else
 	boost::flyweight<std::string> name;
+	#endif
 
 	copy_on_write_ptr<Instances> children;
 	Instance* parent;	// this field is set after initialization by Instance::addChild
@@ -360,7 +370,11 @@ public:
 	// if the parent is successfully set the parent will stay locked
 	void setAndLockParent(Instance* instance);
 
+	#if defined(RBX_PLATFORM_XBOX360)
+	const std::string& getName() const {return name; }
+	#else
 	const std::string& getName() const {return name.get(); }
+	#endif
 	virtual void setName(const std::string& value);
 
 	std::string getFullName() const;							// Render up to (but not including) the root node

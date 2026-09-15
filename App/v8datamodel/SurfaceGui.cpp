@@ -300,8 +300,12 @@ namespace RBX {
 		shouldRenderSetDirty();
 		if (Workspace::serverIsPresent(this))
 		{
+#if defined(RBX_PLATFORM_XBOX360)
+			sendSurfaceGuiStats();
+#else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
 			boost::call_once(&sendSurfaceGuiStats, flag);
+#endif
 		}
 	}
 
@@ -311,8 +315,12 @@ namespace RBX {
 		if (instance->isA<TextLabel>()) return;
 		if (Workspace::serverIsPresent(this))
 		{
+#if defined(RBX_PLATFORM_XBOX360)
+			sendSurfaceGUINonTextUsage();
+#else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
 			boost::call_once(&sendSurfaceGUINonTextUsage, flag);
+#endif
 		}
 	}
 

@@ -234,7 +234,11 @@ namespace RBX
     void CustomParticleEmitter::onAncestorChanged(const AncestorChanged& ev)
     {
         Base::onAncestorChanged(ev);
+#if defined(RBX_PLATFORM_XBOX360)
+        trackCreation();
+#else
         static boost::once_flag flag = BOOST_ONCE_INIT;
         boost::call_once(&trackCreation, flag );
+#endif
     }
 }

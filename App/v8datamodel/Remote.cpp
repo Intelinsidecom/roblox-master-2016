@@ -159,8 +159,12 @@ namespace RBX {
             raiseEventInvocation(event_RemoteOnInvokeClient, args, &target);
 
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				sendRemoteFunctionStatsOnServer("invokeClient");
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(flag, boost::bind(&sendRemoteFunctionStatsOnServer, "invokeClient"));
+#endif
 			}
         }
         else
@@ -292,8 +296,12 @@ namespace RBX {
 		}
 
 		{
+#if defined(RBX_PLATFORM_XBOX360)
+			sendRemoteFunctionStatsOnServer("invokeServer");
+#else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
 			boost::call_once(flag, boost::bind(&sendRemoteFunctionStatsOnServer, "invokeServer"));
+#endif
 		}
 
         onServerInvoke(player, arguments, resumeFunction, errorFunction);
@@ -434,8 +442,12 @@ namespace RBX {
             raiseEventInvocation(event_OnClientEvent, args, &target);
 
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				sendRemoteEventStatsOnServer("fireClient");
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(flag, boost::bind(&sendRemoteEventStatsOnServer, "fireClient"));
+#endif
 			}
         }
         else
@@ -460,8 +472,12 @@ namespace RBX {
             raiseEventInvocation(event_OnClientEvent, args, NULL);
 
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				sendRemoteEventStatsOnServer("fireAllClients");
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(flag, boost::bind(&sendRemoteEventStatsOnServer, "fireAllClients"));
+#endif
 			}
         }
         else
@@ -506,8 +522,12 @@ namespace RBX {
                 EventSource::processRemoteEvent(descriptor, args, source);
 
                 {
+#if defined(RBX_PLATFORM_XBOX360)
+                    sendRemoteEventStatsOnServer("fireServer");
+#else
                     static boost::once_flag flag = BOOST_ONCE_INIT;
                     boost::call_once(flag, boost::bind(&sendRemoteEventStatsOnServer, "fireServer"));
+#endif
                 }
             }
             else

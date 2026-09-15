@@ -232,7 +232,7 @@ void UDPForwarder::UpdateThreaded_Old(void)
 
 			if (receivedDataLen<0)
 			{
-#if defined(_WIN32) && defined(_DEBUG) 
+#if defined(_WIN32) && defined(_DEBUG) && !defined(RBX_PLATFORM_WIN_PHONE)
 				DWORD dwIOError = WSAGetLastError();
 
 				if (dwIOError!=WSAECONNRESET && dwIOError!=WSAEINTR && dwIOError!=WSAETIMEDOUT)

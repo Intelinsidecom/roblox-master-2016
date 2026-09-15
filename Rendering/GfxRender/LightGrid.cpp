@@ -28,7 +28,7 @@
 #include "TargetConditionals.h"
 #endif
 
-#if (defined(RBX_PLATFORM_IOS) && !TARGET_IPHONE_SIMULATOR) || defined(__ANDROID__)
+#if (defined(RBX_PLATFORM_IOS) && !TARGET_IPHONE_SIMULATOR) || defined(__ANDROID__) || defined(RBX_PLATFORM_WIN_PHONE)
 #include <arm_neon.h>
 #endif
 
@@ -38,7 +38,7 @@ LOGVARIABLE(RenderLightGridAgeProportion, 5)
 LOGVARIABLE(RenderLightGridBorderGlobalCutoff, 32)
 LOGVARIABLE(RenderLightGridBorderSkylightCutoff, 32)
 
-#if defined(_WIN32) && !defined(_M_ARM) && !defined(_M_ARM64) && !defined(RBX_PLATFORM_XBOX360) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS))
+#if defined(_WIN32) && !defined(_M_ARM) && !defined(_M_ARM64) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE) || (defined(__APPLE__) && !defined(RBX_PLATFORM_IOS))
 #define SIMD_SSE2
 #endif
 
@@ -2301,7 +2301,7 @@ template <bool Shadows> void LightGrid::lightingUpdatePointLightScratchSIMD(cons
     float32x4_t zero = vdupq_n_f32(0);
     float32x4_t one = vdupq_n_f32(1.f);
     float32x4_t half = vdupq_n_f32(0.5f);
-    #if defined(RBX_PLATFORM_UWP)
+    #if defined(RBX_PLATFORM_UWP) || defined(RBX_PLATFORM_WIN_PHONE)
     static const float offsetXData[4] = {-0.5f, 0.5f, 1.5f, 2.5f};
     float32x4_t offsetX = vld1q_f32(offsetXData);
     #else

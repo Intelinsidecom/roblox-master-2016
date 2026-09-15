@@ -82,7 +82,7 @@ namespace Graphics
 
         if(PIX_ENABLED)
         {
-        #if !defined(RBX_PLATFORM_UWP)
+        #if !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_WIN_PHONE)
             d3d9 = LoadLibraryW(L"d3d9.dll");
         #else
             d3d9 = LoadPackagedLibrary(L"d3d9.dll", 0);

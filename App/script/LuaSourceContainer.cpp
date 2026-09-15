@@ -302,8 +302,12 @@ void LuaSourceContainer::linkedSourceFetchingVisitor(shared_ptr<Instance> descen
 		{
 			if (out.isNamedAsset())
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				reportNamedLinkedSourceUsage(dm);
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(flag, boost::bind(&reportNamedLinkedSourceUsage, dm));
+#endif
 			}
 			out.convertAssetId(cp->getBaseUrl(), dm->getUniverseId());
 			out.convertToLegacyContent(cp->getBaseUrl());

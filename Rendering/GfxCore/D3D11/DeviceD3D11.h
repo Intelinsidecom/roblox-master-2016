@@ -229,6 +229,11 @@ public:
 
 	void* getWindowHandle() const { return windowHandle; }
 
+#if defined(RBX_PLATFORM_WIN_PHONE)
+    void rebindSwapChain();
+    bool needsSwapChainRebindBeforeGetBuffer() const { return swapChainNeedsRebind; }
+#endif
+
 private:
     void* windowHandle;
     DeviceCaps caps;
@@ -252,6 +257,10 @@ private:
 
 	scoped_ptr<DeviceVRD3D11> vr;
 	bool vrEnabled;
+
+#if defined(RBX_PLATFORM_WIN_PHONE)
+    bool swapChainNeedsRebind;
+#endif
 
     // these functions are platform-dependent
     void createDevice();

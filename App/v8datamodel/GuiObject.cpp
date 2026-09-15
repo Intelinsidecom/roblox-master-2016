@@ -2083,7 +2083,7 @@ void GuiButton::setVerb(std::string verbString)
         verb = workspace->getWhitelistVerb(verbString);
         if (verb && verb->getVerbSecurity())
         {
-			#if defined(RBX_PLATFORM_UWP)
+			#if defined(RBX_PLATFORM_UWP) || defined(RBX_PLATFORM_WIN_PHONE)
 			RBX::Security::setHackFlagVmp<LINE_RAND1>(RBX::Security::hackFlag10, HATE_VERB_SNATCH);
 			#else
             RBX::Security::setHackFlagVmp<LINE_RAND4>(RBX::Security::hackFlag10, HATE_VERB_SNATCH);

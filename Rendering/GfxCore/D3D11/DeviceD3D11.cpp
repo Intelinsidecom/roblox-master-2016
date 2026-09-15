@@ -24,6 +24,8 @@ namespace Graphics
 {
 #if defined(RBX_PLATFORM_UWP)
     extern "C" void getUWPCompositionScale(float* scaleX, float* scaleY);
+#elif defined(RBX_PLATFORM_WIN_PHONE)
+    extern "C" void getWPCompositionScale(float* scaleX, float* scaleY);
 #endif
 
     static unsigned int getMaxSamplesSupported(ID3D11Device* device11)
@@ -77,6 +79,9 @@ namespace Graphics
         , endQuery(NULL)
         , disjointQuery(NULL)
 		, vrEnabled(true)
+#if defined(RBX_PLATFORM_WIN_PHONE)
+		, swapChainNeedsRebind(false)
+#endif
     {
         createDevice();
 
@@ -111,6 +116,11 @@ namespace Graphics
         getUWPCompositionScale(&scaleX, &scaleY);
         caps.uiScale = scaleX;
         caps.retina = (scaleX >= 2.0f);
+#elif defined(RBX_PLATFORM_WIN_PHONE)
+        float scaleX = 1.0f, scaleY = 1.0f;
+        getWPCompositionScale(&scaleX, &scaleY);
+        caps.uiScale = scaleX;
+        caps.retina = false;
 #else
         caps.retina = false;
 #endif

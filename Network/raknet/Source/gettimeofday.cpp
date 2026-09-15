@@ -39,7 +39,7 @@ int gettimeofday(struct timeval *tv, struct timezone *tz)
 
   if (NULL != tz)
   {
-#if defined(RBX_PLATFORM_UWP)
+#if defined(RBX_PLATFORM_UWP) || defined(RBX_PLATFORM_WIN_PHONE)
     long timezone_seconds = 0;
     int daylight_val = 0;
     _get_timezone(&timezone_seconds);

@@ -2,6 +2,9 @@
 #include "stdafx.h"
 
 #include "V8Tree/Instance.h"
+
+extern "C" void* _ReturnAddress(); // 360 CRT compiler intrinsic (xbox/rtcapi.h)
+#include "util/XboxDiag.h"
 #include "RbxAssert.h"
 #include "V8Xml/Serializer.h"
 #include "V8Tree/Service.h"
@@ -20,6 +23,12 @@ LOGVARIABLE(InstanceTreeManipulation, 0)
 DYNAMIC_FASTFLAGVARIABLE(LockViolationInstanceCrash, false)
 
 namespace RBX {
+
+#if defined(RBX_PLATFORM_XBOX360)
+// Boot-suppression flag for Instance::raisePropertyChanged (see Instance.h).
+// Defined here, set by EngineTest.cpp around the singleton-warmup window.
+bool gXbox360BootSuppressPropertyChanged = false;
+#endif
 
 ///////////////////////////////////
 
@@ -323,8 +332,10 @@ void Instance::waitForChild(std::string childName, boost::function<void(shared_p
 
 void Instance::checkParentWaitingForChildren()
 {
+	RBX_DIAG(0xD0); // checkParentWaitingForChildren entry
 	if (!parent || !parent->onDemandRead())
 		return;
+	RBX_DIAG(0xD3); // parent present; proceeding with waiting-thread scan
 
 	const std::string name = getName();
 	std::vector<OnDemandInstance::ThreadWaitingForChild>& waitingThreads = parent->onDemandWrite()->threadsWaitingForChildren;
@@ -856,6 +867,8 @@ Instance::Instance()
 	,robloxLocked(false)
 	,isSettingParent(false)
 {
+	RBX_DIAG(0xE2); // Instance ctor body entry (base + member inits done)
+	RBX_DIAG(0xE3); // Instance ctor exit
 }
 
 Instance::Instance(const char* name)
@@ -918,12 +931,13 @@ void Instance::destroy()
 
 void Instance::setName(const std::string& value)
 {
-	if (name.get() != value)
+	if (name != value)
 	{
 		if (value.size() > 100)
 			name = value.substr(0, 100);
 		else
 			name = value;
+		RBX_DIAG(0xB5);
 		this->raisePropertyChanged(desc_Name);
 
 		checkParentWaitingForChildren();
@@ -1130,8 +1144,37 @@ static FORCEINLINE void validateThreadAccess(Instance* inst)
 
 void Instance::raisePropertyChanged(const RBX::Reflection::PropertyDescriptor& descriptor)
 {
+#if defined(RBX_PLATFORM_XBOX360)
+    // Xenia boot. Use a dedicated boot-suppression flag (not Descriptor::lockedDown,
+    // which DescribedBase() re-locks true mid-registration), so the whole
+    // PropertyChanged fan-out is skipped for the entire singleton-warmup window.
+    // This keeps GlobalAdvancedSettings::setName (inside GameSettings::singleton)
+    // from running combinedSignal(PROPERTY_CHANGED) before any DataModel exists,
+    // which otherwise stalls the F8000020 engine thread between 0xCB and 0xCC.
+    if (gXbox360BootSuppressPropertyChanged)
+    {
+        RBX_DIAG(0xCA); // raisePropertyChanged skipped (boot suppression window)
+        return;
+    }
+    // Xbox 360: skip the diagnostic printf below. Its argument evaluation /
+    // vformat repeatedly stalls during registerValueClasses on F8000020.
+    // classDescriptor lines + the RBX_STAGE ladder already trace this window.
+#else
+    // Xbox 360 diagnostic: localize the EventReplicatorBase::onPropertyChanged
+    // access-violation (read at 0x100000000) by recording the last class+property
+    // whose change is being dispatched before the crash.
+    RBX::StandardOut::singleton()->printf(RBX::MESSAGE_INFO,
+        "RPC %p class=%s prop=%s ret=%p",
+        (void*)&descriptor,
+        getClassName().c_str(),
+        descriptor.name.c_str(),
+        _ReturnAddress());
+#endif
+    RBX_DIAG(0xB3);
+
     PropertyChanged event(RBX::Reflection::Property(descriptor, this));
-    this->onPropertyChanged(descriptor);
+	this->onPropertyChanged(descriptor);
+	RBX_DIAG(0xCB); // onPropertyChanged done
     // security (This ensures the caller has a data model lock)
     if (this->parent && DFFlag::LockViolationInstanceCrash) // fast-path for replication and serialization
     {
@@ -1140,9 +1183,12 @@ void Instance::raisePropertyChanged(const RBX::Reflection::PropertyDescriptor& d
 
     const PropertyChangedSignalData data(&descriptor);
     combinedSignal(PROPERTY_CHANGED, &data);
+	RBX_DIAG(0xCC); // combinedSignal done
     propertyChangedSignal(&descriptor);
+	RBX_DIAG(0xCD); // propertyChangedSignal done
     if (getParent()!=NULL)
         getParent()->onChildChanged(this, event);
+	RBX_DIAG(0xCE); // raisePropertyChanged finished
 }
 
 void Instance::raiseEventInvocation(const RBX::Reflection::EventDescriptor& descriptor, const RBX::Reflection::EventArguments& args, const SystemAddress* target)

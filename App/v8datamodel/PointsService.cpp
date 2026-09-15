@@ -365,8 +365,12 @@ namespace RBX
 							fireResumeFunctions(yieldingFunctions, args);
 							pointsService->firePointsAwardedSignal(userId, amountAwarded, universeBalance, userBalance);
 
+#if defined(RBX_PLATFORM_XBOX360)
+							sendPointAwardStats(dm->getPlaceID());
+#else
 							static boost::once_flag flag = BOOST_ONCE_INIT;
 							boost::call_once(flag, boost::bind(sendPointAwardStats, dm->getPlaceID()));
+#endif
 
 							return;
 						}
@@ -511,7 +515,11 @@ namespace RBX
 			batchAwardPointRequests[userId] = pointRequestValue;
 		}
 
+		#if defined(RBX_PLATFORM_XBOX360)
+		PointsService::startAwardPointsBatching(weak_from(dm));
+#else
 		static boost::once_flag StartAwardPointsBatchingFlag = BOOST_ONCE_INIT;
 		boost::call_once( StartAwardPointsBatchingFlag, boost::bind(&PointsService::startAwardPointsBatching, weak_from(dm)) );
+#endif
 	}
 }

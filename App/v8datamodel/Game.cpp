@@ -48,12 +48,16 @@ namespace RBX {
 	SecurePlayerGame::SecurePlayerGame(Verb* lockVerb, const char* baseUrl, bool shouldShowLoadingScreen)
 		:Game(lockVerb, baseUrl, shouldShowLoadingScreen)
 	{
+#if defined(RBX_PLATFORM_XBOX360)
+		Network::initWithPlayerSecurity();
+#else
 		static boost::once_flag flag = BOOST_ONCE_INIT;
 #if 1
 		boost::call_once(&Network::initWithPlayerSecurity, flag);
 #else
 		// For testing security. Don't ship with this!
 		boost::call_once(&Network::initWithServerSecurity, flag);
+#endif
 #endif
 	}
 
@@ -62,8 +66,12 @@ namespace RBX {
 	{
         if (isNetworked)
 		{
+#if defined(RBX_PLATFORM_XBOX360)
+			Network::initWithoutSecurity();
+#else
             static boost::once_flag flag = BOOST_ONCE_INIT;
 		    boost::call_once(&Network::initWithoutSecurity, flag);
+#endif
         }
 	}
 

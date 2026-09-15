@@ -18,6 +18,15 @@
 #define FMOD_DEFAULT_CHANNEL_PRIORITY  128
 #define FMOD_LONG_SOUND_CHANNEL_PRIORITY FMOD_DEFAULT_CHANNEL_PRIORITY - 16
 
+#ifdef RBX_PLATFORM_XBOX360
+// Xbox 360 boot diagnostic: xenia.log observes XexCheckExecutablePrivilege
+// syscalls, so these markers bisect which part of registerSound() stalls.
+extern "C" int XexCheckExecutablePrivilege(unsigned long PrivilegeType);
+#define FB_STAGE(t) XexCheckExecutablePrivilege(t)
+#else
+#define FB_STAGE(t) ((void)0)
+#endif
+
 
 LOGGROUP(FMOD)
 LOGGROUP(Sound)
@@ -61,7 +70,13 @@ namespace RBX
 
 void registerSound()
 {
-    Soundscape::SoundChannel::classDescriptor();
+	FB_STAGE(0x90); // classDescriptor enter
+	RBX::Name::declare("SoundChannel");
+	FB_STAGE(0x97); // Name::declare done
+	RBX::Instance::classDescriptor();
+	FB_STAGE(0x92); // Instance::classDescriptor done
+	Soundscape::SoundChannel::classDescriptor();
+	FB_STAGE(0x91); // classDescriptor exit
 }
 
 namespace Soundscape

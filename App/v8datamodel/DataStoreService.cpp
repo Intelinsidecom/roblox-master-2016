@@ -457,8 +457,12 @@ namespace RBX {
 	bool DataStoreService::queueOrExecuteRequest(HttpRequest& request, std::list<HttpRequest>& queue, BudgetedThrottlingHelper& helper)
 	{
 		{
+#if defined(RBX_PLATFORM_XBOX360)
+			sendDataStoreStats();
+#else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
 			boost::call_once(&sendDataStoreStats, flag);
+#endif
 		}
 
 		FASTLOG1(FLog::DataStore, "Queue suze: %u", queue.size());
@@ -557,8 +561,12 @@ namespace RBX {
 			disableUrlEncoding = disabled;
 			if(disableUrlEncoding)
 			{
+#if defined(RBX_PLATFORM_XBOX360)
+				sendDataStoreOldNamingSchemeStats();
+#else
 				static boost::once_flag flag = BOOST_ONCE_INIT;
 				boost::call_once(&sendDataStoreOldNamingSchemeStats, flag);
+#endif
 			}
 		}
 	}

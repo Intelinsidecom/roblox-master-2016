@@ -3,7 +3,7 @@
 #include "rbx/Debug.h"
 #include "rbx/atomic.h"
 
-#if defined(RBX_PLATFORM_XBOX360)
+#if defined(RBX_PLATFORM_XBOX360) || defined(RBX_PLATFORM_WIN_PHONE)
 #include <windows.h> // its a shim with more includes
 #endif
 

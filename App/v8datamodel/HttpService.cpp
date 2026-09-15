@@ -97,9 +97,13 @@ namespace RBX {
 		}
 
 		{
+#if defined(RBX_PLATFORM_XBOX360)
+			sendHttpServiceStats(DataModel::get(this)->getPlaceID());
+#else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
 			DataModel* dm = DataModel::get(this);
 			boost::call_once(flag, boost::bind(&sendHttpServiceStats,dm->getPlaceID()));
+#endif
 		}
 
 		return true;

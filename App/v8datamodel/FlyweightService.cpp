@@ -35,8 +35,12 @@ namespace RBX
 
 	void FlyweightService::onChildAdded(shared_ptr<RBX::Instance> childInstance)
 	{
+#if defined(RBX_PLATFORM_XBOX360)
+		RobloxGoogleAnalytics::trackEvent(GA_CATEGORY_GAME, "UsingCSG", "none", 0, false);
+#else
 		static boost::once_flag flag = BOOST_ONCE_INIT;
 		boost::call_once(boost::bind(&RobloxGoogleAnalytics::trackEvent, GA_CATEGORY_GAME, "UsingCSG", "none", 0, false), flag);
+#endif
 
 		if (shared_ptr<RBX::BinaryStringValue> strValue = RBX::Instance::fastSharedDynamicCast<RBX::BinaryStringValue>(childInstance))
 		{

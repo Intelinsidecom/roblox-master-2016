@@ -3,6 +3,7 @@
 #include "v8tree/service.h"
 #include "boost/cast.hpp"
 #include "rbx/atomic.h"
+#include <map>
 
 namespace RBX
 {
@@ -29,11 +30,43 @@ namespace RBX
 	{
 	}
 
+#ifdef RBX_PLATFORM_XBOX360
+	// Xbox 360 boot: function-local magic statics are safe here -- the
+	// _Init_thread_header workaround in Xbox360Client/Stubs.cpp owns the
+	// once-guard (see Name::map()). A file-scope object would never get its ctor
+	// run (this port's static-ctor table resolves empty at runtime), so the
+	// counter is a function-local static again.
+	size_t ServiceProvider::newIndex()
+	{
+		RBX_DIAG(0xD1); // newIndex entry (360)
+		static rbx::atomic<int> index(-1);
+		size_t r = ++index;
+		RBX_DIAG(0xD2); // newIndex returned
+		return r;
+	}
+
+	// Xbox 360 (xenia): per-class service index registry keyed by the stable
+	// address of each ServiceClass's className. Constructed on demand (a
+	// file-scope std::map never gets its ctor run -- empty static-ctor table).
+	// Boot is single-threaded, so a plain map is sufficient; the index is
+	// assigned via the atomic newIndex() counter.
+	size_t ServiceProvider::serviceIndexForKey(const RBX::Name* key)
+	{
+		RBX_DIAG(0xD5); // serviceIndexForKey entry (360)
+		static std::map<const RBX::Name*, size_t> registry;
+		size_t& slot = registry[key];
+		if (slot == 0)
+			slot = ServiceProvider::newIndex() + 1; // stash 1-based; 0 == unassigned
+		RBX_DIAG(0xD6); // serviceIndexForKey returned
+		return slot - 1;                            // return 0-based
+	}
+#else
 	size_t ServiceProvider::newIndex()
 	{
         static rbx::atomic<int> index(-1);
 		return ++index;
 	}
+#endif
 
 	shared_ptr<Instance> ServiceProvider::getPublicServiceByClassNameString(std::string sName)
 	{

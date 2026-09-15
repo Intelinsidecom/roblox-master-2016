@@ -23,6 +23,13 @@ const char* const RBX::sSettingsItem				= NULL;
 
 using namespace RBX;
 
+#ifdef RBX_PLATFORM_XBOX360
+extern "C" int XexCheckExecutablePrivilege(unsigned long PrivilegeType);
+#define GS_STAGE(t) XexCheckExecutablePrivilege(t)
+#else
+#define GS_STAGE(t) ((void)0)
+#endif
+
 REFLECTION_BEGIN();
 static Reflection::BoundFuncDesc<GlobalAdvancedSettings, std::string(std::string)> fun_getFastVariable(&GlobalAdvancedSettings::getFVariable, "GetFVariable", "name", Security::None);
 static Reflection::BoundFuncDesc<GlobalAdvancedSettings, shared_ptr<const RBX::Reflection::ValueTable>()> fun_getFastVariables(&GlobalAdvancedSettings::getFVariables, "GetFVariables", Security::RobloxScript);
@@ -56,7 +63,7 @@ void Settings::InvalidDescendentCollector::operator()(shared_ptr<Instance> desce
 void Settings::eraseSettingsStore()
 {
 	settingsErased = true;
-#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP)
+#if defined(_WIN32) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_WIN_PHONE)
 	::DeleteFile(settingsFile.c_str());
 #else
 	std::remove(settingsFile.c_str());
@@ -96,12 +103,35 @@ void Settings::saveState()
 		std::string filePath = settingsFile;
 		if (filePath.size()==0)
 			return;
-
+#if defined(RBX_PLATFORM_XBOX360)
+		try
+		{
+			boost::scoped_ptr<XmlElement> root(Serializer::newRootElement());
+			writeChildren(root.get(), EngineCreator);
+			std::ofstream stream(filePath.c_str(), std::ios_base::out | std::ios_base::binary);
+			if (!stream)
+			{
+				StandardOut::singleton()->printf(MESSAGE_WARNING, "Settings::saveState: cannot open %s (D: stub missing - non-fatal)", filePath.c_str());
+				return;
+			}
+			TextXmlWriter machine(stream);
+			machine.serialize(root.get());
+		}
+		catch (std::exception& e)
+		{
+			StandardOut::singleton()->printf(MESSAGE_WARNING, "Settings::saveState failed for %s: %s", filePath.c_str(), e.what());
+		}
+		catch (...)
+		{
+			StandardOut::singleton()->printf(MESSAGE_WARNING, "Settings::saveState unknown failure for %s", filePath.c_str());
+		}
+		#else
 		boost::scoped_ptr<XmlElement> root(Serializer::newRootElement());
 		writeChildren(root.get(), EngineCreator);
 		std::ofstream stream(filePath.c_str(), std::ios_base::out | std::ios_base::binary);
 		TextXmlWriter machine(stream);
 		machine.serialize(root.get());
+		#endif
 	}
 }
 
@@ -137,12 +167,25 @@ static std::string globalAdvancedSettingsFile()
 
 GlobalAdvancedSettings* g_sing = 0;
 
+#if defined(RBX_PLATFORM_XBOX360)
+static shared_ptr<GlobalAdvancedSettings> x360AdvancedSingleton;
+static shared_ptr<GlobalAdvancedSettings> doAdvancedSingleton()
+{
+	if (!x360AdvancedSingleton)
+	{
+		x360AdvancedSingleton = Creatable<Instance>::create<GlobalAdvancedSettings>();
+		g_sing = x360AdvancedSingleton.get();
+	}
+	return x360AdvancedSingleton;
+}
+#else
 static shared_ptr<GlobalAdvancedSettings> doAdvancedSingleton()
 {
 	static shared_ptr<GlobalAdvancedSettings> sing = Creatable<Instance>::create<GlobalAdvancedSettings>();
 	g_sing = sing.get();
 	return sing;
 }
+#endif
 
 void initAdvancedSingleton()
 {
@@ -151,9 +194,14 @@ void initAdvancedSingleton()
 
 shared_ptr<GlobalAdvancedSettings> GlobalAdvancedSettings::singleton()
 {
+#if defined(RBX_PLATFORM_XBOX360)
+	shared_ptr<GlobalAdvancedSettings> s = doAdvancedSingleton();
+	return s;
+#else
 	static boost::once_flag flag = BOOST_ONCE_INIT;
 	boost::call_once(&initAdvancedSingleton, flag);
 	return doAdvancedSingleton();
+#endif
 }
 
 GlobalAdvancedSettings* GlobalAdvancedSettings::raw_singleton()
@@ -173,7 +221,10 @@ GlobalAdvancedSettings::GlobalAdvancedSettings()
 	// meaning the Selection gets destroyed first resulting in the destruction of 
 	// GlobalAdvancedSettings raising SIGABRT as the Selection has already been destroyed
 	// but the GlobalAdvancedSettings destruction accesses it.
+	//
+#if !defined(RBX_PLATFORM_XBOX360)
 	create<Selection>();
+#endif
 }
 
 GlobalAdvancedSettings::~GlobalAdvancedSettings()
@@ -204,11 +255,23 @@ static std::string globalBasicSettingsFile()
 	return file.string();
 }
 
+#if defined(RBX_PLATFORM_XBOX360)
+static shared_ptr<GlobalBasicSettings> x360BasicSingleton;
+static shared_ptr<GlobalBasicSettings> doBasicSingleton()
+{
+	if (!x360BasicSingleton)
+	{
+		x360BasicSingleton = Creatable<Instance>::create<GlobalBasicSettings>();
+	}
+	return x360BasicSingleton;
+}
+#else
 static shared_ptr<GlobalBasicSettings> doBasicSingleton()
 {
 	static shared_ptr<GlobalBasicSettings> sing = Creatable<Instance>::create<GlobalBasicSettings>();
 	return sing;
 }
+#endif
 
 void initBasicSingleton()
 {
@@ -217,9 +280,13 @@ void initBasicSingleton()
 
 shared_ptr<GlobalBasicSettings> GlobalBasicSettings::singleton()
 {
+#if defined(RBX_PLATFORM_XBOX360)
+	return doBasicSingleton();
+#else
 	static boost::once_flag flag = BOOST_ONCE_INIT;
 	boost::call_once(&initBasicSingleton, flag);
 	return doBasicSingleton();
+#endif
 }
 
 REFLECTION_BEGIN();
