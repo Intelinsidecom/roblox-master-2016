@@ -47,7 +47,7 @@ static const int SettleDelay = 20; // Number of milliseconds that we consider le
 //  you're going to be backed off to previous level
 //  ... with StepLevel increased by FastBackoffStepLevelIncrement
 
-#if defined(RBX_PLATFORM_IOS) || defined(__ANDROID__)
+#if defined(RBX_PLATFORM_IOS) || defined(__ANDROID__) || defined(RBX_PLATFORM_WIN_PHONE)
 static const double FastBackoffMaxFrameLen = 40;	// 25 FPS
 #else
 static const double FastBackoffMaxFrameLen = 60;	// 16.6 FPS
@@ -171,7 +171,7 @@ FrameRateManager::FrameRateManager(void) :
 	RBXASSERT(CRenderSettings::QualityLevelMax == ARRAYSIZE(kLockstepTable30FPS)); // If that fails, you probably added another quality level without syncing it with RenderSettings
 	RBXASSERT(CRenderSettings::QualityLevelMax == ARRAYSIZE(kLockstepTable60FPS)); // If that fails, you probably added another quality level without syncing it with RenderSettings
 	
-#if defined(RBX_PLATFORM_IOS) || defined(__ANDROID__)
+#if defined(RBX_PLATFORM_IOS) || defined(__ANDROID__) || defined(RBX_PLATFORM_WIN_PHONE)
 	LockstepTable = kLockstepTable30FPS;
 #else
 	LockstepTable = kLockstepTable60FPS;

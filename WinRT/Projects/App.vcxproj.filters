@@ -1655,6 +1655,9 @@
     <ClCompile Include="$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src\HTParse.c" />
     <ClCompile Include="$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src\HTString.c" />
     <ClCompile Include="$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src\HTTrace.c" />
+    <ClCompile Include="..\..\App\util\MemoryStats.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\App\Lua-5.1.4\src\lapi.h">

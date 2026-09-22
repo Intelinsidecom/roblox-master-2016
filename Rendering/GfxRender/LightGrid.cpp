@@ -28,7 +28,7 @@
 #include "TargetConditionals.h"
 #endif
 
-#if (defined(RBX_PLATFORM_IOS) && !TARGET_IPHONE_SIMULATOR) || defined(__ANDROID__) || defined(RBX_PLATFORM_WIN_PHONE)
+#if (defined(RBX_PLATFORM_IOS) && !TARGET_IPHONE_SIMULATOR) || defined(__ANDROID__) || (defined(RBX_PLATFORM_WIN_PHONE) && defined(_M_ARM))
 #include <arm_neon.h>
 #endif
 

@@ -16,7 +16,7 @@
 #include "V8DataModel/RenderHooksService.h"
 #include "V8DataModel/Stats.h"
 #include "v8datamodel/DataModel.h"
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_WIN_PHONE)
 #   include "v8datamodel/PlatformService.h"
 #endif
 #include "v8world/World.h"
@@ -995,7 +995,7 @@ void RenderView::renderPrepareImpl(IMetric* metric, bool updateViewport)
 
     visualEngine->getTextureCompositor()->update(poi);
     
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_WIN_PHONE)
     if(RBX::PlatformService* platformService = ServiceProvider::find<PlatformService>(dataModel.get()))
     {
         presetPostProcess(platformService);
@@ -1560,7 +1560,7 @@ void RenderView::presetLighting(RBX::Lighting* l, const RBX::Color3& extraAmbien
 
 void RenderView::presetPostProcess(RBX::PlatformService* platformService)
 {
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_WIN_PHONE)
     SceneManager *smgr = visualEngine->getSceneManager();
 
     smgr->setPostProcess(platformService->brightness, platformService->contrast, platformService->grayscaleLevel, platformService->blurIntensity, platformService->tintColor);

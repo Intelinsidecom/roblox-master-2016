@@ -90,7 +90,7 @@ namespace RBX
 			}
 		};
 
-#if defined(_M_ARM) && defined(RBX_PLATFORM_WIN_PHONE)
+#if defined(RBX_PLATFORM_WIN_PHONE)
 		template<>
 		const Type& Type::getSingleton<void>();
 #endif

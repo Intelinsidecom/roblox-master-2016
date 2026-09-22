@@ -938,12 +938,6 @@
     <ClInclude Include="..\..\Network\Util.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\Network\raknet\Source\CMakeLists.txt">
-      <Filter>raknet\Source</Filter>
-    </Text>
-    <Text Include="..\..\Network\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\..\Network\Network.vcxproj" />
     <None Include="..\..\Network\Network.vcxproj.filters" />
     <None Include="..\..\Network\Network.vcxproj.user" />

@@ -1787,6 +1787,9 @@
     <ClCompile Include="v8datamodel\Attachment.cpp">
       <Filter>Source Files\V8DataModel Source</Filter>
     </ClCompile>
+    <ClCompile Include="$(CONTRIB_PATH)\w3c-libwww-5.4.0\Library\src\HTTrace.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Lua-5.1.4\src\lapi.h">

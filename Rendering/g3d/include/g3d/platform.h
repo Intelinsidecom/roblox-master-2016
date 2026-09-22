@@ -238,7 +238,7 @@
 #       define _WIN32_WINNT 0x0500
 #   endif
 
-#if defined(RBX_PLATFORM_UWPS) || defined(RBX_PLATFORM_WIN_PHONE)
+#if (defined(RBX_PLATFORM_UWPS) || defined(RBX_PLATFORM_WIN_PHONE)) && (_MSC_VER < 1800)
 #ifndef FlsAlloc
     #define FlsAlloc TlsAlloc
 #endif

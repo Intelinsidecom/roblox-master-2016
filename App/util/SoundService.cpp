@@ -20,6 +20,11 @@
 
 #include "FastLog.h"
 #include "rbx/RbxDbgInfo.h"
+#if defined(RBX_PLATFORM_WIN_PHONE)
+#include "fmod_windowsphone.h"
+#include <boost/thread.hpp>
+#include <boost/date_time/posix_time/posix_time.hpp>
+#endif
 
 FASTINTVARIABLE(FMODSoundChannels, 100);
 
@@ -215,7 +220,25 @@ void SoundService::openFmod()
             checkResult(system->setSoftwareFormat(48000, FMOD_SPEAKERMODE_DEFAULT, 0), "setSoftwareFormat", this, system.get());
 #endif 
             // WARNING 100 - is number of simultaneous channels played by fmod and has nothing todo with output channels of sound card
+#if defined(RBX_PLATFORM_WIN_PHONE)
+            FMOD_WINDOWSPHONE_EXTRADRIVERDATA phoneExtraData;
+            phoneExtraData.stream_type = FMOD_WINDOWSPHONE_STREAMTYPE_GAMEMEDIA;
+            FMOD_RESULT initRes = FMOD_ERR_OUTPUT_INIT;
+            for (int attempt = 0; attempt < 3 && initRes != FMOD_OK; ++attempt)
+            {
+                if (attempt > 0)
+                {
+                    RBX::StandardOut::singleton()->printf(RBX::MESSAGE_INFO,
+                        "FMOD init retry %d/2", attempt);
+                    system->close();
+                    boost::this_thread::sleep(boost::posix_time::milliseconds(1000));
+                }
+                initRes = system->init(FInt::FMODSoundChannels, flags, &phoneExtraData);
+            }
+            checkResult(initRes, "init", this, system.get());
+#else
             checkResult(system->init(FInt::FMODSoundChannels, flags, 0), "init", this, system.get());
+#endif
 
 			checkResult(system->createChannelGroup(NULL, &channelMaster), "createChannelGroup", this, system.get());
 			channelMaster->setVolume(RBX::GameBasicSettings::singleton().getMasterVolume());

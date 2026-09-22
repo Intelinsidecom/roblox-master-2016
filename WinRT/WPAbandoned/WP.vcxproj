@@ -1,0 +1,3584 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{4ea629e4-d67e-4819-ab4a-12cf88040561}</ProjectGuid>
+    <Keyword>DirectXXamlApp</Keyword>
+    <RootNamespace>WP</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Phone</ApplicationType>
+    <ApplicationTypeRevision>8.1</ApplicationTypeRevision>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120_wp81</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120_wp81</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v120_wp81</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v120_wp81</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VSINSTALLDIR)\Common7\IDE\Extensions\Microsoft\VsGraphics\ImageContentTask.props" />
+    <Import Project="$(VSINSTALLDIR)\Common7\IDE\Extensions\Microsoft\VsGraphics\MeshContentTask.props" />
+    <Import Project="$(VSINSTALLDIR)\Common7\IDE\Extensions\Microsoft\VsGraphics\ShaderGraphContentTask.props" />
+  </ImportGroup>
+  <ItemGroup>
+    <ClCompile Include="..\PhoneLibs\PhoneBaseShim.cpp" />
+    <ClCompile Include="RobloxEngine\Engine.cpp" />
+    <ClCompile Include="RobloxEngine\GameHost.cpp" />
+    <ClCompile Include="RobloxEngine\RendererBootstrap.cpp" />
+    <ClCompile Include="RobloxEngine\RendererShim.cpp" />
+    <ClCompile Include="RobloxEngine\RenderJobWP.cpp" />
+    <ClCompile Include="RobloxEngine\WinRTFileHelper.cpp">
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClInclude Include="$(MSBuildThisFileDirectory)WPMain.h" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)WPMain.cpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\DeviceResources.h" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Common\DeviceResources.cpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\DirectXHelper.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\StepTimer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Content\SampleFpsTextRenderer.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Content\Sample3DSceneRenderer.h" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Content\SampleFpsTextRenderer.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Content\Sample3DSceneRenderer.cpp" />
+    <ClInclude Include="RobloxEngine\Engine.h" />
+    <ClInclude Include="RobloxEngine\FunctionMarshallerWP.h" />
+    <ClInclude Include="RobloxEngine\GameHost.h" />
+    <ClInclude Include="RobloxEngine\RendererBootstrap.h" />
+    <ClInclude Include="RobloxEngine\RendererShim.h" />
+    <ClInclude Include="RobloxEngine\RenderJobWP.h" />
+    <ClInclude Include="RobloxEngine\WinRTFileHelper.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="$(MSBuildThisFileDirectory)Content\SamplePixelShader.hlsl">
+      <ShaderType>Pixel</ShaderType>
+    </FxCompile>
+    <FxCompile Include="$(MSBuildThisFileDirectory)Content\SampleVertexShader.hlsl">
+      <ShaderType>Vertex</ShaderType>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\shaders\source\common.h">
+      <DeploymentContent>true</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="..\..\shaders\source\globals.h">
+      <DeploymentContent>true</DeploymentContent>
+    </ClInclude>
+    <ClInclude Include="App.xaml.h">
+      <DependentUpon>App.xaml</DependentUpon>
+    </ClInclude>
+    <ClInclude Include="DirectXPage.xaml.h">
+      <DependentUpon>DirectXPage.xaml</DependentUpon>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="App.xaml.cpp">
+      <DependentUpon>App.xaml</DependentUpon>
+    </ClCompile>
+    <ClCompile Include="DirectXPage.xaml.cpp">
+      <DependentUpon>DirectXPage.xaml</DependentUpon>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="DirectXPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Link>
+      <AdditionalLibraryDirectories>G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt\stage\vc120\wp81\x86\lib;G:\roblox-2016-source-code\fmod\WinRT\x86;$(Configuration)\GfxRender.Phone;$(Configuration)\GfxBase.Phone;..\PhoneLibs\Win32\$(Configuration)\App.BulletPhysics.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\Output\GfxRender.Phone;..\PhoneLibs\Rendering\Win32\$(Configuration)\GfxBase.Phone\Output;G:\roblox-2016-source-code\Contribs;..\PhoneLibs\Win32\$(Configuration)\Zlib.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Network.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Log.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Base.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\App.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\AppDraw.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\LibOVR.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\g3d.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\RbxG3D.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\Output\GfxCore.Phone;G:\roblox-2016-source-code\Rendering\GfxCore;%(AdditionalLibraryDirectories);$(WindowsPhoneSDK_LibraryPath_x86)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libboost_thread-vc120-mt-gd-1_56.lib;libboost_system-vc120-mt-gd-1_56.lib;libboost_filesystem-vc120-mt-gd-1_56.lib;libboost_chrono-vc120-mt-gd-1_56.lib;libboost_date_time-vc120-mt-gd-1_56.lib;libboost_atomic-vc120-mt-gd-1_56.lib;d3dcompiler.lib;fmodL_X86.lib;GfxBase.Phone.lib;GfxRender.Phone.lib;App.BulletPhysics.Phone.lib;WindowsPhoneCore.lib;RuntimeObject.lib;PhoneAppModelHost.lib;DXGI.lib;D3D11.lib;D2D1.lib;DWrite.lib;GfxCore.Phone.lib;g3d.Phone.lib;RbxG3D.Phone.lib;AppDraw.Phone.lib;App.Phone.lib;Base.Phone.lib;Log.Phone.lib;Network.Phone.lib;Zlib.Phone.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>G:\roblox-2016-source-code\App.BulletPhysics;G:\roblox-2016-source-code\Rendering\AppDraw\include;G:\roblox-2016-source-code\Rendering;G:\roblox-2016-source-code\fmod\WinRT\x86;G:\roblox-2016-source-code\Rendering\GfxRender\include;G:\roblox-2016-source-code\Rendering\GfxCore\include;G:\roblox-2016-source-code\Rendering\GfxBase\include;G:\roblox-2016-source-code\Rendering\RbxG3D\include;G:\roblox-2016-source-code\Contribs\SDL2\include;G:\roblox-2016-source-code\Rendering\g3d\include;G:\roblox-2016-source-code\App\include;G:\roblox-2016-source-code\Contribs;G:\roblox-2016-source-code\Log\include;G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt;$(ProjectDir)..\..\Rendering\GfxCore\include;$(ProjectDir)..\..\Base\include;$(ProjectDir)..\..\Base;$(ProjectDir)\Engine;$(ProjectDir)..\..\Rendering;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Link>
+      <LinkIncremental>false</LinkIncremental>
+      <AdditionalLibraryDirectories>G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt\stage\vc120\wp81\x86\lib;G:\roblox-2016-source-code\fmod\WinRT\x86;$(Configuration)\GfxRender.Phone;$(Configuration)\GfxBase.Phone;..\PhoneLibs\Win32\$(Configuration)\App.BulletPhysics.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\GfxRender.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\GfxBase.Phone\Output;G:\roblox-2016-source-code\Contribs;..\PhoneLibs\Win32\$(Configuration)\Zlib.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Network.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Log.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\Base.Phone\Output;..\PhoneLibs\Win32\$(Configuration)\App.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\AppDraw.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\LibOVR.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\g3d.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\RbxG3D.Phone\Output;..\PhoneLibs\Rendering\Win32\$(Configuration)\Output\GfxCore.Phone;G:\roblox-2016-source-code\Rendering\GfxCore;%(AdditionalLibraryDirectories);$(WindowsPhoneSDK_LibraryPath_x86)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libboost_thread-vc120-mt-1_56.lib;libboost_system-vc120-mt-1_56.lib;libboost_filesystem-vc120-mt-1_56.lib;libboost_chrono-vc120-mt-1_56.lib;libboost_date_time-vc120-mt-1_56.lib;libboost_atomic-vc120-mt-1_56.lib;d3dcompiler.lib;fmod_X86.lib;GfxBase.Phone.lib;GfxRender.Phone.lib;App.BulletPhysics.Phone.lib;WindowsPhoneCore.lib;RuntimeObject.lib;PhoneAppModelHost.lib;DXGI.lib;D3D11.lib;D2D1.lib;DWrite.lib;GfxCore.Phone.lib;g3d.Phone.lib;RbxG3D.Phone.lib;AppDraw.Phone.lib;App.Phone.lib;Base.Phone.lib;Log.Phone.lib;Network.Phone.lib;Zlib.Phone.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+    </ClCompile>
+    <ClCompile>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+    </ClCompile>
+    <ClCompile>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <PreprocessorDefinitions>RBX_WINRT_PHONE;RBX_PLATFORM_WINRT;WINRT_PHONE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\roblox-2016-source-code\App.BulletPhysics;G:\roblox-2016-source-code\Rendering\AppDraw\include;G:\roblox-2016-source-code\Rendering;G:\roblox-2016-source-code\fmod\WinRT\x86;G:\roblox-2016-source-code\Rendering\GfxRender\include;G:\roblox-2016-source-code\Rendering\GfxCore\include;G:\roblox-2016-source-code\Rendering\GfxBase\include;G:\roblox-2016-source-code\Rendering\RbxG3D\include;G:\roblox-2016-source-code\Contribs\SDL2\include;G:\roblox-2016-source-code\Rendering\g3d\include;G:\roblox-2016-source-code\App\include;G:\roblox-2016-source-code\Contribs;G:\roblox-2016-source-code\Log\include;G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt;$(ProjectDir)..\..\Rendering\GfxCore\include;$(ProjectDir)..\..\Base\include;$(ProjectDir)..\..\Base;$(ProjectDir)\Engine;$(ProjectDir)..\..\Rendering;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Link>
+      <AdditionalLibraryDirectories>G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt\stage\vc120\wp81\arm\lib;G:\roblox-2016-source-code\fmod\WinRT\arm;..\PhoneLibs\ARM\$(Configuration)\App.BulletPhysics.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\GfxRender.Phone\Output\GfxRender.Phone;..\PhoneLibs\Rendering\ARM\$(Configuration)\GfxBase.Phone\Output\GfxBase.Phone;..\PhoneLibs\ARM\$(Configuration)\Zlib.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Network.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Log.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Base.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\App.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\AppDraw.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\LibOVR.Phone\Output\LibOVR.Phone;..\PhoneLibs\Rendering\ARM\$(Configuration)\g3d.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\RbxG3D.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\Output\GfxCore.Phone;G:\roblox-2016-source-code\Rendering\GfxCore;%(AdditionalLibraryDirectories);$(WindowsPhoneSDK_LibraryPath_arm)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libboost_thread-vc120-mt-gd-1_56.lib;libboost_system-vc120-mt-gd-1_56.lib;libboost_filesystem-vc120-mt-gd-1_56.lib;libboost_chrono-vc120-mt-gd-1_56.lib;libboost_date_time-vc120-mt-gd-1_56.lib;libboost_atomic-vc120-mt-gd-1_56.lib;d3dcompiler.lib;fmod.lib;GfxBase.Phone.lib;GfxRender.Phone.lib;App.BulletPhysics.Phone.lib;WindowsPhoneCore.lib;RuntimeObject.lib;PhoneAppModelHost.lib;DXGI.lib;D3D11.lib;D2D1.lib;DWrite.lib;GfxCore.Phone.lib;g3d.Phone.lib;RbxG3D.Phone.lib;AppDraw.Phone.lib;App.Phone.lib;Base.Phone.lib;Log.Phone.lib;Network.Phone.lib;Zlib.Phone.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <AdditionalIncludeDirectories>G:\roblox-2016-source-code\App.BulletPhysics;G:\roblox-2016-source-code\Rendering\AppDraw\include;G:\roblox-2016-source-code\Rendering;G:\roblox-2016-source-code\fmod\WinRT\arm;G:\roblox-2016-source-code\Rendering\GfxRender\include;G:\roblox-2016-source-code\Rendering\GfxCore\include;G:\roblox-2016-source-code\Rendering\GfxBase\include;G:\roblox-2016-source-code\Rendering\RbxG3D\include;G:\roblox-2016-source-code\Contribs\SDL2\include;G:\roblox-2016-source-code\Rendering\g3d\include;G:\roblox-2016-source-code\App\include;G:\roblox-2016-source-code\Contribs;G:\roblox-2016-source-code\Log\include;G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt;$(ProjectDir)..\..\Rendering\GfxCore\include;$(ProjectDir)..\..\Base\include;$(ProjectDir)..\..\Base;$(ProjectDir)\Engine;$(ProjectDir)..\..\Rendering;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <AdditionalOptions>/FS %(AdditionalOptions)</AdditionalOptions>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Link>
+      <LinkIncremental>false</LinkIncremental>
+      <AdditionalLibraryDirectories>G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt\stage\vc120\wp81\arm\lib;G:\roblox-2016-source-code\fmod\WinRT\arm;..\PhoneLibs\ARM\$(Configuration)\App.BulletPhysics.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\GfxRender.Phone\Output\GfxRender.Phone;..\PhoneLibs\Rendering\ARM\$(Configuration)\GfxBase.Phone\Output\GfxBase.Phone;..\PhoneLibs\ARM\$(Configuration)\Zlib.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Network.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Log.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\Base.Phone\Output;..\PhoneLibs\ARM\$(Configuration)\App.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\AppDraw.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\LibOVR.Phone\Output\LibOVR.Phone;..\PhoneLibs\Rendering\ARM\$(Configuration)\g3d.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\RbxG3D.Phone\Output;..\PhoneLibs\Rendering\ARM\$(Configuration)\Output\GfxCore.Phone;G:\roblox-2016-source-code\Rendering\GfxCore;%(AdditionalLibraryDirectories);$(WindowsPhoneSDK_LibraryPath_arm)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libboost_thread-vc120-mt-1_56.lib;libboost_system-vc120-mt-1_56.lib;libboost_filesystem-vc120-mt-1_56.lib;libboost_chrono-vc120-mt-1_56.lib;libboost_date_time-vc120-mt-1_56.lib;libboost_atomic-vc120-mt-1_56.lib;d3dcompiler.lib;fmod.lib;GfxBase.Phone.lib;GfxRender.Phone.lib;App.BulletPhysics.Phone.lib;WindowsPhoneCore.lib;RuntimeObject.lib;PhoneAppModelHost.lib;DXGI.lib;D3D11.lib;D2D1.lib;DWrite.lib;GfxCore.Phone.lib;g3d.Phone.lib;RbxG3D.Phone.lib;AppDraw.Phone.lib;App.Phone.lib;Base.Phone.lib;Log.Phone.lib;Network.Phone.lib;Zlib.Phone.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+    </ClCompile>
+    <ClCompile>
+      <IntrinsicFunctions>false</IntrinsicFunctions>
+    </ClCompile>
+    <ClCompile>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <AdditionalIncludeDirectories>G:\roblox-2016-source-code\App.BulletPhysics;G:\roblox-2016-source-code\Rendering\AppDraw\include;G:\roblox-2016-source-code\Rendering;G:\roblox-2016-source-code\fmod\WinRT\arm;G:\roblox-2016-source-code\Rendering\GfxRender\include;G:\roblox-2016-source-code\Rendering\GfxCore\include;G:\roblox-2016-source-code\Rendering\GfxBase\include;G:\roblox-2016-source-code\Rendering\RbxG3D\include;G:\roblox-2016-source-code\Contribs\SDL2\include;G:\roblox-2016-source-code\Rendering\g3d\include;G:\roblox-2016-source-code\App\include;G:\roblox-2016-source-code\Contribs;G:\roblox-2016-source-code\Log\include;G:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt;$(ProjectDir)..\..\Rendering\GfxCore\include;$(ProjectDir)..\..\Base\include;$(ProjectDir)..\..\Base;$(ProjectDir)\Engine;$(ProjectDir)..\..\Rendering;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <PropertyGroup Label="UserMacros">
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxBundlePlatforms>x86</AppxBundlePlatforms>
+    <AppxBundle>Never</AppxBundle>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental />
+  </PropertyGroup>
+  <ItemGroup>
+    <Image Include="..\..\content\fonts\fonts.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\fonts.dds</Link>
+    </Image>
+    <Image Include="..\..\content\sky\lensflare.jpg">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sky\lensflare.jpg</Link>
+    </Image>
+    <Image Include="..\..\content\sky\moon-alpha.jpg">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sky\moon-alpha.jpg</Link>
+    </Image>
+    <Image Include="..\..\content\sky\moon.jpg">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sky\moon.jpg</Link>
+    </Image>
+    <Image Include="..\..\content\sky\null_plainsky512_bk.jpg">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sky\null_plainsky512_bk.jpg</Link>
+    </Image>
+    <Image Include="..\..\content\sky\null_plainsky512_dn.jpg">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sky\null_plainsky512_dn.jpg</Link>
+    </Image>
+    <Image Include="..\..\content\sky\null_plainsky512_ft.jpg">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sky\null_plainsky512_ft.jpg</Link>
+    </Image>
+    <Image Include="..\..\content\sky\null_plainsky512_lf.jpg">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sky\null_plainsky512_lf.jpg</Link>
+    </Image>
+    <Image Include="..\..\content\sky\null_plainsky512_rt.jpg">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sky\null_plainsky512_rt.jpg</Link>
+    </Image>
+    <Image Include="..\..\content\sky\null_plainsky512_up.jpg">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sky\null_plainsky512_up.jpg</Link>
+    </Image>
+    <Image Include="..\..\content\sky\skyspheremap.jpg">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sky\skyspheremap.jpg</Link>
+    </Image>
+    <Image Include="..\..\content\sky\sun-rays.jpg">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sky\sun-rays.jpg</Link>
+    </Image>
+    <Image Include="..\..\content\sky\sun.jpg">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sky\sun.jpg</Link>
+    </Image>
+    <Image Include="..\..\content\textures\advancedMove.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\advancedMove.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\advancedMoveResize.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\advancedMoveResize.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\advancedMove_joint.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\advancedMove_joint.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\advancedMove_keysOnly.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\advancedMove_keysOnly.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\advancedMove_noJoint.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\advancedMove_noJoint.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\advClosed-hand-no-weld.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\advClosed-hand-no-weld.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\advClosed-hand-weld.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\advClosed-hand-weld.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\advClosed-hand.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\advClosed-hand.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\advCursor-default.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\advCursor-default.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\advCursor-openedHand.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\advCursor-openedHand.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\advCursor-white.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\advCursor-white.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\AnchorCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\AnchorCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ArrowCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ArrowCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ArrowCursorDecalDrag.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ArrowCursorDecalDrag.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ArrowFarCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ArrowFarCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\BackgroundImage.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\BackgroundImage.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\blackBkg_round.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\blackBkg_round.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\blackBkg_square.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\blackBkg_square.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Blank.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Blank.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\BWGradient.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\BWGradient.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botBlue_bkg.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_botBlue_bkg.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botBlue_notify_bkg.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_botBlue_notify_bkg.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botBlue_tail.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_botBlue_tail.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botBlue_tailRight.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_botBlue_tailRight.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botGreen_bkg.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_botGreen_bkg.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botGreen_notify_bkg.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_botGreen_notify_bkg.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botGreen_tail.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_botGreen_tail.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botGreen_tailRight.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_botGreen_tailRight.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botRed_bkg.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_botRed_bkg.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botRed_notify_bkg.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_botRed_notify_bkg.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botRed_tail.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_botRed_tail.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botRed_tailRight.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_botRed_tailRight.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_bot_notifyGray_dotDotDot.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_bot_notifyGray_dotDotDot.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_bot_notify_bang.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_bot_notify_bang.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_bot_notify_dotDotDot.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_bot_notify_dotDotDot.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_bot_notify_money.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_bot_notify_money.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_bot_notify_question.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_bot_notify_question.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_white_bkg.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_white_bkg.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_white_notify_bkg.png">
+      <Link>content\textures\chatBubble_white_notify_bkg.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_white_tail.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\chatBubble_white_tail.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Clone.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Clone.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\CloneCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\CloneCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\CloneDownCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\CloneDownCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\CloneOverCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\CloneOverCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Cursors\Gamepad\Pointer@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Cursors\Gamepad\Pointer@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Cursors\Gamepad\Pointer.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Cursors\Gamepad\Pointer.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Cursors\Gamepad\PointerOver@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Cursors\Gamepad\PointerOver@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Cursors\Gamepad\PointerOver.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Cursors\Gamepad\PointerOver.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\DialogHelp.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\DialogHelp.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\DialogQuest.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\DialogQuest.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\DialogShop.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\DialogShop.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\dirt.jpg">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\dirt.jpg</Link>
+    </Image>
+    <Image Include="..\..\content\textures\DragCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\DragCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\DropperCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\DropperCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Exit.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Exit.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Exit_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Exit_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Exit_ovr.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Exit_ovr.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\explosion.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\explosion.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\face.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\face.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\FillCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\FillCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\fire_0.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\fire_0.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\FlagCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\FlagCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\FlatCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\FlatCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\glow.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\glow.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\GrabCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\GrabCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\GrabRotateCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\GrabRotateCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\gradient.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\gradient.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Grass_Texture.jpg">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Grass_Texture.jpg</Link>
+    </Image>
+    <Image Include="..\..\content\textures\GunCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\GunCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\GunWaitCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\GunWaitCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\HammerCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\HammerCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\HammerDownCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\HammerDownCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\HammerOverCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\HammerOverCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\HingeCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\HingeCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\HurtOverlay.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\HurtOverlay.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\loading\cancelButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\loading\cancelButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\loading\darkLoadingTexture.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\loading\darkLoadingTexture.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\loading\loadingCircle.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\loading\loadingCircle.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\loading\loadingTexture.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\loading\loadingTexture.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\loading\loadingvignette.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\loading\loadingvignette.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\loading\robloxlogo.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\loading\robloxlogo.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\LockCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\LockCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\lua.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\lua.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\MotorCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\MotorCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\MouseLockedCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\MouseLockedCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\common_alpha.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\common_alpha.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_core_alpha.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\explosion01_core_alpha.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_core_main.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\explosion01_core_main.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_implosion_color.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\explosion01_implosion_color.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_implosion_main.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\explosion01_implosion_main.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_shockwave_main.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\explosion01_shockwave_main.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_smoke_alpha.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\explosion01_smoke_alpha.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_smoke_color_new.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\explosion01_smoke_color_new.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_smoke_main.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\explosion01_smoke_main.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion_alpha.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\explosion_alpha.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion_color.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\explosion_color.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\fire_alpha.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\fire_alpha.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\fire_color.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\fire_color.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\fire_main.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\fire_main.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\fire_sparks_color.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\fire_sparks_color.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\fire_sparks_main.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\fire_sparks_main.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\forcefield_alpha.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\forcefield_alpha.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\forcefield_glow_alpha.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\forcefield_glow_alpha.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\forcefield_glow_color.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\forcefield_glow_color.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\forcefield_glow_main.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\forcefield_glow_main.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\forcefield_vortex_color.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\forcefield_vortex_color.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\forcefield_vortex_main.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\forcefield_vortex_main.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\legacy_fire_alpha_color.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\legacy_fire_alpha_color.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\smoke_color.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\smoke_color.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\smoke_main.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\smoke_main.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\sparkles_color.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\sparkles_color.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\particles\sparkles_main.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\particles\sparkles_main.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\plane_icon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\plane_icon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ResizeCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ResizeCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Roblox-loading@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Roblox-loading@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Roblox-loading-glow@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Roblox-loading-glow@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Roblox-loading-glow.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Roblox-loading-glow.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Roblox-loading.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Roblox-loading.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\roblox-logo.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\roblox-logo.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Roblox.bmp">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Roblox.bmp</Link>
+    </Image>
+    <Image Include="..\..\content\textures\rotationArrow.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\rotationArrow.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\RustGradient.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\RustGradient.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\script.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\script.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\shadowmask.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\shadowmask.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\Smoke.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\Smoke.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\spark.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\spark.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\sparkle.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\sparkle.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\SpawnCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\SpawnCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\SpawnLocation.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\SpawnLocation.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\SurfacesDefault.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\SurfacesDefault.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\transformFiveDegrees.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\transformFiveDegrees.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\transformNinetyDegrees.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\transformNinetyDegrees.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\transformOneDegree.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\transformOneDegree.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\transformTwentyTwoDegrees.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\transformTwentyTwoDegrees.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack\Backpack@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Backpack\Backpack@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack\Backpack.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Backpack\Backpack.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack\Backpack_Down@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Backpack\Backpack_Down@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack\Backpack_Down.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Backpack\Backpack_Down.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack_Close@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Backpack_Close@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack_Close.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Backpack_Close.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack_Open@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Backpack_Open@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack_Open.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Backpack_Open.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_grey.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_grey.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_greyTransp.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_greyTransp.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newBlue@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_newBlue@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newBlue.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_newBlue.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newBlueGlow@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_newBlueGlow@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newBlueGlow.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_newBlueGlow.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newGrey@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_newGrey@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newGrey.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_newGrey.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newGreyGlow@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_newGreyGlow@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newGreyGlow.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_newGreyGlow.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newWhite@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_newWhite@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newWhite.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_newWhite.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newWhiteGlow@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_newWhiteGlow@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newWhiteGlow.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_newWhiteGlow.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_red.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_red.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_redGlow.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_redGlow.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_white.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\btn_white.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ButtonLeft.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\ButtonLeft.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ButtonLeftDown.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\ButtonLeftDown.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ButtonRight.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\ButtonRight.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ButtonRightDown.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\ButtonRightDown.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\chatBubble_blue_notify_bkg.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\chatBubble_blue_notify_bkg.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\chatBubble_green_notify_bkg.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\chatBubble_green_notify_bkg.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\chatBubble_red_notify_bkg.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\chatBubble_red_notify_bkg.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\chatBubble_white_notify_bkg.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\chatBubble_white_notify_bkg.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\Chat@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Chat\Chat@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\Chat.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Chat\Chat.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\ChatDown@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Chat\ChatDown@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\ChatDown.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Chat\ChatDown.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\MessageCounter@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Chat\MessageCounter@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\MessageCounter.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Chat\MessageCounter.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\ToggleChat@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Chat\ToggleChat@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\ToggleChat.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Chat\ToggleChat.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\ToggleChatDown@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Chat\ToggleChatDown@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\ToggleChatDown.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Chat\ToggleChatDown.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\chat_teamButton@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\chat_teamButton@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\chat_teamButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\chat_teamButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\CloneButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\CloneButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\CloneButton_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\CloneButton_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\CloseButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\CloseButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\CloseButton_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\CloseButton_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Concrete.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Concrete.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\CorrodedMetal.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\CorrodedMetal.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\DeleteButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\DeleteButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\DeleteButton_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\DeleteButton_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_blue@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\dialog_blue@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_blue.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\dialog_blue.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_ellipses.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\dialog_ellipses.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_green@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\dialog_green@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_green.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\dialog_green.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_purpose_help.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\dialog_purpose_help.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_purpose_quest.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\dialog_purpose_quest.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_purpose_shop.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\dialog_purpose_shop.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_red@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\dialog_red@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_red.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\dialog_red.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_tail@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\dialog_tail@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_tail.png">
+      <Link>content\textures\ui\dialog_tail.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_white@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\dialog_white@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_white.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\dialog_white.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\DiamondPlate.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\DiamondPlate.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\DPadSheet.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\DPadSheet.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dropdown_arrow@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\dropdown_arrow@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dropdown_arrow.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\dropdown_arrow.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ErrorIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\ErrorIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ErrorIconSmall.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\ErrorIconSmall.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\expandPlayerList@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\expandPlayerList@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\expandPlayerList.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\expandPlayerList.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Foil.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Foil.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Gear.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Gear.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Gear_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Gear_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Glue.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Glue.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Grass.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Grass.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\GroupMoveButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\GroupMoveButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\GroupMoveButton_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\GroupMoveButton_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Health-BKG-Center@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Health-BKG-Center@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Health-BKG-Center.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Health-BKG-Center.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Health-BKG-Left-Cap@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Health-BKG-Left-Cap@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Health-BKG-Left-Cap.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Health-BKG-Left-Cap.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Health-BKG-Right-Cap@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Health-BKG-Right-Cap@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Health-BKG-Right-Cap.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Health-BKG-Right-Cap.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Hinge.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Hinge.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\homeButton@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\homeButton@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\homeButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\homeButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Ice.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Ice.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_admin-16.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\icon_admin-16.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_BC-16.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\icon_BC-16.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_follower-16.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\icon_follower-16.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_following-16.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\icon_following-16.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_friendrequestrecieved-16.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\icon_friendrequestrecieved-16.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_friendrequestsent_16.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\icon_friendrequestsent_16.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_friends_16.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\icon_friends_16.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_mutualfollowing-16.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\icon_mutualfollowing-16.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_OBC-16.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\icon_OBC-16.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_placeowner.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\icon_placeowner.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_TBC-16.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\icon_TBC-16.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Inlets.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Inlets.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\InsertButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\InsertButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\InsertButton_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\InsertButton_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\LoadingBKG.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\LoadingBKG.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\MaterialButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\MaterialButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\MaterialButton_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\MaterialButton_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\MaterialMenu.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\MaterialMenu.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Menu\Hamburger@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Menu\Hamburger@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Menu\Hamburger.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Menu\Hamburger.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Menu\HamburgerDown@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Menu\HamburgerDown@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Menu\HamburgerDown.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Menu\HamburgerDown.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Modal.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Modal.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Motor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Motor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\mouseLock_off@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\mouseLock_off@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\mouseLock_off.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\mouseLock_off.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\mouseLock_on@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\mouseLock_on@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\mouseLock_on.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\mouseLock_on.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\newBkg_square@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\newBkg_square@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\newBkg_square.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\newBkg_square.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PaintButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\PaintButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PaintButton_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\PaintButton_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PartMoveButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\PartMoveButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PartMoveButton_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\PartMoveButton_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Plastic.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Plastic.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PlayerlistFriendIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\PlayerlistFriendIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PlayerListFriendRequestReceivedIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\PlayerListFriendRequestReceivedIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PlayerListFriendRequestSentIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\PlayerListFriendRequestSentIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PlayerList\BlockedIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\PlayerList\BlockedIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PlayerList\CharacterImageBackground.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\PlayerList\CharacterImageBackground.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PlayerList\TileShadowMissingTop.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\PlayerList\TileShadowMissingTop.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PropertyButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\PropertyButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PropertyButton_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\PropertyButton_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\RecordDown.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\RecordDown.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\RecordStop.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\RecordStop.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ResetIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\ResetIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\RobuxIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\RobuxIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ScaleButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\ScaleButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ScaleButton_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\ScaleButton_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scroll-bottom@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\scroll-bottom@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scroll-bottom.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\scroll-bottom.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scroll-middle@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\scroll-middle@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scroll-middle.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\scroll-middle.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scroll-top@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\scroll-top@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scroll-top.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\scroll-top.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbar.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\scrollbar.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonDown.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\scrollbuttonDown.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonDown_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\scrollbuttonDown_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonDown_ds.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\scrollbuttonDown_ds.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonDown_ovr.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\scrollbuttonDown_ovr.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonUp.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\scrollbuttonUp.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonUp_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\scrollbuttonUp_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonUp_ds.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\scrollbuttonUp_ds.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonUp_ovr.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\scrollbuttonUp_ovr.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Scroll\scroll-bottom@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Scroll\scroll-bottom@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Scroll\scroll-bottom.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Scroll\scroll-bottom.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Scroll\scroll-middle@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Scroll\scroll-middle@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Scroll\scroll-middle.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Scroll\scroll-middle.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Scroll\scroll-top.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Scroll\scroll-top.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SearchIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\SearchIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SelectionBox@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\SelectionBox@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SelectionBox.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\SelectionBox.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SettingsButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\SettingsButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SettingsButton_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\SettingsButton_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SettingsButton_ds.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\SettingsButton_ds.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SettingsButton_ovr.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\SettingsButton_ovr.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\DropDown\DropDown@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\DropDown\DropDown@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\DropDown\DropDown.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\DropDown\DropDown.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\AButtonDark@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\AButtonDark@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\AButtonDark.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\AButtonDark.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\AButtonLight@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\AButtonLight@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\AButtonLight.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\AButtonLight.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\AButtonLightSmall.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\AButtonLightSmall.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\BButtonDark@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\BButtonDark@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\BButtonDark.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\BButtonDark.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\BButtonLight@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\BButtonLight@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\BButtonLight.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\BButtonLight.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\EscapeIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\EscapeIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\GenericController@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\GenericController@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\GenericController.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\GenericController.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\LeaveIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\LeaveIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\ResetIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\ResetIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\RotateCameraGesture.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\RotateCameraGesture.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\UseToolGesture.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\UseToolGesture.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\XboxController.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\XboxController.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\XButtonDark@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\XButtonDark@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\XButtonDark.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\XButtonDark.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\XButtonLight@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\XButtonLight@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\XButtonLight.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\XButtonLight.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\YButtonDark@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\YButtonDark@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\YButtonDark.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\YButtonDark.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\YButtonLight@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\YButtonLight@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\YButtonLight.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\YButtonLight.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\ZoomGesture.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Help\ZoomGesture.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarAssets\MenuBackground.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarAssets\MenuBackground.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarAssets\MenuButton@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarAssets\MenuButton@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarAssets\MenuButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarAssets\MenuButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarAssets\MenuButtonSelected@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarAssets\MenuButtonSelected@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarAssets\MenuButtonSelected.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarAssets\MenuButtonSelected.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarAssets\MenuSelection@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarAssets\MenuSelection@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarAssets\MenuSelection.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarAssets\MenuSelection.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\GameSettingsTab@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarIcons\GameSettingsTab@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\GameSettingsTab.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarIcons\GameSettingsTab.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\HelpTab@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarIcons\HelpTab@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\HelpTab.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarIcons\HelpTab.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\HomeTab@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarIcons\HomeTab@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\HomeTab.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarIcons\HomeTab.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\PlayersTabIcon@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarIcons\PlayersTabIcon@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\PlayersTabIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarIcons\PlayersTabIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\RecordTab@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarIcons\RecordTab@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\RecordTab.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarIcons\RecordTab.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\ReportAbuseTab@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarIcons\ReportAbuseTab@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\ReportAbuseTab.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\MenuBarIcons\ReportAbuseTab.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Alert@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\Alert@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Alert.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\Alert.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Backpack@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\Backpack@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Backpack.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\Backpack.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Bottom.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\Bottom.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\BottomLeft.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\BottomLeft.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\BottomLeftSelected.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\BottomLeftSelected.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\BottomRight.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\BottomRight.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\BottomRightSelected.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\BottomRightSelected.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\BottomSelected.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\BottomSelected.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Chat@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\Chat@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Chat.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\Chat.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\EmptyBottom.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\EmptyBottom.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\EmptyBottomLeft.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\EmptyBottomLeft.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\EmptyBottomRight.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\EmptyBottomRight.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\EmptyTop.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\EmptyTop.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\EmptyTopLeft.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\EmptyTopLeft.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\EmptyTopRight.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\EmptyTopRight.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Leave@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\Leave@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Leave.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\Leave.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Menu@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\Menu@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Menu.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\Menu.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\PlayerList@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\PlayerList@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\PlayerList.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\PlayerList.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\RadialLabel@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\RadialLabel@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\RadialLabel.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\RadialLabel.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Top.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\Top.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\TopLeft.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\TopLeft.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\TopLeftSelected.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\TopLeftSelected.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\TopRight.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\TopRight.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\TopRightSelected.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\TopRightSelected.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\TopSelected.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Radial\TopSelected.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\BarLeft@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Slider\BarLeft@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\BarLeft.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Slider\BarLeft.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\BarRight@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Slider\BarRight@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\BarRight.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Slider\BarRight.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\Left@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Slider\Left@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\Left.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Slider\Left.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\Right@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Slider\Right@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\Right.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Slider\Right.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\SelectedBarLeft@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Slider\SelectedBarLeft@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\SelectedBarLeft.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Slider\SelectedBarLeft.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\SelectedBarRight@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Slider\SelectedBarRight@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\SelectedBarRight.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Settings\Slider\SelectedBarRight.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SingleButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\SingleButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SingleButtonDown.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\SingleButtonDown.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slate.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slate.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-BKG-Center@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slider-BKG-Center@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-BKG-Center.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slider-BKG-Center.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-BKG-Left-Cap@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slider-BKG-Left-Cap@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-BKG-Left-Cap.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slider-BKG-Left-Cap.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-BKG-Right-Cap@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slider-BKG-Right-Cap@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-BKG-Right-Cap.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slider-BKG-Right-Cap.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-Fill-Center@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slider-Fill-Center@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-Fill-Center.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slider-Fill-Center.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-Fill-Left-Cap@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slider-Fill-Left-Cap@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-Fill-Left-Cap.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slider-Fill-Left-Cap.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-Fill-Right-Cap@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slider-Fill-Right-Cap@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-Fill-Right-Cap.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slider-Fill-Right-Cap.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slider.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slider_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\slider_new_tab@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\slider_new_tab@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider_sel.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Slider_sel.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Smooth.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Smooth.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\StampToolButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\StampToolButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\StampToolButton_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\StampToolButton_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Studs.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Studs.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SurfaceButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\SurfaceButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SurfaceButton_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\SurfaceButton_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SurfaceMenu.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\SurfaceMenu.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\TinyBcIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\TinyBcIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\TinyObcIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\TinyObcIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\TinyTbcIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\TinyTbcIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\TixIcon.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\TixIcon.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ToggleFullScreen_ds.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\ToggleFullScreen_ds.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ToolButton.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\ToolButton.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ToolButton_dn.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\ToolButton_dn.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ToolButton_ds.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\ToolButton_ds.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\TopBar\dropshadow@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\TopBar\dropshadow@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\TopBar\dropshadow.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\TopBar\dropshadow.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\TouchControlsSheet.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\TouchControlsSheet.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Universal.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Universal.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Vehicle\SpeedBar@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Vehicle\SpeedBar@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Vehicle\SpeedBar.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Vehicle\SpeedBar.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Vehicle\SpeedBarBKG@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Vehicle\SpeedBarBKG@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Vehicle\SpeedBarEmpty@2x.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Vehicle\SpeedBarEmpty@2x.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Vehicle\SpeedBarEmpty.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Vehicle\SpeedBarEmpty.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Weld.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Weld.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Wood.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\ui\Wood.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\UnAnchorCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\UnAnchorCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\UnlockCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\UnlockCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\water_Subsurface.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\water_Subsurface.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\water_Wave.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\water_Wave.dds</Link>
+    </Image>
+    <Image Include="..\..\content\textures\WeldCursor.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\WeldCursor.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\WhiteCircle.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\WhiteCircle.png</Link>
+    </Image>
+    <Image Include="..\..\content\textures\wrench.png">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\textures\wrench.png</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\terrain\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\terrain\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\terrain\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\terrain\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\terrain\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\terrain\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\aluminum\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\aluminum\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\aluminum\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\aluminum\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\aluminum\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\aluminum\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\aluminum\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\aluminum\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\brick\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\brick\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\brick\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\brick\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\brick\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\brick\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\brick\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\brick\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\cobblestone\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\cobblestone\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\cobblestone\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\cobblestone\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\cobblestone\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\cobblestone\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\cobblestone\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\cobblestone\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\concrete\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\concrete\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\concrete\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\concrete\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\concrete\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\concrete\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\concrete\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\concrete\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\diamondplate\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\diamondplate\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\diamondplate\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\diamondplate\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\diamondplate\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\diamondplate\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\diamondplate\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\diamondplate\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\fabric\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\fabric\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\fabric\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\fabric\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\fabric\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\fabric\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\fabric\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\fabric\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\granite\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\granite\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\granite\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\granite\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\granite\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\granite\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\granite\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\granite\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\grass\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\grass\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\grass\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\grass\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\grass\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\grass\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\grass\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\grass\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\ice\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\ice\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\ice\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\ice\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\ice\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\ice\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\ice\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\ice\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\marble\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\marble\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\marble\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\marble\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\marble\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\marble\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\marble\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\marble\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\metal\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\metal\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\metal\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\metal\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\metal\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\metal\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\metal\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\metal\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\pebble\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\pebble\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\pebble\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\pebble\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\pebble\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\pebble\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\pebble\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\pebble\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\plastic\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\plastic\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\plastic\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\plastic\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\plastic\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\plastic\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\rust\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\rust\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\rust\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\rust\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\rust\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\rust\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\rust\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\rust\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\sand\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\sand\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\sand\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\sand\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\sand\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\sand\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\sand\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\sand\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\slate\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\slate\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\slate\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\slate\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\slate\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\slate\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\slate\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\slate\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\studs.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\studs.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\terrain\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\terrain\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\terrain\diffusefar.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\terrain\diffusefar.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\terrain\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\terrain\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\terrain\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\terrain\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\wangIndex.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\wangIndex.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_01.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_01.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_02.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_02.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_03.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_03.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_04.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_04.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_05.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_05.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_06.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_06.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_07.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_07.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_08.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_08.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_09.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_09.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_10.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_10.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_11.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_11.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_12.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_12.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_13.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_13.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_14.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_14.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_15.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_15.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_16.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_16.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_17.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_17.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_18.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_18.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_19.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_19.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_20.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_20.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_21.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_21.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_22.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_22.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_23.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_23.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_24.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_24.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_25.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\water\normal_25.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\woodplanks\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\woodplanks\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\woodplanks\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\woodplanks\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\woodplanks\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\woodplanks\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\woodplanks\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\woodplanks\specular.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\wood\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\wood\diffuse.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\wood\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\wood\normal.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\wood\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\wood\normaldetail.dds</Link>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\wood\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\wood\specular.dds</Link>
+    </Image>
+    <Image Include="Assets\Logo.scale-240.png" />
+    <Image Include="Assets\SmallLogo.scale-240.png" />
+    <Image Include="Assets\SplashScreen.scale-240.png" />
+    <Image Include="Assets\Square71x71Logo.scale-240.png" />
+    <Image Include="Assets\StoreLogo.scale-240.png" />
+    <Image Include="Assets\WideLogo.scale-240.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+  </ItemGroup>
+  <!-- Minimal content packaging to keep VS responsive; include Baseplate only for M3 -->
+  <ItemGroup>
+    <None Include="..\..\content\fonts\Arial.font">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\Arial.font</Link>
+    </None>
+    <None Include="..\..\content\fonts\ArialBold.font">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\ArialBold.font</Link>
+    </None>
+    <None Include="..\..\content\fonts\comics.fnt">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\comics.fnt</Link>
+    </None>
+    <None Include="..\..\content\fonts\diogenes.fnt">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\diogenes.fnt</Link>
+    </None>
+    <None Include="..\..\content\fonts\SourceSans.font">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\SourceSans.font</Link>
+    </None>
+    <None Include="..\..\content\fonts\SourceSansBold.font">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\SourceSansBold.font</Link>
+    </None>
+    <None Include="..\..\content\fonts\SourceSansItalic.font">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\SourceSansItalic.font</Link>
+    </None>
+    <None Include="..\..\content\fonts\SourceSansLight.font">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\SourceSansLight.font</Link>
+    </None>
+    <None Include="..\..\content\other\character.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\character.rbxm</Link>
+    </None>
+    <None Include="..\..\content\other\character3.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\character3.rbxm</Link>
+    </None>
+    <None Include="..\..\content\other\characterCameraScript.rbxmx">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\characterCameraScript.rbxmx</Link>
+    </None>
+    <None Include="..\..\content\other\characterControlScript.rbxmx">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\characterControlScript.rbxmx</Link>
+    </None>
+    <None Include="..\..\content\other\characterR15.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\characterR15.rbxm</Link>
+    </None>
+    <None Include="..\..\content\other\CompositExtraSlot0.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\CompositExtraSlot0.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\CompositExtraSlot1.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\CompositExtraSlot1.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\CompositExtraSlot2.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\CompositExtraSlot2.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\CompositExtraSlot3.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\CompositExtraSlot3.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\CompositExtraSlot4.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\CompositExtraSlot4.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\CompositFullAtlasBaseTexture.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\CompositFullAtlasBaseTexture.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\CompositFullAtlasOverlayTexture.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\CompositFullAtlasOverlayTexture.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\CompositLeftArmBase.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\CompositLeftArmBase.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\CompositLeftLegBase.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\CompositLeftLegBase.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\CompositPantsTemplate.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\CompositPantsTemplate.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\CompositRightArmBase.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\CompositRightArmBase.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\CompositRightLegBase.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\CompositRightLegBase.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\CompositShirtTemplate.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\CompositShirtTemplate.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\CompositTorsoBase.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\CompositTorsoBase.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\CompositTShirt.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\CompositTShirt.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\head.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\head.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headA.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headA.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headB.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headB.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headC.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headC.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headD.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headD.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headE.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headE.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headF.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headF.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headG.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headG.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headH.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headH.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headI.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headI.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headJ.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headJ.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headK.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headK.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headL.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headL.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headM.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headM.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headN.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headN.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headO.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headO.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\headP.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\headP.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\humanoidAnimate.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\humanoidAnimate.rbxm</Link>
+    </None>
+    <None Include="..\..\content\other\humanoidAnimateLocal.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\humanoidAnimateLocal.rbxm</Link>
+    </None>
+    <None Include="..\..\content\other\humanoidAnimateLocalKeyframe.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\humanoidAnimateLocalKeyframe.rbxm</Link>
+    </None>
+    <None Include="..\..\content\other\humanoidAnimateLocalKeyframe2.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\humanoidAnimateLocalKeyframe2.rbxm</Link>
+    </None>
+    <None Include="..\..\content\other\humanoidAnimateR15.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\humanoidAnimateR15.rbxm</Link>
+    </None>
+    <None Include="..\..\content\other\humanoidExtra.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\humanoidExtra.rbxm</Link>
+    </None>
+    <None Include="..\..\content\other\humanoidSound.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\humanoidSound.rbxm</Link>
+    </None>
+    <None Include="..\..\content\other\humanoidSound2.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\humanoidSound2.rbxm</Link>
+    </None>
+    <None Include="..\..\content\other\humanoidSoundNew.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\humanoidSoundNew.rbxm</Link>
+    </None>
+    <None Include="..\..\content\other\humanoidSoundNewLocal.rbxmx">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\humanoidSoundNewLocal.rbxmx</Link>
+    </None>
+    <None Include="..\..\content\other\humanoidStatic.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\humanoidStatic.rbxm</Link>
+    </None>
+    <None Include="..\..\content\other\leftarm.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\leftarm.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\leftleg.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\leftleg.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\rightarm.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\rightarm.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\rightleg.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\rightleg.mesh</Link>
+    </None>
+    <None Include="..\..\content\other\Rocket.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\Rocket.rbxm</Link>
+    </None>
+    <None Include="..\..\content\other\SlingshotPellet.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\SlingshotPellet.rbxm</Link>
+    </None>
+    <None Include="..\..\content\other\torso.mesh">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\torso.mesh</Link>
+    </None>
+    <None Include="..\..\content\particles\explosion.particle">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\particles\explosion.particle</Link>
+    </None>
+    <None Include="..\..\content\particles\fire.particle">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\particles\fire.particle</Link>
+    </None>
+    <None Include="..\..\content\particles\forceFieldBeam.particle">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\particles\forceFieldBeam.particle</Link>
+    </None>
+    <None Include="..\..\content\particles\forceFieldRadial.particle">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\particles\forceFieldRadial.particle</Link>
+    </None>
+    <None Include="..\..\content\particles\smoke.particle">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\particles\smoke.particle</Link>
+    </None>
+    <None Include="..\..\content\particles\sparkles.particle">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\particles\sparkles.particle</Link>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\BubbleChat.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\CoreScripts\BubbleChat.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\BuildToolsScripts\BuildToolManager.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\CoreScripts\BuildToolsScripts\BuildToolManager.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\BuildToolsScripts\BuildToolsScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\CoreScripts\BuildToolsScripts\BuildToolsScript.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\BuildToolsScripts\PersonalServerScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\CoreScripts\BuildToolsScripts\PersonalServerScript.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\ContextActionTouch.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\CoreScripts\ContextActionTouch.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\DeveloperConsole.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\CoreScripts\DeveloperConsole.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\GamepadMenu.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\CoreScripts\GamepadMenu.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\HealthScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\CoreScripts\HealthScript.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\MainBotChatScript2.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\CoreScripts\MainBotChatScript2.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\NotificationScript2.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\CoreScripts\NotificationScript2.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\PurchasePromptScript2.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\CoreScripts\PurchasePromptScript2.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\Topbar.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\CoreScripts\Topbar.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\VehicleHud.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\CoreScripts\VehicleHud.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Libraries\RbxGui.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Libraries\RbxGui.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Libraries\RbxStamper.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Libraries\RbxStamper.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Libraries\RbxUtility.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Libraries\RbxUtility.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\LoadingScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\LoadingScript.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\BackpackScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\BackpackScript.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Chat.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\Chat.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\DeveloperConsoleModule.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\DeveloperConsoleModule.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\PlayerDropDown.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\PlayerDropDown.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\PlayerlistModule.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\PlayerlistModule.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\GameSettings.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\Settings\Pages\GameSettings.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\Help.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\Settings\Pages\Help.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\Home.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\Settings\Pages\Home.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\LeaveGame.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\Settings\Pages\LeaveGame.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\Players.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\Settings\Pages\Players.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\Record.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\Settings\Pages\Record.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\ReportAbuseMenu.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\Settings\Pages\ReportAbuseMenu.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\ResetCharacter.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\Settings\Pages\ResetCharacter.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\SettingsHub.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\Settings\SettingsHub.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\SettingsPageFactory.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\Settings\SettingsPageFactory.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Utility.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\Settings\Utility.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\Modules\TenFootInterface.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\Modules\TenFootInterface.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\ServerCoreScripts\ServerSocialScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\ServerCoreScripts\ServerSocialScript.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\ServerStarterScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\ServerStarterScript.lua</Link>
+    </None>
+    <None Include="..\..\content\scripts\StarterScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\scripts\StarterScript.lua</Link>
+    </None>
+    <None Include="..\..\fmod\WinRT\x86\fmod_X86.dll">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+    </None>
+    <None Include="..\..\fmod\WinRT\x86\fmodL_X86.dll">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+    </None>
+    <None Include="..\..\PlatformContent\wp\places\BasePlate.rbxl">
+      <DeploymentContent>true</DeploymentContent>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Link>PlatformContent\wp\places\BasePlate.rbxl</Link>
+    </None>
+    <None Include="..\..\PlatformContent\wp\ScaledWorldv4.7.rbxl">
+      <DeploymentContent>true</DeploymentContent>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Link>PlatformContent\wp\ScaledWorldv4.7.rbxl</Link>
+    </None>
+    <None Include="..\..\PlatformContent\wp\particles7.rbxl">
+      <DeploymentContent>true</DeploymentContent>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <Link>PlatformContent\wp\particles7.rbxl</Link>
+    </None>
+    <None Include="..\..\PlatformContent\wp\terrain\materials.json">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\terrain\materials.json</Link>
+    </None>
+    <None Include="..\..\PlatformContent\wp\textures\sky\sky512_bk.tex">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\sky\sky512_bk.tex</Link>
+    </None>
+    <None Include="..\..\PlatformContent\wp\textures\sky\sky512_dn.tex">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\sky\sky512_dn.tex</Link>
+    </None>
+    <None Include="..\..\PlatformContent\wp\textures\sky\sky512_ft.tex">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\sky\sky512_ft.tex</Link>
+    </None>
+    <None Include="..\..\PlatformContent\wp\textures\sky\sky512_lf.tex">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\sky\sky512_lf.tex</Link>
+    </None>
+    <None Include="..\..\PlatformContent\wp\textures\sky\sky512_rt.tex">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\sky\sky512_rt.tex</Link>
+    </None>
+    <None Include="..\..\PlatformContent\wp\textures\sky\sky512_up.tex">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>PlatformContent\wp\textures\sky\sky512_up.tex</Link>
+    </None>
+    <None Include="..\..\shaders\keepme">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>shaders\keepme</Link>
+    </None>
+    <None Include="..\..\shaders\shaders.json">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>shaders\shaders.json</Link>
+    </None>
+    <None Include="..\..\shaders\shaders_d3d11.pack">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>shaders\shaders_d3d11.pack</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\shaders\shaders_d3d11_level_9_3.pack">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>shaders\shaders_d3d11_level_9_3.pack</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\shaders\shaders_d3d9.pack">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>shaders\shaders_d3d9.pack</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\shaders\shaders_glsl.pack">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>shaders\shaders_glsl.pack</Link>
+    </None>
+    <None Include="..\..\shaders\shaders_glsl3.pack">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>shaders\shaders_glsl3.pack</Link>
+    </None>
+    <None Include="..\..\shaders\shaders_glsles.pack">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>shaders\shaders_glsles.pack</Link>
+    </None>
+    <None Include="..\..\shaders\shaders_glsles3.pack">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>shaders\shaders_glsles3.pack</Link>
+    </None>
+    <None Include="d3dcompiler_47.dll">
+      <DeploymentContent Condition="'$(Platform)'=='Win32'">true</DeploymentContent>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="fmod.dll">
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="..\..\content\other\safechat.xml">
+      <DeploymentContent>true</DeploymentContent>
+    </Xml>
+    <Xml Include="ClientConfig.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\..\content\fonts\AccanthisADFStd-Regular.otf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\AccanthisADFStd-Regular.otf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\arial.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\arial.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\arialbd.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\arialbd.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\Balthazar-Regular.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\Balthazar-Regular.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\ComicNeue-Angular-Bold.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\ComicNeue-Angular-Bold.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\fredokaone.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\fredokaone.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\GothamSSm-Black.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\GothamSSm-Black.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\GothamSSm-Bold.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\GothamSSm-Bold.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\GothamSSm-Book.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\GothamSSm-Book.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\GothamSSm-Medium.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\GothamSSm-Medium.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\Guru-Regular.otf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\Guru-Regular.otf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\HWYGOTH.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\HWYGOTH.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\Inconsolata-Regular.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\Inconsolata-Regular.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\PressStart2P-Regular.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\PressStart2P-Regular.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\RomanAntique.otf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\RomanAntique.otf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\SourceSansPro-Bold.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\SourceSansPro-Bold.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\SourceSansPro-It.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\SourceSansPro-It.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\SourceSansPro-Light.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\SourceSansPro-Light.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\SourceSansPro-Regular.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\SourceSansPro-Regular.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\SourceSansPro-Semibold.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\SourceSansPro-Semibold.ttf</Link>
+    </Font>
+    <Font Include="..\..\content\fonts\zekton_rg.ttf">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\fonts\zekton_rg.ttf</Link>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\content\music\bass.wav">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\music\bass.wav</Link>
+    </Media>
+    <Media Include="..\..\content\music\ufofly.wav">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\music\ufofly.wav</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\action_falling.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\action_falling.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\action_footsteps_plastic.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\action_footsteps_plastic.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\action_get_up.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\action_get_up.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\action_jump.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\action_jump.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\action_jump_land.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\action_jump_land.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\action_swim.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\action_swim.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\bass.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\bass.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\bfsl-minifigfoots1.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\bfsl-minifigfoots1.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\bfsl-minifigfoots2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\bfsl-minifigfoots2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\button.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\button.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\clickfast.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\clickfast.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\collide.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\collide.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\electronicpingshort.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\electronicpingshort.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\flashbulb.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\flashbulb.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\grass.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\grass.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\grass2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\grass2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\grass3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\grass3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\grassstone.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\grassstone.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\grassstone2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\grassstone2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\grassstone3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\grassstone3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\hit.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\hit.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\ice.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\ice.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\ice2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\ice2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\ice3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\ice3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\icegrass.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\icegrass.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\icegrass2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\icegrass2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\icegrass3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\icegrass3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\icemetal.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\icemetal.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\icemetal2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\icemetal2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\icemetal3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\icemetal3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\icestone.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\icestone.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\icestone2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\icestone2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\icestone3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\icestone3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\impact_bodyfall.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\impact_bodyfall.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\impact_explosion_01.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\impact_explosion_01.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\impact_explosion_02.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\impact_explosion_02.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\impact_explosion_03.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\impact_explosion_03.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\impact_water.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\impact_water.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\Kerplunk.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\Kerplunk.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\Kid saying Ouch.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\Kid saying Ouch.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\metal.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\metal.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\metal2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\metal2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\metal3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\metal3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\metalgrass.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\metalgrass.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\metalgrass2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\metalgrass2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\metalgrass3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\metalgrass3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\metalstone.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\metalstone.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\metalstone2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\metalstone2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\metalstone3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\metalstone3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticgrass.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\plasticgrass.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticgrass2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\plasticgrass2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticgrass3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\plasticgrass3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticice.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\plasticice.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticice2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\plasticice2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticice3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\plasticice3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticmetal.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\plasticmetal.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticmetal2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\plasticmetal2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticmetal3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\plasticmetal3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticplastic.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\plasticplastic.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticplastic2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\plasticplastic2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticplastic3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\plasticplastic3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticstone.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\plasticstone.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticstone2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\plasticstone2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticstone3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\plasticstone3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\Rubber band sling shot.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\Rubber band sling shot.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\Rubber band.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\Rubber band.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\snap.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\snap.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\splat.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\splat.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\stone.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\stone.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\stone2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\stone2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\stone3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\stone3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\switch.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\switch.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\SWITCH3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\SWITCH3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\swoosh.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\swoosh.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\swordlunge.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\swordlunge.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\swordslash.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\swordslash.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\unsheath.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\unsheath.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\uuhhh.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\uuhhh.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\victory.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\victory.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodgrass.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodgrass.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodgrass2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodgrass2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodgrass3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodgrass3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodice.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodice.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodice2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodice2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodice3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodice3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodmetal.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodmetal.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodmetal2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodmetal2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodmetal3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodmetal3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodplastic.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodplastic.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodplastic2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodplastic2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodplastic3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodplastic3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodstone.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodstone.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodstone2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodstone2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodstone3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodstone3.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodwood.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodwood.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodwood2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodwood2.mp3</Link>
+    </Media>
+    <Media Include="..\..\content\sounds\woodwood3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\sounds\woodwood3.mp3</Link>
+    </Media>
+    <Text Include="..\..\content\other\gamecontrollerdb.txt">
+      <DeploymentContent>true</DeploymentContent>
+      <Link>content\other\gamecontrollerdb.txt</Link>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\PlatformContent\wp\places\BasePlate.rbxl">
+      <Link>PlatformContent\wp\places\BasePlate.rbxl</Link>
+      <DeploymentContent>true</DeploymentContent>
+    </Content>
+    <Content Include="..\..\PlatformContent\wp\ScaledWorldv4.7.rbxl">
+      <Link>PlatformContent\wp\ScaledWorldv4.7.rbxl</Link>
+      <DeploymentContent>true</DeploymentContent>
+    </Content>
+    <Content Include="..\..\PlatformContent\wp\particles7.rbxl">
+      <Link>PlatformContent\wp\particles7.rbxl</Link>
+      <DeploymentContent>true</DeploymentContent>
+    </Content>
+  </ItemGroup>
+  <!-- PROJECT REFERENCES: Ensures MSBuild properly tracks dependencies and forces relink when static libs change -->
+  <ItemGroup>
+    <ProjectReference Include="..\PhoneLibs\Rendering\GfxCore.Phone.vcxproj">
+      <Project>{8ACF6C0E-5F74-4C8E-9E8D-2C2F27B3F1C0}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\PhoneLibs\Rendering\GfxRender.Phone.vcxproj">
+      <Project>{5A7B3F82-C3A1-4A0D-90A9-1F21B3E7D4B2}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\PhoneLibs\Rendering\GfxBase.Phone.vcxproj">
+      <Project>{E7B6C5F2-2F3E-4F0E-B5E0-3B9E8F5D9B10}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\PhoneLibs\App.Phone.vcxproj">
+      <Project>{B9E2B2C5-8F41-4D88-9B56-9C6A6F2F6E3B}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\PhoneLibs\Base.Phone.vcxproj">
+      <Project>{C6B2D2A8-3C73-4E5E-9C96-7E2B2C4D3A91}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\PhoneLibs\Log.Phone.vcxproj">
+      <Project>{38F7D65A-3B19-4C7D-B7A5-5D36D0B5D9E1}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\PhoneLibs\Network.Phone.vcxproj">
+      <Project>{7F3A8B3B-0C8D-4F1E-9A3E-6D8A9A2E1C21}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\PhoneLibs\Zlib.Phone.vcxproj">
+      <Project>{A8C8D93B-0B2B-49A0-9D2B-6F4F5D57F9B4}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\PhoneLibs\App.BulletPhysics.Phone.vcxproj">
+      <Project>{8B1E2B3E-6A2E-4D9B-9C9C-7E8D5B6F2A10}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\PhoneLibs\Rendering\AppDraw.Phone.vcxproj">
+      <Project>{9E5F0F95-A87E-4F0C-BB21-41C5C0746C43}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\PhoneLibs\Rendering\g3d.Phone.vcxproj">
+      <Project>{E8E1B1C3-9D98-4D1F-8C43-7F2B0D6C8A21}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+    <ProjectReference Include="..\PhoneLibs\Rendering\RbxG3D.Phone.vcxproj">
+      <Project>{C3C9E3B3-8B8E-4C3E-9C8A-4E7F1F2C5B9A}</Project>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VSINSTALLDIR)\Common7\IDE\Extensions\Microsoft\VsGraphics\ImageContentTask.targets" />
+    <Import Project="$(VSINSTALLDIR)\Common7\IDE\Extensions\Microsoft\VsGraphics\MeshContentTask.targets" />
+    <Import Project="$(VSINSTALLDIR)\Common7\IDE\Extensions\Microsoft\VsGraphics\ShaderGraphContentTask.targets" />
+  </ImportGroup>
+</Project>

@@ -1,0 +1,2777 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>2c199856-3f92-4ad2-a4ed-9f2ee0876eb7</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>3d549082-d6cd-40c7-b281-d7ef89bfe3f7</UniqueIdentifier>
+      <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
+    </Filter>
+    <Filter Include="Content">
+      <UniqueIdentifier>4ea629e4-d67e-4819-ab4a-12cf88040561</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders">
+      <UniqueIdentifier>{6dbd5687-d1bc-4b90-a71a-ff5e6f599ad7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent">
+      <UniqueIdentifier>{1acb6494-c51a-4ba0-adc2-0edbbf7e8bf2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="shaders\source">
+      <UniqueIdentifier>{a87eda5c-ec5b-4687-9252-aa651192120c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp">
+      <UniqueIdentifier>{4fca9465-c30f-4699-b72d-2e90857a043a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\terrain">
+      <UniqueIdentifier>{fd00b4b8-3928-42b7-9ba4-45aad752da70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\places">
+      <UniqueIdentifier>{fae6994a-791f-459f-91d3-c9f58f0ff49f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\fonts">
+      <UniqueIdentifier>{74bc2a85-cf15-4b60-89c5-803d48f716b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\music">
+      <UniqueIdentifier>{4aea91f8-bcb0-4492-b9f3-bb10a5e178e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\other">
+      <UniqueIdentifier>{d32c8d27-1c94-4b02-8a19-c87eeef86c60}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\particles">
+      <UniqueIdentifier>{604248d6-9586-42d5-888f-c0612b23f90b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\scripts">
+      <UniqueIdentifier>{2ff19737-c016-4b7c-a240-803796ad70de}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\scripts\CoreScripts">
+      <UniqueIdentifier>{959d90cd-1bb2-4ee2-89a3-fffb67d9a787}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\scripts\CoreScripts\BuildToolsScripts">
+      <UniqueIdentifier>{6e745aa1-e78a-464e-8566-cfec45d426bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\scripts\Libraries">
+      <UniqueIdentifier>{176698a5-d71d-49cd-8a51-f79c0dbb251e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\scripts\Modules">
+      <UniqueIdentifier>{b7a40945-4b5f-4a71-839e-541efb6111b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\scripts\Modules\Settings">
+      <UniqueIdentifier>{9b0d61dd-cbc6-422b-b11f-0642e605e561}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\scripts\Modules\Settings\Pages">
+      <UniqueIdentifier>{d10fcec2-9521-4039-b82c-6a01f0cc32a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\scripts\ServerCoreScripts">
+      <UniqueIdentifier>{0dd118b7-28bd-49e3-9a86-85b6240b74cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\sky">
+      <UniqueIdentifier>{4f6ae8c9-26bf-4a67-a6e1-a2e77f52b158}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\sounds">
+      <UniqueIdentifier>{83447619-3ade-4399-98c1-a1371bdd938c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures">
+      <UniqueIdentifier>{f9ef55be-4fd7-44dc-a653-71235aab4964}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\Cursors">
+      <UniqueIdentifier>{0bc5a4d3-f5d5-4e33-af43-ecf2dee68270}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\Cursors\Gamepad">
+      <UniqueIdentifier>{1c3421fd-b802-4d91-9a51-d42f91ac540c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\loading">
+      <UniqueIdentifier>{a6234490-edcd-4d2f-b5ce-6424855d4de2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\particles">
+      <UniqueIdentifier>{436a9085-14d5-4b70-ad19-724e32153117}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\ui">
+      <UniqueIdentifier>{7db682c5-3b1e-4b78-87a8-27714a880de2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\ui\Backpack">
+      <UniqueIdentifier>{0784b5ec-aa36-43bc-bb4e-fc2c11c1891b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\ui\Chat">
+      <UniqueIdentifier>{0dbc1245-ba59-409b-b7d4-cdd9f93ecee9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\ui\Menu">
+      <UniqueIdentifier>{561dd59a-0ebc-4d13-904e-13e9604724f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\ui\PlayerList">
+      <UniqueIdentifier>{5cbba1c7-1de5-47e1-88b6-88535f6bb780}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\ui\Scroll">
+      <UniqueIdentifier>{ca3ef142-dbc4-48d6-b331-02a60596ac26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\ui\Settings">
+      <UniqueIdentifier>{54f4e347-1192-4793-923e-58cb1dfa8eed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\ui\Settings\DropDown">
+      <UniqueIdentifier>{5014fb61-9957-49fa-a448-6199e89390f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\ui\Settings\Help">
+      <UniqueIdentifier>{24a44a29-9dd1-4d6f-a95e-c1931634f411}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\ui\Settings\MenuBarAssets">
+      <UniqueIdentifier>{a2142863-e4e0-4506-9f3a-8911b30312a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\ui\Settings\MenuBarIcons">
+      <UniqueIdentifier>{e43c6e00-0114-4df1-ab7c-66d309e2adaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\ui\Settings\Radial">
+      <UniqueIdentifier>{1746f5c7-94e9-4981-8b38-b525420b5e4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\ui\Settings\Slider">
+      <UniqueIdentifier>{49403bc1-3bd9-4952-8016-913ab1539420}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\ui\TopBar">
+      <UniqueIdentifier>{8db69a86-bc19-4aaf-b29c-bc4eda763440}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content\textures\ui\Vehicle">
+      <UniqueIdentifier>{fd027e19-771e-45a7-87e0-eacdeed06cc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures">
+      <UniqueIdentifier>{7dc57414-f36a-4513-8922-796888b3d933}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\aluminum">
+      <UniqueIdentifier>{8d97a9ba-6c6d-4294-9a17-d6628a2ff278}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\brick">
+      <UniqueIdentifier>{eeb62824-7804-44cc-9c6a-ea73bc2e7000}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\cobblestone">
+      <UniqueIdentifier>{93775478-a0b3-4260-82f2-95e9acbcc967}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\concrete">
+      <UniqueIdentifier>{c8109623-3f11-464f-9183-d453598a54e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\diamondplate">
+      <UniqueIdentifier>{e0e68301-da8d-4c68-b1be-0c8b1f654cce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\fabric">
+      <UniqueIdentifier>{c612f33e-12ab-4ac9-822d-ed45284d1593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\granite">
+      <UniqueIdentifier>{23a250ad-be07-4650-8e97-2648560a6dc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\grass">
+      <UniqueIdentifier>{e189019e-cd8a-4405-86bb-8616a2904086}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\ice">
+      <UniqueIdentifier>{d43b3bfc-c970-41f7-880c-79ce2dae2803}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\marble">
+      <UniqueIdentifier>{fb232339-c38d-4d1c-b638-5ed311a511a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\metal">
+      <UniqueIdentifier>{06005893-b18c-424c-a2d9-4eea73012c42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\pebble">
+      <UniqueIdentifier>{b33ec949-ecf7-4673-8bea-e9eeff84ede5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\plastic">
+      <UniqueIdentifier>{48ee23e7-daaa-4ae1-a2e6-26117e78a63f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\rust">
+      <UniqueIdentifier>{207abf21-d2a9-4f13-9341-6417be57b8d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\sand">
+      <UniqueIdentifier>{98e602f9-05af-4976-9324-29aa6d190111}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\sky">
+      <UniqueIdentifier>{7bdadf4a-683e-4b85-9cc5-e3479f2dd302}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\slate">
+      <UniqueIdentifier>{4fabeaa4-5e79-4ac1-ace4-b975e7518a2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\terrain">
+      <UniqueIdentifier>{19e42852-c03e-4fcd-b028-925535ac93e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\water">
+      <UniqueIdentifier>{d7832c70-aacd-4caa-afdf-1d5029d3a3d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\wood">
+      <UniqueIdentifier>{520f9745-cb95-459d-8a7f-4dbae702ff78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlatformContent\wp\textures\woodplanks">
+      <UniqueIdentifier>{956c6b24-3b96-4acc-87ba-4e8f9871ccb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine">
+      <UniqueIdentifier>{c4056fd2-8eb7-46e7-a64c-20aecff4ed89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\GfxCore">
+      <UniqueIdentifier>{24221c46-2c43-43a2-946a-55f0c83aa64a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)WPMain.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)pch.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\DirectXHelper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\StepTimer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Common\DeviceResources.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Content\Sample3DSceneRenderer.h">
+      <Filter>Content</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)Content\SampleFpsTextRenderer.h">
+      <Filter>Content</Filter>
+    </ClInclude>
+    <ClInclude Include="App.xaml.h" />
+    <ClInclude Include="DirectXPage.xaml.h" />
+    <ClInclude Include="..\..\shaders\source\globals.h">
+      <Filter>shaders\source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\shaders\source\common.h">
+      <Filter>shaders\source</Filter>
+    </ClInclude>
+    <ClInclude Include="RobloxEngine\Engine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="RobloxEngine\RendererShim.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="RobloxEngine\RendererBootstrap.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="RobloxEngine\FunctionMarshallerWP.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="RobloxEngine\GameHost.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="RobloxEngine\RenderJobWP.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="RobloxEngine\WinRTFileHelper.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="$(MSBuildThisFileDirectory)WPMain.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)pch.cpp" />
+    <ClCompile Include="$(MSBuildThisFileDirectory)Common\DeviceResources.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Content\Sample3DSceneRenderer.cpp">
+      <Filter>Content</Filter>
+    </ClCompile>
+    <ClCompile Include="$(MSBuildThisFileDirectory)Content\SampleFpsTextRenderer.cpp">
+      <Filter>Content</Filter>
+    </ClCompile>
+    <ClCompile Include="App.xaml.cpp" />
+    <ClCompile Include="DirectXPage.xaml.cpp" />
+    <ClCompile Include="RobloxEngine\Engine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="RobloxEngine\RendererShim.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="RobloxEngine\RendererBootstrap.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\PhoneLibs\PhoneBaseShim.cpp" />
+    <ClCompile Include="RobloxEngine\GameHost.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="RobloxEngine\RenderJobWP.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="RobloxEngine\WinRTFileHelper.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="$(MSBuildThisFileDirectory)Content\SamplePixelShader.hlsl">
+      <Filter>Content</Filter>
+    </FxCompile>
+    <FxCompile Include="$(MSBuildThisFileDirectory)Content\SampleVertexShader.hlsl">
+      <Filter>Content</Filter>
+    </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>{42148db1-8c60-4cb5-b007-51380d39df5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Content">
+      <UniqueIdentifier>{9126eac7-0c22-4fa6-92e9-ec4f14ba85d5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Logo.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SmallLogo.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square71x71Logo.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\StoreLogo.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\WideLogo.scale-240.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\plastic\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\plastic</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\plastic\normal.dds">
+      <Filter>PlatformContent\wp\textures\plastic</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\studs.dds">
+      <Filter>PlatformContent\wp\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\fonts\fonts.dds">
+      <Filter>Content\fonts</Filter>
+    </Image>
+    <Image Include="..\..\content\sky\null_plainsky512_ft.jpg">
+      <Filter>Content\sky</Filter>
+    </Image>
+    <Image Include="..\..\content\sky\null_plainsky512_lf.jpg">
+      <Filter>Content\sky</Filter>
+    </Image>
+    <Image Include="..\..\content\sky\null_plainsky512_rt.jpg">
+      <Filter>Content\sky</Filter>
+    </Image>
+    <Image Include="..\..\content\sky\null_plainsky512_up.jpg">
+      <Filter>Content\sky</Filter>
+    </Image>
+    <Image Include="..\..\content\sky\skyspheremap.jpg">
+      <Filter>Content\sky</Filter>
+    </Image>
+    <Image Include="..\..\content\sky\sun.jpg">
+      <Filter>Content\sky</Filter>
+    </Image>
+    <Image Include="..\..\content\sky\sun-rays.jpg">
+      <Filter>Content\sky</Filter>
+    </Image>
+    <Image Include="..\..\content\sky\lensflare.jpg">
+      <Filter>Content\sky</Filter>
+    </Image>
+    <Image Include="..\..\content\sky\moon.jpg">
+      <Filter>Content\sky</Filter>
+    </Image>
+    <Image Include="..\..\content\sky\moon-alpha.jpg">
+      <Filter>Content\sky</Filter>
+    </Image>
+    <Image Include="..\..\content\sky\null_plainsky512_bk.jpg">
+      <Filter>Content\sky</Filter>
+    </Image>
+    <Image Include="..\..\content\sky\null_plainsky512_dn.jpg">
+      <Filter>Content\sky</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\advancedMove_joint.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\advancedMove_keysOnly.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\advancedMove_noJoint.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\advancedMoveResize.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\advClosed-hand.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\advClosed-hand-no-weld.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\advClosed-hand-weld.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\advCursor-default.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\advCursor-openedHand.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\advCursor-white.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\AnchorCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ArrowCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ArrowCursorDecalDrag.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ArrowFarCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\BackgroundImage.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\blackBkg_round.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\blackBkg_square.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Blank.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\BWGradient.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_bot_notify_bang.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_bot_notify_dotDotDot.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_bot_notify_money.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_bot_notify_question.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_bot_notifyGray_dotDotDot.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botBlue_bkg.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botBlue_notify_bkg.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botBlue_tail.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botBlue_tailRight.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botGreen_bkg.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botGreen_notify_bkg.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botGreen_tail.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botGreen_tailRight.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botRed_bkg.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botRed_notify_bkg.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botRed_tail.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_botRed_tailRight.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_white_bkg.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_white_notify_bkg.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\chatBubble_white_tail.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Clone.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\CloneCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\CloneDownCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\CloneOverCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\DialogHelp.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\DialogQuest.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\DialogShop.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\dirt.jpg">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\DragCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\DropperCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Exit.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Exit_dn.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Exit_ovr.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\explosion.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\face.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\FillCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\fire_0.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\FlagCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\FlatCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\glow.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\GrabCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\GrabRotateCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\gradient.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Grass_Texture.jpg">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\GunCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\GunWaitCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\HammerCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\HammerDownCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\HammerOverCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\HingeCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\HurtOverlay.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\LockCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\lua.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\MotorCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\MouseLockedCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\plane_icon.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ResizeCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Roblox.bmp">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Roblox-loading.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Roblox-loading-glow.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\roblox-logo.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\rotationArrow.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\RustGradient.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\script.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\shadowmask.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Smoke.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\spark.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\sparkle.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\SpawnCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\SpawnLocation.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\SurfacesDefault.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\transformFiveDegrees.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\transformNinetyDegrees.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\transformOneDegree.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\transformTwentyTwoDegrees.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\UnAnchorCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\UnlockCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\water_Subsurface.dds">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\water_Wave.dds">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\WeldCursor.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\WhiteCircle.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\wrench.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\advancedMove.png">
+      <Filter>Content\textures</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Cursors\Gamepad\PointerOver.png">
+      <Filter>Content\textures\Cursors\Gamepad</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Cursors\Gamepad\Pointer.png">
+      <Filter>Content\textures\Cursors\Gamepad</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\loading\loadingvignette.png">
+      <Filter>Content\textures\loading</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\loading\robloxlogo.png">
+      <Filter>Content\textures\loading</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\loading\cancelButton.png">
+      <Filter>Content\textures\loading</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\loading\darkLoadingTexture.png">
+      <Filter>Content\textures\loading</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\loading\loadingCircle.png">
+      <Filter>Content\textures\loading</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\loading\loadingTexture.png">
+      <Filter>Content\textures\loading</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\forcefield_vortex_color.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\forcefield_vortex_main.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\legacy_fire_alpha_color.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\smoke_color.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\smoke_main.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\sparkles_color.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\sparkles_main.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\common_alpha.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion_alpha.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion_color.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_core_alpha.png">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_core_main.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_implosion_color.png">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_implosion_main.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_shockwave_main.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_smoke_alpha.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_smoke_color_new.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\explosion01_smoke_main.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\fire_alpha.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\fire_color.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\fire_main.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\fire_sparks_color.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\fire_sparks_main.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\forcefield_alpha.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\forcefield_glow_alpha.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\forcefield_glow_color.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\particles\forcefield_glow_main.dds">
+      <Filter>Content\textures\particles</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack_Close.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack_Open.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_grey.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_greyTransp.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newBlue.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newBlueGlow.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newGrey.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newGreyGlow.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newWhite.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newWhiteGlow.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_red.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_redGlow.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_white.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ButtonLeft.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ButtonLeftDown.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ButtonRight.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ButtonRightDown.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\chat_teamButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\chatBubble_blue_notify_bkg.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\chatBubble_green_notify_bkg.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\chatBubble_red_notify_bkg.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\chatBubble_white_notify_bkg.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\CloneButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\CloneButton_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\CloseButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\CloseButton_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Concrete.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\CorrodedMetal.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\DeleteButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\DeleteButton_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_blue.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_ellipses.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_green.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_purpose_help.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_purpose_quest.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_purpose_shop.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_red.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_tail.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_white.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\DiamondPlate.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\DPadSheet.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dropdown_arrow.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ErrorIcon.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ErrorIconSmall.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\expandPlayerList.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Foil.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Gear.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Gear_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Glue.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Grass.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\GroupMoveButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\GroupMoveButton_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Health-BKG-Center.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Health-BKG-Left-Cap.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Health-BKG-Right-Cap.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Hinge.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\homeButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Ice.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_admin-16.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_BC-16.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_follower-16.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_following-16.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_friendrequestrecieved-16.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_friendrequestsent_16.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_friends_16.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_mutualfollowing-16.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_OBC-16.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_placeowner.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\icon_TBC-16.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Inlets.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\InsertButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\InsertButton_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\LoadingBKG.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\MaterialButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\MaterialButton_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\MaterialMenu.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Modal.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Motor.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\mouseLock_off.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\mouseLock_on.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\newBkg_square.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PaintButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PaintButton_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PartMoveButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PartMoveButton_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Plastic.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PlayerlistFriendIcon.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PlayerListFriendRequestReceivedIcon.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PlayerListFriendRequestSentIcon.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PropertyButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PropertyButton_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\RecordDown.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\RecordStop.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ResetIcon.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\RobuxIcon.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ScaleButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ScaleButton_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbar.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scroll-bottom.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonDown.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonDown_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonDown_ds.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonDown_ovr.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonUp.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonUp_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonUp_ds.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scrollbuttonUp_ovr.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scroll-middle.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scroll-top.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SearchIcon.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SelectionBox.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SettingsButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SettingsButton_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SettingsButton_ds.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SettingsButton_ovr.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SingleButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SingleButtonDown.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slate.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider_sel.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-BKG-Center.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-BKG-Left-Cap.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-BKG-Right-Cap.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-Fill-Center.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-Fill-Left-Cap.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-Fill-Right-Cap.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Smooth.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\StampToolButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\StampToolButton_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Studs.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SurfaceButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SurfaceButton_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SurfaceMenu.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\TinyBcIcon.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\TinyObcIcon.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\TinyTbcIcon.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\TixIcon.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ToggleFullScreen_ds.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ToolButton.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ToolButton_dn.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\ToolButton_ds.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\TouchControlsSheet.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Universal.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Weld.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Wood.png">
+      <Filter>Content\textures\ui</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack\Backpack_Down.png">
+      <Filter>Content\textures\ui\Backpack</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack\Backpack.png">
+      <Filter>Content\textures\ui\Backpack</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\ToggleChat.png">
+      <Filter>Content\textures\ui\Chat</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\ToggleChatDown.png">
+      <Filter>Content\textures\ui\Chat</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\Chat.png">
+      <Filter>Content\textures\ui\Chat</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\ChatDown.png">
+      <Filter>Content\textures\ui\Chat</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\MessageCounter.png">
+      <Filter>Content\textures\ui\Chat</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Menu\HamburgerDown.png">
+      <Filter>Content\textures\ui\Menu</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Menu\Hamburger.png">
+      <Filter>Content\textures\ui\Menu</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PlayerList\CharacterImageBackground.png">
+      <Filter>Content\textures\ui\PlayerList</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PlayerList\TileShadowMissingTop.png">
+      <Filter>Content\textures\ui\PlayerList</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\PlayerList\BlockedIcon.png">
+      <Filter>Content\textures\ui\PlayerList</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Scroll\scroll-top.png">
+      <Filter>Content\textures\ui\Scroll</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Scroll\scroll-bottom.png">
+      <Filter>Content\textures\ui\Scroll</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Scroll\scroll-middle.png">
+      <Filter>Content\textures\ui\Scroll</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\DropDown\DropDown.png">
+      <Filter>Content\textures\ui\Settings\DropDown</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\AButtonLightSmall.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\BButtonDark.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\BButtonLight.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\EscapeIcon.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\GenericController.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\LeaveIcon.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\ResetIcon.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\RotateCameraGesture.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\UseToolGesture.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\XboxController.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\XButtonDark.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\XButtonLight.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\YButtonDark.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\YButtonLight.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\ZoomGesture.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\AButtonDark.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\AButtonLight.png">
+      <Filter>Content\textures\ui\Settings\Help</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarAssets\MenuSelection.png">
+      <Filter>Content\textures\ui\Settings\MenuBarAssets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarAssets\MenuBackground.png">
+      <Filter>Content\textures\ui\Settings\MenuBarAssets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarAssets\MenuButton.png">
+      <Filter>Content\textures\ui\Settings\MenuBarAssets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarAssets\MenuButtonSelected.png">
+      <Filter>Content\textures\ui\Settings\MenuBarAssets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\HomeTab.png">
+      <Filter>Content\textures\ui\Settings\MenuBarIcons</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\PlayersTabIcon.png">
+      <Filter>Content\textures\ui\Settings\MenuBarIcons</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\RecordTab.png">
+      <Filter>Content\textures\ui\Settings\MenuBarIcons</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\ReportAbuseTab.png">
+      <Filter>Content\textures\ui\Settings\MenuBarIcons</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\GameSettingsTab.png">
+      <Filter>Content\textures\ui\Settings\MenuBarIcons</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\HelpTab.png">
+      <Filter>Content\textures\ui\Settings\MenuBarIcons</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Bottom.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\BottomLeft.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\BottomLeftSelected.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\BottomRight.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\BottomRightSelected.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\BottomSelected.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Chat.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\EmptyBottom.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\EmptyBottomLeft.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\EmptyBottomRight.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\EmptyTop.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\EmptyTopLeft.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\EmptyTopRight.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Leave.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Menu.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\PlayerList.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\RadialLabel.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Top.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\TopLeft.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\TopLeftSelected.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\TopRight.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\TopRightSelected.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\TopSelected.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Alert.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Backpack.png">
+      <Filter>Content\textures\ui\Settings\Radial</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\Right.png">
+      <Filter>Content\textures\ui\Settings\Slider</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\SelectedBarLeft.png">
+      <Filter>Content\textures\ui\Settings\Slider</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\SelectedBarRight.png">
+      <Filter>Content\textures\ui\Settings\Slider</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\BarLeft.png">
+      <Filter>Content\textures\ui\Settings\Slider</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\BarRight.png">
+      <Filter>Content\textures\ui\Settings\Slider</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\Left.png">
+      <Filter>Content\textures\ui\Settings\Slider</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\TopBar\dropshadow.png">
+      <Filter>Content\textures\ui\TopBar</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Vehicle\SpeedBarEmpty.png">
+      <Filter>Content\textures\ui\Vehicle</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Vehicle\SpeedBar.png">
+      <Filter>Content\textures\ui\Vehicle</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\wangIndex.dds">
+      <Filter>PlatformContent\wp\textures</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\terrain\diffuse.dds">
+      <Filter>PlatformContent\wp\terrain</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\terrain\normal.dds">
+      <Filter>PlatformContent\wp\terrain</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\terrain\specular.dds">
+      <Filter>PlatformContent\wp\terrain</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\aluminum\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\aluminum</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\aluminum\specular.dds">
+      <Filter>PlatformContent\wp\textures\aluminum</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\aluminum\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\aluminum</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\aluminum\normal.dds">
+      <Filter>PlatformContent\wp\textures\aluminum</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\brick\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\brick</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\brick\normal.dds">
+      <Filter>PlatformContent\wp\textures\brick</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\brick\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\brick</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\brick\specular.dds">
+      <Filter>PlatformContent\wp\textures\brick</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\cobblestone\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\cobblestone</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\cobblestone\specular.dds">
+      <Filter>PlatformContent\wp\textures\cobblestone</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\cobblestone\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\cobblestone</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\cobblestone\normal.dds">
+      <Filter>PlatformContent\wp\textures\cobblestone</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\concrete\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\concrete</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\concrete\normal.dds">
+      <Filter>PlatformContent\wp\textures\concrete</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\concrete\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\concrete</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\concrete\specular.dds">
+      <Filter>PlatformContent\wp\textures\concrete</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\diamondplate\normal.dds">
+      <Filter>PlatformContent\wp\textures\diamondplate</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\diamondplate\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\diamondplate</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\diamondplate\specular.dds">
+      <Filter>PlatformContent\wp\textures\diamondplate</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\diamondplate\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\diamondplate</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\fabric\normal.dds">
+      <Filter>PlatformContent\wp\textures\fabric</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\fabric\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\fabric</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\fabric\specular.dds">
+      <Filter>PlatformContent\wp\textures\fabric</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\fabric\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\fabric</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\granite\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\granite</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\granite\normal.dds">
+      <Filter>PlatformContent\wp\textures\granite</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\granite\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\granite</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\granite\specular.dds">
+      <Filter>PlatformContent\wp\textures\granite</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\grass\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\grass</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\grass\normal.dds">
+      <Filter>PlatformContent\wp\textures\grass</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\grass\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\grass</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\grass\specular.dds">
+      <Filter>PlatformContent\wp\textures\grass</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\ice\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\ice</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\ice\normal.dds">
+      <Filter>PlatformContent\wp\textures\ice</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\ice\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\ice</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\ice\specular.dds">
+      <Filter>PlatformContent\wp\textures\ice</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\marble\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\marble</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\marble\normal.dds">
+      <Filter>PlatformContent\wp\textures\marble</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\marble\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\marble</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\marble\specular.dds">
+      <Filter>PlatformContent\wp\textures\marble</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\metal\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\metal</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\metal\normal.dds">
+      <Filter>PlatformContent\wp\textures\metal</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\metal\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\metal</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\metal\specular.dds">
+      <Filter>PlatformContent\wp\textures\metal</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\pebble\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\pebble</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\pebble\normal.dds">
+      <Filter>PlatformContent\wp\textures\pebble</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\pebble\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\pebble</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\pebble\specular.dds">
+      <Filter>PlatformContent\wp\textures\pebble</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\plastic\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\plastic</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\rust\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\rust</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\rust\normal.dds">
+      <Filter>PlatformContent\wp\textures\rust</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\rust\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\rust</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\rust\specular.dds">
+      <Filter>PlatformContent\wp\textures\rust</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\sand\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\sand</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\sand\normal.dds">
+      <Filter>PlatformContent\wp\textures\sand</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\sand\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\sand</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\sand\specular.dds">
+      <Filter>PlatformContent\wp\textures\sand</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\slate\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\slate</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\slate\normal.dds">
+      <Filter>PlatformContent\wp\textures\slate</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\slate\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\slate</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\slate\specular.dds">
+      <Filter>PlatformContent\wp\textures\slate</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\terrain\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\terrain</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\terrain\diffusefar.dds">
+      <Filter>PlatformContent\wp\textures\terrain</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\terrain\normal.dds">
+      <Filter>PlatformContent\wp\textures\terrain</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\terrain\specular.dds">
+      <Filter>PlatformContent\wp\textures\terrain</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_22.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_23.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_24.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_25.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_01.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_02.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_03.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_04.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_05.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_06.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_07.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_08.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_09.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_10.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_11.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_12.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_13.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_14.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_15.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_16.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_17.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_18.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_19.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_20.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\water\normal_21.dds">
+      <Filter>PlatformContent\wp\textures\water</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\wood\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\wood</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\wood\normal.dds">
+      <Filter>PlatformContent\wp\textures\wood</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\wood\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\wood</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\wood\specular.dds">
+      <Filter>PlatformContent\wp\textures\wood</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\woodplanks\diffuse.dds">
+      <Filter>PlatformContent\wp\textures\woodplanks</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\woodplanks\normal.dds">
+      <Filter>PlatformContent\wp\textures\woodplanks</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\woodplanks\normaldetail.dds">
+      <Filter>PlatformContent\wp\textures\woodplanks</Filter>
+    </Image>
+    <Image Include="..\..\PlatformContent\wp\textures\woodplanks\specular.dds">
+      <Filter>PlatformContent\wp\textures\woodplanks</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Cursors\Gamepad\Pointer@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Cursors\Gamepad\PointerOver@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Roblox-loading@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\Roblox-loading-glow@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack\Backpack@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack\Backpack_Down@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack_Close@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Backpack_Open@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newBlue@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newBlueGlow@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newGrey@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newGreyGlow@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newWhite@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\btn_newWhiteGlow@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\Chat@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\ChatDown@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\MessageCounter@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\ToggleChat@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Chat\ToggleChatDown@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\chat_teamButton@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_blue@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_green@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_red@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_tail@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dialog_white@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\dropdown_arrow@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\expandPlayerList@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Health-BKG-Center@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Health-BKG-Left-Cap@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Health-BKG-Right-Cap@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\homeButton@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Menu\Hamburger@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Menu\HamburgerDown@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\mouseLock_off@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\mouseLock_on@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\newBkg_square@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scroll-bottom@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scroll-middle@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\scroll-top@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Scroll\scroll-bottom@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Scroll\scroll-middle@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\SelectionBox@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\DropDown\DropDown@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\AButtonDark@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\AButtonLight@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\BButtonDark@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\BButtonLight@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\GenericController@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\XButtonDark@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\XButtonLight@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\YButtonDark@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Help\YButtonLight@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarAssets\MenuButton@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarAssets\MenuButtonSelected@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarAssets\MenuSelection@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\GameSettingsTab@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\HelpTab@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\HomeTab@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\PlayersTabIcon@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\RecordTab@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\MenuBarIcons\ReportAbuseTab@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Alert@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Backpack@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Chat@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Leave@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\Menu@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\PlayerList@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Radial\RadialLabel@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\BarLeft@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\BarRight@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\Left@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\Right@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\SelectedBarLeft@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Settings\Slider\SelectedBarRight@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-BKG-Center@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-BKG-Left-Cap@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-BKG-Right-Cap@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-Fill-Center@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-Fill-Left-Cap@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Slider-Fill-Right-Cap@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\slider_new_tab@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\TopBar\dropshadow@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Vehicle\SpeedBar@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Vehicle\SpeedBarBKG@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="..\..\content\textures\ui\Vehicle\SpeedBarEmpty@2x.png">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fmod.dll" />
+    <None Include="..\..\fmod\WinRT\x86\fmod_X86.dll" />
+    <None Include="..\..\shaders\keepme">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\shaders\shaders.json">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\shaders\shaders_d3d9.pack">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\shaders\shaders_d3d11.pack">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\shaders\shaders_glsl.pack">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\shaders\shaders_glsl3.pack">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\shaders\shaders_glsles.pack">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\shaders\shaders_glsles3.pack">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\content\fonts\ArialBold.font">
+      <Filter>Content\fonts</Filter>
+    </None>
+    <None Include="..\..\content\fonts\comics.fnt">
+      <Filter>Content\fonts</Filter>
+    </None>
+    <None Include="..\..\content\fonts\diogenes.fnt">
+      <Filter>Content\fonts</Filter>
+    </None>
+    <None Include="..\..\content\fonts\SourceSans.font">
+      <Filter>Content\fonts</Filter>
+    </None>
+    <None Include="..\..\content\fonts\SourceSansBold.font">
+      <Filter>Content\fonts</Filter>
+    </None>
+    <None Include="..\..\content\fonts\SourceSansItalic.font">
+      <Filter>Content\fonts</Filter>
+    </None>
+    <None Include="..\..\content\fonts\SourceSansLight.font">
+      <Filter>Content\fonts</Filter>
+    </None>
+    <None Include="..\..\content\fonts\Arial.font">
+      <Filter>Content\fonts</Filter>
+    </None>
+    <None Include="..\..\content\other\characterControlScript.rbxmx">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\characterR15.rbxm">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\CompositExtraSlot0.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\CompositExtraSlot1.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\CompositExtraSlot2.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\CompositExtraSlot3.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\CompositExtraSlot4.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\CompositFullAtlasBaseTexture.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\CompositFullAtlasOverlayTexture.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\CompositLeftArmBase.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\CompositLeftLegBase.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\CompositPantsTemplate.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\CompositRightArmBase.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\CompositRightLegBase.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\CompositShirtTemplate.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\CompositTorsoBase.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\CompositTShirt.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\head.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headA.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headB.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headC.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headD.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headE.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headF.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headG.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headH.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headI.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headJ.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headK.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headL.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headM.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headN.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headO.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\headP.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\humanoidAnimate.rbxm">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\humanoidAnimateLocal.rbxm">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\humanoidAnimateLocalKeyframe.rbxm">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\humanoidAnimateLocalKeyframe2.rbxm">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\humanoidAnimateR15.rbxm">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\humanoidExtra.rbxm">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\humanoidSound.rbxm">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\humanoidSound2.rbxm">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\humanoidSoundNew.rbxm">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\humanoidSoundNewLocal.rbxmx">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\humanoidStatic.rbxm">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\leftarm.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\leftleg.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\rightarm.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\rightleg.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\Rocket.rbxm">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\SlingshotPellet.rbxm">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\torso.mesh">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\character.rbxm">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\character3.rbxm">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\other\characterCameraScript.rbxmx">
+      <Filter>Content\other</Filter>
+    </None>
+    <None Include="..\..\content\particles\explosion.particle">
+      <Filter>Content\particles</Filter>
+    </None>
+    <None Include="..\..\content\particles\fire.particle">
+      <Filter>Content\particles</Filter>
+    </None>
+    <None Include="..\..\content\particles\forceFieldBeam.particle">
+      <Filter>Content\particles</Filter>
+    </None>
+    <None Include="..\..\content\particles\forceFieldRadial.particle">
+      <Filter>Content\particles</Filter>
+    </None>
+    <None Include="..\..\content\particles\smoke.particle">
+      <Filter>Content\particles</Filter>
+    </None>
+    <None Include="..\..\content\particles\sparkles.particle">
+      <Filter>Content\particles</Filter>
+    </None>
+    <None Include="..\..\content\scripts\LoadingScript.lua">
+      <Filter>Content\scripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\ServerStarterScript.lua">
+      <Filter>Content\scripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\StarterScript.lua">
+      <Filter>Content\scripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\BubbleChat.lua">
+      <Filter>Content\scripts\CoreScripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\ContextActionTouch.lua">
+      <Filter>Content\scripts\CoreScripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\DeveloperConsole.lua">
+      <Filter>Content\scripts\CoreScripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\GamepadMenu.lua">
+      <Filter>Content\scripts\CoreScripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\HealthScript.lua">
+      <Filter>Content\scripts\CoreScripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\MainBotChatScript2.lua">
+      <Filter>Content\scripts\CoreScripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\NotificationScript2.lua">
+      <Filter>Content\scripts\CoreScripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\PurchasePromptScript2.lua">
+      <Filter>Content\scripts\CoreScripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\Topbar.lua">
+      <Filter>Content\scripts\CoreScripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\VehicleHud.lua">
+      <Filter>Content\scripts\CoreScripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\BuildToolsScripts\BuildToolManager.lua">
+      <Filter>Content\scripts\CoreScripts\BuildToolsScripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\BuildToolsScripts\BuildToolsScript.lua">
+      <Filter>Content\scripts\CoreScripts\BuildToolsScripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\CoreScripts\BuildToolsScripts\PersonalServerScript.lua">
+      <Filter>Content\scripts\CoreScripts\BuildToolsScripts</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Libraries\RbxUtility.lua">
+      <Filter>Content\scripts\Libraries</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Libraries\RbxGui.lua">
+      <Filter>Content\scripts\Libraries</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Libraries\RbxStamper.lua">
+      <Filter>Content\scripts\Libraries</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\BackpackScript.lua">
+      <Filter>Content\scripts\Modules</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Chat.lua">
+      <Filter>Content\scripts\Modules</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\DeveloperConsoleModule.lua">
+      <Filter>Content\scripts\Modules</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\PlayerDropDown.lua">
+      <Filter>Content\scripts\Modules</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\PlayerlistModule.lua">
+      <Filter>Content\scripts\Modules</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\TenFootInterface.lua">
+      <Filter>Content\scripts\Modules</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\SettingsHub.lua">
+      <Filter>Content\scripts\Modules\Settings</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\SettingsPageFactory.lua">
+      <Filter>Content\scripts\Modules\Settings</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Utility.lua">
+      <Filter>Content\scripts\Modules\Settings</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\GameSettings.lua">
+      <Filter>Content\scripts\Modules\Settings\Pages</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\Help.lua">
+      <Filter>Content\scripts\Modules\Settings\Pages</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\Home.lua">
+      <Filter>Content\scripts\Modules\Settings\Pages</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\LeaveGame.lua">
+      <Filter>Content\scripts\Modules\Settings\Pages</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\Players.lua">
+      <Filter>Content\scripts\Modules\Settings\Pages</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\Record.lua">
+      <Filter>Content\scripts\Modules\Settings\Pages</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\ReportAbuseMenu.lua">
+      <Filter>Content\scripts\Modules\Settings\Pages</Filter>
+    </None>
+    <None Include="..\..\content\scripts\Modules\Settings\Pages\ResetCharacter.lua">
+      <Filter>Content\scripts\Modules\Settings\Pages</Filter>
+    </None>
+    <None Include="..\..\content\scripts\ServerCoreScripts\ServerSocialScript.lua">
+      <Filter>Content\scripts\ServerCoreScripts</Filter>
+    </None>
+    <None Include="..\..\shaders\shaders_d3d11_level_9_3.pack">
+      <Filter>shaders</Filter>
+    </None>
+    <None Include="..\..\PlatformContent\wp\ScaledWorldv4.7.rbxl">
+      <Filter>PlatformContent\wp</Filter>
+    </None>
+    <None Include="d3dcompiler_47.dll" />
+    <None Include="..\..\PlatformContent\wp\terrain\materials.json">
+      <Filter>PlatformContent\wp\terrain</Filter>
+    </None>
+    <None Include="..\..\PlatformContent\wp\textures\sky\sky512_bk.tex">
+      <Filter>PlatformContent\wp\textures\sky</Filter>
+    </None>
+    <None Include="..\..\PlatformContent\wp\textures\sky\sky512_dn.tex">
+      <Filter>PlatformContent\wp\textures\sky</Filter>
+    </None>
+    <None Include="..\..\PlatformContent\wp\textures\sky\sky512_ft.tex">
+      <Filter>PlatformContent\wp\textures\sky</Filter>
+    </None>
+    <None Include="..\..\PlatformContent\wp\textures\sky\sky512_lf.tex">
+      <Filter>PlatformContent\wp\textures\sky</Filter>
+    </None>
+    <None Include="..\..\PlatformContent\wp\textures\sky\sky512_rt.tex">
+      <Filter>PlatformContent\wp\textures\sky</Filter>
+    </None>
+    <None Include="..\..\PlatformContent\wp\textures\sky\sky512_up.tex">
+      <Filter>PlatformContent\wp\textures\sky</Filter>
+    </None>
+    <None Include="..\..\PlatformContent\wp\particles7.rbxl" />
+    <None Include="..\..\fmod\WinRT\x86\fmodL_X86.dll" />
+    <None Include="..\..\PlatformContent\wp\places\BasePlate.rbxl">
+      <Filter>PlatformContent\wp\places</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="DirectXPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="ClientConfig.xml" />
+    <Xml Include="..\..\content\other\safechat.xml">
+      <Filter>Content\other</Filter>
+    </Xml>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="..\..\content\fonts\arial.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\arialbd.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\Balthazar-Regular.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\ComicNeue-Angular-Bold.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\fredokaone.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\GothamSSm-Black.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\GothamSSm-Bold.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\GothamSSm-Book.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\GothamSSm-Medium.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\Guru-Regular.otf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\HWYGOTH.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\Inconsolata-Regular.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\PressStart2P-Regular.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\RomanAntique.otf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\SourceSansPro-Bold.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\SourceSansPro-It.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\SourceSansPro-Light.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\SourceSansPro-Regular.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\SourceSansPro-Semibold.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\zekton_rg.ttf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+    <Font Include="..\..\content\fonts\AccanthisADFStd-Regular.otf">
+      <Filter>Content\fonts</Filter>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\content\music\bass.wav">
+      <Filter>Content\music</Filter>
+    </Media>
+    <Media Include="..\..\content\music\ufofly.wav">
+      <Filter>Content\music</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\action_jump_land.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\action_swim.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\bass.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\bfsl-minifigfoots1.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\bfsl-minifigfoots2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\button.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\clickfast.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\collide.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\electronicpingshort.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\flashbulb.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\grass.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\grass2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\grass3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\grassstone.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\grassstone2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\grassstone3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\hit.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\ice.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\ice2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\ice3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\icegrass.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\icegrass2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\icegrass3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\icemetal.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\icemetal2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\icemetal3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\icestone.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\icestone2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\icestone3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\impact_bodyfall.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\impact_explosion_01.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\impact_explosion_02.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\impact_explosion_03.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\impact_water.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\Kerplunk.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\Kid saying Ouch.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\metal.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\metal2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\metal3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\metalgrass.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\metalgrass2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\metalgrass3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\metalstone.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\metalstone2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\metalstone3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticgrass.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticgrass2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticgrass3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticice.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticice2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticice3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticmetal.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticmetal2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticmetal3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticplastic.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticplastic2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticplastic3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticstone.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticstone2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\plasticstone3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\Rubber band sling shot.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\Rubber band.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\snap.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\splat.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\stone.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\stone2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\stone3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\switch.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\SWITCH3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\swoosh.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\swordlunge.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\swordslash.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\unsheath.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\uuhhh.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\victory.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodgrass.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodgrass2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodgrass3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodice.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodice2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodice3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodmetal.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodmetal2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodmetal3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodplastic.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodplastic2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodplastic3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodstone.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodstone2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodstone3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodwood.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodwood2.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\woodwood3.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\action_falling.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\action_footsteps_plastic.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\action_get_up.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+    <Media Include="..\..\content\sounds\action_jump.mp3">
+      <Filter>Content\sounds</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\content\other\gamecontrollerdb.txt">
+      <Filter>Content\other</Filter>
+    </Text>
+  </ItemGroup>
+</Project>

@@ -104,7 +104,6 @@ namespace RBX
 
 		static RBX::mutex *robloxResponceLock;
 		static RBX::mutex *cdnResponceLock;
-		// There was & but idk for what, TODO
 		static std::string lastCsrfToken;
 		static boost::mutex lastCsrfTokenMutex;
 

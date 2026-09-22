@@ -1088,7 +1088,7 @@ if (!fs::exists(path))
 #elif defined(RBX_PLATFORM_UWP)
             fs::path platformAssetFolderModifier = "../PlatformContent/pc/";
 #elif defined(RBX_PLATFORM_WIN_PHONE)
-			fs::path platformAssetFolderModifier = "../PlatformContent/pc/"; // might need to be wp or durango as i will want 3d background without the lua menus
+			fs::path platformAssetFolderModifier = "../PlatformContent/wp/";
 #elif defined(RBX_PLATFORM_IOS)
             fs::path platformAssetFolderModifier = "../ios/";
 #elif defined(__APPLE__) || defined(_WIN32)

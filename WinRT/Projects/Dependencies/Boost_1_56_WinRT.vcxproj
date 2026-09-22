@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Store|Win32">
+      <Configuration>Store</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Store|ARM">
+      <Configuration>Store</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="WindowsPhone|Win32">
+      <Configuration>WindowsPhone</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="WindowsPhone|ARM">
+      <Configuration>WindowsPhone</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2F8C3D3E-3D9D-4B22-A6D9-3C6B2C3E5D11}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Boost_1_56_WinRT</RootNamespace>
+    <ProjectName>Boost_1_56_WinRT</ProjectName>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Store|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <ApplicationType>Windows Store</ApplicationType>
+    <ApplicationTypeRevision>8.1</ApplicationTypeRevision>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Store|ARM'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120</PlatformToolset>
+    <ApplicationType>Windows Store</ApplicationType>
+    <ApplicationTypeRevision>8.1</ApplicationTypeRevision>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WindowsPhone|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120_wp81</PlatformToolset>
+    <ApplicationType>Windows Phone</ApplicationType>
+    <ApplicationTypeRevision>8.1</ApplicationTypeRevision>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='WindowsPhone|ARM'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v120_wp81</PlatformToolset>
+    <ApplicationType>Windows Phone</ApplicationType>
+    <ApplicationTypeRevision>8.1</ApplicationTypeRevision>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Store|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Store|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='WindowsPhone|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='WindowsPhone|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros">
+    <BoostRoot>g:\roblox-2016-source-code\Contribs\boost_1_56_0_winrt</BoostRoot>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutDir>$(ProjectDir)bin\$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(ProjectDir)obj\$(Configuration)\$(Platform)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Store|Win32'">
+    <CustomBuildStep>
+      <Message>Building Boost 1.56 Store 8.1 x86 (thread + deps)</Message>
+      <Command>cmd /c ""$(BoostRoot)\build_boost_vc120_store_x86.bat""</Command>
+      <Outputs>$(BoostRoot)\stage\vc120\store81\x86\lib\libboost_thread-vc120-mt-1_56.lib</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Store|ARM'">
+    <CustomBuildStep>
+      <Message>Building Boost 1.56 Store 8.1 ARM (thread + deps)</Message>
+      <Command>cmd /c ""$(BoostRoot)\build_boost_vc120_store_arm.bat""</Command>
+      <Outputs>$(BoostRoot)\stage\vc120\store81\arm\lib\libboost_thread-vc120-mt-1_56.lib</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WindowsPhone|Win32'">
+    <CustomBuildStep>
+      <Message>Building Boost 1.56 WP8.1 x86 (thread + deps)</Message>
+      <Command>cmd /c ""$(BoostRoot)\build_boost_vc120_wp81_x86.bat""</Command>
+      <Outputs>$(BoostRoot)\stage\vc120\wp81\x86\lib\libboost_thread-vc120-mt-1_56.lib</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='WindowsPhone|ARM'">
+    <CustomBuildStep>
+      <Message>Building Boost 1.56 WP8.1 ARM (thread + deps)</Message>
+      <Command>cmd /c ""$(BoostRoot)\build_boost_vc120_wp81_arm.bat""</Command>
+      <Outputs>$(BoostRoot)\stage\vc120\wp81\arm\lib\libboost_thread-vc120-mt-1_56.lib</Outputs>
+    </CustomBuildStep>
+  </ItemDefinitionGroup>
+  <Target Name="Build">
+    <Message Text="Triggering CustomBuildStep for $(Configuration)|$(Platform)" Importance="High" />
+  </Target>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

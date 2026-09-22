@@ -142,6 +142,9 @@ namespace RBX
 			shared_ptr<Sound> loadSound(SoundId id, bool is3D);
 
 			bool enabled() const { return initialized; }
+#if defined(RBX_PLATFORM_WIN_PHONE)
+			bool retryFmodInit();
+#endif
 			SoundService();
 			~SoundService();
 			void playSound(SoundType sound);

@@ -13,7 +13,7 @@ namespace Graphics
 Device* Device::create(API api, void* windowHandle)
 {
 #ifdef _WIN32
-#if !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_WIN_PHONE)
 	if (api == API_Direct3D9)
         return new DeviceD3D9(windowHandle);
 #endif
@@ -22,7 +22,7 @@ Device* Device::create(API api, void* windowHandle)
         return new DeviceD3D11(windowHandle);
 #endif
 
-#if !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
+#if !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP) && !defined(RBX_PLATFORM_WIN_PHONE)
 	if (api == API_OpenGL)
         return new DeviceGL(windowHandle);
 #endif

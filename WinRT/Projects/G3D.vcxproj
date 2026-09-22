@@ -29,28 +29,28 @@
   <Import Project="$(VCTargetsPath)\\Microsoft.Cpp.Default.props" />
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <PlatformToolset>v110_wp80</PlatformToolset>
+    <PlatformToolset>v120_wp81</PlatformToolset>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <WindowsAppContainer>true</WindowsAppContainer>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <PlatformToolset>v110_wp80</PlatformToolset>
+    <PlatformToolset>v120_wp81</PlatformToolset>
     <UseDebugLibraries>true</UseDebugLibraries>
     <CharacterSet>Unicode</CharacterSet>
     <WindowsAppContainer>true</WindowsAppContainer>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <PlatformToolset>v110_wp80</PlatformToolset>
+    <PlatformToolset>v120_wp81</PlatformToolset>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WindowsAppContainer>true</WindowsAppContainer>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
     <ConfigurationType>StaticLibrary</ConfigurationType>
-    <PlatformToolset>v110_wp80</PlatformToolset>
+    <PlatformToolset>v120_wp81</PlatformToolset>
     <UseDebugLibraries>false</UseDebugLibraries>
     <WindowsAppContainer>true</WindowsAppContainer>
     <CharacterSet>Unicode</CharacterSet>
@@ -90,7 +90,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>RBX_PLATFORM_WIN_PHONE;WIN32;ZLIB_WINAPI;_DEBUG;_LIB;G3D_BUILDING_LIBRARY_DLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN32_WINNT=0x0603;RBX_PLATFORM_WIN_PHONE;WIN32;ZLIB_WINAPI;_DEBUG;_LIB;G3D_BUILDING_LIBRARY_DLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level2</WarningLevel>
       <TreatWarningAsError>false</TreatWarningAsError>
@@ -104,7 +104,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>RBX_PLATFORM_WIN_PHONE;WIN32;ZLIB_WINAPI;_DEBUG;_LIB;G3D_BUILDING_LIBRARY_DLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN32_WINNT=0x0603;RBX_PLATFORM_WIN_PHONE;WIN32;ZLIB_WINAPI;_DEBUG;_LIB;G3D_BUILDING_LIBRARY_DLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level2</WarningLevel>
       <TreatWarningAsError>false</TreatWarningAsError>
@@ -119,7 +119,7 @@
       <Optimization>MaxSpeed</Optimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>RBX_PLATFORM_WIN_PHONE;WIN32;ZLIB_WINAPI;NDEBUG;_LIB;G3D_BUILDING_LIBRARY_DLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN32_WINNT=0x0603;RBX_PLATFORM_WIN_PHONE;WIN32;ZLIB_WINAPI;NDEBUG;_LIB;G3D_BUILDING_LIBRARY_DLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level2</WarningLevel>
       <TreatWarningAsError>false</TreatWarningAsError>
@@ -133,6 +133,8 @@
       <StringPooling>true</StringPooling>
       <MinimalRebuild>true</MinimalRebuild>
       <SDLCheck>false</SDLCheck>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
@@ -140,7 +142,7 @@
       <Optimization>MaxSpeed</Optimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <AdditionalIncludeDirectories>..\..\Rendering\g3d\include;..\..\Rendering\g3d;..\..\Log\include;$(CONTRIB_PATH)\windows\x86\zlib\zlib-1.2.8\include\zlib;..\..\Rendering\g3d\ijg;..\..\Rendering\g3d\include\png;..\..\Rendering\g3d\include\zip;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>RBX_PLATFORM_WIN_PHONE;WIN32;ZLIB_WINAPI;NDEBUG;_LIB;G3D_BUILDING_LIBRARY_DLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN32_WINNT=0x0603;RBX_PLATFORM_WIN_PHONE;WIN32;ZLIB_WINAPI;NDEBUG;_LIB;G3D_BUILDING_LIBRARY_DLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level2</WarningLevel>
       <TreatWarningAsError>false</TreatWarningAsError>
@@ -153,6 +155,8 @@
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <StringPooling>true</StringPooling>
       <SDLCheck>false</SDLCheck>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>

@@ -1138,14 +1138,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="..\..\App.BulletPhysics\Extras\ConvexDecomposition\CMakeLists.txt">
-      <Filter>Extras\ConvexDecomposition</Filter>
-    </Text>
-    <Text Include="..\..\App.BulletPhysics\LinearMath\CMakeLists.txt">
-      <Filter>LinearMath</Filter>
-    </Text>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="..\..\App.BulletPhysics\Extras\ConvexDecomposition\premake4.lua">
       <Filter>Extras\ConvexDecomposition</Filter>
     </None>

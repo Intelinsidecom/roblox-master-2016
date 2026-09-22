@@ -165,6 +165,8 @@ namespace RBX {
 			static void soundEnded(weak_ptr<SoundChannel> channelWeak, std::string soundId);
 			void onChannelEnd(const FMOD_CHANNEL *channel);
 			void onSoundLoaded(const Instance *context, bool shouldPlayOnLoad);
+			// WP late-init recovery: replay a Play() that was missed while SoundService was down.
+			void onSoundServiceEnabled();
 		};
         
 	} // namespace Soundscape

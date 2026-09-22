@@ -3,7 +3,7 @@
 #if defined(_WIN32) // should only be used with Microsoft platforms
 #include <Windows.h>
 
-#if !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_XBOX360)
+#if !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
 #include <psapi.h>
 #endif
 
@@ -19,7 +19,7 @@ using namespace RBX::MemoryStats;
 
 namespace RBX {
 	namespace MemoryStats {
-#if !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_XBOX360)
+#if !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_XBOX360) && !defined(RBX_PLATFORM_WIN_PHONE)
 		MEMORYSTATUSEX globalMemoryStatusEx() {
 			MEMORYSTATUSEX statex;
 			statex.dwLength = sizeof(statex);
@@ -42,11 +42,15 @@ namespace RBX {
 		}
 
 		DWORDLONG freeMemoryBytes() {
-#if defined(RBX_USE_APP_MEMORY_LIMIT)
+#if defined(RBX_USE_APP_MEMORY_LIMIT) && !defined(RBX_PLATFORM_WIN_PHONE)
+
 			DWORDLONG quotaFree = Windows::System::MemoryManager::AppMemoryUsageLimit - Windows::System::MemoryManager::AppMemoryUsage;
 			MEMORYSTATUSEX statex = globalMemoryStatusEx();
 			DWORDLONG physicalFree = statex.ullAvailPhys;
 			return (physicalFree < quotaFree) ? physicalFree : quotaFree;
+#elif defined(RBX_PLATFORM_WIN_PHONE)
+			return Windows::System::MemoryManager::AppMemoryUsageLimit
+				- Windows::System::MemoryManager::AppMemoryUsage;
 #elif !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_XBOX360)
 			MEMORYSTATUSEX statex = globalMemoryStatusEx();
 			return statex.ullAvailPhys;

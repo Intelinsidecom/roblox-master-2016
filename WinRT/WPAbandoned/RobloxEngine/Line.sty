@@ -1,0 +1,111 @@
+#pragma once
+
+#include <wrl.h>
+#include <ppltasks.h>
+#include <d3d11_1.h>
+#include <dxgi1_3.h>
+#include <string>
+#include <functional>
+#include <vector>
+#include <mutex>
+
+// For SwapChainPanel interop
+#include <windows.ui.xaml.media.dxinterop.h>
+namespace RobloxEngine
+{
+    public ref class Engine sealed
+    {
+    public::undeclaredidentifier    WP  G:\roblox-2016-source-code\WinRT\WP\Content\Sample3DSceneRenderer.cpp   261 Error   C2065   'm_indexBuffer':undeize(Windows::UI::Xaml::Controls::SwapChainPanel^ panel, float dpi);
+        void StartAsync();
+        Windows::Foundation::IAsyncOperation<bool>^ LoadPlaceAsync(Platform::String^ pathOrUri);
+
+        void SetLoadingScreenEnabled(bool enabled);
+        void SetDebugOverlayEnabled(bool enabled);
+        Platform::String^ GetDebugOverlayText();
+        void SetClearColor(float r, float g, float b);
+        // Basic lighting hook: allows the host to change clear color (stand-in for Lighting until full renderer is wired)
+
+everity Code    Description ProjectError    C2065   'files' : undeclared identifier WP  G:\roblox-2016-source-code\WinRT\WP\RobloxEngine\Engine.cpp 368 
+
+Error   C2065   'cubeVertices' : undeclared identifier  WP  G:\roblox-2016-source-code\WinRT\WP\Content\Sample3DSceneRenderer.cpp   215 
+
+Error   C2065   'cubeVertices' : undeclared identifier  WP  G:\roblox-2016-source-code\WinRT\WP\Content\Sample3DSceneRenderer.cpp   218 
+
+Error   C2065   'f' : undeclared identifier WP  G:\roblox-2016-source-code\WinRT\WP\RobloxEngine\Engine.cpp 371 
+
+Error   C2065   'files' : undeclared identifier WP  G:\roblox-2016-source-code\WinRT\WP\RobloxEngine\Engine.cpp 369 
+
+Error   C2065   'folders' : undeclared identifier   WP  G:\roblox-2016-source-code\WinRT\WP\RobloxEngine\Engine.cpp 380 
+
+Error   C2065   'folders' : undeclared identifier   WP  G:\roblox-2016-source-code\WinRT\WP\RobloxEngine\EC2039'GetFolderFromApplicationErrorC3861'GetFolderFromApplicationUriAsync':identifiernotfoundWPG:\roblox-2016-source-code\WinRT\WP\RobloxErrorC2065'm_deviceResources':undeclaredidentifierWPG:\ource-code\WinRT\WP\
+Error   C2065   'm_deviceResources' : 
+        Platform::String^ GetShaderFolderPath() { return m_shaderFolderPath; }
+
+    internal:
+        // Internal helpers
+        void RenderOneFrame();
+        void EnqueueOnRender(std::function<void()> fn);
+        // D3D accessors for renderer handoff (internal-only)
+        ID3D11Device1* GetD3DDevice1() { return m_d3dDevice.Get(); }
+        ID3D11DeviceContext1* GetImmediateContext1() { return m_d3dContext.Get(); }
+        IDXGISwapChain1* GetSwapChain1() { return m_swapChain.Get(); }
+        ID3D11RenderTargetView* GetRenderTargetView() { return m_renderTargetView.Get(); }
+        // Per-frame render callback; executed after clear, before Present
+        void RegisterRenderCallback(std::function<void(ID3D11Device1*, ID3D11DeviceContext1*, IDXGISwapChain1*, ID3D11RenderTargetView*)> cb) { m_renderCallback = std::move(cb); }
+
+    private:
+        // Device setup helpers (defined in Engine.cpp)
+        void CreateDeviceResources();
+        void CreateWindowSizeDependentResources();
+        void CreateSceneResources();
+        void Present();
+
+        // Ensure shader packs are available in LocalFolder (Option B)
+        void EnsureShaderPacksPrepared();
+        concurrency::task<void> CopyFolderRecursiveAsync(Windows::Storage::StorageFolder^ src, Windows::Storage::StorageFolder^ dst);
+
+        // URI translation and file I/O helpers
+        Platform::String^ TranslateToAppxUri(Platform::String^ pathOrUri);
+        concurrency::task<Platform::Array<byte>^> LoadFileBytesAsync(Platform::String^ msAppxPath);
+
+        // XAML host
+        Windows::UI::Xaml::Controls::SwapChainPanel^ m_panel;
+        float m_dpi;
+
+        // Device state
+        Microsoft::WRL::ComPtr<ID3D11Device1> m_d3dDevice;
+        Microsoft::WRL::ComPtr<ID3D11DeviceContext1> m_d3dContext;
+        Microsoft::WRL::ComPtr<IDXGISwapChain1> m_swapChain;
+        Microsoft::WRL::ComPtr<ID3D11RenderTargetView> m_renderTargetView;
+        D3D_FEATURE_LEVEL m_featureLevel;
+
+        // Run state and overlay/debug
+        bool m_running;
+        bool m_loadingScreenEnabled;
+        bool m_debugOverlayEnabled;
+        double m_fps;
+        unsigned int m_frameCount;
+        long long m_lastFpsTick;
+        Platform::String^ m_lastRequestedPlace;
+
+        // Render loop async worker
+        Windows::Foundation::IAsyncAction^ m_renderLoopWorker;
+
+        // Simple marshaller to render thread
+        std::mutex m_queueMutex;
+        std::vector<std::function<void()>> m_queue;
+
+        // Attract state (until place is loaded)
+        double m_attractAngle;
+        // Clear color RGBA
+        float m_clearColor[4];
+        // Temporary index count for shim geometry (until full renderer wired)
+        unsigned int m_indexCount;
+
+        // Optional external renderer callback
+        std::function<void(ID3D11Device1*, ID3D11DeviceContext1*, IDXGISwapChain1*, ID3D11RenderTargetView*)> m_renderCallback;
+
+        // Local shader folder path prepared from ms-appx packaged content
+        Platform::String^ m_shaderFolderPath;
+    };
+}

@@ -3,7 +3,6 @@
 #include "reflection/object.h"
 #include "g3d/format.h"
 
-
 #ifdef RBX_PLATFORM_XBOX360
 extern "C" int XexCheckExecutablePrivilege(unsigned long PrivilegeType);
 extern "C" void* _ReturnAddress();
@@ -25,7 +24,6 @@ static ClassDescriptor::ClassDescriptors& staticData2()
 	static ClassDescriptor::ClassDescriptors result;
 	return result;
 }
-
 #if defined(RBX_PLATFORM_XBOX360)
 namespace { ClassDescriptor* g_x360RootDescriptor = NULL; }
 #else
@@ -34,17 +32,6 @@ static void initStaticData2()
 	staticData2();
 }
 #endif
-
-ClassDescriptor::ClassDescriptors& ClassDescriptor::allClasses()
-{
-#if defined(RBX_PLATFORM_XBOX360)
-	return staticData2();
-#else
-	static boost::once_flag flag = BOOST_ONCE_INIT;
-	boost::call_once(&initStaticData2, flag);
-	return staticData2();
-#endif
-}
 
 #if defined(RBX_PLATFORM_XBOX360)
 namespace {
@@ -58,33 +45,23 @@ namespace RBX { namespace Reflection {
 	ClassDescriptor* findClassDescriptor360(const char* name)
 	{
 		std::map<const char*, ClassDescriptor*>::iterator iter = classDescriptorRegistry360().find(name);
-		return (iter != classDescriptorRegistry360().end()) ? iter->second : NULL;
+		if (iter != classDescriptorRegistry360().end())
+			return iter->second;
+		return NULL;
 	}
-	void addClassDescriptor360(const char* name, ClassDescriptor* desc)
-	{
-		classDescriptorRegistry360()[name] = desc;
-	}
-}}
+} }
 #endif
 
-#if defined(RBX_PLATFORM_XBOX360)
-ClassDescriptor* createRootDescriptor360()
+ClassDescriptor::ClassDescriptors& ClassDescriptor::allClasses()
 {
-	if (!g_x360RootDescriptor)
-		g_x360RootDescriptor = new ClassDescriptor;  // private default ctor (friend access)
-	return g_x360RootDescriptor;
-}
-#endif
-
 #if defined(RBX_PLATFORM_XBOX360)
-namespace RBX {
-	std::map<const Name*, const ICreator*>& creatorsRegistry()
-	{
-		static std::map<const Name*, const ICreator*> registry;
-		return registry;
-	}
-}
+	return staticData2();
+#else
+	static boost::once_flag flag = BOOST_ONCE_INIT;
+	boost::call_once(&initStaticData2, flag);
+	return staticData2();
 #endif
+}
 
 
 ClassDescriptor::ClassDescriptor()
@@ -205,64 +182,21 @@ ClassDescriptor::ClassDescriptor(ClassDescriptor& base, const char* name, Attrib
 {
 	count++;
 
-	// Xbox 360 diagnostic: if any class descriptor's insertion runs away
-	// (unbounded/corrupted reflection DB), emit markers + log sizes instead of
-	// spinning silently inside classDescriptor() in xenia. Broaden to ALL
-	// classes because the current hang occurs at StarterGuiService, well
-	// before SoundChannel's descriptor is ever constructed.
-	const int diagMarkEvery = 1000000;
-	const int diagMarkLimit = 8;
-	const std::string diagName = this->name.toString();
-	const size_t diagAllSize = allClasses().size();
-	FB_STAGE(0x90); // class descriptor construction entered
-
-	if (diagAllSize < 8 || (diagAllSize & 0x3FF) == 0)
-		StandardOut::singleton()->printf(RBX::MESSAGE_INFO, "classDescriptor enter: %s (derived=%d all=%d) ret=%p", diagName.c_str(), (int)base.derivedClasses.size(), (int)diagAllSize, _ReturnAddress());
-
 	{
-		ClassDescriptors::iterator iter;
-		int spins = 0;
-		int marks = 0;
-		iter = base.derivedClasses.begin();
-		while (iter != base.derivedClasses.end() && compare2(*iter, this))
-		{
-			if (++spins >= diagMarkEvery)
-			{
-				StandardOut::singleton()->printf(RBX::MESSAGE_INFO, "derivedClasses runaway: %s (iter=%d all=%d)", diagName.c_str(), spins, (int)diagAllSize);
-				FB_STAGE(0x91); // derivedClasses lower_bound runaway
-				spins = 0;
-				if (++marks >= diagMarkLimit)
-					break;
-			}
-			++iter;
-		}
+		ClassDescriptors::iterator iter = std::lower_bound(base.derivedClasses.begin(), base.derivedClasses.end(), this, compare2);
 		RBXASSERT(iter == base.derivedClasses.end() || *iter != this);
 		base.derivedClasses.insert(iter, this);
-		FB_STAGE(0x95); // derivedClasses insert done
 	}
 
+	ClassDescriptors::iterator iter = allClasses().begin();
+	while (iter != allClasses().end())
 	{
-		ClassDescriptors::iterator iter = allClasses().begin();
-		int spins = 0;
-		int marks = 0;
-		while (iter != allClasses().end())
-		{
-			ClassDescriptor* desc = *iter;
-			if (this->name < desc->name)
-				break;
-			if (++spins >= diagMarkEvery)
-			{
-				StandardOut::singleton()->printf(RBX::MESSAGE_INFO, "allClasses runaway: %s (iter=%d all=%d)", diagName.c_str(), spins, (int)diagAllSize);
-				FB_STAGE(0x92); // allClasses scan runaway
-				spins = 0;
-				if (++marks >= diagMarkLimit)
-					break;
-			}
-			++iter;
-		}
-		allClasses().insert(iter, this);
-		FB_STAGE(0x96); // allClasses insert done
+		ClassDescriptor* desc = *iter;
+		if (this->name < desc->name)
+			break;
+		++iter;
 	}
+	allClasses().insert(iter, this);
 }
 
 bool ClassDescriptor::operator==(const ClassDescriptor& other) const

@@ -1,0 +1,48 @@
+  <Page
+    x:Class="WP.DirectXPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+  <Grid Background="Red">
+    <!-- SwapChainPanel is the engine render host - MUST be first child to be behind other elements -->
+    <SwapChainPanel x:Name="swapChainPanel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+    <!-- Simple launcher UI (shown initially, hidden when engine starts) -->
+    <!-- TEMP: Set to Collapsed for testing to see magenta background -->
+    <StackPanel x:Name="LauncherPanel" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Background="#88000000">
+      <Button x:Name="SelectPlaceButton" Content="Select .rbxl/.rbxlx/.rblx" Margin="0,0,0,12" Click="SelectPlaceButton_Click"/>
+      <Button x:Name="LoadBaseplateButton" Content="Load Baseplate" Click="LoadBaseplateButton_Click"/>
+    </StackPanel>
+
+    <!-- Overlay shown while loading/joining -->
+    <Grid x:Name="Overlay" Background="Transparent" Visibility="Collapsed">
+      <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+        <ProgressRing IsActive="True" Width="64" Height="64" Foreground="#1E90FF" RenderTransformOrigin="0.5,0.5">
+          <ProgressRing.RenderTransform>
+            <ScaleTransform ScaleX="3" ScaleY="3"/>
+          </ProgressRing.RenderTransform>
+        </ProgressRing>
+        <TextBlock Text="Loading..." HorizontalAlignment="Center" Foreground="White" Margin="0,12,0,0"/>
+      </StackPanel>
+    </Grid>
+
+    <!-- Debug log overlay (hit-test disabled, semi-transparent) -->
+    <Border Background="#66000000" CornerRadius="2" Padding="6" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="6" IsHitTestVisible="False">
+      <ScrollViewer IsHitTestVisible="False" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Disabled">
+        <TextBlock x:Name="LogOverlay" IsHitTestVisible="False" Foreground="#C0F0C0" Opacity="0.95" FontFamily="Consolas" FontSize="12" TextWrapping="Wrap"/>
+      </ScrollViewer>
+    </Border>
+  </Grid>
+
+  <!-- Uncomment this if using the app bar in your phone application.
+  <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Icon="Play" AutomationProperties.Name="Sample Button" 
+                            AutomationProperties.AutomationId="SampleAppBarButton" Click="AppBarButton_Click" />
+        </CommandBar>
+    </Page.BottomAppBar>-->
+</Page>

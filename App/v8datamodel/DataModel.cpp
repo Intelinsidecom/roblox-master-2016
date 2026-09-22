@@ -579,7 +579,7 @@ void DataModel::savePlaceAsync(const SaveFilter saveFilter, boost::function<void
 	{
 		{
 #if defined(RBX_PLATFORM_XBOX360)
-			sendSavePlaceStats(); // Xenia: call_once rendezvous stalls
+			sendSavePlaceStats();
 #else
 			static boost::once_flag flag = BOOST_ONCE_INIT;
 			boost::call_once(&sendSavePlaceStats, flag);
@@ -667,21 +667,11 @@ void DataModel::doDataModelSetup(shared_ptr<DataModel> dataModel, bool startHear
 
 	// TODO: Do we need this lock here? If initializing has no side effects
 	//       like starting a task, then it shouldn't be necessary.
-#if defined(RBX_PLATFORM_XBOX360)
-	StandardOut::singleton()->printf(MESSAGE_INFO, "[Engine] DM stage 0x7A");
-#endif
 	LegacyLock lock(dataModel, DataModelJob::Write);
-
-#if defined(RBX_PLATFORM_XBOX360)
-	StandardOut::singleton()->printf(MESSAGE_INFO, "[Engine] DM stage 0x7B (lock acquired)");
-#endif
 
 	RBX::DataModel::LegacyLock::mainThreadId = GetCurrentThreadId();
 
 	dataModel->initializeContents(startHeartbeat);
-#if defined(RBX_PLATFORM_XBOX360)
-	StandardOut::singleton()->printf(MESSAGE_INFO, "[Engine] DM stage 0x7C (initializeContents done)");
-#endif
 	dataModel->isInitialized = true;
 	dataModel->suppressNavKeys = false;
 
@@ -963,95 +953,40 @@ std::string DataModel::getScreenshotSEOInfo()
 	return screenshotSEOInfo;
 }
 
-#if defined(RBX_PLATFORM_XBOX360)
-	// Xenia bisect markers: identify which service create() busy-spins the
-	// engine thread during initializeContents. before/after pairs with the
-	// same index bracket each ServiceProvider::create<T>.
-	static int s_dmStage = 0;
-	#define XDM_BEFORE(label) StandardOut::singleton()->printf(MESSAGE_INFO, "[Engine] DM before 0x%02X %s", s_dmStage, (label))
-	#define XDM_AFTER(label)  StandardOut::singleton()->printf(MESSAGE_INFO, "[Engine] DM after 0x%02X %s", s_dmStage++, (label))
-#else
-	#define XDM_BEFORE(label)
-	#define XDM_AFTER(label)
-#endif
-
 // TODO: Refactor. this is gross. can we get away without it?  Or put all other stuff here, too?
 void DataModel::initializeContents(bool startHeartbeat)
 {
 	RBXASSERT(!isInitialized);
-	XDM_BEFORE("workspace parent lock");
 	workspace->setAndLockParent(this);
-	XDM_AFTER("workspace parent lock");
-	XDM_BEFORE("guiRoot parent lock");
 	guiRoot->setAndLockParent(this);
-	XDM_AFTER("guiRoot parent lock");
 
 	setIsPersonalServer(false);
 
 	// Add basic services that are always there
-	XDM_BEFORE("NonReplicatedCSGDictionaryService");
 	ServiceProvider::create<NonReplicatedCSGDictionaryService>();
-	XDM_AFTER("NonReplicatedCSGDictionaryService");
-	XDM_BEFORE("CSGDictionaryService");
 	ServiceProvider::create<CSGDictionaryService>();
-	XDM_AFTER("CSGDictionaryService");
-	XDM_BEFORE("LogService");
 	ServiceProvider::create<LogService>();
-	XDM_AFTER("LogService");
-	XDM_BEFORE("ContentProvider");
 	ServiceProvider::create<ContentProvider>();
-	XDM_AFTER("ContentProvider");
-	XDM_BEFORE("ContentFilter");
 	ServiceProvider::create<ContentFilter>();
-	XDM_AFTER("ContentFilter");
-	XDM_BEFORE("KeyframeSequenceProvider");
 	ServiceProvider::create<KeyframeSequenceProvider>();
-	XDM_AFTER("KeyframeSequenceProvider");
-	XDM_BEFORE("GuiService");
 	ServiceProvider::create<GuiService>();
-	XDM_AFTER("GuiService");
-	XDM_BEFORE("ChatService");
 	ServiceProvider::create<ChatService>();
-	XDM_AFTER("ChatService");
-	XDM_BEFORE("MarketplaceService");
 	ServiceProvider::create<MarketplaceService>();
-	XDM_AFTER("MarketplaceService");
-	XDM_BEFORE("PointsService");
 	ServiceProvider::create<PointsService>();
-	XDM_AFTER("PointsService");
-    XDM_BEFORE("AdService");
     ServiceProvider::create<AdService>();
-    XDM_AFTER("AdService");
-    XDM_BEFORE("NotificationService");
     ServiceProvider::create<NotificationService>();
-    XDM_AFTER("NotificationService");
-	XDM_BEFORE("ReplicatedFirst");
 	ServiceProvider::create<ReplicatedFirst>();
-	XDM_AFTER("ReplicatedFirst");
-	XDM_BEFORE("HttpRbxApiService");
 	ServiceProvider::create<HttpRbxApiService>();
-	XDM_AFTER("HttpRbxApiService");
 
-	XDM_BEFORE("StarterPlayerService");
 	starterPlayerService = shared_from(ServiceProvider::create<StarterPlayerService>());
-	XDM_AFTER("StarterPlayerService");
 
-	XDM_BEFORE("StarterPackService");
 	starterPackService = shared_from(ServiceProvider::create<StarterPackService>());
-	XDM_AFTER("StarterPackService");
 
-	XDM_BEFORE("StarterGuiService");
 	starterGuiService = shared_from(ServiceProvider::create<StarterGuiService>());
-	XDM_AFTER("StarterGuiService");
 
-	XDM_BEFORE("CoreGuiService");
 	coreGuiService = shared_from(ServiceProvider::create<CoreGuiService>());
-	XDM_AFTER("CoreGuiService");
-	XDM_BEFORE("createRobloxScreenGui");
 	coreGuiService->createRobloxScreenGui();
-	XDM_AFTER("createRobloxScreenGui");
 
-	XDM_BEFORE("TeleportService");
 	if (TeleportService* ts = ServiceProvider::create<TeleportService>(this))
 	{
 		if (TeleportService::getCustomTeleportLoadingGui() && TeleportService::didTeleport())
@@ -1064,15 +999,10 @@ void DataModel::initializeContents(bool startHeartbeat)
 			}
 		}
 	}
-	XDM_AFTER("TeleportService");
 
-	XDM_BEFORE("RunService");
 	runService = shared_from(ServiceProvider::create<RunService>());
-	XDM_AFTER("RunService");
 
-	XDM_BEFORE("SoundService");
 	ServiceProvider::create<Soundscape::SoundService>();
-	XDM_AFTER("SoundService");
 	
 	workspace->setDefaultMouseCommand();
 
@@ -1080,83 +1010,36 @@ void DataModel::initializeContents(bool startHeartbeat)
 
 	isPersonalServer = false;
 
-	XDM_BEFORE("runService->start");
 	if (startHeartbeat)
 		runService->start();
-	XDM_AFTER("runService->start");
 
 	// No need to save the connection. The run service will be deleted before we are
 	runService->runTransitionSignal.connect(boost::bind(&DataModel::onRunTransition, this, _1));
 
 	// TODO: Do we really need to pre-create these services? It adds #include hell to this file.
 	//       Most services should be created on-demand, even in a Lua startup script, but not here!
-	XDM_BEFORE("JointsService");
 	ServiceProvider::create<JointsService>();
-	XDM_AFTER("JointsService");
-	XDM_BEFORE("CollectionService");
 	ServiceProvider::create<CollectionService>();
-	XDM_AFTER("CollectionService");
-	XDM_BEFORE("PhysicsService");
 	ServiceProvider::create<PhysicsService>();
-	XDM_AFTER("PhysicsService");
-	XDM_BEFORE("BadgeService");
 	ServiceProvider::create<BadgeService>();
-	XDM_AFTER("BadgeService");
-	XDM_BEFORE("GeometryService");
 	ServiceProvider::create<GeometryService>();
-	XDM_AFTER("GeometryService");
-	XDM_BEFORE("FriendService");
 	ServiceProvider::create<FriendService>();
-	XDM_AFTER("FriendService");
-	XDM_BEFORE("RenderHooksService");
 	ServiceProvider::create<RenderHooksService>();
-	XDM_AFTER("RenderHooksService");
-	XDM_BEFORE("InsertService");
 	ServiceProvider::create<InsertService>();
-	XDM_AFTER("InsertService");
-	XDM_BEFORE("SocialService");
 	ServiceProvider::create<SocialService>();
-	XDM_AFTER("SocialService");
-	XDM_BEFORE("GamePassService");
 	ServiceProvider::create<GamePassService>();
-	XDM_AFTER("GamePassService");
-	XDM_BEFORE("DebrisService");
 	ServiceProvider::create<DebrisService>();
-	XDM_AFTER("DebrisService");
-	XDM_BEFORE("ScriptInformationProvider");
 	ServiceProvider::create<ScriptInformationProvider>();
-	XDM_AFTER("ScriptInformationProvider");
-	XDM_BEFORE("CookiesService");
 	ServiceProvider::create<CookiesService>();
-	XDM_AFTER("CookiesService");
-	XDM_BEFORE("TeleportService(2)");
 	ServiceProvider::create<TeleportService>();
-	XDM_AFTER("TeleportService(2)");
-	XDM_BEFORE("PersonalServerService");
 	ServiceProvider::create<PersonalServerService>();
-	XDM_AFTER("PersonalServerService");
-	XDM_BEFORE("Network::Players");
 	ServiceProvider::create<Network::Players>();		// We always need this, because it saves state
-	XDM_AFTER("Network::Players");
-	XDM_BEFORE("UserInputService");
     userInputService = shared_from(ServiceProvider::create<UserInputService>());
-	XDM_AFTER("UserInputService");
-	XDM_BEFORE("ContextActionService");
     contextActionService = shared_from(ServiceProvider::create<ContextActionService>()); // store a ref since we use this in processInputObject
-	XDM_AFTER("ContextActionService");
-	XDM_BEFORE("ScriptService");
 	ServiceProvider::create<ScriptService>();
-	XDM_AFTER("ScriptService");
-	XDM_BEFORE("AssetService");
 	ServiceProvider::create<AssetService>();
-	XDM_AFTER("AssetService");
-	XDM_BEFORE("initializeContents end");
-}
 
-#if defined(RBX_PLATFORM_XBOX360)
-	#undef XDM_BEFORE
-	#undef XDM_AFTER
-#endif
+}
 
 void DataModel::loadCoreScripts(const std::string &altStarterScript)
 {
@@ -1256,24 +1139,12 @@ struct DataModel::LegacyLock::Implementation : boost::noncopyable
 			if (!eventsPool().pop_if_present(events))
 				events.reset(new Events()); 
 
-#if defined(RBX_PLATFORM_XBOX360)
-			// Xenia workaround: the TaskScheduler never actually runs the
-			// marshalled proxy task (the sole surviving worker parks forever
-			// on the job gate event instead of draining the queued task), so
-			// the ctor would block on acquiredLock indefinitely. Acquire the
-			// lock immediately instead: ownership semantics (currentJob,
-			// writeTransfer/RLockThread, releasedLock pairing) are preserved,
-			// and this boot is single-threaded so there is no concurrent
-			// contending thread. Keep the real marshal for all other platforms.
-			events->acquiredLock.Set();
-#else
 			// Submit the proxy task for scheduling.
 			job->tasks.push(boost::bind(&Implementation::task, events));
 			TaskScheduler::singleton().reschedule(job);
 
 			// Wait for the task to signal acquiredLock
 			events->acquiredLock.Wait();
-#endif
 
 			if (job->taskType == DataModelJob::Write)
 				writeTransfer.reset(new DataModel::scoped_write_transfer(dataModel));
@@ -2007,7 +1878,6 @@ void DataModel::renderPass3dAdorn(Adorn* adorn)
 	for (auto& ad: sortedAdorn)
 		ad.adornable->render3dSortedAdorn(adorn);
 #endif
-
 	if (!forceArrowCursor) {
 		workspace->getCurrentMouseCommand()->render3dAdorn(adorn);
 	}
@@ -4243,7 +4113,7 @@ DataModel::scoped_write_transfer::~scoped_write_transfer()
 unsigned int DataModel::allHackFlagsOredTogether() {
     unsigned int result = 0;
 #if !defined(RBX_STUDIO_BUILD)
-	#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
+#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 	VMProtectBeginMutation("18");
 	#endif
 	boost::mutex::scoped_lock l(hackFlagSetMutex);
@@ -4252,7 +4122,7 @@ unsigned int DataModel::allHackFlagsOredTogether() {
 			itr != hackFlagSet.end(); ++itr) {
 		result |= *itr;
 	}
-	#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
+#if defined(WIN32) && defined(I_AM_GOY_THAT_LOVES_VMPROTECT) 
 	VMProtectEnd();
 	#endif
 #endif

@@ -69,7 +69,7 @@ namespace Graphics
 
 const double CLUSTER_INVALIDATE_FRAME_BUDGET_MS = 4.0;
 
-#if defined(RBX_PLATFORM_IOS) || defined(__ANDROID__)
+#if defined(RBX_PLATFORM_IOS) || defined(__ANDROID__) || defined(RBX_PLATFORM_WIN_PHONE)
 const int FAST_CLUSTER_PRIORITY_INVALIDATE_BUDGET = 2;
 const size_t MAX_INVALIDATIONS_PER_FRAME = 16;
 #else

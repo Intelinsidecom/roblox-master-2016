@@ -702,7 +702,7 @@ static char *yy_last_accepting_cpos;
 #define yymore() yymore_used_but_not_detected
 #define YY_MORE_ADJ 0
 char *yytext;
-#line 1 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 1 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 #define INITIAL 0
 /*-*-C++-*-
 
@@ -726,7 +726,7 @@ as possible; please let me know if you discover discrepancies.
 Jutta Degener, 1995 
 */
 #define YY_NO_UNPUT 1
-#line 34 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 34 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 #define YY_NO_UNISTD_H
 
 #include <stdio.h>
@@ -898,7 +898,7 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 63 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 63 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 
 #line 904 "Gen_hlslang.cpp"
 
@@ -985,647 +985,647 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 64 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 64 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 { /* ?? carriage and/or line-feed? */ };
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 66 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 66 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(CONST_QUAL); }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 67 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 67 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(STATIC_QUAL); }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 68 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 68 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(UNIFORM); }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 70 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 70 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(BREAK); }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 71 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 71 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(CONTINUE); }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 72 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 72 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(DO); }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 73 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 73 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(FOR); }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 74 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 74 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(WHILE); }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 76 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 76 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(IF); }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 77 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 77 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(ELSE); }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 79 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 79 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(IN_QUAL); }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 80 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 80 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(OUT_QUAL); }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 81 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 81 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(INOUT_QUAL); }
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 83 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 83 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(FLOAT_TYPE); }
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 84 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 84 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(FLOAT_TYPE); }
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 85 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 85 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(INT_TYPE); }
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 86 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 86 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(INT_TYPE); }
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 87 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 87 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(INT_TYPE); /* @TODO proper unsigned int? */ }
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 88 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 88 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(INT_TYPE); }
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 89 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 89 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(VOID_TYPE); }
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 90 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 90 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(BOOL_TYPE); }
 	YY_BREAK
 case 23:
 YY_RULE_SETUP
-#line 91 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 91 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(BOOL_TYPE); }
 	YY_BREAK
 case 24:
 YY_RULE_SETUP
-#line 92 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 92 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(STRING_TYPE); }
 	YY_BREAK
 case 25:
 YY_RULE_SETUP
-#line 93 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 93 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; pyylval->lex.b = true;  return(BOOLCONSTANT); }
 	YY_BREAK
 case 26:
 YY_RULE_SETUP
-#line 94 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 94 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; pyylval->lex.b = false; return(BOOLCONSTANT); }
 	YY_BREAK
 case 27:
 YY_RULE_SETUP
-#line 96 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 96 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(DISCARD); }
 	YY_BREAK
 case 28:
 YY_RULE_SETUP
-#line 97 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 97 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(RETURN); }
 	YY_BREAK
 case 29:
 YY_RULE_SETUP
-#line 99 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 99 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(MATRIX2x2); }
 	YY_BREAK
 case 30:
 YY_RULE_SETUP
-#line 100 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 100 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(MATRIX2x3); }
 	YY_BREAK
 case 31:
 YY_RULE_SETUP
-#line 101 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 101 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(MATRIX2x4); }
 	YY_BREAK
 case 32:
 YY_RULE_SETUP
-#line 103 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 103 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(MATRIX3x2); }
 	YY_BREAK
 case 33:
 YY_RULE_SETUP
-#line 104 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 104 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(MATRIX3x3); }
 	YY_BREAK
 case 34:
 YY_RULE_SETUP
-#line 105 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 105 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(MATRIX3x4); }
 	YY_BREAK
 case 35:
 YY_RULE_SETUP
-#line 107 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 107 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(MATRIX4x2); }
 	YY_BREAK
 case 36:
 YY_RULE_SETUP
-#line 108 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 108 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(MATRIX4x3); }
 	YY_BREAK
 case 37:
 YY_RULE_SETUP
-#line 109 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 109 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(MATRIX4x4); }
 	YY_BREAK
 case 38:
 YY_RULE_SETUP
-#line 111 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 111 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(HMATRIX2x2); }
 	YY_BREAK
 case 39:
 YY_RULE_SETUP
-#line 112 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 112 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(HMATRIX2x3); }
 	YY_BREAK
 case 40:
 YY_RULE_SETUP
-#line 113 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 113 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(HMATRIX2x4); }
 	YY_BREAK
 case 41:
 YY_RULE_SETUP
-#line 115 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 115 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(HMATRIX3x2); }
 	YY_BREAK
 case 42:
 YY_RULE_SETUP
-#line 116 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 116 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(HMATRIX3x3); }
 	YY_BREAK
 case 43:
 YY_RULE_SETUP
-#line 117 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 117 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(HMATRIX3x4); }
 	YY_BREAK
 case 44:
 YY_RULE_SETUP
-#line 119 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 119 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(HMATRIX4x2); }
 	YY_BREAK
 case 45:
 YY_RULE_SETUP
-#line 120 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 120 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(HMATRIX4x3); }
 	YY_BREAK
 case 46:
 YY_RULE_SETUP
-#line 121 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 121 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(HMATRIX4x4); }
 	YY_BREAK
 case 47:
 YY_RULE_SETUP
-#line 123 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 123 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(FMATRIX2x2); }
 	YY_BREAK
 case 48:
 YY_RULE_SETUP
-#line 124 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 124 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(FMATRIX2x3); }
 	YY_BREAK
 case 49:
 YY_RULE_SETUP
-#line 125 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 125 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(FMATRIX2x4); }
 	YY_BREAK
 case 50:
 YY_RULE_SETUP
-#line 127 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 127 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(FMATRIX3x2); }
 	YY_BREAK
 case 51:
 YY_RULE_SETUP
-#line 128 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 128 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(FMATRIX3x3); }
 	YY_BREAK
 case 52:
 YY_RULE_SETUP
-#line 129 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 129 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(FMATRIX3x4); }
 	YY_BREAK
 case 53:
 YY_RULE_SETUP
-#line 131 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 131 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(FMATRIX4x2); }
 	YY_BREAK
 case 54:
 YY_RULE_SETUP
-#line 132 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 132 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(FMATRIX4x3); }
 	YY_BREAK
 case 55:
 YY_RULE_SETUP
-#line 133 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 133 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(FMATRIX4x4); }
 	YY_BREAK
 case 56:
 YY_RULE_SETUP
-#line 135 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 135 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(HALF_TYPE); }
 	YY_BREAK
 case 57:
 YY_RULE_SETUP
-#line 136 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 136 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(HALF_TYPE); }
 	YY_BREAK
 case 58:
 YY_RULE_SETUP
-#line 137 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 137 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (HVEC2); }
 	YY_BREAK
 case 59:
 YY_RULE_SETUP
-#line 138 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 138 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (HVEC3); }
 	YY_BREAK
 case 60:
 YY_RULE_SETUP
-#line 139 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 139 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (HVEC4); }
 	YY_BREAK
 case 61:
 YY_RULE_SETUP
-#line 141 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 141 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(FIXED_TYPE); }
 	YY_BREAK
 case 62:
 YY_RULE_SETUP
-#line 142 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 142 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return(FIXED_TYPE); }
 	YY_BREAK
 case 63:
 YY_RULE_SETUP
-#line 143 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 143 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (FVEC2); }
 	YY_BREAK
 case 64:
 YY_RULE_SETUP
-#line 144 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 144 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (FVEC3); }
 	YY_BREAK
 case 65:
 YY_RULE_SETUP
-#line 145 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 145 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (FVEC4); }
 	YY_BREAK
 case 66:
 YY_RULE_SETUP
-#line 147 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 147 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (VEC2); }
 	YY_BREAK
 case 67:
 YY_RULE_SETUP
-#line 148 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 148 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (VEC3); }
 	YY_BREAK
 case 68:
 YY_RULE_SETUP
-#line 149 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 149 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (VEC4); }
 	YY_BREAK
 case 69:
 YY_RULE_SETUP
-#line 150 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 150 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (IVEC2); }
 	YY_BREAK
 case 70:
 YY_RULE_SETUP
-#line 151 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 151 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (IVEC3); }
 	YY_BREAK
 case 71:
 YY_RULE_SETUP
-#line 152 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 152 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (IVEC4); }
 	YY_BREAK
 case 72:
 YY_RULE_SETUP
-#line 153 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 153 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (IVEC2); /* @TODO proper unsigned type? */ }
 	YY_BREAK
 case 73:
 YY_RULE_SETUP
-#line 154 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 154 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (IVEC3); }
 	YY_BREAK
 case 74:
 YY_RULE_SETUP
-#line 155 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 155 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (IVEC4); }
 	YY_BREAK
 case 75:
 YY_RULE_SETUP
-#line 156 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 156 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (BVEC2); }
 	YY_BREAK
 case 76:
 YY_RULE_SETUP
-#line 157 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 157 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (BVEC3); }
 	YY_BREAK
 case 77:
 YY_RULE_SETUP
-#line 158 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 158 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (BVEC4); }
 	YY_BREAK
 case 78:
 YY_RULE_SETUP
-#line 160 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 160 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (VECTOR); }
 	YY_BREAK
 case 79:
 YY_RULE_SETUP
-#line 161 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 161 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (MATRIX); }
 	YY_BREAK
 case 80:
 YY_RULE_SETUP
-#line 162 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 162 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return (REGISTER); }
 	YY_BREAK
 case 81:
 YY_RULE_SETUP
-#line 164 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 164 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return SAMPLER1D; }
 	YY_BREAK
 case 82:
 YY_RULE_SETUP
-#line 165 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 165 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return SAMPLER1DSHADOW; }
 	YY_BREAK
 case 83:
 YY_RULE_SETUP
-#line 166 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 166 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return SAMPLER2D; }
 	YY_BREAK
 case 84:
 YY_RULE_SETUP
-#line 167 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 167 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return SAMPLER2DSHADOW; }
 	YY_BREAK
 case 85:
 YY_RULE_SETUP
-#line 168 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 168 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return SAMPLER2DARRAY; }
 	YY_BREAK
 case 86:
 YY_RULE_SETUP
-#line 169 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 169 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return SAMPLER2D_HALF; }
 	YY_BREAK
 case 87:
 YY_RULE_SETUP
-#line 170 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 170 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return SAMPLER2D_FLOAT; }
 	YY_BREAK
 case 88:
 YY_RULE_SETUP
-#line 171 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 171 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return SAMPLER3D; }
 	YY_BREAK
 case 89:
 YY_RULE_SETUP
-#line 172 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 172 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return SAMPLERRECT; }
 	YY_BREAK
 case 90:
 YY_RULE_SETUP
-#line 173 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 173 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return SAMPLERRECTSHADOW; }
 	YY_BREAK
 case 91:
 YY_RULE_SETUP
-#line 175 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 175 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return SAMPLERGENERIC; }
 	YY_BREAK
 case 92:
 YY_RULE_SETUP
-#line 176 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 176 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return SAMPLERCUBE; }
 	YY_BREAK
 case 93:
 YY_RULE_SETUP
-#line 177 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 177 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return SAMPLERCUBE_HALF; }
 	YY_BREAK
 case 94:
 YY_RULE_SETUP
-#line 178 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 178 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return SAMPLERCUBE_FLOAT; }
 	YY_BREAK
 case 95:
 YY_RULE_SETUP
-#line 180 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 180 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return TEXTURE; }
 	YY_BREAK
 case 96:
 YY_RULE_SETUP
-#line 181 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 181 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return TEXTURE; }
 	YY_BREAK
 case 97:
 YY_RULE_SETUP
-#line 182 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 182 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return TEXTURE; }
 	YY_BREAK
 case 98:
 YY_RULE_SETUP
-#line 183 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 183 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return TEXTURE; }
 	YY_BREAK
 case 99:
 YY_RULE_SETUP
-#line 184 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 184 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return TEXTURE; }
 	YY_BREAK
 case 100:
 YY_RULE_SETUP
-#line 185 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 185 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = true; return SAMPLERSTATE; }
 	YY_BREAK
 case 101:
 YY_RULE_SETUP
-#line 187 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 187 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(STRUCT); }
 	YY_BREAK
 case 102:
 YY_RULE_SETUP
-#line 189 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 189 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 103:
 YY_RULE_SETUP
-#line 191 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 191 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 104:
 YY_RULE_SETUP
-#line 192 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 192 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 105:
 YY_RULE_SETUP
-#line 193 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 193 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 106:
 YY_RULE_SETUP
-#line 194 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 194 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 107:
 YY_RULE_SETUP
-#line 195 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 195 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 108:
 YY_RULE_SETUP
-#line 196 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 196 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 109:
 YY_RULE_SETUP
-#line 197 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 197 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 110:
 YY_RULE_SETUP
-#line 199 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 199 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 111:
 YY_RULE_SETUP
-#line 200 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 200 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 112:
 YY_RULE_SETUP
-#line 201 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 201 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 113:
 YY_RULE_SETUP
-#line 203 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 203 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  /* just ignore it PaReservedWord(); return 0; */ }
 	YY_BREAK
 case 114:
 YY_RULE_SETUP
-#line 204 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 204 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  /* just ignore it PaReservedWord(); return 0; */ }
 	YY_BREAK
 case 115:
 YY_RULE_SETUP
-#line 205 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 205 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 116:
 YY_RULE_SETUP
-#line 206 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 206 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 117:
 YY_RULE_SETUP
-#line 207 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 207 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 118:
 YY_RULE_SETUP
-#line 208 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 208 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 119:
 YY_RULE_SETUP
-#line 209 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 209 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 120:
 YY_RULE_SETUP
-#line 211 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 211 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 121:
 YY_RULE_SETUP
-#line 212 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 212 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 122:
 YY_RULE_SETUP
-#line 213 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 213 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 123:
 YY_RULE_SETUP
-#line 214 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 214 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 124:
 YY_RULE_SETUP
-#line 216 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 216 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 125:
 YY_RULE_SETUP
-#line 218 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 218 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 126:
 YY_RULE_SETUP
-#line 219 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 219 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 127:
 YY_RULE_SETUP
-#line 221 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 221 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 128:
 YY_RULE_SETUP
-#line 222 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 222 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  PaReservedWord(); return 0; }
 	YY_BREAK
 case 129:
 YY_RULE_SETUP
-#line 224 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 224 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  
    pyylval->lex.line = lexlineno; 
    pyylval->lex.string = NewPoolTString(yytext); 
@@ -1634,282 +1634,282 @@ YY_RULE_SETUP
 	YY_BREAK
 case 130:
 YY_RULE_SETUP
-#line 230 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 230 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 { pyylval->lex.line = lexlineno; pyylval->lex.f = static_cast<float>(atof(yytext)); return(FLOATCONSTANT); }
 	YY_BREAK
 case 131:
 YY_RULE_SETUP
-#line 231 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 231 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 { pyylval->lex.line = lexlineno; pyylval->lex.f = static_cast<float>(atof(yytext)); return(FLOATCONSTANT); }
 	YY_BREAK
 case 132:
 YY_RULE_SETUP
-#line 232 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 232 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 { pyylval->lex.line = lexlineno; pyylval->lex.f = static_cast<float>(atof(yytext)); return(FLOATCONSTANT); }
 	YY_BREAK
 case 133:
 YY_RULE_SETUP
-#line 233 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 233 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 { pyylval->lex.line = lexlineno; pyylval->lex.f = static_cast<float>(atof(yytext)); return(FLOATCONSTANT); }
 	YY_BREAK
 case 134:
 YY_RULE_SETUP
-#line 235 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 235 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 { pyylval->lex.line = lexlineno; pyylval->lex.i = strtol(yytext, 0, 0); return(INTCONSTANT); }
 	YY_BREAK
 case 135:
 YY_RULE_SETUP
-#line 236 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 236 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 { pyylval->lex.line = lexlineno; pyylval->lex.i = strtol(yytext, 0, 0); return(INTCONSTANT); }
 	YY_BREAK
 case 136:
 YY_RULE_SETUP
-#line 237 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 237 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 { pyylval->lex.line = lexlineno; parseContext.error(lexlineno, "Invalid Octal number.", yytext, "", ""); parseContext.recover(); return 0;}
 	YY_BREAK
 case 137:
 YY_RULE_SETUP
-#line 238 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 238 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 { pyylval->lex.line = lexlineno; pyylval->lex.i = strtol(yytext, 0, 0); return(INTCONSTANT); }
 	YY_BREAK
 case 138:
 YY_RULE_SETUP
-#line 244 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 244 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  int ret = PaParseComment(pyylval->lex.line, parseContext); if (!ret) return ret; }   
 	YY_BREAK
 case 139:
 YY_RULE_SETUP
-#line 246 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 246 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(ADD_ASSIGN); }
 	YY_BREAK
 case 140:
 YY_RULE_SETUP
-#line 247 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 247 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(SUB_ASSIGN); }
 	YY_BREAK
 case 141:
 YY_RULE_SETUP
-#line 248 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 248 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(MUL_ASSIGN); }
 	YY_BREAK
 case 142:
 YY_RULE_SETUP
-#line 249 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 249 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(DIV_ASSIGN); }
 	YY_BREAK
 case 143:
 YY_RULE_SETUP
-#line 250 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 250 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(MOD_ASSIGN); }
 	YY_BREAK
 case 144:
 YY_RULE_SETUP
-#line 251 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 251 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(LEFT_ASSIGN); }
 	YY_BREAK
 case 145:
 YY_RULE_SETUP
-#line 252 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 252 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(RIGHT_ASSIGN); }
 	YY_BREAK
 case 146:
 YY_RULE_SETUP
-#line 253 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 253 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(AND_ASSIGN); }
 	YY_BREAK
 case 147:
 YY_RULE_SETUP
-#line 254 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 254 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(XOR_ASSIGN); }
 	YY_BREAK
 case 148:
 YY_RULE_SETUP
-#line 255 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 255 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(OR_ASSIGN); }
 	YY_BREAK
 case 149:
 YY_RULE_SETUP
-#line 257 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 257 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(INC_OP); }
 	YY_BREAK
 case 150:
 YY_RULE_SETUP
-#line 258 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 258 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(DEC_OP); }
 	YY_BREAK
 case 151:
 YY_RULE_SETUP
-#line 259 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 259 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(AND_OP); }
 	YY_BREAK
 case 152:
 YY_RULE_SETUP
-#line 260 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 260 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(OR_OP); }
 	YY_BREAK
 case 153:
 YY_RULE_SETUP
-#line 261 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 261 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(XOR_OP); }
 	YY_BREAK
 case 154:
 YY_RULE_SETUP
-#line 262 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 262 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(LE_OP); }
 	YY_BREAK
 case 155:
 YY_RULE_SETUP
-#line 263 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 263 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(GE_OP); }
 	YY_BREAK
 case 156:
 YY_RULE_SETUP
-#line 264 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 264 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(EQ_OP); }
 	YY_BREAK
 case 157:
 YY_RULE_SETUP
-#line 265 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 265 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(NE_OP); }
 	YY_BREAK
 case 158:
 YY_RULE_SETUP
-#line 266 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 266 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(LEFT_OP); }
 	YY_BREAK
 case 159:
 YY_RULE_SETUP
-#line 267 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 267 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(RIGHT_OP); }
 	YY_BREAK
 case 160:
 YY_RULE_SETUP
-#line 268 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 268 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = false; return(SEMICOLON); }
 	YY_BREAK
 case 161:
 YY_RULE_SETUP
-#line 269 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 269 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = false; return(LEFT_BRACE); }
 	YY_BREAK
 case 162:
 YY_RULE_SETUP
-#line 270 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 270 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(RIGHT_BRACE); }
 	YY_BREAK
 case 163:
 YY_RULE_SETUP
-#line 271 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 271 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; if (parseContext.inTypeParen) parseContext.lexAfterType = false; return(COMMA); }
 	YY_BREAK
 case 164:
 YY_RULE_SETUP
-#line 272 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 272 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(COLON); }
 	YY_BREAK
 case 165:
 YY_RULE_SETUP
-#line 273 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 273 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = false; return(EQUAL); }
 	YY_BREAK
 case 166:
 YY_RULE_SETUP
-#line 274 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 274 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.lexAfterType = false; parseContext.inTypeParen = true; return(LEFT_PAREN); }
 	YY_BREAK
 case 167:
 YY_RULE_SETUP
-#line 275 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 275 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; parseContext.inTypeParen = false; return(RIGHT_PAREN); }
 	YY_BREAK
 case 168:
 YY_RULE_SETUP
-#line 276 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 276 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(LEFT_BRACKET); }
 	YY_BREAK
 case 169:
 YY_RULE_SETUP
-#line 277 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 277 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(RIGHT_BRACKET); }
 	YY_BREAK
 case 170:
 YY_RULE_SETUP
-#line 278 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 278 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 { BEGIN(FIELDS);  return(DOT); }
 	YY_BREAK
 case 171:
 YY_RULE_SETUP
-#line 279 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 279 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(BANG); }
 	YY_BREAK
 case 172:
 YY_RULE_SETUP
-#line 280 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 280 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(DASH); }
 	YY_BREAK
 case 173:
 YY_RULE_SETUP
-#line 281 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 281 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(TILDE); }
 	YY_BREAK
 case 174:
 YY_RULE_SETUP
-#line 282 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 282 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(PLUS); }
 	YY_BREAK
 case 175:
 YY_RULE_SETUP
-#line 283 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 283 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(STAR); }
 	YY_BREAK
 case 176:
 YY_RULE_SETUP
-#line 284 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 284 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(SLASH); }
 	YY_BREAK
 case 177:
 YY_RULE_SETUP
-#line 285 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 285 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(PERCENT); }
 	YY_BREAK
 case 178:
 YY_RULE_SETUP
-#line 286 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 286 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(LEFT_ANGLE); }
 	YY_BREAK
 case 179:
 YY_RULE_SETUP
-#line 287 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 287 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(RIGHT_ANGLE); }
 	YY_BREAK
 case 180:
 YY_RULE_SETUP
-#line 288 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 288 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(VERTICAL_BAR); }
 	YY_BREAK
 case 181:
 YY_RULE_SETUP
-#line 289 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 289 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(CARET); }
 	YY_BREAK
 case 182:
 YY_RULE_SETUP
-#line 290 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 290 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(AMPERSAND); }
 	YY_BREAK
 case 183:
 YY_RULE_SETUP
-#line 291 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 291 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(QUESTION); }
 	YY_BREAK
 case 184:
 YY_RULE_SETUP
-#line 293 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 293 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  pyylval->lex.line = lexlineno; return(STRINGCONSTANT); }
 	YY_BREAK
 case 185:
 YY_RULE_SETUP
-#line 295 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 295 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 { 
 BEGIN(INITIAL);      
     pyylval->lex.line = lexlineno;     
@@ -1918,28 +1918,28 @@ BEGIN(INITIAL);
 	YY_BREAK
 case 186:
 YY_RULE_SETUP
-#line 300 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 300 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {}
 	YY_BREAK
 case 187:
 YY_RULE_SETUP
-#line 303 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 303 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 {  }
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(FIELDS):
-#line 304 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 304 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 { (&parseContext)->AfterEOF = true; yy_delete_buffer(YY_CURRENT_BUFFER); yyterminate();}
 	YY_BREAK
 case 188:
 YY_RULE_SETUP
-#line 305 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 305 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 { parseContext.infoSink.info << "FLEX: Unknown char " << yytext << "\n";
           return 0; }
 	YY_BREAK
 case 189:
 YY_RULE_SETUP
-#line 308 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 308 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 ECHO;
 	YY_BREAK
 #line 1946 "Gen_hlslang.cpp"
@@ -2800,7 +2800,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 308 "H:\\roblox-master\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
+#line 308 "G:\\Newfolder\\GitHub\\roblox-master-2016\\Rendering\\ShaderCompiler\\hlsl2glslfork\\hlslang\\MachineIndependent\\hlslang.l"
 
 
 

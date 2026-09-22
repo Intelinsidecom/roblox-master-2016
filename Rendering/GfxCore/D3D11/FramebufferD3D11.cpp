@@ -148,8 +148,18 @@ namespace Graphics
 		else
 		{
 			D3D11_RENDER_TARGET_VIEW_DESC descRTV = {};
-			descRTV.Format = static_cast<DXGI_FORMAT>(TextureD3D11::getInternalFormat(format));
+            #if defined(RBX_PLATFORM_WIN_PHONE)
+            // this is the magic which makes WP 8.1 rendering work
+			D3D11_TEXTURE2D_DESC texDesc = {};
+			if (texture)
+				texture->GetDesc(&texDesc);
+			descRTV.Format = (texDesc.Format != DXGI_FORMAT_UNKNOWN)
+				? texDesc.Format
+				: static_cast<DXGI_FORMAT>(TextureD3D11::getInternalFormat(format));
 			descRTV.ViewDimension = D3D11_RTV_DIMENSION_TEXTURE2D;
+            #else
+            descRTV.Format = static_cast<DXGI_FORMAT>(TextureD3D11::getInternalFormat(format));
+            #endif
 
 			ID3D11RenderTargetView* renderTargetView = NULL;
 			HRESULT hr = device11->CreateRenderTargetView(texture, &descRTV, &renderTargetView);

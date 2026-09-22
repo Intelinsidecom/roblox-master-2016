@@ -68,8 +68,7 @@ namespace FileSystem
         if (create)
         {
             try {
-                bool created = boost::filesystem::create_directories(storage, ec);
-                RBX::StandardOut::singleton()->print(RBX::MESSAGE_INFO, RBX::format("create_directories result: %s, ec: %s", created ? "true" : "false", ec.message().c_str()).c_str());
+                boost::filesystem::create_directories(storage, ec);
             } catch (...) {
                 RBX::StandardOut::singleton()->print(RBX::MESSAGE_ERROR, "create_directories threw exception");
             }

@@ -179,9 +179,16 @@ namespace RBX
 					mode |= FMOD_CREATESTREAM;
 					isStreaming = true;
                     
-                    RBXPROFILER_SCOPE("Sound", "createStream");
+					RBXPROFILER_SCOPE("Sound", "createStream");
 
+#if defined(RBX_PLATFORM_WIN_PHONE)
+					std::string fmodPath = fileName;
+					for (size_t i = 0; i < fmodPath.size(); ++i)
+						if (fmodPath[i] == '/') fmodPath[i] = '\\';
+					SoundService::checkResult(system->createStream(fmodPath.c_str(), mode, NULL, &fmod_sound), "createStream", this, system.get());
+#else
 					SoundService::checkResult(system->createStream(fileName.c_str(), mode, NULL, &fmod_sound), "createStream", this, system.get());
+#endif
 				}
 				else
 				{

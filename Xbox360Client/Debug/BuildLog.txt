@@ -1,0 +1,25 @@
+﻿Build started 8/26/2026 11:01:16 AM.
+     1>Project "G:\Newfolder\GitHub\roblox-master-2016\Xbox360Client\Xbox360Client.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\Xbox360Client.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\CL.exe /c /Zi /nologo /W3 /WX- /Od /D _DEBUG /D _XBOX /GF- /Gm /MTd /GS- /Gy- /fp:fast /fp:except- /Zc:wchar_t /Zc:forScope /GR- /openmp- /Yc"StdAfx.h" /Fp"G:\Newfolder\GitHub\roblox-master-2016\Xbox360Client\Debug\Xbox360Client.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP stdafx.cpp /callcap /FI"C:\Program Files (x86)\Microsoft Xbox 360 SDK\\include\xbox\xbox_intellisense_platform.h"
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\CL.exe /c /Zi /nologo /W3 /WX- /Od /D _DEBUG /D _XBOX /GF- /Gm /MTd /GS- /Gy- /fp:fast /fp:except- /Zc:wchar_t /Zc:forScope /GR- /openmp- /Yu"StdAfx.h" /Fp"G:\Newfolder\GitHub\roblox-master-2016\Xbox360Client\Debug\Xbox360Client.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /TP Xbox360Client.cpp /callcap /FI"C:\Program Files (x86)\Microsoft Xbox 360 SDK\\include\xbox\xbox_intellisense_platform.h"
+         Xbox360Client.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\link.exe /ERRORREPORT:PROMPT /OUT:"G:\Newfolder\GitHub\roblox-master-2016\Xbox360Client\Debug\Xbox360Client.exe" /INCREMENTAL /NOLOGO xapilibd.lib d3d9d.lib d3dx9d.lib xgraphicsd.lib xboxkrnl.lib xnetd.lib xaudiod2.lib xactd3.lib x3daudiod.lib xmcored.lib xbdm.lib vcompd.lib /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"G:\Newfolder\GitHub\roblox-master-2016\Xbox360Client\Debug\Xbox360Client.pdb" /STACK:"262144","262144" /TLBID:1 /IMPLIB:"G:\Newfolder\GitHub\roblox-master-2016\Xbox360Client\Debug\Xbox360Client.lib" Debug\stdafx.obj
+         Debug\Xbox360Client.obj /XEX:NO
+       ImageXex:
+         C:\Program Files (x86)\Microsoft Xbox 360 SDK\bin\win32\imagexex.exe /out:"G:\Newfolder\GitHub\roblox-master-2016\Xbox360Client\Debug\Xbox360Client.xex" "G:\Newfolder\GitHub\roblox-master-2016\Xbox360Client\Debug\Xbox360Client.exe" 
+         Microsoft(R) Xbox 360 Image File Builder Version 2.0.21256.0
+         (c)2012 Microsoft Corporation. All rights reserved.
+         
+       FinalizeBuildStatus:
+         Deleting file "Debug\Xbox360Client.unsuccessfulbuild".
+         Touching "Debug\Xbox360Client.lastbuildstate".
+     1>Done Building Project "G:\Newfolder\GitHub\roblox-master-2016\Xbox360Client\Xbox360Client.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:09.45

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "util/Http.h"
+#include "util/HttpPlatformImpl.h"
 #include "util/standardout.h"
 #include "StringConv.h"
 
@@ -347,6 +348,19 @@ namespace WinRTHttpDetail
 		}
 
 		callback->getResponse(response);
+	}
+}
+
+namespace RBX {
+	namespace HttpPlatformImpl {
+
+		void init(Http::CookieSharingPolicy cookieSharingPolicy) { }
+		void setCookiesForDomain(const std::string& domain, const std::string& cookies) { }
+		void getCookiesForDomain(const std::string& domain, std::string& cookies) { }
+		boost::filesystem::path getRobloxCookieJarPath() { return boost::filesystem::path(); }
+		void setProxy(const std::string& host, long port) { }
+		void perform(HttpOptions& options, std::string& response) { RBXASSERT(0); }
+
 	}
 }
 

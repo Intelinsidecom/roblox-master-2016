@@ -1,0 +1,306 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\Base\cpucount.cpp" />
+    <ClCompile Include="..\..\Base\util\RegistryUtil.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\util\StreamHelpers.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\util\Debug.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\util\Log.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\util\RbxCrash.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\Profiler.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\include\rbx\RbxDbgInfo.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\Time.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\RbxFormat.cpp" />
+    <ClCompile Include="..\..\Base\RbxAssert.cpp" />
+    <ClCompile Include="..\..\Base\rbx\boost.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\CEvent.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\Crypt.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\Memory.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\ProcessPerfCounter.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\Signal.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\TaskScheduler.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\TaskScheduler.Job.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\TaskScheduler.Thread.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\ThreadSafe.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\Tasks\Coordinator.cpp">
+      <Filter>rbx\Tasks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Contribs\boost_1_56_0_winrt\bridge\winrt_bridge.cpp" />
+    <ClCompile Include="..\..\Base\rbx\SystemUtil.Phone.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\Time.Phone.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\Profiler.Phone.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\Utf8.Phone.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\rbx\MathUtil.cpp">
+      <Filter>rbx</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Base\util\SystemUtil.Phone.cpp">
+      <Filter>util</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="rbx">
+      <UniqueIdentifier>{18ba719e-0bc1-4d0f-8dec-949bb656c637}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="util">
+      <UniqueIdentifier>{a1a5f09d-ed8c-4801-8f90-acd9232f6b40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="rbx\Tasks">
+      <UniqueIdentifier>{9ae6bfdd-4e4b-491a-9026-51605fbbcc14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{dd66aa3e-0646-4269-918f-7690a2a9893e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\util">
+      <UniqueIdentifier>{747cd099-3c61-4418-8309-bd7788ff44a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\simd">
+      <UniqueIdentifier>{24d5a05d-9e74-4390-9d0f-1b9c619c7fc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\microprofile">
+      <UniqueIdentifier>{89f09304-9c0d-47d8-8fe6-aaa0e6d87798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\rbx">
+      <UniqueIdentifier>{e2ae0a93-5420-43b5-bafd-cf1948b86c2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\rbx\Tasks">
+      <UniqueIdentifier>{9bd0a7e0-c704-4abb-9129-f227461691ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\rbx\Intrusive">
+      <UniqueIdentifier>{6d080d4e-4acd-4881-82d1-94cdb0ddc765}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Base\include\CPUCount.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\HardwareInfo.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\RbxAssert.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\RbxBase.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\RbxFormat.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\RbxHash.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\RbxPlatform.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\SelectState.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\XStudioBuild.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\util\RegistryUtil.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\util\SafeToLower.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\util\ScopedSingleton.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\util\StreamHelpers.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\util\stringbuffer.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\util\ublas_ext.h">
+      <Filter>include\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\simd\simd.h">
+      <Filter>include\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\simd\simd_platform.h">
+      <Filter>include\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\simd\simd_types.h">
+      <Filter>include\simd</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\microprofile\microprofiledraw.h">
+      <Filter>include\microprofile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\microprofile\microprofilehtml.h">
+      <Filter>include\microprofile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\microprofile\microprofileui.h">
+      <Filter>include\microprofile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\microprofile\microprofile.h">
+      <Filter>include\microprofile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\RbxDbgInfo.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\RbxStrings.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\rbxTime.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\RunningAverage.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\signal.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\SystemUtil.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\TaskScheduler.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\TaskScheduler.Job.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\Thread.hpp">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\threadsafe.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\trie.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\ArrayDynamic.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\atomic.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\BaldPtr.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\Boost.hpp">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\callable.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\CEvent.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\Countable.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\Crypt.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\Debug.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\Declarations.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\DenseHash.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\GlobalVectorItem.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\intrusive_ptr_target.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\intrusive_weak_ptr.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\Log.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\make_shared.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\MathUtil.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\Memory.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\Nil.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\object_pool.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\ProcessPerfCounter.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\Profiler.h">
+      <Filter>include\rbx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\Tasks\Coordinator.h">
+      <Filter>include\rbx\Tasks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Base\include\rbx\Intrusive\Set.h">
+      <Filter>include\rbx\Intrusive</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Base\include\simd\simd_common.inl">
+      <Filter>include\simd</Filter>
+    </None>
+    <None Include="..\..\Base\include\simd\simd_neon.inl">
+      <Filter>include\simd</Filter>
+    </None>
+    <None Include="..\..\Base\include\simd\simd_sse.inl">
+      <Filter>include\simd</Filter>
+    </None>
+    <None Include="..\..\Base\include\simd\simd_types.inl">
+      <Filter>include\simd</Filter>
+    </None>
+    <None Include="..\..\Base\include\microprofile\dtrace_contextswitch">
+      <Filter>include\microprofile</Filter>
+    </None>
+  </ItemGroup>
+</Project>

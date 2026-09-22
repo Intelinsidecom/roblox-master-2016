@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ClientConfig>
+  <BaseUrl>https://www.frerbx.xyz</BaseUrl>
+  <AssetPath>/asset/</AssetPath>
+  <!-- Optional switches used by URL reconstruction logic -->
+  <UrlReconstructToAssetGame>true</UrlReconstructToAssetGame>
+  <UrlReconstructToAssetGameSecure>true</UrlReconstructToAssetGameSecure>
+</ClientConfig>

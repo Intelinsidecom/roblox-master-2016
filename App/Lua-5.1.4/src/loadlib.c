@@ -18,7 +18,7 @@
 
 #endif
 
-#ifdef WINAPI_FAMILY==WINAPI_FAMILY_PHONE_APP
+#if defined(WINAPI_FAMILY) && (WINAPI_FAMILY == WINAPI_FAMILY_PHONE_APP)
 #include <windows.h>
 #include <winapifamily.h>
 #include <libloaderapi.h>
