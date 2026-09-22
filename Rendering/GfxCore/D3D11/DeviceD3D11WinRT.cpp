@@ -205,7 +205,6 @@ namespace Graphics
         if (FAILED(hr) || !native)
             return;
         g_swapChainAttached.store(false, std::memory_order_release);
-
         hr = native->SetSwapChain(swapChain11);
         native->Release();
         if (SUCCEEDED(hr))
