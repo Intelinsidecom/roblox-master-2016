@@ -8,13 +8,15 @@ https://discord.gg/9ypw3ytK4t
 ## Prerequisities
 - CONTRIB_PATH environment variable set and pointing in the Contribs Folder
   
-- If building C++ Projects (WindowsClient, RCCService, Roblox Studio, you will need Visual Studio 2012 with Update 5, v140 or newer havent been tested yet. v140 is confirmed to compile for UWP but not with regular targets.
+- If building C++ Projects (WindowsClient, RCCService, Roblox Studio), you will need Visual Studio 2012 with Update 5 with C++ included. Newer toolchains compile but arent recommended. (v140,v141,v143)
 
 - For C# Ones, you will need Visual Studio 2015 with Update 3 or without.
 
 - If building Android, you will need JDK 11, ninja on PATH, cmake installed and NDK 10e on Path and on ANDROID_NDK environment variable (Compiling the contribs needs linux or WSL and ndk 10e, you might also need WSL to compile Roblox obb assets as bat file causes issues at runtime)
 
 - If building for Xbox Client, you will need 2015-08 XDK release, if you know someone who has Xbox One Devkit, please contact me so i could get in touch with him on order to test if it works.
+
+- Building UWP or WinRT projects requires VS 2015 with UWP / Windows 8 checked, emulators arent required. for UWP, include 10586 SDK if you want to build with highest accuracy.
 
 - IOS hasnt been tested yet
 
@@ -23,8 +25,8 @@ Some projects might not compile without extra steps or on some config. if you no
 
 - Note: Installer projects have "Freebloxia" naming, this is to avoid confusion and for the user to know which entries to replace if The need to customize anything exists.
 
-- Note on UWP:
-Its just an Showcase and not an full fledged alternative to WindowsClient or something like that. It has bugs and can be expanded into full client whenewer you like it.
+- Note on Windows Phone:
+Its just an Showcase, frontend for it is being worked on.
 
 ## Contribs
 
