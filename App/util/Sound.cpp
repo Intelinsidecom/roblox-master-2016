@@ -181,7 +181,7 @@ namespace RBX
                     
 					RBXPROFILER_SCOPE("Sound", "createStream");
 
-#if defined(RBX_PLATFORM_WIN_PHONE)
+#if defined(RBX_PLATFORM_WIN_PHONE) || (defined(RBX_PLATFORM_UWP) && defined(ENABLE_XBOX_BUILD))
 					std::string fmodPath = fileName;
 					for (size_t i = 0; i < fmodPath.size(); ++i)
 						if (fmodPath[i] == '/') fmodPath[i] = '\\';

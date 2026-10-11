@@ -1,0 +1,2385 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{99b94938-b6fe-490d-b33a-6859b721bd91}</ProjectGuid>
+    <Keyword>DirectXApp</Keyword>
+    <RootNamespace>XboxUWPClient</RootNamespace>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <AppContainerApplication>true</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <WindowsTargetPlatformVersion>10.0.14393.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformMinVersion>10.0.14393.0</WindowsTargetPlatformMinVersion>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v140</PlatformToolset>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <PackageCertificateKeyFile>XboxUWPClient_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
+    <AppxSymbolPackageEnabled>False</AppxSymbolPackageEnabled>
+    <AppxBundle>Never</AppxBundle>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppInstallerUpdateFrequency>1</AppInstallerUpdateFrequency>
+    <AppInstallerCheckForUpdateFrequency>OnApplicationRun</AppInstallerCheckForUpdateFrequency>
+    <PackageCertificateThumbprint>D98EA99199EE23653884166430B77F277C4C85E9</PackageCertificateThumbprint>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">
+    <Link>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmodL_ARM.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(SolutionDir)\..\openssl\UWP\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;$(SolutionDir)\..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)pch.pch</PrecompiledHeaderOutputFile>
+      <AdditionalIncludeDirectories>..\AppBridge;..\Base\include;..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxRender;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Network;$(GeneratedFilesDir)\Screens;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <PreprocessorDefinitions>ENABLE_XBOX_BUILD;RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <SDLCheck>false</SDLCheck>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <PreBuildEvent>
+      <Command>..\CoreScriptConverter2\tool\win32\BuildCoreScripts.bat ..\xboxrsc.config</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
+    <Link>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmod_ARM.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\SDL2\UWP\ARM;$(SolutionDir)\..\openssl\UWP\ARM;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\ARM\lib;$(SolutionDir)\..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\ARM;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)pch.pch</PrecompiledHeaderOutputFile>
+      <AdditionalIncludeDirectories>..\AppBridge;..\Base\include;..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxRender;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Network;$(GeneratedFilesDir)\Screens;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <PreprocessorDefinitions>ENABLE_XBOX_BUILD;RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <SDLCheck>false</SDLCheck>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <PreBuildEvent>
+      <Command>..\CoreScriptConverter2\tool\win32\BuildCoreScripts.bat ..\xboxrsc.config</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Link>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;libcurl.lib;fmodL_X86.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(SolutionDir)\..\openssl\UWP\win32;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;$(SolutionDir)\..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win32;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)pch.pch</PrecompiledHeaderOutputFile>
+      <AdditionalIncludeDirectories>..\AppBridge;..\Base\include;..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxRender;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Network;$(GeneratedFilesDir)\Screens;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <PreprocessorDefinitions>ENABLE_XBOX_BUILD;RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <SDLCheck>false</SDLCheck>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <PreBuildEvent>
+      <Command>..\CoreScriptConverter2\tool\win32\BuildCoreScripts.bat ..\xboxrsc.config</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Link>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;libcurl.lib;fmod_X86.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\SDL2\UWP\x86;$(SolutionDir)\..\openssl\UWP\win32;$(CONTRIB_PATH)\boost_1_56_0\stage\lib;$(SolutionDir)\..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win32;$(CONTRIB_PATH)\SDL2\VisualC\Win32\Release;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)pch.pch</PrecompiledHeaderOutputFile>
+      <AdditionalIncludeDirectories>..\AppBridge;..\Base\include;..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxRender;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Network;$(GeneratedFilesDir)\Screens;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <PreprocessorDefinitions>ENABLE_XBOX_BUILD;RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <SDLCheck>false</SDLCheck>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <PreBuildEvent>
+      <Command>..\CoreScriptConverter2\tool\win32\BuildCoreScripts.bat ..\xboxrsc.config</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Link>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmodL_X64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\openssl\UWP\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;$(SolutionDir)\..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)pch.pch</PrecompiledHeaderOutputFile>
+      <AdditionalIncludeDirectories>..\AppBridge;..\Base\include;..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxRender;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Network;$(GeneratedFilesDir)\Screens;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <PreprocessorDefinitions>ENABLE_XBOX_BUILD;RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <SDLCheck>false</SDLCheck>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <PreBuildEvent>
+      <Command>..\CoreScriptConverter2\tool\win32\BuildCoreScripts.bat ..\xboxrsc.config</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Link>
+      <AdditionalDependencies>d3d11.lib;dxgi.lib;d3dcompiler.lib;Wldap32.lib;User32.lib;Ws2_32.lib;Crypt32.lib;Advapi32.lib;Kernel32.lib;libcrypto.lib;libssl.lib;WindowsApp.lib;uuid.lib;OneCore.lib;vccorlib.lib;runtimeobject.lib;libcurl.lib;fmod_X64.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)\..\openssl\UWP\win64;$(CONTRIB_PATH)\boost_1_56_0\stage\lib\x64\lib;$(SolutionDir)\..\fmod\UWP;$(CONTRIB_PATH)\SDK\Lib;$(CONTRIB_PATH)\DSBaseClasses\Lib;$(CONTRIB_PATH)\VMProtectWin\lib;$(SolutionDir)\..\zlib;$(SolutionDir)\..\curl\UWP\win64;$(SolutionDir)\..\SDL2\UWP\x64;$(CONTRIB_PATH)\SDL\SDL2-2.0.3\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+    <ClCompile>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)pch.pch</PrecompiledHeaderOutputFile>
+      <AdditionalIncludeDirectories>..\AppBridge;..\Base\include;..\Network\raknet\Source;..\fmod\UWP\include;..\Network\include;..\App\include;..\App.BulletPhysics;..\ClientBase;..\ClientShared;..\Rendering\AppDraw\include;..\Rendering\GfxRender\include;..\Rendering\GfxRender;..\Rendering\GfxBase\include;..\Rendering\GfxCore\include;..\Rendering\RbxG3D\include;..\Rendering\g3d\include;$(CONTRIB_PATH)\SDL2.0.4\Include;$(CONTRIB_PATH)\boost_1_56_0\include;$(CONTRIB_PATH)\cpp-netlib-0.11.0-final;$(CONTRIB_PATH)\windows\x86\curl\curl-7.43.0\include..\Log\include;..\Log\include;..\Log;..\Network;$(GeneratedFilesDir)\Screens;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/bigobj %(AdditionalOptions)</AdditionalOptions>
+      <DisableSpecificWarnings>4453;28204</DisableSpecificWarnings>
+      <PreprocessorDefinitions>ENABLE_XBOX_BUILD;RBX_PLATFORM_UWP;_CRT_SECURE_NO_WARNINGS;_WIN32_WINNT=0x0A00;NTDDI_VERSION=0x0A000006;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <SDLCheck>false</SDLCheck>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <PreBuildEvent>
+      <Command>..\CoreScriptConverter2\tool\win32\BuildCoreScripts.bat ..\xboxrsc.config</Command>
+    </PreBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Image Include="Assets\LockScreenLogo.scale-200.png" />
+    <Image Include="Assets\SplashScreen.scale-200.png" />
+    <Image Include="Assets\Square150x150Logo.scale-200.png" />
+    <Image Include="Assets\Square44x44Logo.scale-200.png" />
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Image Include="Assets\StoreLogo.png" />
+    <Image Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Image Include="content\fonts\fonts.dds">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="content\sky\lensflare.jpg">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="content\sky\moon-alpha.jpg">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="content\sky\moon.jpg">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_bk.jpg">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_dn.jpg">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_ft.jpg">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_lf.jpg">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_rt.jpg">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_up.jpg">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="content\sky\skyspheremap.jpg">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="content\sky\sun-rays.jpg">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="content\sky\sun.jpg">
+      <DeploymentContent>true</DeploymentContent>
+    </Image>
+    <Image Include="content\textures\advancedMove.png" />
+    <Image Include="content\textures\advancedMoveResize.png" />
+    <Image Include="content\textures\advancedMove_joint.png" />
+    <Image Include="content\textures\advancedMove_keysOnly.png" />
+    <Image Include="content\textures\advancedMove_noJoint.png" />
+    <Image Include="content\textures\advClosed-hand-no-weld.png" />
+    <Image Include="content\textures\advClosed-hand-weld.png" />
+    <Image Include="content\textures\advClosed-hand.png" />
+    <Image Include="content\textures\advCursor-default.png" />
+    <Image Include="content\textures\advCursor-openedHand.png" />
+    <Image Include="content\textures\advCursor-white.png" />
+    <Image Include="content\textures\AnchorCursor.png" />
+    <Image Include="content\textures\ArrowCursor.png" />
+    <Image Include="content\textures\ArrowCursorDecalDrag.png" />
+    <Image Include="content\textures\ArrowFarCursor.png" />
+    <Image Include="content\textures\BackgroundImage.png" />
+    <Image Include="content\textures\blackBkg_round.png" />
+    <Image Include="content\textures\blackBkg_square.png" />
+    <Image Include="content\textures\Blank.png" />
+    <Image Include="content\textures\BWGradient.png" />
+    <Image Include="content\textures\chatBubble_botBlue_bkg.png" />
+    <Image Include="content\textures\chatBubble_botBlue_notify_bkg.png" />
+    <Image Include="content\textures\chatBubble_botBlue_tail.png" />
+    <Image Include="content\textures\chatBubble_botBlue_tailRight.png" />
+    <Image Include="content\textures\chatBubble_botGreen_bkg.png" />
+    <Image Include="content\textures\chatBubble_botGreen_notify_bkg.png" />
+    <Image Include="content\textures\chatBubble_botGreen_tail.png" />
+    <Image Include="content\textures\chatBubble_botGreen_tailRight.png" />
+    <Image Include="content\textures\chatBubble_botRed_bkg.png" />
+    <Image Include="content\textures\chatBubble_botRed_notify_bkg.png" />
+    <Image Include="content\textures\chatBubble_botRed_tail.png" />
+    <Image Include="content\textures\chatBubble_botRed_tailRight.png" />
+    <Image Include="content\textures\chatBubble_bot_notifyGray_dotDotDot.png" />
+    <Image Include="content\textures\chatBubble_bot_notify_bang.png" />
+    <Image Include="content\textures\chatBubble_bot_notify_dotDotDot.png" />
+    <Image Include="content\textures\chatBubble_bot_notify_money.png" />
+    <Image Include="content\textures\chatBubble_bot_notify_question.png" />
+    <Image Include="content\textures\chatBubble_white_bkg.png" />
+    <Image Include="content\textures\chatBubble_white_notify_bkg.png" />
+    <Image Include="content\textures\chatBubble_white_tail.png" />
+    <Image Include="content\textures\Clone.png" />
+    <Image Include="content\textures\CloneCursor.png" />
+    <Image Include="content\textures\CloneDownCursor.png" />
+    <Image Include="content\textures\CloneOverCursor.png" />
+    <Image Include="content\textures\DialogHelp.png" />
+    <Image Include="content\textures\DialogQuest.png" />
+    <Image Include="content\textures\DialogShop.png" />
+    <Image Include="content\textures\dirt.jpg" />
+    <Image Include="content\textures\DragCursor.png" />
+    <Image Include="content\textures\DropperCursor.png" />
+    <Image Include="content\textures\Exit.png" />
+    <Image Include="content\textures\Exit_dn.png" />
+    <Image Include="content\textures\Exit_ovr.png" />
+    <Image Include="content\textures\explosion.png" />
+    <Image Include="content\textures\face.png" />
+    <Image Include="content\textures\FillCursor.png" />
+    <Image Include="content\textures\fire_0.png" />
+    <Image Include="content\textures\FlagCursor.png" />
+    <Image Include="content\textures\FlatCursor.png" />
+    <Image Include="content\textures\glow.png" />
+    <Image Include="content\textures\GrabCursor.png" />
+    <Image Include="content\textures\GrabRotateCursor.png" />
+    <Image Include="content\textures\gradient.png" />
+    <Image Include="content\textures\Grass_Texture.jpg" />
+    <Image Include="content\textures\GunCursor.png" />
+    <Image Include="content\textures\GunWaitCursor.png" />
+    <Image Include="content\textures\HammerCursor.png" />
+    <Image Include="content\textures\HammerDownCursor.png" />
+    <Image Include="content\textures\HammerOverCursor.png" />
+    <Image Include="content\textures\HingeCursor.png" />
+    <Image Include="content\textures\LockCursor.png" />
+    <Image Include="content\textures\lua.png" />
+    <Image Include="content\textures\MotorCursor.png" />
+    <Image Include="content\textures\MouseLockedCursor.png" />
+    <Image Include="content\textures\ResizeCursor.png" />
+    <Image Include="content\textures\Roblox-loading%402x.png" />
+    <Image Include="content\textures\Roblox-loading-glow%402x.png" />
+    <Image Include="content\textures\Roblox-loading-glow.png" />
+    <Image Include="content\textures\Roblox-loading.png" />
+    <Image Include="content\textures\roblox-logo.png" />
+    <Image Include="content\textures\Roblox.bmp" />
+    <Image Include="content\textures\rotationArrow.png" />
+    <Image Include="content\textures\RustGradient.png" />
+    <Image Include="content\textures\script.png" />
+    <Image Include="content\textures\shadowmask.png" />
+    <Image Include="content\textures\Smoke.png" />
+    <Image Include="content\textures\spark.png" />
+    <Image Include="content\textures\sparkle.png" />
+    <Image Include="content\textures\SpawnCursor.png" />
+    <Image Include="content\textures\SpawnLocation.png" />
+    <Image Include="content\textures\SurfacesDefault.png" />
+    <Image Include="content\textures\transformFiveDegrees.png" />
+    <Image Include="content\textures\transformNinetyDegrees.png" />
+    <Image Include="content\textures\transformOneDegree.png" />
+    <Image Include="content\textures\transformTwentyTwoDegrees.png" />
+    <Image Include="content\textures\ui\Backpack\Backpack%402x.png" />
+    <Image Include="content\textures\ui\Backpack\Backpack.png" />
+    <Image Include="content\textures\ui\Backpack\Backpack_Down%402x.png" />
+    <Image Include="content\textures\ui\Backpack\Backpack_Down.png" />
+    <Image Include="content\textures\ui\Backpack_Close%402x.png" />
+    <Image Include="content\textures\ui\Backpack_Close.png" />
+    <Image Include="content\textures\ui\Backpack_Open%402x.png" />
+    <Image Include="content\textures\ui\Backpack_Open.png" />
+    <Image Include="content\textures\ui\btn_grey.png" />
+    <Image Include="content\textures\ui\btn_greyTransp.png" />
+    <Image Include="content\textures\ui\btn_newBlue%402x.png" />
+    <Image Include="content\textures\ui\btn_newBlue.png" />
+    <Image Include="content\textures\ui\btn_newBlueGlow%402x.png" />
+    <Image Include="content\textures\ui\btn_newBlueGlow.png" />
+    <Image Include="content\textures\ui\btn_newGrey%402x.png" />
+    <Image Include="content\textures\ui\btn_newGrey.png" />
+    <Image Include="content\textures\ui\btn_newGreyGlow%402x.png" />
+    <Image Include="content\textures\ui\btn_newGreyGlow.png" />
+    <Image Include="content\textures\ui\btn_newWhite%402x.png" />
+    <Image Include="content\textures\ui\btn_newWhite.png" />
+    <Image Include="content\textures\ui\btn_newWhiteGlow%402x.png" />
+    <Image Include="content\textures\ui\btn_newWhiteGlow.png" />
+    <Image Include="content\textures\ui\btn_red.png" />
+    <Image Include="content\textures\ui\btn_redGlow.png" />
+    <Image Include="content\textures\ui\btn_white.png" />
+    <Image Include="content\textures\ui\ButtonLeft.png" />
+    <Image Include="content\textures\ui\ButtonLeftDown.png" />
+    <Image Include="content\textures\ui\ButtonRight.png" />
+    <Image Include="content\textures\ui\ButtonRightDown.png" />
+    <Image Include="content\textures\ui\chatBubble_blue_notify_bkg.png" />
+    <Image Include="content\textures\ui\chatBubble_green_notify_bkg.png" />
+    <Image Include="content\textures\ui\chatBubble_red_notify_bkg.png" />
+    <Image Include="content\textures\ui\chatBubble_white_notify_bkg.png" />
+    <Image Include="content\textures\ui\Chat\Chat%402x.png" />
+    <Image Include="content\textures\ui\Chat\Chat.png" />
+    <Image Include="content\textures\ui\Chat\ChatDown%402x.png" />
+    <Image Include="content\textures\ui\Chat\ChatDown.png" />
+    <Image Include="content\textures\ui\Chat\MessageCounter%402x.png" />
+    <Image Include="content\textures\ui\Chat\MessageCounter.png" />
+    <Image Include="content\textures\ui\Chat\ToggleChat%402x.png" />
+    <Image Include="content\textures\ui\Chat\ToggleChat.png" />
+    <Image Include="content\textures\ui\Chat\ToggleChatDown%402x.png" />
+    <Image Include="content\textures\ui\Chat\ToggleChatDown.png" />
+    <Image Include="content\textures\ui\chat_teamButton%402x.png" />
+    <Image Include="content\textures\ui\chat_teamButton.png" />
+    <Image Include="content\textures\ui\CloneButton.png" />
+    <Image Include="content\textures\ui\CloneButton_dn.png" />
+    <Image Include="content\textures\ui\CloseButton.png" />
+    <Image Include="content\textures\ui\CloseButton_dn.png" />
+    <Image Include="content\textures\ui\Concrete.png" />
+    <Image Include="content\textures\ui\CorrodedMetal.png" />
+    <Image Include="content\textures\ui\DeleteButton.png" />
+    <Image Include="content\textures\ui\DeleteButton_dn.png" />
+    <Image Include="content\textures\ui\dialog_blue%402x.png" />
+    <Image Include="content\textures\ui\dialog_blue.png" />
+    <Image Include="content\textures\ui\dialog_ellipses.png" />
+    <Image Include="content\textures\ui\dialog_green%402x.png" />
+    <Image Include="content\textures\ui\dialog_green.png" />
+    <Image Include="content\textures\ui\dialog_purpose_help.png" />
+    <Image Include="content\textures\ui\dialog_purpose_quest.png" />
+    <Image Include="content\textures\ui\dialog_purpose_shop.png" />
+    <Image Include="content\textures\ui\dialog_red%402x.png" />
+    <Image Include="content\textures\ui\dialog_red.png" />
+    <Image Include="content\textures\ui\dialog_tail%402x.png" />
+    <Image Include="content\textures\ui\dialog_tail.png" />
+    <Image Include="content\textures\ui\dialog_white%402x.png" />
+    <Image Include="content\textures\ui\dialog_white.png" />
+    <Image Include="content\textures\ui\DiamondPlate.png" />
+    <Image Include="content\textures\ui\DPadSheet.png" />
+    <Image Include="content\textures\ui\dropdown_arrow%402x.png" />
+    <Image Include="content\textures\ui\dropdown_arrow.png" />
+    <Image Include="content\textures\ui\ErrorIcon.png" />
+    <Image Include="content\textures\ui\ErrorIconSmall.png" />
+    <Image Include="content\textures\ui\expandPlayerList%402x.png" />
+    <Image Include="content\textures\ui\expandPlayerList.png" />
+    <Image Include="content\textures\ui\Foil.png" />
+    <Image Include="content\textures\ui\Gear.png" />
+    <Image Include="content\textures\ui\Gear_dn.png" />
+    <Image Include="content\textures\ui\Glue.png" />
+    <Image Include="content\textures\ui\Grass.png" />
+    <Image Include="content\textures\ui\GroupMoveButton.png" />
+    <Image Include="content\textures\ui\GroupMoveButton_dn.png" />
+    <Image Include="content\textures\ui\Health-BKG-Center%402x.png" />
+    <Image Include="content\textures\ui\Health-BKG-Center.png" />
+    <Image Include="content\textures\ui\Health-BKG-Left-Cap%402x.png" />
+    <Image Include="content\textures\ui\Health-BKG-Left-Cap.png" />
+    <Image Include="content\textures\ui\Health-BKG-Right-Cap%402x.png" />
+    <Image Include="content\textures\ui\Health-BKG-Right-Cap.png" />
+    <Image Include="content\textures\ui\Hinge.png" />
+    <Image Include="content\textures\ui\homeButton%402x.png" />
+    <Image Include="content\textures\ui\homeButton.png" />
+    <Image Include="content\textures\ui\Ice.png" />
+    <Image Include="content\textures\ui\icon_admin-16.png" />
+    <Image Include="content\textures\ui\icon_BC-16.png" />
+    <Image Include="content\textures\ui\icon_follower-16.png" />
+    <Image Include="content\textures\ui\icon_following-16.png" />
+    <Image Include="content\textures\ui\icon_friendrequestrecieved-16.png" />
+    <Image Include="content\textures\ui\icon_friendrequestsent_16.png" />
+    <Image Include="content\textures\ui\icon_friends_16.png" />
+    <Image Include="content\textures\ui\icon_mutualfollowing-16.png" />
+    <Image Include="content\textures\ui\icon_OBC-16.png" />
+    <Image Include="content\textures\ui\icon_placeowner.png" />
+    <Image Include="content\textures\ui\icon_TBC-16.png" />
+    <Image Include="content\textures\ui\Inlets.png" />
+    <Image Include="content\textures\ui\InsertButton.png" />
+    <Image Include="content\textures\ui\InsertButton_dn.png" />
+    <Image Include="content\textures\ui\LoadingBKG.png" />
+    <Image Include="content\textures\ui\MaterialButton.png" />
+    <Image Include="content\textures\ui\MaterialButton_dn.png" />
+    <Image Include="content\textures\ui\MaterialMenu.png" />
+    <Image Include="content\textures\ui\Menu\Hamburger%402x.png" />
+    <Image Include="content\textures\ui\Menu\Hamburger.png" />
+    <Image Include="content\textures\ui\Menu\HamburgerDown%402x.png" />
+    <Image Include="content\textures\ui\Menu\HamburgerDown.png" />
+    <Image Include="content\textures\ui\Modal.png" />
+    <Image Include="content\textures\ui\Motor.png" />
+    <Image Include="content\textures\ui\mouseLock_off%402x.png" />
+    <Image Include="content\textures\ui\mouseLock_off.png" />
+    <Image Include="content\textures\ui\mouseLock_on%402x.png" />
+    <Image Include="content\textures\ui\mouseLock_on.png" />
+    <Image Include="content\textures\ui\newBkg_square%402x.png" />
+    <Image Include="content\textures\ui\newBkg_square.png" />
+    <Image Include="content\textures\ui\PaintButton.png" />
+    <Image Include="content\textures\ui\PaintButton_dn.png" />
+    <Image Include="content\textures\ui\PartMoveButton.png" />
+    <Image Include="content\textures\ui\PartMoveButton_dn.png" />
+    <Image Include="content\textures\ui\Plastic.png" />
+    <Image Include="content\textures\ui\PlayerlistFriendIcon.png" />
+    <Image Include="content\textures\ui\PlayerListFriendRequestReceivedIcon.png" />
+    <Image Include="content\textures\ui\PlayerListFriendRequestSentIcon.png" />
+    <Image Include="content\textures\ui\PlayerList\BlockedIcon.png" />
+    <Image Include="content\textures\ui\PlayerList\CharacterImageBackground.png" />
+    <Image Include="content\textures\ui\PlayerList\TileShadowMissingTop.png" />
+    <Image Include="content\textures\ui\PropertyButton.png" />
+    <Image Include="content\textures\ui\PropertyButton_dn.png" />
+    <Image Include="content\textures\ui\RecordDown.png" />
+    <Image Include="content\textures\ui\RecordStop.png" />
+    <Image Include="content\textures\ui\ResetIcon.png" />
+    <Image Include="content\textures\ui\RobuxIcon.png" />
+    <Image Include="content\textures\ui\ScaleButton.png" />
+    <Image Include="content\textures\ui\ScaleButton_dn.png" />
+    <Image Include="content\textures\ui\scroll-bottom%402x.png" />
+    <Image Include="content\textures\ui\scroll-bottom.png" />
+    <Image Include="content\textures\ui\scroll-middle%402x.png" />
+    <Image Include="content\textures\ui\scroll-middle.png" />
+    <Image Include="content\textures\ui\scroll-top%402x.png" />
+    <Image Include="content\textures\ui\scroll-top.png" />
+    <Image Include="content\textures\ui\scrollbar.png" />
+    <Image Include="content\textures\ui\scrollbuttonDown.png" />
+    <Image Include="content\textures\ui\scrollbuttonDown_dn.png" />
+    <Image Include="content\textures\ui\scrollbuttonDown_ds.png" />
+    <Image Include="content\textures\ui\scrollbuttonDown_ovr.png" />
+    <Image Include="content\textures\ui\scrollbuttonUp.png" />
+    <Image Include="content\textures\ui\scrollbuttonUp_dn.png" />
+    <Image Include="content\textures\ui\scrollbuttonUp_ds.png" />
+    <Image Include="content\textures\ui\scrollbuttonUp_ovr.png" />
+    <Image Include="content\textures\ui\Scroll\scroll-bottom%402x.png" />
+    <Image Include="content\textures\ui\Scroll\scroll-bottom.png" />
+    <Image Include="content\textures\ui\Scroll\scroll-middle%402x.png" />
+    <Image Include="content\textures\ui\Scroll\scroll-middle.png" />
+    <Image Include="content\textures\ui\Scroll\scroll-top%402x.png" />
+    <Image Include="content\textures\ui\Scroll\scroll-top.png" />
+    <Image Include="content\textures\ui\SearchIcon.png" />
+    <Image Include="content\textures\ui\SelectionBox%402x.png" />
+    <Image Include="content\textures\ui\SelectionBox.png" />
+    <Image Include="content\textures\ui\SettingsButton.png" />
+    <Image Include="content\textures\ui\SettingsButton_dn.png" />
+    <Image Include="content\textures\ui\SettingsButton_ds.png" />
+    <Image Include="content\textures\ui\SettingsButton_ovr.png" />
+    <Image Include="content\textures\ui\Settings\DropDown\DropDown%402x.png" />
+    <Image Include="content\textures\ui\Settings\DropDown\DropDown.png" />
+    <Image Include="content\textures\ui\Settings\Help\AButtonDark%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\AButtonDark.png" />
+    <Image Include="content\textures\ui\Settings\Help\AButtonLight%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\AButtonLight.png" />
+    <Image Include="content\textures\ui\Settings\Help\AButtonLightSmall.png" />
+    <Image Include="content\textures\ui\Settings\Help\BButtonDark%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\BButtonDark.png" />
+    <Image Include="content\textures\ui\Settings\Help\BButtonLight%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\BButtonLight.png" />
+    <Image Include="content\textures\ui\Settings\Help\EscapeIcon.png" />
+    <Image Include="content\textures\ui\Settings\Help\GenericController%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\GenericController.png" />
+    <Image Include="content\textures\ui\Settings\Help\LeaveIcon.png" />
+    <Image Include="content\textures\ui\Settings\Help\ResetIcon.png" />
+    <Image Include="content\textures\ui\Settings\Help\RotateCameraGesture.png" />
+    <Image Include="content\textures\ui\Settings\Help\UseToolGesture.png" />
+    <Image Include="content\textures\ui\Settings\Help\XboxController.png" />
+    <Image Include="content\textures\ui\Settings\Help\XButtonDark%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\XButtonDark.png" />
+    <Image Include="content\textures\ui\Settings\Help\XButtonLight%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\XButtonLight.png" />
+    <Image Include="content\textures\ui\Settings\Help\YButtonDark%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\YButtonDark.png" />
+    <Image Include="content\textures\ui\Settings\Help\YButtonLight%402x.png" />
+    <Image Include="content\textures\ui\Settings\Help\YButtonLight.png" />
+    <Image Include="content\textures\ui\Settings\Help\ZoomGesture.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuBackground.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButton%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButton.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButtonSelected%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButtonSelected.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuSelection%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuSelection.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\GameSettingsTab%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\GameSettingsTab.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HelpTab%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HelpTab.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HomeTab%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HomeTab.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\PlayersTabIcon%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\PlayersTabIcon.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\RecordTab%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\RecordTab.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\ReportAbuseTab%402x.png" />
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\ReportAbuseTab.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Alert%402x.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Alert.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Backpack%402x.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Backpack.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Bottom.png" />
+    <Image Include="content\textures\ui\Settings\Radial\BottomLeft.png" />
+    <Image Include="content\textures\ui\Settings\Radial\BottomLeftSelected.png" />
+    <Image Include="content\textures\ui\Settings\Radial\BottomRight.png" />
+    <Image Include="content\textures\ui\Settings\Radial\BottomRightSelected.png" />
+    <Image Include="content\textures\ui\Settings\Radial\BottomSelected.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Chat%402x.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Chat.png" />
+    <Image Include="content\textures\ui\Settings\Radial\EmptyBottom.png" />
+    <Image Include="content\textures\ui\Settings\Radial\EmptyBottomLeft.png" />
+    <Image Include="content\textures\ui\Settings\Radial\EmptyBottomRight.png" />
+    <Image Include="content\textures\ui\Settings\Radial\EmptyTop.png" />
+    <Image Include="content\textures\ui\Settings\Radial\EmptyTopLeft.png" />
+    <Image Include="content\textures\ui\Settings\Radial\EmptyTopRight.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Leave%402x.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Leave.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Menu%402x.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Menu.png" />
+    <Image Include="content\textures\ui\Settings\Radial\PlayerList%402x.png" />
+    <Image Include="content\textures\ui\Settings\Radial\PlayerList.png" />
+    <Image Include="content\textures\ui\Settings\Radial\RadialLabel%402x.png" />
+    <Image Include="content\textures\ui\Settings\Radial\RadialLabel.png" />
+    <Image Include="content\textures\ui\Settings\Radial\Top.png" />
+    <Image Include="content\textures\ui\Settings\Radial\TopLeft.png" />
+    <Image Include="content\textures\ui\Settings\Radial\TopLeftSelected.png" />
+    <Image Include="content\textures\ui\Settings\Radial\TopRight.png" />
+    <Image Include="content\textures\ui\Settings\Radial\TopRightSelected.png" />
+    <Image Include="content\textures\ui\Settings\Radial\TopSelected.png" />
+    <Image Include="content\textures\ui\Settings\Slider\BarLeft%402x.png" />
+    <Image Include="content\textures\ui\Settings\Slider\BarLeft.png" />
+    <Image Include="content\textures\ui\Settings\Slider\BarRight%402x.png" />
+    <Image Include="content\textures\ui\Settings\Slider\BarRight.png" />
+    <Image Include="content\textures\ui\Settings\Slider\Left%402x.png" />
+    <Image Include="content\textures\ui\Settings\Slider\Left.png" />
+    <Image Include="content\textures\ui\Settings\Slider\Right%402x.png" />
+    <Image Include="content\textures\ui\Settings\Slider\Right.png" />
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarLeft%402x.png" />
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarLeft.png" />
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarRight%402x.png" />
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarRight.png" />
+    <Image Include="content\textures\ui\SingleButton.png" />
+    <Image Include="content\textures\ui\SingleButtonDown.png" />
+    <Image Include="content\textures\ui\Slate.png" />
+    <Image Include="content\textures\ui\Slider-BKG-Center%402x.png" />
+    <Image Include="content\textures\ui\Slider-BKG-Center.png" />
+    <Image Include="content\textures\ui\Slider-BKG-Left-Cap%402x.png" />
+    <Image Include="content\textures\ui\Slider-BKG-Left-Cap.png" />
+    <Image Include="content\textures\ui\Slider-BKG-Right-Cap%402x.png" />
+    <Image Include="content\textures\ui\Slider-BKG-Right-Cap.png" />
+    <Image Include="content\textures\ui\Slider-Fill-Center%402x.png" />
+    <Image Include="content\textures\ui\Slider-Fill-Center.png" />
+    <Image Include="content\textures\ui\Slider-Fill-Left-Cap%402x.png" />
+    <Image Include="content\textures\ui\Slider-Fill-Left-Cap.png" />
+    <Image Include="content\textures\ui\Slider-Fill-Right-Cap%402x.png" />
+    <Image Include="content\textures\ui\Slider-Fill-Right-Cap.png" />
+    <Image Include="content\textures\ui\Slider.png" />
+    <Image Include="content\textures\ui\Slider_dn.png" />
+    <Image Include="content\textures\ui\slider_new_tab%402x.png" />
+    <Image Include="content\textures\ui\slider_new_tab.png" />
+    <Image Include="content\textures\ui\Slider_sel.png" />
+    <Image Include="content\textures\ui\Smooth.png" />
+    <Image Include="content\textures\ui\StampToolButton.png" />
+    <Image Include="content\textures\ui\StampToolButton_dn.png" />
+    <Image Include="content\textures\ui\Studs.png" />
+    <Image Include="content\textures\ui\SurfaceButton.png" />
+    <Image Include="content\textures\ui\SurfaceButton_dn.png" />
+    <Image Include="content\textures\ui\SurfaceMenu.png" />
+    <Image Include="content\textures\ui\TinyBcIcon.png" />
+    <Image Include="content\textures\ui\TinyObcIcon.png" />
+    <Image Include="content\textures\ui\TinyTbcIcon.png" />
+    <Image Include="content\textures\ui\TixIcon.png" />
+    <Image Include="content\textures\ui\ToggleFullScreen_ds.png" />
+    <Image Include="content\textures\ui\ToolButton.png" />
+    <Image Include="content\textures\ui\ToolButton_dn.png" />
+    <Image Include="content\textures\ui\ToolButton_ds.png" />
+    <Image Include="content\textures\ui\TopBar\dropshadow%402x.png" />
+    <Image Include="content\textures\ui\TopBar\dropshadow.png" />
+    <Image Include="content\textures\ui\TouchControlsSheet.png" />
+    <Image Include="content\textures\ui\Universal.png" />
+    <Image Include="content\textures\ui\Vehicle\SpeedBar%402x.png" />
+    <Image Include="content\textures\ui\Vehicle\SpeedBar.png" />
+    <Image Include="content\textures\ui\Vehicle\SpeedBarBKG%402x.png" />
+    <Image Include="content\textures\ui\Vehicle\SpeedBarBKG.png" />
+    <Image Include="content\textures\ui\Vehicle\SpeedBarEmpty%402x.png" />
+    <Image Include="content\textures\ui\Vehicle\SpeedBarEmpty.png" />
+    <Image Include="content\textures\ui\Weld.png" />
+    <Image Include="content\textures\ui\Wood.png" />
+    <Image Include="content\textures\UnAnchorCursor.png" />
+    <Image Include="content\textures\UnlockCursor.png" />
+    <Image Include="content\textures\water_Subsurface.dds" />
+    <Image Include="content\textures\water_Wave.dds" />
+    <Image Include="content\textures\WeldCursor.png" />
+    <Image Include="content\textures\WhiteCircle.png" />
+    <Image Include="content\textures\wrench.png" />
+    <Image Include="PlatformContent\durango\terrain\diffuse.dds" />
+    <Image Include="PlatformContent\durango\terrain\normal.dds" />
+    <Image Include="PlatformContent\durango\terrain\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\aluminum\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\aluminum\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\aluminum\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\aluminum\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\brick\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\brick\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\brick\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\brick\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\cobblestone\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\cobblestone\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\cobblestone\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\cobblestone\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\concrete\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\concrete\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\concrete\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\concrete\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\diamondplate\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\diamondplate\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\diamondplate\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\diamondplate\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\fabric\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\fabric\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\fabric\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\fabric\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\granite\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\granite\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\granite\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\granite\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\grass\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\grass\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\grass\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\grass\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ice\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ice\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ice\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ice\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\marble\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\marble\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\marble\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\marble\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\metal\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\metal\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\metal\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\metal\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\pebble\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\pebble\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\pebble\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\pebble\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\plastic\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\plastic\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\plastic\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\rust\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\rust\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\rust\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\rust\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\sand\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\sand\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\sand\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\sand\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\slate\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\slate\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\slate\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\slate\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\studs.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\terrain\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\terrain\diffusefar.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\terrain\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\terrain\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Background\Home_screen_01.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\AButton.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\AButtonDark.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\BButton.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\BButtonDark.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\XButton.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\XButtonDark.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\YButton.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\YButtonDark.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Buttons\Generic9ScaleButton%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Buttons\Generic9ScaleShadow.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Buttons\MoreButton%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Buttons\MoreButton%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Buttons\MoreButtonSelected%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Buttons\MoreButtonSelected%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\AccountIcon.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\AlertIcon.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\BackIcon%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\BackIcon%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\Checkmark%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\Checkmark%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\CustomizeIcon%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\CustomizeIcon%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\DefaultProfileIcon.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\DownIndicatorIcon%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\DownIndicatorIcon%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\Dropdown02%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\Dropdown02%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\EquippedOverlay.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ErrorIconLargeCopy%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ErrorIconLargeCopy%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\FavoriteStar%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\FavoriteStar%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\FriendsIcon%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\GamePlusIcon.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\HelpIcon.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\HelpIconSmall.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\LoadingSpinner%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\LoadingSpinner%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\NoGameImageIcon.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OfflineDot%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OfflineDot%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineDot%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineDot%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineKindaDot%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineKindaDot%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineStatus%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineStatus%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineStatusIcon%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineStatusIcon%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ProfileIcon.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\RatingBar%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\RatingBar%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ReportIcon%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ReportIcon%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\RobloxIcon24.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\RobloxIcon32.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoSmall%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoSmall%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoStart%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoStart%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXSplashLogo.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBUXIcon%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBUXIcon%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBUXIconOutlined%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBUXIconOutlined%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\SeparatorDot%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\SeparatorDot%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsDown%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsDown%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsDownFilled%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsDownFilled%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsDownIcon%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsDownIcon%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsUp%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsUp%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsUpFilled%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsUpFilled%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsUpIcon%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsUpIcon%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\TVIcon.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\UpIndicatorIcon%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\UpIndicatorIcon%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\CharacterGlow\CharacterGlowBase.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\CharacterGlow\CharacterGlowTop.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\Robux01.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\Robux02.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\Robux03.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\Robux04.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\Robux05.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\Robux06.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\RobuxSquare01.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\RobuxSquare02.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\RobuxSquare03.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\RobuxSquare04.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\RobuxSquare05.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\RobuxSquare06.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ScreenAdjustment\Background.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ScreenAdjustment\Controller%401080.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ScreenAdjustment\Controller%40720.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ScreenAdjustment\ScreenAdjustmentArrow.png" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ScreenAdjustment\ScreenRangeOverlay.png" />
+    <Image Include="PlatformContent\durango\textures\wangIndex.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_01.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_02.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_03.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_04.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_05.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_06.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_07.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_08.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_09.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_10.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_11.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_12.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_13.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_14.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_15.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_16.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_17.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_18.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_19.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_20.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_21.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_22.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_23.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_24.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\water\normal_25.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\woodplanks\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\woodplanks\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\woodplanks\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\woodplanks\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\wood\diffuse.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\wood\normal.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\wood\normaldetail.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\wood\specular.dds">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App.h" />
+    <ClInclude Include="async.h" />
+    <ClInclude Include="ControllerBuffer.h" />
+    <ClInclude Include="KeyboardProvider.h" />
+    <ClInclude Include="marshaller.h" />
+    <ClInclude Include="p2p.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="renderJob.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="UserTranslator.h" />
+    <ClInclude Include="VoiceChatBase.h" />
+    <ClInclude Include="VoiceChatMaxNet.h" />
+    <ClInclude Include="XbLiveUtils.h" />
+    <ClInclude Include="XboxGameController.h" />
+    <ClInclude Include="XboxMultiplayerManager.h" />
+    <ClInclude Include="XboxService.h" />
+    <ClInclude Include="XboxUtils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\ClientBase\ReflectionMetadata.cpp" />
+    <ClCompile Include="..\ClientBase\RenderSettingsItem.cpp" />
+    <ClCompile Include="..\ClientShared\DataModelEmptySerialize.cpp" />
+    <ClCompile Include="async.cpp" />
+    <ClCompile Include="ControllerBuffer.cpp" />
+    <ClCompile Include="KeyboardProvider.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="marshaller.cpp" />
+    <ClCompile Include="p2p.cpp" />
+    <ClCompile Include="pch.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="renderJob.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="UserTranslator.cpp" />
+    <ClCompile Include="UwpHooks.cpp">
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</CompileAsWinRT>
+      <CompileAsWinRT Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</CompileAsWinRT>
+    </ClCompile>
+    <ClCompile Include="VoiceChatMaxNet.cpp" />
+    <ClCompile Include="XbLiveUtils.cpp" />
+    <ClCompile Include="XboxGameController.cpp" />
+    <ClCompile Include="XboxMultiplayerManager.cpp" />
+    <ClCompile Include="XboxService.cpp" />
+    <ClCompile Include="XboxUtils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Media Include="..\fmod\UWP\fmodL_ARM.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DeploymentContent>
+      <FileType>Document</FileType>
+    </Media>
+    <Media Include="..\fmod\UWP\fmodL_X64.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DeploymentContent>
+      <FileType>Document</FileType>
+    </Media>
+    <Media Include="..\fmod\UWP\fmodL_X86.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DeploymentContent>
+      <FileType>Document</FileType>
+    </Media>
+    <Media Include="..\fmod\UWP\fmod_ARM.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DeploymentContent>
+      <FileType>Document</FileType>
+    </Media>
+    <Media Include="..\fmod\UWP\fmod_X64.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Media>
+    <Media Include="..\fmod\UWP\fmod_X86.dll">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</DeploymentContent>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <DeploymentContent Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</DeploymentContent>
+      <FileType>Document</FileType>
+    </Media>
+    <None Include="content\fonts\Arial.font">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\ArialBold.font">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\character.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\character3.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\characterCameraScript.rbxmx">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\characterControlScript.rbxmx">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\characterR15.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\comics.fnt">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositExtraSlot0.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositExtraSlot1.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositExtraSlot2.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositExtraSlot3.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositExtraSlot4.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositFullAtlasBaseTexture.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositFullAtlasOverlayTexture.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositLeftArmBase.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositLeftLegBase.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositPantsTemplate.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositRightArmBase.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositRightLegBase.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositShirtTemplate.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositTorsoBase.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\CompositTShirt.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\diogenes.fnt">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\head.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headA.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headB.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headC.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headD.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headE.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headF.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headG.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headH.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headI.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headJ.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headK.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headL.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headM.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headN.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headO.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\headP.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidAnimate.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidAnimateLocal.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidAnimateLocalKeyframe.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidAnimateLocalKeyframe2.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidAnimateR15.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidExtra.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidSound.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidSound2.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidSoundNew.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidSoundNewLocal.rbxmx">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\humanoidStatic.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\leftarm.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\leftleg.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\LoadingScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\rightarm.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\rightleg.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\Rocket.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\SlingshotPellet.rbxm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\SourceSans.font">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\SourceSansBold.font">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\SourceSansItalic.font">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\SourceSansLight.font">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\fonts\torso.mesh">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\particles\explosion.particle">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\particles\fire.particle">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\particles\forceFieldBeam.particle">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\particles\forceFieldRadial.particle">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\particles\smoke.particle">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\particles\sparkles.particle">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\BubbleChat.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\BuildToolsScripts\BuildToolManager.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\BuildToolsScripts\BuildToolsScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\BuildToolsScripts\PersonalServerScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\ContextActionTouch.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\DeveloperConsole.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\GamepadMenu.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\HealthScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\MainBotChatScript2.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\NotificationScript2.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\PurchasePromptScript2.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\Topbar.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\CoreScripts\VehicleHud.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Libraries\RbxGui.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Libraries\RbxStamper.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Libraries\RbxUtility.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\LoadingScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\BackpackScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Chat.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\DeveloperConsoleModule.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\PlayerDropDown.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\PlayerlistModule.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\GameSettings.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\Help.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\Home.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\LeaveGame.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\Players.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\Record.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\ReportAbuseMenu.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Pages\ResetCharacter.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Settings\SettingsHub.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Settings\SettingsPageFactory.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\Settings\Utility.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\Modules\TenFootInterface.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\ServerCoreScripts\ServerSocialScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\ServerStarterScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="content\scripts\StarterScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="packages.config" />
+    <None Include="PlatformContent\durango\ScaledWorldv4.7.rbxl">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\CoreScripts\AppHome.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\AccountManager.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\AccountScreen.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\AchievementManager.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\AppHub.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\AssetManager.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\AvatarPane.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\AvatarTile.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\BadgeOverlay.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\BadgeScreen.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\BadgeSort.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\BaseOverlay.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\BaseScreen.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\BaseSignInScreen.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\BaseTile.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CameraManager.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CameraManagerModules\CameraManager_ZoneManager.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CameraManagerModules\CameraManager_Zones\CameraManagerZone_City.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CameraManagerModules\CameraManager_Zones\CameraManagerZone_Space.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CameraManagerModules\CameraManager_Zones\CameraManagerZone_Volcano.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CarouselController.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CarouselView.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ConfirmPrompt.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ControllerStateManager.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CurrencyWidget.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\EngagementScreen.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ErrorOverlay.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\Errors.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\EventHub.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\FriendPresenceItem.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\FriendsData.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\FriendsView.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GameCollection.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GameData.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GameDetail.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GameGenre.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GameJoin.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GamePane.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GameSort.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GlobalSettings.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\HeroStatsManager.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\HomePane.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\Http.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ImageOverlay.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ImageSlider.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\LinkAccountScreen.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\LoadingWidget.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\LocalizedStrings.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\NoActionOverlay.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\OutfitData.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\OutfitTile.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\OverscanScreen.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\PackageData.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\PlatformCatalogData.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\PlatformInterface.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\PopupText.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\PurchasePackagePrompt.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ReportOverlay.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\RobuxBalanceOverlay.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ScreenManager.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ScrollingGrid.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ScrollingTextBox.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SetAccountCredentialsScreen.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SettingsScreen.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SideBar.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SignInScreen.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SocialPane.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SocialScreen.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SortCarousel.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SortData.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SoundManager.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\StorePane.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\TabDock.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\TabDockItem.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\TextBox.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ThumbnailLoader.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\UnlinkAccountOverlay.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\UnlinkAccountScreen.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\UserData.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\Utility.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\VoteFrame.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\Modules\VoteView.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\ServerStarterScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\scripts\ui\XStarterScript.lua">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\sounds\ui\Shell\RobloxMusic.ogg">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\terrain\materials.json">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="PlatformContent\durango\textures\sky\sky512_bk.tex">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </None>
+    <None Include="PlatformContent\durango\textures\sky\sky512_dn.tex">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </None>
+    <None Include="PlatformContent\durango\textures\sky\sky512_ft.tex">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </None>
+    <None Include="PlatformContent\durango\textures\sky\sky512_lf.tex">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </None>
+    <None Include="PlatformContent\durango\textures\sky\sky512_rt.tex">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </None>
+    <None Include="PlatformContent\durango\textures\sky\sky512_up.tex">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </None>
+    <None Include="shaders\shaders.json">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <Media Include="content\music\bass.wav">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\music\ufofly.wav">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\action_falling.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\action_footsteps_plastic.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\action_get_up.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\action_jump.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\action_jump_land.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\action_swim.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\bass.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\bfsl-minifigfoots1.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\bfsl-minifigfoots2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\button.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\clickfast.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\collide.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\electronicpingshort.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\flashbulb.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\grass.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\grass2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\grass3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\grassstone.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\grassstone2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\grassstone3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\hit.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\ice.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\ice2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\ice3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\icegrass.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\icegrass2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\icegrass3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\icemetal.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\icemetal2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\icemetal3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\icestone.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\icestone2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\icestone3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\impact_bodyfall.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\impact_explosion_01.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\impact_explosion_02.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\impact_explosion_03.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\impact_water.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\Kerplunk.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\Kid saying Ouch.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\metal.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\metal2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\metal3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\metalgrass.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\metalgrass2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\metalgrass3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\metalstone.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\metalstone2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\metalstone3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\plasticgrass.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\plasticgrass2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\plasticgrass3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\plasticice.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\plasticice2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\plasticice3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\plasticmetal.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\plasticmetal2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\plasticmetal3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\plasticplastic.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\plasticplastic2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\plasticplastic3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\plasticstone.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\plasticstone2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\plasticstone3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\Rubber band sling shot.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\Rubber band.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\snap.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\splat.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\stone.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\stone2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\stone3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\switch.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\SWITCH3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\swoosh.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\swordlunge.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\swordslash.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\unsheath.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\uuhhh.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\victory.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodgrass.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodgrass2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodgrass3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodice.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodice2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodice3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodmetal.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodmetal2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodmetal3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodplastic.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodplastic2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodplastic3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodstone.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodstone2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodstone3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodwood.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodwood2.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="content\sounds\woodwood3.mp3">
+      <DeploymentContent>true</DeploymentContent>
+    </Media>
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\ButtonPress.mp3" />
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\Error.mp3" />
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\MoveSelection.mp3" />
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\OverlayOpen.mp3" />
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\PopUp.mp3" />
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\PurchaseSuccess.mp3" />
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\ScreenChange.mp3" />
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\SideMenuSlideIn.mp3" />
+    <Media Include="shaders\shaders_d3d11.pack">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Media>
+    <Media Include="shaders\shaders_d3d11_durango.pack">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Media>
+    <Media Include="shaders\shaders_d3d11_level_9_3.pack">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Media>
+    <Media Include="shaders\shaders_d3d9.pack">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Media>
+    <Media Include="shaders\shaders_d3d11_level_10_1.pack">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+    </Media>
+    <None Include="shaders\shaders_glsl.pack">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="shaders\shaders_glsl3.pack">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="shaders\shaders_glsles.pack">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="shaders\shaders_glsles3.pack">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
+    <None Include="XboxUWPClient_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Projects\App.BulletPhysics.vcxproj">
+      <Project>{6fcb3ae6-f8f4-48b5-a9ab-ced15c7e1730}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\App.vcxproj">
+      <Project>{213899e0-8a32-4c9c-9b09-89fb51d6ccd5}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\AppDraw.vcxproj">
+      <Project>{f2a6b73b-9bba-43de-be59-25ebd4e672b5}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\Base.vcxproj">
+      <Project>{9cd6ba71-768b-4758-a393-91ee7bed80c3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\boost.static.vcxproj">
+      <Project>{a160527a-f9ac-4b1a-8afd-bdb9c1f8e38d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\CSG.vcxproj">
+      <Project>{e29629a7-a5db-4548-ba65-d919e166a56f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\GfxBase.vcxproj">
+      <Project>{2329fe5d-880f-4de4-8e1b-a600e25f8910}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\GfxCore.vcxproj">
+      <Project>{3c3b9618-0393-4ee5-9d7d-61b2512264b0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\GfxRender.vcxproj">
+      <Project>{acd9e2df-f5d6-4db6-a693-ba5e8ff7991e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\graphics3D.vcxproj">
+      <Project>{483cdf9b-f198-4e8c-b5d9-fa2b56b33db9}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\Log.vcxproj">
+      <Project>{3b1eb63b-b964-46ba-b5ae-d28ef1cb9a13}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\Network.vcxproj">
+      <Project>{b02f4dbc-b479-4792-938c-c3dc941aaf5e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\RbxG3D.vcxproj">
+      <Project>{3686b548-83ff-4e4f-94c2-6aed0bd87b3a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="Projects\zlib.vcxproj">
+      <Project>{0197d2c5-c361-4fd5-90e1-98f402545b20}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="content\fonts\arial.ttf">
+      <DeploymentContent>true</DeploymentContent>
+    </Font>
+    <Font Include="content\fonts\arialbd.ttf">
+      <DeploymentContent>true</DeploymentContent>
+    </Font>
+    <Font Include="content\fonts\SourceSansPro-Bold.ttf">
+      <DeploymentContent>true</DeploymentContent>
+    </Font>
+    <Font Include="content\fonts\SourceSansPro-It.ttf">
+      <DeploymentContent>true</DeploymentContent>
+    </Font>
+    <Font Include="content\fonts\SourceSansPro-Light.ttf">
+      <DeploymentContent>true</DeploymentContent>
+    </Font>
+    <Font Include="content\fonts\SourceSansPro-Regular.ttf">
+      <DeploymentContent>true</DeploymentContent>
+    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="content\fonts\gamecontrollerdb.txt">
+      <DeploymentContent>true</DeploymentContent>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="content\fonts\safechat.xml">
+      <DeploymentContent>true</DeploymentContent>
+    </Xml>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="packages\Microsoft.Xbox.GameChat.WinRT.UWP.1711.6.0\build\native\Microsoft.Xbox.GameChat.WinRT.UWP.targets" Condition="Exists('packages\Microsoft.Xbox.GameChat.WinRT.UWP.1711.6.0\build\native\Microsoft.Xbox.GameChat.WinRT.UWP.targets')" />
+    <Import Project="packages\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Debug.2018.6.20181010.2\build\native\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Debug.targets" Condition="Exists('packages\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Debug.2018.6.20181010.2\build\native\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Debug.targets')" />
+    <Import Project="packages\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Release.2018.6.20181010.2\build\native\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Release.targets" Condition="Exists('packages\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Release.2018.6.20181010.2\build\native\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Release.targets')" />
+  </ImportGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.Xbox.GameChat.WinRT.UWP.1711.6.0\build\native\Microsoft.Xbox.GameChat.WinRT.UWP.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Xbox.GameChat.WinRT.UWP.1711.6.0\build\native\Microsoft.Xbox.GameChat.WinRT.UWP.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Debug.2018.6.20181010.2\build\native\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Debug.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Debug.2018.6.20181010.2\build\native\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Debug.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Release.2018.6.20181010.2\build\native\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Release.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Release.2018.6.20181010.2\build\native\Microsoft.Xbox.Live.SDK.WinRT.UWP.Native.Release.targets'))" />
+  </Target>
+</Project>

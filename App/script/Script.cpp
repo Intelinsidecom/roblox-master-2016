@@ -93,7 +93,7 @@ bool BaseScript::hasCoreScriptReplacements()
 	}
 
 	fs::path testPath(adminScriptsPath);
-#if !ENABLE_XBOX_STUDIO_BUILD
+#if !ENABLE_XBOX_STUDIO_BUILD && !defined(ENABLE_XBOX_BUILD)
 	testPath /= "StarterScript.lua";
 #else
     testPath /= "XStarterScript.lua";

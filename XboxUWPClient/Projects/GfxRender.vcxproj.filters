@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="..\..\Rendering\GfxRender\AdornRender.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\CullableSceneNode.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\CustomEmitter.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\Emitter.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\EnvMap.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\ExplosionEmitter.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\FastCluster.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\GeometryGenerator.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\GlobalShaderData.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\Image.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\LightGrid.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\LightObject.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\Material.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\MaterialGenerator.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\MegaCluster.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\ObjectExporter.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\ParticleEmitter.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\RenderCamera.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\RenderNode.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\RenderQueue.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\RenderView.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SceneManager.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SceneUpdater.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\ScreenSpaceEffect.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\ShaderManager.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\Sky.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SmoothCluster.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SpatialHashedScene.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SSAO.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\stdafx.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\SuperCluster.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TextureAtlas.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TextureCompositor.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TextureManager.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TextureRef.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TypesetterBitmap.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\TypesetterDynamic.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\VertexStreamer.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\VisualEngine.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\Water.cpp" />
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\autofit\autofit.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\bdf\bdf.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cff\cff.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftbase.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftbitmap.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cache\ftcache.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftdebug.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftfstype.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftgasp.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftglyph.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\gzip\ftgzip.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftinit.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\lzw\ftlzw.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftstroke.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftsystem.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\smooth\ftsmooth.c">
+      <Filter>freetype</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftbbox.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftfntfmt.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftgxval.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftlcdfil.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftmm.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftotval.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftpatent.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftpfr.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftsynth.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\fttype1.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\base\ftwinfnt.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pcf\pcf.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pfr\pfr.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psaux\psaux.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\pshinter\pshinter.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\psnames\psmodule.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\raster\raster.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\sfnt\sfnt.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\truetype\truetype.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type1\type1.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\cid\type1cid.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\type42\type42.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\winfonts\winfnt.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Rendering\GfxRender\freetype\src\smooth\ftgrays.c">
+      <Filter>freetype\FT_MODULES</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Rendering\GfxRender\AdornRender.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\CullableSceneNode.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\CustomEmitter.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Emitter.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\EmitterShared.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\EnvMap.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ExplosionEmitter.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\FastCluster.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\GeometryGenerator.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\GlobalShaderData.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Image.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ImageInfo.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\LightGrid.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\LightObject.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Material.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\MaterialGenerator.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\MegaCluster.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ObjectExporter.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ParticleEmitter.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\RenderCamera.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\RenderNode.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\RenderQueue.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\RenderView.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SceneManager.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SceneUpdater.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ScreenSpaceEffect.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\ShaderManager.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Sky.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SmoothCluster.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SpatialGrid.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SpatialHashedScene.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SSAO.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\SuperCluster.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TextureAtlas.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TextureCompositor.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TextureManager.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TextureRef.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TypesetterBitmap.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\TypesetterDynamic.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Util.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\VertexStreamer.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\VisualEngine.h" />
+    <ClInclude Include="..\..\Rendering\GfxRender\Water.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="freetype">
+      <UniqueIdentifier>{616774bf-8c99-4ef7-a115-093a44b5914b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="freetype\FT_MODULES">
+      <UniqueIdentifier>{42358cf8-98b6-4bac-a597-0fb5c93747fb}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,520 @@
+Level 0
+0.00000 0.0 ms 14d4:Full cluster queued for update - 000001DD928F8C80
+0.00000 0.0 ms 3a0:Setting terrain on workspace, 000001DD909D7EF0
+0.00000 0.0 ms 3a0:No terrain yet - it's going go be me!
+0.00000 0.0 ms 3a0:Ancestor change, new parent: 000001DD89B2CD60
+0.00000 0.0 ms 3a0:onServiceProvider, oldProvider: 0000000000000000, new parent: 000001DD89B1C0B8
+0.00000 0.0 ms 3a0:MegaCluster created - 000001DD909D7EF0
+0.00000 0.0 ms 14d4:SceneUpdater bind - end
+0.00000 0.0 ms 14d4:SceneUpdater bind - start
+0.00000 0.0 ms 14d4:BindWorkspace, new datamodel 000001DD89B1B660, old datamodel: 0000000000000000
+0.00000 0.0 ms 14d4:RenderView::initResources finish
+0.00000 0.0 ms 14d4:RenderView::initResources - 000001DD89CE0530
+0.00000 0.0 ms 14d4:RenderView created - 000001DD89CE0530
+0.00000 0.0 ms 14d4:DataModel created: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Create DataModel - heartbeat(1)
+0.00000 0.0 ms 14d4:Loading group ClientAppSettings
+Level 1
+0.00000 0.0 ms 14d4:Render perform end. Delta: 18.222704, Total 13.893883, Present: 0.403112, Prepare: 0.578857
+0.00000 0.0 ms 1514:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 25.864912, Total 14.721851, Present: 0.442542, Prepare: 0.555304
+0.00000 0.0 ms 1ad0:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Moving heartbeat!
+0.00000 0.0 ms 1ad4:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 18.046730, Total 22.780664, Present: 7.875409, Prepare: 0.643534
+0.00000 0.0 ms 1514:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1dc:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1dc:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 17.824768, Total 15.356186, Present: 0.443996, Prepare: 0.573049
+0.00000 0.0 ms 1cc:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Moving heartbeat!
+0.00000 0.0 ms 1ad4:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 1ad0:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform end. Delta: 16.055069, Total 14.212678, Present: 0.400061, Prepare: 0.677294
+0.00000 0.0 ms 3a0:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 3a0:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 16.172628, Total 14.274895, Present: 0.438926, Prepare: 0.632180
+0.00000 0.0 ms 1ad0:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:Moving heartbeat!
+0.00000 0.0 ms 1ad0:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 18.055986, Total 14.127871, Present: 0.401098, Prepare: 0.539854
+0.00000 0.0 ms 1514:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 128:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 128:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 17.742823, Total 15.229377, Present: 0.500047, Prepare: 0.689890
+0.00000 0.0 ms 128:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 128:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 128:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 128:Moving heartbeat!
+0.00000 0.0 ms 128:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 3a0:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 3a0:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 18.144575, Total 14.811618, Present: 0.510364, Prepare: 0.718375
+0.00000 0.0 ms 1ad4:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 17.601412, Total 15.278914, Present: 0.753733, Prepare: 0.547137
+0.00000 0.0 ms 1ab8:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:Moving heartbeat!
+0.00000 0.0 ms 1ab8:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 128:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 128:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 16.471388, Total 14.519208, Present: 0.489967, Prepare: 0.809939
+0.00000 0.0 ms 128:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 128:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 1dc:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1dc:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1dc:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform end. Delta: 17.493212, Total 14.876330, Present: 0.646991, Prepare: 0.565879
+0.00000 0.0 ms 1dc:Moving heartbeat!
+0.00000 0.0 ms 1dc:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 16.367247, Total 15.193323, Present: 0.477959, Prepare: 0.644291
+0.00000 0.0 ms 1ad4:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 1dc:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform end. Delta: 16.087488, Total 14.793026, Present: 0.475059, Prepare: 0.742809
+0.00000 0.0 ms 1dc:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1dc:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1dc:Moving heartbeat!
+0.00000 0.0 ms 1dc:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 17.883224, Total 14.372353, Present: 0.391913, Prepare: 0.589705
+0.00000 0.0 ms 1cc:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 17.759373, Total 15.472981, Present: 0.447004, Prepare: 0.574928
+0.00000 0.0 ms 1514:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Moving heartbeat!
+0.00000 0.0 ms 1514:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1dc:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1dc:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1dc:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1dc:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 16.243011, Total 14.993312, Present: 0.406472, Prepare: 0.695743
+0.00000 0.0 ms 1ad4:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 3a0:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 3a0:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 3a0:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 3a0:Moving heartbeat!
+0.00000 0.0 ms 3a0:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform end. Delta: 15.996499, Total 14.146688, Present: 0.442275, Prepare: 0.584495
+0.00000 0.0 ms 128:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 128:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 128:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 128:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 17.703764, Total 13.652140, Present: 0.417989, Prepare: 0.561649
+0.00000 0.0 ms 128:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 128:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 128:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 128:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform end. Delta: 24.288330, Total 14.871216, Present: 0.574885, Prepare: 0.820621
+0.00000 0.0 ms 1cc:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Moving heartbeat!
+0.00000 0.0 ms 1cc:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 1ab8:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 1ab8:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform end. Delta: 19.930180, Total 21.532036, Present: 7.073616, Prepare: 0.713339
+0.00000 0.0 ms 128:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 128:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Moving heartbeat!
+0.00000 0.0 ms 1cc:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 2, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 17.721657, Total 17.805960, Present: 0.544431, Prepare: 4.005461
+0.00000 0.0 ms 1514:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 3a0:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 3a0:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 4
+0.00000 0.0 ms 14d4:Invalidating Fast Clusters, PriorityInvalidatedClusters: 3, InvalidatedClusters: 0
+0.00000 0.0 ms 14d4:Added parts to process: 46, priority: 1
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 4, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 16.104637, Total 13.868186, Present: 0.407975, Prepare: 0.713066
+0.00000 0.0 ms 1cc:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Moving heartbeat!
+0.00000 0.0 ms 1cc:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 6
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 3, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 18.006475, Total 14.075573, Present: 0.443588, Prepare: 0.719482
+0.00000 0.0 ms 1514:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 6
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 3, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 16.431602, Total 14.422936, Present: 0.441979, Prepare: 0.782922
+0.00000 0.0 ms 1ab8:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:Moving heartbeat!
+0.00000 0.0 ms 1ab8:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 6
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 3, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 17.833643, Total 14.935000, Present: 0.904953, Prepare: 0.612221
+0.00000 0.0 ms 1dc:Process tasks finish
+0.00000 0.0 ms 1dc:Process tasks start
+0.00000 0.0 ms 1ad4:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ab8:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 6
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 3, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 17.982262, Total 14.821423, Present: 0.448136, Prepare: 0.767793
+0.00000 0.0 ms 1dc:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1dc:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1dc:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1dc:Moving heartbeat!
+0.00000 0.0 ms 1dc:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 3a0:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 3a0:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 6
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 3, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 16.099030, Total 13.702601, Present: 0.456722, Prepare: 0.646550
+0.00000 0.0 ms 3a0:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 3a0:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 128:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 128:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 6
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 3, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 17.919380, Total 14.567327, Present: 0.449334, Prepare: 0.811106
+0.00000 0.0 ms 1cc:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Moving heartbeat!
+0.00000 0.0 ms 1cc:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1dc:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1dc:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 6
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 3, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 17.936491, Total 14.721205, Present: 0.503749, Prepare: 0.680261
+0.00000 0.0 ms 3a0:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 3a0:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 6
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 3, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 16.042669, Total 14.965989, Present: 0.502863, Prepare: 1.039173
+0.00000 0.0 ms 1514:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Moving heartbeat!
+0.00000 0.0 ms 1514:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad0:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 6
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 3, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 17.935165, Total 14.251489, Present: 0.402524, Prepare: 0.696296
+0.00000 0.0 ms 1cc:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 6
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 3, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 16.180470, Total 14.794227, Present: 1.229694, Prepare: 0.776887
+0.00000 0.0 ms 1514:GC Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:GC Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Heartbeat finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1514:Moving heartbeat!
+0.00000 0.0 ms 1514:Heartbeat start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 1cc:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 1ad4:Waiting scripts finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 1ad4:Waiting scripts start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 6
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 3, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 14d4:Render perform end. Delta: 15.662673, Total 13.992842, Present: 0.784895, Prepare: 0.650986
+0.00000 0.0 ms 128:Physics Job finish, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render perform start
+0.00000 0.0 ms 128:Physics Job start, data model: 000001DD89B1B660
+0.00000 0.0 ms 14d4:Render prepare end
+0.00000 0.0 ms 14d4:Scene updater finish
+0.00000 0.0 ms 14d4:Dynamic parts to update: 6
+0.00000 0.0 ms 14d4:Fast clusters to check for break: 3, fw: 0
+0.00000 0.0 ms 14d4:Waiting parts, pass begin: 4
+0.00000 0.0 ms 14d4:Scene updater 000001DD89CDEC20 update cycle, current frame num: 0
+0.00000 0.0 ms 128:Waiting scripts finish, data model: 000001DD89B1B660
+Level 2
+Level 3
+Level 4

@@ -570,7 +570,7 @@ RBX_REGISTER_CLASS(LuaSourceContainer);
 RBX_REGISTER_CLASS(HapticService);
 
 // Xbox
-#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360) || defined(RBX_PLATFORM_WIN_PHONE)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360) || (defined(RBX_PLATFORM_UWP) && defined(ENABLE_XBOX_BUILD)) || defined(RBX_PLATFORM_WIN_PHONE)
 #include "v8datamodel/PlatformService.h"
 RBX_REGISTER_CLASS(PlatformService);
 #endif
@@ -726,7 +726,7 @@ RBX_REGISTER_ENUM(Pose::PoseEasingDirection);
 RBX_REGISTER_ENUM(HapticService::VibrationMotor);
 RBX_REGISTER_ENUM(UserInputService::UserCFrame);
 
-#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360) || defined(RBX_PLATFORM_WIN_PHONE)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_XBOX360) || defined(RBX_PLATFORM_WIN_PHONE) || (defined(RBX_PLATFORM_UWP) && defined(ENABLE_XBOX_BUILD))
 RBX_REGISTER_ENUM(XboxKeyBoardType)
 RBX_REGISTER_ENUM(VoiceChatState)
 #endif

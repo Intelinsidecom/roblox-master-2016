@@ -148,6 +148,7 @@ namespace Graphics
 		else
 		{
 			D3D11_RENDER_TARGET_VIEW_DESC descRTV = {};
+			const D3D11_RENDER_TARGET_VIEW_DESC* pDesc = &descRTV;
             #if defined(RBX_PLATFORM_WIN_PHONE)
             // this is the magic which makes WP 8.1 rendering work
 			D3D11_TEXTURE2D_DESC texDesc = {};
@@ -157,12 +158,15 @@ namespace Graphics
 				? texDesc.Format
 				: static_cast<DXGI_FORMAT>(TextureD3D11::getInternalFormat(format));
 			descRTV.ViewDimension = D3D11_RTV_DIMENSION_TEXTURE2D;
+            #elif defined(RBX_PLATFORM_UWP) && defined(ENABLE_XBOX_BUILD)
+            // Let D3D derive format + view dimension from the resource itself
+            pDesc = NULL;
             #else
             descRTV.Format = static_cast<DXGI_FORMAT>(TextureD3D11::getInternalFormat(format));
             #endif
 
 			ID3D11RenderTargetView* renderTargetView = NULL;
-			HRESULT hr = device11->CreateRenderTargetView(texture, &descRTV, &renderTargetView);
+			HRESULT hr = device11->CreateRenderTargetView(texture, pDesc, &renderTargetView);
 			RBXASSERT(SUCCEEDED(hr));
 
 			object = renderTargetView;

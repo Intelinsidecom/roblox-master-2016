@@ -16,7 +16,7 @@
 #include "V8DataModel/RenderHooksService.h"
 #include "V8DataModel/Stats.h"
 #include "v8datamodel/DataModel.h"
-#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_WIN_PHONE)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_WIN_PHONE) || (defined(RBX_PLATFORM_UWP) && defined(ENABLE_XBOX_BUILD))
 #   include "v8datamodel/PlatformService.h"
 #endif
 #include "v8world/World.h"
@@ -243,7 +243,11 @@ static Vector2 computeCanvasSize(Device* device)
 	}
 	else if (Framebuffer* framebuffer = device->getMainFramebuffer())
 	{
-#if defined(RBX_PLATFORM_UWP)
+#if defined(RBX_PLATFORM_UWP) && defined(ENABLE_XBOX_BUILD)
+		float viewScale = device->getCaps().uiScale;
+		if (!(viewScale > 0.0f))
+			viewScale = 1.0f;
+#elif defined(RBX_PLATFORM_UWP)
 		float viewScale = device->getCaps().uiScale;
 #else
 		int viewScale = (device->getCaps().retina) ? 2 : 1;
@@ -995,7 +999,7 @@ void RenderView::renderPrepareImpl(IMetric* metric, bool updateViewport)
 
     visualEngine->getTextureCompositor()->update(poi);
     
-#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_WIN_PHONE)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_WIN_PHONE) || (defined(RBX_PLATFORM_UWP) && defined(ENABLE_XBOX_BUILD))
     if(RBX::PlatformService* platformService = ServiceProvider::find<PlatformService>(dataModel.get()))
     {
         presetPostProcess(platformService);
@@ -1560,7 +1564,7 @@ void RenderView::presetLighting(RBX::Lighting* l, const RBX::Color3& extraAmbien
 
 void RenderView::presetPostProcess(RBX::PlatformService* platformService)
 {
-#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_WIN_PHONE)
+#if defined(RBX_PLATFORM_DURANGO) || defined(RBX_PLATFORM_WIN_PHONE) || (defined(RBX_PLATFORM_UWP) && defined(ENABLE_XBOX_BUILD))
     SceneManager *smgr = visualEngine->getSceneManager();
 
     smgr->setPostProcess(platformService->brightness, platformService->contrast, platformService->grayscaleLevel, platformService->blurIntensity, platformService->tintColor);

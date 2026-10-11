@@ -148,7 +148,9 @@ VisualEngine::VisualEngine(Device* device, CRenderSettings* settings)
 	bool gbufferSupported =
         shaderManager->getProgram("PassThroughVS", "SSAOFS").get() != NULL &&
         device->getCaps().maxDrawBuffers >= 2 &&
-        (device->getFeatureLevel() == "D3D11" || SystemUtil::getVideoMemory() >= 128*1024*1024);
+        (device->getFeatureLevel() == "D3D11" ||
+         device->getFeatureLevel() == "D3D11_10.1" || // Xbox One UWP: FL 10_1 + SM 4.1 has full MRT/GBuffer support
+         SystemUtil::getVideoMemory() >= 128*1024*1024);
 
     renderCaps->setSupportsGBuffer(gbufferSupported);
 

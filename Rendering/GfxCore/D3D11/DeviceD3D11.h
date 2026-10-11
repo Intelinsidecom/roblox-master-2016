@@ -174,7 +174,8 @@ public:
     enum ShaderProfile
     {
         shaderProfile_DX11,
-        shaderProfile_DX11_level_9_3
+        shaderProfile_DX11_level_9_3,
+        shaderProfile_DX11_level_10_1
     };
 
     virtual bool validate();
@@ -190,8 +191,18 @@ public:
     virtual void defineGlobalConstants(size_t dataSize, const std::vector<ShaderGlobalConstant>& constants);
 
     virtual std::string getAPIName() { return "DirectX 11"; }
-    virtual std::string getFeatureLevel(){ return shaderProfile == shaderProfile_DX11 ? "D3D11" : "D3D11_9.3"; }
-    virtual std::string getShadingLanguage(){ return shaderProfile == shaderProfile_DX11 ? "hlsl11" : "hlsl11_level_9_3"; }
+    virtual std::string getFeatureLevel()
+    {
+        return shaderProfile == shaderProfile_DX11 ? "D3D11"
+            : shaderProfile == shaderProfile_DX11_level_10_1 ? "D3D11_10.1"
+            : "D3D11_9.3";
+    }
+    virtual std::string getShadingLanguage()
+    {
+        return shaderProfile == shaderProfile_DX11 ? "hlsl11"
+            : shaderProfile == shaderProfile_DX11_level_10_1 ? "hlsl11_level_10_1"
+            : "hlsl11_level_9_3";
+    }
     virtual std::string createShaderSource(const std::string& path, const std::string& defines, boost::function<std::string (const std::string&)> fileCallback);
     virtual std::vector<char> createShaderBytecode(const std::string& source, const std::string& target, const std::string& entrypoint);
 

@@ -22,7 +22,9 @@ namespace RBX
 {
 namespace Graphics
 {
-#if defined(RBX_PLATFORM_UWP)
+#if defined(RBX_PLATFORM_UWP) && defined(ENABLE_XBOX_BUILD)
+    extern "C" void getUWPCompositionScale(float* scaleX, float* scaleY);
+#elif defined(RBX_PLATFORM_UWP) && !defined(ENABLE_XBOX_BUILD)
     extern "C" void getUWPCompositionScale(float* scaleX, float* scaleY);
 #elif defined(RBX_PLATFORM_WIN_PHONE)
     extern "C" void getWPCompositionScale(float* scaleX, float* scaleY);
@@ -111,7 +113,14 @@ namespace Graphics
         caps.needsHalfPixelOffset = false;
         caps.requiresRenderTargetFlipping = false;
 
-#if defined(RBX_PLATFORM_UWP)
+#if defined(RBX_PLATFORM_UWP) && defined(ENABLE_XBOX_BUILD)
+        float scaleX = 1.0f, scaleY = 1.0f;
+        getUWPCompositionScale(&scaleX, &scaleY);
+        if (!(scaleX > 0.0f))
+            scaleX = 1.0f;
+        caps.uiScale = scaleX;
+        caps.retina = false;
+#elif defined(RBX_PLATFORM_UWP) && !defined(ENABLE_XBOX_BUILD)
         float scaleX = 1.0f, scaleY = 1.0f;
         getUWPCompositionScale(&scaleX, &scaleY);
         caps.uiScale = scaleX;

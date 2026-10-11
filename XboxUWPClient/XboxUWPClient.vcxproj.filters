@@ -1,0 +1,2105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Common">
+      <UniqueIdentifier>99b94938-b6fe-490d-b33a-6859b721bd91</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Assets">
+      <UniqueIdentifier>0d06b039-4693-4e56-af78-6bfd1f535d5d</UniqueIdentifier>
+      <Extensions>bmp;fbx;gif;jpg;jpeg;tga;tiff;tif;png</Extensions>
+    </Filter>
+    <Filter Include="Content">
+      <UniqueIdentifier>1a9ef234-9682-4a03-a461-f1de01bff743</UniqueIdentifier>
+    </Filter>
+    <Image Include="Assets\LockScreenLogo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\SplashScreen.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square150x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="Assets\Wide310x150Logo.scale-200.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Filter Include="ClientBase">
+      <UniqueIdentifier>{8fd76fdd-17d7-4962-bc31-e8e0e1bcb2da}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp" />
+    <ClCompile Include="async.cpp" />
+    <ClCompile Include="ControllerBuffer.cpp" />
+    <ClCompile Include="KeyboardProvider.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="marshaller.cpp" />
+    <ClCompile Include="p2p.cpp" />
+    <ClCompile Include="renderJob.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="UserTranslator.cpp" />
+    <ClCompile Include="VoiceChatMaxNet.cpp" />
+    <ClCompile Include="XbLiveUtils.cpp" />
+    <ClCompile Include="XboxGameController.cpp" />
+    <ClCompile Include="XboxMultiplayerManager.cpp" />
+    <ClCompile Include="XboxService.cpp" />
+    <ClCompile Include="XboxUtils.cpp" />
+    <ClCompile Include="..\ClientBase\ReflectionMetadata.cpp">
+      <Filter>ClientBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ClientBase\RenderSettingsItem.cpp">
+      <Filter>ClientBase</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ClientShared\DataModelEmptySerialize.cpp">
+      <Filter>ClientBase</Filter>
+    </ClCompile>
+    <ClCompile Include="UwpHooks.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="App.h" />
+    <ClInclude Include="pch.h" />
+    <ClInclude Include="async.h" />
+    <ClInclude Include="ControllerBuffer.h" />
+    <ClInclude Include="KeyboardProvider.h" />
+    <ClInclude Include="marshaller.h" />
+    <ClInclude Include="p2p.h" />
+    <ClInclude Include="renderJob.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="UserTranslator.h" />
+    <ClInclude Include="VoiceChatBase.h" />
+    <ClInclude Include="VoiceChatMaxNet.h" />
+    <ClInclude Include="XbLiveUtils.h" />
+    <ClInclude Include="XboxGameController.h" />
+    <ClInclude Include="XboxMultiplayerManager.h" />
+    <ClInclude Include="XboxService.h" />
+    <ClInclude Include="XboxUtils.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\StoreLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\aluminum\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\aluminum\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\aluminum\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\aluminum\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\brick\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\brick\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\brick\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\brick\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\cobblestone\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\cobblestone\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\cobblestone\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\concrete\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\concrete\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\concrete\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\concrete\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\diamondplate\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\diamondplate\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\diamondplate\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\diamondplate\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\fabric\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\fabric\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\fabric\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\fabric\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\granite\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\granite\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\granite\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\granite\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\grass\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\grass\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\grass\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\grass\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\ice\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\ice\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\ice\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\ice\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\marble\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\marble\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\marble\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\marble\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\metal\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\metal\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\metal\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\metal\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\pebble\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\pebble\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\pebble\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\pebble\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\plastic\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\plastic\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\plastic\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\rust\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\rust\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\rust\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\rust\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\sand\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\sand\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\sand\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\sand\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\slate\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\slate\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\slate\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\slate\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\terrain\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\terrain\diffusefar.dds" />
+    <Image Include="PlatformContent\durango\textures\terrain\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\terrain\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_01.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_02.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_03.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_04.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_05.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_06.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_07.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_08.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_09.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_10.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_11.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_12.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_13.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_14.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_15.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_16.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_17.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_18.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_19.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_20.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_21.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_22.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_23.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_24.dds" />
+    <Image Include="PlatformContent\durango\textures\water\normal_25.dds" />
+    <Image Include="PlatformContent\durango\textures\wood\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\wood\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\wood\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\wood\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\woodplanks\diffuse.dds" />
+    <Image Include="PlatformContent\durango\textures\woodplanks\normal.dds" />
+    <Image Include="PlatformContent\durango\textures\woodplanks\normaldetail.dds" />
+    <Image Include="PlatformContent\durango\textures\woodplanks\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\studs.dds" />
+    <Image Include="PlatformContent\durango\textures\wangIndex.dds" />
+    <Image Include="PlatformContent\durango\textures\cobblestone\specular.dds" />
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ScreenAdjustment\ScreenRangeOverlay.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Background\Home_screen_01.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\AButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\AButtonDark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\BButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\BButtonDark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\XButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\XButtonDark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\YButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ButtonIcons\YButtonDark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Buttons\Generic9ScaleButton%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Buttons\Generic9ScaleShadow.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Buttons\MoreButton%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Buttons\MoreButton%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Buttons\MoreButtonSelected%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Buttons\MoreButtonSelected%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\AccountIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\AlertIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\BackIcon%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\BackIcon%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\Checkmark%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\Checkmark%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\CustomizeIcon%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\CustomizeIcon%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\DefaultProfileIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\DownIndicatorIcon%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\DownIndicatorIcon%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\Dropdown02%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\Dropdown02%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\EquippedOverlay.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ErrorIconLargeCopy%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ErrorIconLargeCopy%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\FavoriteStar%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\FavoriteStar%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\FriendsIcon%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\GamePlusIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\HelpIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\HelpIconSmall.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\LoadingSpinner%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\LoadingSpinner%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\NoGameImageIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OfflineDot%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OfflineDot%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineDot%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineDot%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineKindaDot%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineKindaDot%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineStatus%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineStatus%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineStatusIcon%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\OnlineStatusIcon%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ProfileIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\RatingBar%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\RatingBar%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ReportIcon%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ReportIcon%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\RobloxIcon24.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\RobloxIcon32.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoSmall%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoSmall%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoStart%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXLogoStart%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBLOXSplashLogo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBUXIcon%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBUXIcon%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBUXIconOutlined%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ROBUXIconOutlined%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\SeparatorDot%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\SeparatorDot%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsDown%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsDown%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsDownFilled%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsDownFilled%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsDownIcon%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsDownIcon%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsUp%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsUp%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsUpFilled%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsUpFilled%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsUpIcon%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\ThumbsUpIcon%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\TVIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\UpIndicatorIcon%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Icons\UpIndicatorIcon%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\CharacterGlow\CharacterGlowBase.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\CharacterGlow\CharacterGlowTop.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\Robux01.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\Robux02.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\Robux03.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\Robux04.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\Robux05.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\Robux06.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\RobuxSquare01.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\RobuxSquare02.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\RobuxSquare03.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\RobuxSquare04.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\RobuxSquare05.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\Images\Robux\RobuxSquare06.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ScreenAdjustment\Background.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ScreenAdjustment\Controller%40720.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ScreenAdjustment\Controller%401080.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\textures\ui\Shell\ScreenAdjustment\ScreenAdjustmentArrow.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="PlatformContent\durango\terrain\specular.dds" />
+    <Image Include="PlatformContent\durango\terrain\diffuse.dds" />
+    <Image Include="PlatformContent\durango\terrain\normal.dds" />
+    <Image Include="content\textures\ui\Backpack\Backpack.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Backpack\Backpack%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Backpack\Backpack_Down.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Backpack\Backpack_Down%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\Chat.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\Chat%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\ChatDown.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\ChatDown%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\MessageCounter.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\MessageCounter%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\ToggleChat.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\ToggleChat%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\ToggleChatDown.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Chat\ToggleChatDown%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Menu\Hamburger.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Menu\Hamburger%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Menu\HamburgerDown.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Menu\HamburgerDown%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PlayerList\BlockedIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PlayerList\CharacterImageBackground.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PlayerList\TileShadowMissingTop.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Scroll\scroll-bottom.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Scroll\scroll-bottom%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Scroll\scroll-middle.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Scroll\scroll-middle%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Scroll\scroll-top.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Scroll\scroll-top%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\DropDown\DropDown.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\DropDown\DropDown%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\AButtonDark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\AButtonDark%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\AButtonLight.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\AButtonLight%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\AButtonLightSmall.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\BButtonDark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\BButtonDark%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\BButtonLight.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\BButtonLight%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\EscapeIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\GenericController.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\GenericController%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\LeaveIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\ResetIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\RotateCameraGesture.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\UseToolGesture.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\XboxController.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\XButtonDark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\XButtonDark%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\XButtonLight.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\XButtonLight%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\YButtonDark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\YButtonDark%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\YButtonLight.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\YButtonLight%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Help\ZoomGesture.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuBackground.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButton%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButtonSelected.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuButtonSelected%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuSelection.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarAssets\MenuSelection%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\GameSettingsTab.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\GameSettingsTab%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HelpTab.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HelpTab%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HomeTab.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\HomeTab%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\PlayersTabIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\PlayersTabIcon%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\RecordTab.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\RecordTab%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\ReportAbuseTab.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\MenuBarIcons\ReportAbuseTab%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Alert.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Alert%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Backpack.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Backpack%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Bottom.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\BottomLeft.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\BottomLeftSelected.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\BottomRight.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\BottomRightSelected.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\BottomSelected.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Chat.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Chat%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\EmptyBottom.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\EmptyBottomLeft.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\EmptyBottomRight.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\EmptyTop.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\EmptyTopLeft.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\EmptyTopRight.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Leave.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Leave%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Menu.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Menu%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\PlayerList.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\PlayerList%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\RadialLabel.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\RadialLabel%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\Top.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\TopLeft.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\TopLeftSelected.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\TopRight.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\TopRightSelected.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Radial\TopSelected.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\BarLeft.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\BarLeft%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\BarRight.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\BarRight%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\Left.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\Left%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\Right.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\Right%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarLeft.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarLeft%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarRight.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Settings\Slider\SelectedBarRight%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\TopBar\dropshadow.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\TopBar\dropshadow%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Vehicle\SpeedBar.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Vehicle\SpeedBar%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Vehicle\SpeedBarBKG.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Vehicle\SpeedBarBKG%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Vehicle\SpeedBarEmpty.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Vehicle\SpeedBarEmpty%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Backpack_Close.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Backpack_Close%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Backpack_Open.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Backpack_Open%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_grey.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_greyTransp.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newBlue.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newBlue%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newBlueGlow.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newBlueGlow%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newGrey.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newGrey%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newGreyGlow.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newGreyGlow%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newWhite.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newWhite%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newWhiteGlow.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_newWhiteGlow%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_red.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_redGlow.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\btn_white.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ButtonLeft.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ButtonLeftDown.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ButtonRight.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ButtonRightDown.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\chat_teamButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\chat_teamButton%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\chatBubble_blue_notify_bkg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\chatBubble_green_notify_bkg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\chatBubble_red_notify_bkg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\chatBubble_white_notify_bkg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\CloneButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\CloneButton_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\CloseButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\CloseButton_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Concrete.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\CorrodedMetal.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\DeleteButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\DeleteButton_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_blue.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_blue%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_ellipses.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_green.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_green%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_purpose_help.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_purpose_quest.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_purpose_shop.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_red.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_red%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_tail.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_tail%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_white.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dialog_white%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\DiamondPlate.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\DPadSheet.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dropdown_arrow.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\dropdown_arrow%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ErrorIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ErrorIconSmall.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\expandPlayerList.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\expandPlayerList%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Foil.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Gear.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Gear_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Glue.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Grass.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\GroupMoveButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\GroupMoveButton_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Health-BKG-Center.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Health-BKG-Center%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Health-BKG-Left-Cap.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Health-BKG-Left-Cap%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Health-BKG-Right-Cap.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Health-BKG-Right-Cap%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Hinge.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\homeButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\homeButton%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Ice.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_admin-16.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_BC-16.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_follower-16.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_following-16.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_friendrequestrecieved-16.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_friendrequestsent_16.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_friends_16.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_mutualfollowing-16.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_OBC-16.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_placeowner.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\icon_TBC-16.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Inlets.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\InsertButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\InsertButton_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\LoadingBKG.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\MaterialButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\MaterialButton_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\MaterialMenu.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Modal.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Motor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\mouseLock_off.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\mouseLock_off%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\mouseLock_on.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\mouseLock_on%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\newBkg_square.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\newBkg_square%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PaintButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PaintButton_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PartMoveButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PartMoveButton_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Plastic.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PlayerlistFriendIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PlayerListFriendRequestReceivedIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PlayerListFriendRequestSentIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PropertyButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\PropertyButton_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\RecordDown.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\RecordStop.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ResetIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\RobuxIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ScaleButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ScaleButton_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbar.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scroll-bottom.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scroll-bottom%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonDown.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonDown_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonDown_ds.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonDown_ovr.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonUp.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonUp_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonUp_ds.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scrollbuttonUp_ovr.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scroll-middle.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scroll-middle%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scroll-top.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\scroll-top%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SearchIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SelectionBox.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SelectionBox%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SettingsButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SettingsButton_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SettingsButton_ds.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SettingsButton_ovr.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SingleButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SingleButtonDown.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slate.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\slider_new_tab.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\slider_new_tab%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider_sel.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-BKG-Center.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-BKG-Center%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-BKG-Left-Cap.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-BKG-Left-Cap%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-BKG-Right-Cap.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-BKG-Right-Cap%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-Fill-Center.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-Fill-Center%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-Fill-Left-Cap.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-Fill-Left-Cap%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-Fill-Right-Cap.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Slider-Fill-Right-Cap%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Smooth.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\StampToolButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\StampToolButton_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Studs.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SurfaceButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SurfaceButton_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\SurfaceMenu.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\TinyBcIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\TinyObcIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\TinyTbcIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\TixIcon.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ToggleFullScreen_ds.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ToolButton.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ToolButton_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\ToolButton_ds.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\TouchControlsSheet.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Universal.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Weld.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ui\Wood.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\advancedMove.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\advancedMove_joint.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\advancedMove_keysOnly.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\advancedMove_noJoint.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\advancedMoveResize.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\advClosed-hand.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\advClosed-hand-no-weld.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\advClosed-hand-weld.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\advCursor-default.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\advCursor-openedHand.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\advCursor-white.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\AnchorCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ArrowCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ArrowCursorDecalDrag.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ArrowFarCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\BackgroundImage.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\blackBkg_round.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\blackBkg_square.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\Blank.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\BWGradient.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_bot_notify_bang.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_bot_notify_dotDotDot.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_bot_notify_money.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_bot_notify_question.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_bot_notifyGray_dotDotDot.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botBlue_bkg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botBlue_notify_bkg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botBlue_tail.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botBlue_tailRight.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botGreen_bkg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botGreen_notify_bkg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botGreen_tail.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botGreen_tailRight.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botRed_bkg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botRed_notify_bkg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botRed_tail.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_botRed_tailRight.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_white_bkg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_white_notify_bkg.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\chatBubble_white_tail.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\Clone.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\CloneCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\CloneDownCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\CloneOverCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\DialogHelp.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\DialogQuest.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\DialogShop.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\dirt.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\DragCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\DropperCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\Exit.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\Exit_dn.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\Exit_ovr.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\explosion.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\face.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\FillCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\fire_0.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\FlagCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\FlatCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\glow.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\GrabCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\GrabRotateCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\gradient.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\Grass_Texture.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\GunCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\GunWaitCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\HammerCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\HammerDownCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\HammerOverCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\HingeCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\LockCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\lua.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\MotorCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\MouseLockedCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\ResizeCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\Roblox.bmp">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\Roblox-loading.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\Roblox-loading%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\Roblox-loading-glow.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\Roblox-loading-glow%402x.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\roblox-logo.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\rotationArrow.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\RustGradient.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\script.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\shadowmask.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\Smoke.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\spark.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\sparkle.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\SpawnCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\SpawnLocation.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\SurfacesDefault.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\transformFiveDegrees.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\transformNinetyDegrees.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\transformOneDegree.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\transformTwentyTwoDegrees.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\UnAnchorCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\UnlockCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\water_Subsurface.dds" />
+    <Image Include="content\textures\water_Wave.dds" />
+    <Image Include="content\textures\WeldCursor.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\WhiteCircle.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\textures\wrench.png">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\fonts\fonts.dds" />
+    <Image Include="content\sky\lensflare.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\sky\moon.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\sky\moon-alpha.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_bk.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_dn.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_ft.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_lf.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_rt.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\sky\null_plainsky512_up.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\sky\skyspheremap.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\sky\sun.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+    <Image Include="content\sky\sun-rays.jpg">
+      <Filter>Assets</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="XboxUWPClient_TemporaryKey.pfx" />
+    <None Include="packages.config" />
+    <None Include="shaders\shaders_glsles3.pack" />
+    <None Include="shaders\shaders.json" />
+    <None Include="shaders\shaders_glsl.pack" />
+    <None Include="shaders\shaders_glsl3.pack" />
+    <None Include="shaders\shaders_glsles.pack" />
+    <None Include="PlatformContent\durango\textures\sky\sky512_bk.tex" />
+    <None Include="PlatformContent\durango\textures\sky\sky512_dn.tex" />
+    <None Include="PlatformContent\durango\textures\sky\sky512_ft.tex" />
+    <None Include="PlatformContent\durango\textures\sky\sky512_lf.tex" />
+    <None Include="PlatformContent\durango\textures\sky\sky512_rt.tex" />
+    <None Include="PlatformContent\durango\textures\sky\sky512_up.tex" />
+    <None Include="PlatformContent\durango\ScaledWorldv4.7.rbxl" />
+    <None Include="PlatformContent\durango\scripts\ui\CoreScripts\AppHome.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CameraManagerModules\CameraManager_Zones\CameraManagerZone_City.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CameraManagerModules\CameraManager_Zones\CameraManagerZone_Space.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CameraManagerModules\CameraManager_Zones\CameraManagerZone_Volcano.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CameraManagerModules\CameraManager_ZoneManager.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\AccountManager.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\AccountScreen.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\AchievementManager.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\AppHub.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\AssetManager.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\AvatarPane.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\AvatarTile.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\BadgeOverlay.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\BadgeScreen.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\BadgeSort.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\BaseOverlay.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\BaseScreen.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\BaseSignInScreen.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\BaseTile.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CameraManager.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CarouselController.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CarouselView.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ConfirmPrompt.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ControllerStateManager.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\CurrencyWidget.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\EngagementScreen.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ErrorOverlay.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\Errors.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\EventHub.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\FriendPresenceItem.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\FriendsData.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\FriendsView.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GameCollection.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GameData.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GameDetail.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GameGenre.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GameJoin.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GamePane.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GameSort.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\GlobalSettings.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\HeroStatsManager.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\HomePane.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\Http.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ImageOverlay.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ImageSlider.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\LinkAccountScreen.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\LoadingWidget.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\LocalizedStrings.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\NoActionOverlay.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\OutfitData.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\OutfitTile.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\OverscanScreen.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\PackageData.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\PlatformCatalogData.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\PlatformInterface.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\PopupText.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\PurchasePackagePrompt.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ReportOverlay.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\RobuxBalanceOverlay.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ScreenManager.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ScrollingGrid.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ScrollingTextBox.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SetAccountCredentialsScreen.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SettingsScreen.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SideBar.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SignInScreen.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SocialPane.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SocialScreen.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SortCarousel.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SortData.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\SoundManager.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\StorePane.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\TabDock.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\TabDockItem.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\TextBox.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\ThumbnailLoader.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\UnlinkAccountOverlay.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\UnlinkAccountScreen.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\UserData.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\Utility.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\VoteFrame.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\Modules\VoteView.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\ServerStarterScript.lua" />
+    <None Include="PlatformContent\durango\scripts\ui\XStarterScript.lua" />
+    <None Include="PlatformContent\durango\sounds\ui\Shell\RobloxMusic.ogg" />
+    <None Include="PlatformContent\durango\terrain\materials.json" />
+    <None Include="content\fonts\Arial.font" />
+    <None Include="content\fonts\ArialBold.font" />
+    <None Include="content\fonts\character.rbxm" />
+    <None Include="content\fonts\character3.rbxm" />
+    <None Include="content\fonts\characterCameraScript.rbxmx" />
+    <None Include="content\fonts\characterControlScript.rbxmx" />
+    <None Include="content\fonts\characterR15.rbxm" />
+    <None Include="content\fonts\comics.fnt" />
+    <None Include="content\fonts\CompositExtraSlot0.mesh" />
+    <None Include="content\fonts\CompositExtraSlot1.mesh" />
+    <None Include="content\fonts\CompositExtraSlot2.mesh" />
+    <None Include="content\fonts\CompositExtraSlot3.mesh" />
+    <None Include="content\fonts\CompositExtraSlot4.mesh" />
+    <None Include="content\fonts\CompositFullAtlasBaseTexture.mesh" />
+    <None Include="content\fonts\CompositFullAtlasOverlayTexture.mesh" />
+    <None Include="content\fonts\CompositLeftArmBase.mesh" />
+    <None Include="content\fonts\CompositLeftLegBase.mesh" />
+    <None Include="content\fonts\CompositPantsTemplate.mesh" />
+    <None Include="content\fonts\CompositRightArmBase.mesh" />
+    <None Include="content\fonts\CompositRightLegBase.mesh" />
+    <None Include="content\fonts\CompositShirtTemplate.mesh" />
+    <None Include="content\fonts\CompositTorsoBase.mesh" />
+    <None Include="content\fonts\CompositTShirt.mesh" />
+    <None Include="content\fonts\diogenes.fnt" />
+    <None Include="content\fonts\head.mesh" />
+    <None Include="content\fonts\headA.mesh" />
+    <None Include="content\fonts\headB.mesh" />
+    <None Include="content\fonts\headC.mesh" />
+    <None Include="content\fonts\headD.mesh" />
+    <None Include="content\fonts\headE.mesh" />
+    <None Include="content\fonts\headF.mesh" />
+    <None Include="content\fonts\headG.mesh" />
+    <None Include="content\fonts\headH.mesh" />
+    <None Include="content\fonts\headI.mesh" />
+    <None Include="content\fonts\headJ.mesh" />
+    <None Include="content\fonts\headK.mesh" />
+    <None Include="content\fonts\headL.mesh" />
+    <None Include="content\fonts\headM.mesh" />
+    <None Include="content\fonts\headN.mesh" />
+    <None Include="content\fonts\headO.mesh" />
+    <None Include="content\fonts\headP.mesh" />
+    <None Include="content\fonts\humanoidAnimate.rbxm" />
+    <None Include="content\fonts\humanoidAnimateLocal.rbxm" />
+    <None Include="content\fonts\humanoidAnimateLocalKeyframe.rbxm" />
+    <None Include="content\fonts\humanoidAnimateLocalKeyframe2.rbxm" />
+    <None Include="content\fonts\humanoidAnimateR15.rbxm" />
+    <None Include="content\fonts\humanoidExtra.rbxm" />
+    <None Include="content\fonts\humanoidSound.rbxm" />
+    <None Include="content\fonts\humanoidSound2.rbxm" />
+    <None Include="content\fonts\humanoidSoundNew.rbxm" />
+    <None Include="content\fonts\humanoidSoundNewLocal.rbxmx" />
+    <None Include="content\fonts\humanoidStatic.rbxm" />
+    <None Include="content\fonts\leftarm.mesh" />
+    <None Include="content\fonts\leftleg.mesh" />
+    <None Include="content\fonts\LoadingScript.lua" />
+    <None Include="content\fonts\rightarm.mesh" />
+    <None Include="content\fonts\rightleg.mesh" />
+    <None Include="content\fonts\Rocket.rbxm" />
+    <None Include="content\fonts\SlingshotPellet.rbxm" />
+    <None Include="content\fonts\SourceSans.font" />
+    <None Include="content\fonts\SourceSansBold.font" />
+    <None Include="content\fonts\SourceSansItalic.font" />
+    <None Include="content\fonts\SourceSansLight.font" />
+    <None Include="content\fonts\torso.mesh" />
+    <None Include="content\particles\explosion.particle" />
+    <None Include="content\particles\fire.particle" />
+    <None Include="content\particles\forceFieldBeam.particle" />
+    <None Include="content\particles\forceFieldRadial.particle" />
+    <None Include="content\particles\smoke.particle" />
+    <None Include="content\particles\sparkles.particle" />
+    <None Include="content\scripts\CoreScripts\BuildToolsScripts\BuildToolManager.lua" />
+    <None Include="content\scripts\CoreScripts\BuildToolsScripts\BuildToolsScript.lua" />
+    <None Include="content\scripts\CoreScripts\BuildToolsScripts\PersonalServerScript.lua" />
+    <None Include="content\scripts\CoreScripts\BubbleChat.lua" />
+    <None Include="content\scripts\CoreScripts\ContextActionTouch.lua" />
+    <None Include="content\scripts\CoreScripts\DeveloperConsole.lua" />
+    <None Include="content\scripts\CoreScripts\GamepadMenu.lua" />
+    <None Include="content\scripts\CoreScripts\HealthScript.lua" />
+    <None Include="content\scripts\CoreScripts\MainBotChatScript2.lua" />
+    <None Include="content\scripts\CoreScripts\NotificationScript2.lua" />
+    <None Include="content\scripts\CoreScripts\PurchasePromptScript2.lua" />
+    <None Include="content\scripts\CoreScripts\Topbar.lua" />
+    <None Include="content\scripts\CoreScripts\VehicleHud.lua" />
+    <None Include="content\scripts\Libraries\RbxGui.lua" />
+    <None Include="content\scripts\Libraries\RbxStamper.lua" />
+    <None Include="content\scripts\Libraries\RbxUtility.lua" />
+    <None Include="content\scripts\Modules\Settings\Pages\GameSettings.lua" />
+    <None Include="content\scripts\Modules\Settings\Pages\Help.lua" />
+    <None Include="content\scripts\Modules\Settings\Pages\Home.lua" />
+    <None Include="content\scripts\Modules\Settings\Pages\LeaveGame.lua" />
+    <None Include="content\scripts\Modules\Settings\Pages\Players.lua" />
+    <None Include="content\scripts\Modules\Settings\Pages\Record.lua" />
+    <None Include="content\scripts\Modules\Settings\Pages\ReportAbuseMenu.lua" />
+    <None Include="content\scripts\Modules\Settings\Pages\ResetCharacter.lua" />
+    <None Include="content\scripts\Modules\Settings\SettingsHub.lua" />
+    <None Include="content\scripts\Modules\Settings\SettingsPageFactory.lua" />
+    <None Include="content\scripts\Modules\Settings\Utility.lua" />
+    <None Include="content\scripts\Modules\BackpackScript.lua" />
+    <None Include="content\scripts\Modules\Chat.lua" />
+    <None Include="content\scripts\Modules\DeveloperConsoleModule.lua" />
+    <None Include="content\scripts\Modules\PlayerDropDown.lua" />
+    <None Include="content\scripts\Modules\PlayerlistModule.lua" />
+    <None Include="content\scripts\Modules\TenFootInterface.lua" />
+    <None Include="content\scripts\ServerCoreScripts\ServerSocialScript.lua" />
+    <None Include="content\scripts\LoadingScript.lua" />
+    <None Include="content\scripts\ServerStarterScript.lua" />
+    <None Include="content\scripts\StarterScript.lua" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\fmod\UWP\fmodL_X86.dll" />
+    <Media Include="..\fmod\UWP\fmodL_ARM.dll" />
+    <Media Include="..\fmod\UWP\fmodL_X64.dll" />
+    <Media Include="..\fmod\UWP\fmod_ARM.dll" />
+    <Media Include="..\fmod\UWP\fmod_X64.dll" />
+    <Media Include="..\fmod\UWP\fmod_X86.dll" />
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\ButtonPress.mp3" />
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\Error.mp3" />
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\MoveSelection.mp3" />
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\OverlayOpen.mp3" />
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\PopUp.mp3" />
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\PurchaseSuccess.mp3" />
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\ScreenChange.mp3" />
+    <Media Include="PlatformContent\durango\sounds\ui\Shell\SideMenuSlideIn.mp3" />
+    <Media Include="content\music\bass.wav" />
+    <Media Include="content\music\ufofly.wav" />
+    <Media Include="content\sounds\action_falling.mp3" />
+    <Media Include="content\sounds\action_footsteps_plastic.mp3" />
+    <Media Include="content\sounds\action_get_up.mp3" />
+    <Media Include="content\sounds\action_jump.mp3" />
+    <Media Include="content\sounds\action_jump_land.mp3" />
+    <Media Include="content\sounds\action_swim.mp3" />
+    <Media Include="content\sounds\bass.mp3" />
+    <Media Include="content\sounds\bfsl-minifigfoots1.mp3" />
+    <Media Include="content\sounds\bfsl-minifigfoots2.mp3" />
+    <Media Include="content\sounds\button.mp3" />
+    <Media Include="content\sounds\clickfast.mp3" />
+    <Media Include="content\sounds\collide.mp3" />
+    <Media Include="content\sounds\electronicpingshort.mp3" />
+    <Media Include="content\sounds\flashbulb.mp3" />
+    <Media Include="content\sounds\grass.mp3" />
+    <Media Include="content\sounds\grass2.mp3" />
+    <Media Include="content\sounds\grass3.mp3" />
+    <Media Include="content\sounds\grassstone.mp3" />
+    <Media Include="content\sounds\grassstone2.mp3" />
+    <Media Include="content\sounds\grassstone3.mp3" />
+    <Media Include="content\sounds\hit.mp3" />
+    <Media Include="content\sounds\ice.mp3" />
+    <Media Include="content\sounds\ice2.mp3" />
+    <Media Include="content\sounds\ice3.mp3" />
+    <Media Include="content\sounds\icegrass.mp3" />
+    <Media Include="content\sounds\icegrass2.mp3" />
+    <Media Include="content\sounds\icegrass3.mp3" />
+    <Media Include="content\sounds\icemetal.mp3" />
+    <Media Include="content\sounds\icemetal2.mp3" />
+    <Media Include="content\sounds\icemetal3.mp3" />
+    <Media Include="content\sounds\icestone.mp3" />
+    <Media Include="content\sounds\icestone2.mp3" />
+    <Media Include="content\sounds\icestone3.mp3" />
+    <Media Include="content\sounds\impact_bodyfall.mp3" />
+    <Media Include="content\sounds\impact_explosion_01.mp3" />
+    <Media Include="content\sounds\impact_explosion_02.mp3" />
+    <Media Include="content\sounds\impact_explosion_03.mp3" />
+    <Media Include="content\sounds\impact_water.mp3" />
+    <Media Include="content\sounds\Kerplunk.mp3" />
+    <Media Include="content\sounds\Kid saying Ouch.mp3" />
+    <Media Include="content\sounds\metal.mp3" />
+    <Media Include="content\sounds\metal2.mp3" />
+    <Media Include="content\sounds\metal3.mp3" />
+    <Media Include="content\sounds\metalgrass.mp3" />
+    <Media Include="content\sounds\metalgrass2.mp3" />
+    <Media Include="content\sounds\metalgrass3.mp3" />
+    <Media Include="content\sounds\metalstone.mp3" />
+    <Media Include="content\sounds\metalstone2.mp3" />
+    <Media Include="content\sounds\metalstone3.mp3" />
+    <Media Include="content\sounds\plasticgrass.mp3" />
+    <Media Include="content\sounds\plasticgrass2.mp3" />
+    <Media Include="content\sounds\plasticgrass3.mp3" />
+    <Media Include="content\sounds\plasticice.mp3" />
+    <Media Include="content\sounds\plasticice2.mp3" />
+    <Media Include="content\sounds\plasticice3.mp3" />
+    <Media Include="content\sounds\plasticmetal.mp3" />
+    <Media Include="content\sounds\plasticmetal2.mp3" />
+    <Media Include="content\sounds\plasticmetal3.mp3" />
+    <Media Include="content\sounds\plasticplastic.mp3" />
+    <Media Include="content\sounds\plasticplastic2.mp3" />
+    <Media Include="content\sounds\plasticplastic3.mp3" />
+    <Media Include="content\sounds\plasticstone.mp3" />
+    <Media Include="content\sounds\plasticstone2.mp3" />
+    <Media Include="content\sounds\plasticstone3.mp3" />
+    <Media Include="content\sounds\Rubber band sling shot.mp3" />
+    <Media Include="content\sounds\Rubber band.mp3" />
+    <Media Include="content\sounds\snap.mp3" />
+    <Media Include="content\sounds\splat.mp3" />
+    <Media Include="content\sounds\stone.mp3" />
+    <Media Include="content\sounds\stone2.mp3" />
+    <Media Include="content\sounds\stone3.mp3" />
+    <Media Include="content\sounds\switch.mp3" />
+    <Media Include="content\sounds\SWITCH3.mp3" />
+    <Media Include="content\sounds\swoosh.mp3" />
+    <Media Include="content\sounds\swordlunge.mp3" />
+    <Media Include="content\sounds\swordslash.mp3" />
+    <Media Include="content\sounds\unsheath.mp3" />
+    <Media Include="content\sounds\uuhhh.mp3" />
+    <Media Include="content\sounds\victory.mp3" />
+    <Media Include="content\sounds\woodgrass.mp3" />
+    <Media Include="content\sounds\woodgrass2.mp3" />
+    <Media Include="content\sounds\woodgrass3.mp3" />
+    <Media Include="content\sounds\woodice.mp3" />
+    <Media Include="content\sounds\woodice2.mp3" />
+    <Media Include="content\sounds\woodice3.mp3" />
+    <Media Include="content\sounds\woodmetal.mp3" />
+    <Media Include="content\sounds\woodmetal2.mp3" />
+    <Media Include="content\sounds\woodmetal3.mp3" />
+    <Media Include="content\sounds\woodplastic.mp3" />
+    <Media Include="content\sounds\woodplastic2.mp3" />
+    <Media Include="content\sounds\woodplastic3.mp3" />
+    <Media Include="content\sounds\woodstone.mp3" />
+    <Media Include="content\sounds\woodstone2.mp3" />
+    <Media Include="content\sounds\woodstone3.mp3" />
+    <Media Include="content\sounds\woodwood.mp3" />
+    <Media Include="content\sounds\woodwood2.mp3" />
+    <Media Include="content\sounds\woodwood3.mp3" />
+    <Media Include="shaders\shaders_d3d11.pack" />
+    <Media Include="shaders\shaders_d3d11_durango.pack" />
+    <Media Include="shaders\shaders_d3d11_level_9_3.pack" />
+    <Media Include="shaders\shaders_d3d9.pack" />
+    <Media Include="shaders\shaders_d3d11_level_10_1.pack" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="content\fonts\arial.ttf" />
+    <Font Include="content\fonts\arialbd.ttf" />
+    <Font Include="content\fonts\SourceSansPro-Bold.ttf" />
+    <Font Include="content\fonts\SourceSansPro-It.ttf" />
+    <Font Include="content\fonts\SourceSansPro-Light.ttf" />
+    <Font Include="content\fonts\SourceSansPro-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="content\fonts\gamecontrollerdb.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Xml Include="content\fonts\safechat.xml" />
+  </ItemGroup>
+</Project>

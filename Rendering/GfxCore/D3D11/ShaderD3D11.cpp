@@ -636,6 +636,12 @@ namespace Graphics
                 targetOut = shaderType + "_4_0_level_9_3";
                 return;
             }
+        case DeviceD3D11::shaderProfile_DX11_level_10_1:
+            {
+                std::string shaderType = originalTarget.substr(0, 2);
+                targetOut = shaderType + "_4_1";
+                return;
+            }
         default:
             break;
         }

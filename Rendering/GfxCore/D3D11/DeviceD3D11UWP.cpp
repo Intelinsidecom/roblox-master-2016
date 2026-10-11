@@ -1,4 +1,4 @@
-#if defined(RBX_PLATFORM_UWP)
+#if defined(RBX_PLATFORM_UWP) && !defined(ENABLE_XBOX_BUILD)
 #include <windows.h>
 #include <inspectable.h>
 #include <unknwn.h>

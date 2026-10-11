@@ -6,7 +6,7 @@
 
 extern void dprintf( const char* fmt, ... );
 
-#ifndef RBX_PLATFORM_DURANGO // TODO: refactor the whole dprintf() thingy
+#if !defined(RBX_PLATFORM_DURANGO) && (!defined(RBX_PLATFORM_UWP) && !defined(ENABLE_XBOX_BUILD)) // TODO: refactor the whole dprintf() thingy
 void dprintf( const char* fmt, ... )
 {
     va_list ap;

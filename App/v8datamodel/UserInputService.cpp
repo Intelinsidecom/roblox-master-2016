@@ -450,11 +450,11 @@ namespace RBX {
         return PLATFORM_IOS;
 #elif defined(__APPLE__) && !defined(RBX_PLATFORM_IOS)
         return PLATFORM_OSX;
-#elif defined(RBX_PLATFORM_DURANGO)
+#elif defined(RBX_PLATFORM_DURANGO) || defined(ENABLE_XBOX_BUILD)
 		return PLATFORM_XBOXONE;
 #elif defined(RBX_PLATFORM_UWP)
 		return PLATFORM_UWP;
-#elif defined(RBX_PLATFORM_DURANGO)
+#elif defined(RBX_PLATFORM_DURANGO) || defined(ENABLE_XBOX_BUILD)
 		return PLATFORM_XBOXONE;
 #elif defined(_WIN32) && !defined(RBX_PLATFORM_DURANGO) && !defined(RBX_PLATFORM_UWP)
         return PLATFORM_WINDOWS;

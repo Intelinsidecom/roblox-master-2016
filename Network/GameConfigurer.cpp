@@ -1005,6 +1005,16 @@ void StudioConfigurer::configure(RBX::Security::Identities identity, DataModel* 
     }
 #endif
 
+	// turn any client into an xbox client
+#if defined(ENABLE_XBOX_BUILD)
+	if (ScriptContext* scriptContext = dataModel->create<ScriptContext>())
+	{
+		starterScript = "XStarterScript";
+		scriptContext->addCoreScriptLocal(starterScript, shared_ptr<Instance>());
+		return;
+	}
+#endif
+
 #if defined(RBX_PLATFORM_UWP)
     if (ScriptContext* scriptContext = dataModel->create<ScriptContext>())
     {

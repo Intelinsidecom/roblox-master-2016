@@ -44,7 +44,7 @@ Reflection::BoundProp<int> prop_MaxCollisionSounds("MaxCollisionSounds", "Sound"
 Reflection::BoundProp<int> prop_bubbleChatMaxBubbles("BubbleChatMaxBubbles", "Online", &GameSettings::bubbleChatMaxBubbles);
 Reflection::BoundProp<float> prop_bubbleChatLifetime("BubbleChatLifetime", "Online", &GameSettings::bubbleChatLifetime);
 
-#if defined(RBX_PLATFORM_DURANGO)
+#if defined(RBX_PLATFORM_DURANGO) || defined(ENABLE_XBOX_BUILD) || defined(RBX_PLATFORM_WIN_PHONE)
 Reflection::BoundProp<float> prop_overscanPX("OverscanPX", category_Video, &GameSettings::overscanPX);
 Reflection::BoundProp<float> prop_overscanPY("OverscanPY", category_Video, &GameSettings::overscanPY);
 #endif

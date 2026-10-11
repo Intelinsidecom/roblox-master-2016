@@ -399,6 +399,7 @@ public:
         shaderProfile_DX_11,
         shaderProfile_DX_11_DURANGO,
         shaderProfile_DX_11_9_3,
+        shaderProfile_DX_11_10_1,
         shaderProfile_Count
     };
 
@@ -410,6 +411,8 @@ public:
             return shaderProfile_DX_11;
         if (target == "d3d11_level_9_3")
             return shaderProfile_DX_11_9_3;
+        if (target == "d3d11_level_10_1")
+            return shaderProfile_DX_11_10_1;
         if (target == "d3d11_durango")
             return shaderProfile_DX_11_DURANGO;
 
@@ -419,7 +422,7 @@ public:
 
     static bool isX86Profile(ShaderProfile profile)
     {
-        static const ShaderProfile kX86Profiles[] = {shaderProfile_DX_9, shaderProfile_DX_11_9_3, shaderProfile_DX_11};
+        static const ShaderProfile kX86Profiles[] = {shaderProfile_DX_9, shaderProfile_DX_11_9_3, shaderProfile_DX_11_10_1, shaderProfile_DX_11};
 
         for (int i = 0; i < ARRAYSIZE(kX86Profiles); ++i)
             if (profile == kX86Profiles[i])
@@ -536,6 +539,12 @@ public:
             {
                 std::string shaderType = originalTarget.substr(0, 2);
                 targetOut = shaderType + "_4_0_level_9_3";
+                return;
+            }
+        case ShaderCompilerD3D::shaderProfile_DX_11_10_1:
+            {
+                std::string shaderType = originalTarget.substr(0, 2);
+                targetOut = shaderType + "_4_1";
                 return;
             }
         default:
@@ -1091,6 +1100,10 @@ int compilePacks(int argc, char** argv)
                 break;
             case ShaderCompilerD3D::shaderProfile_DX_11_9_3:
             if (!compilePack(folder, target, "DX11 WIN_MOBILE", &compiler))
+                return 1;
+                break;
+            case ShaderCompilerD3D::shaderProfile_DX_11_10_1:
+            if (!compilePack(folder, target, "DX11", &compiler))
                 return 1;
                 break;
             default:

@@ -1083,18 +1083,23 @@ if (!fs::exists(path))
 
 #if defined(RBX_PLATFORM_DURANGO)
             fs::path platformAssetFolderModifier = "../PlatformContent/durango/";
+#elif defined(ENABLE_XBOX_BUILD)
+			fs::path platformAssetFolderModifier = "../PlatformContent/durango/";
 #elif defined(RBX_PLATFORM_XBOX360)
 			fs::path platformAssetFolderModifier = "../PlatformContent/Xbox360/"; //powerpc might need different asset types
-#elif defined(RBX_PLATFORM_UWP)
+#elif defined(RBX_PLATFORM_UWP) && !defined(ENABLE_XBOX_BUILD)
             fs::path platformAssetFolderModifier = "../PlatformContent/pc/";
 #elif defined(RBX_PLATFORM_WIN_PHONE)
-			fs::path platformAssetFolderModifier = "../PlatformContent/wp/";
+			fs::path platformAssetFolderModifier = "../PlatformContent/wp/"; // might need to be wp or durango as i will want 3d background without the lua menus
 #elif defined(RBX_PLATFORM_IOS)
             fs::path platformAssetFolderModifier = "../ios/";
 #elif defined(__APPLE__) || defined(_WIN32)
             fs::path platformAssetFolderModifier = "../PlatformContent/pc/";
 #   if  ENABLE_XBOX_STUDIO_BUILD
             platformAssetFolderModifier = "../PlatformContent/Durango/";
+#   endif
+#   if  ENABLE_XBOX_BUILD
+			platformAssetFolderModifier = "../PlatformContent/durango/";
 #   endif
 #elif defined(__ANDROID__)
             fs::path platformAssetFolderModifier = "../android/";
